@@ -9,7 +9,7 @@ OUTPUT_DIR  = ROOT / "output"
 FIGURES_DIR = OUTPUT_DIR / "figures"
 ROLLING_DIR = OUTPUT_DIR / "rolling"
 
-SHARADAR_API_KEY = os.environ.get("NASDAQ_DATA_LINK_KEY", "NHr5446JR6sysBKtTBp1")
+SHARADAR_API_KEY = os.environ.get("NASDAQ_DATA_LINK_KEY", "")
 
 START_DATE = "2025-01-01"
 # END_DATE 는 라이브 운영용 — yfinance 가 오늘까지 받도록 매번 동적 계산.
