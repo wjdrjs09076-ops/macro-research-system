@@ -1,0 +1,451 @@
+{
+  "active_regime": "mid_vix",
+  "generated": "2026-06-10T23:32:14",
+  "policy": {
+    "long_straddle_rules": [
+      "co_crash_cluster",
+      "crash_vulnerable",
+      "fat_tail_alert",
+      "natural_hedge",
+      "normal_var_inadequate"
+    ],
+    "signal_direction": {
+      "OVERWEIGHT": 1,
+      "UNDERWEIGHT": -1,
+      "HEDGE": -1,
+      "MONITOR": 0
+    }
+  },
+  "straddle_candidates": [],
+  "directional_candidates": [
+    {
+      "ticker": "XLE",
+      "direction": 1,
+      "confidence": 0.7935,
+      "rule": "rate_beneficiary",
+      "signal_type": "OVERWEIGHT",
+      "regime": "mid_vix",
+      "all_rules": [
+        "rate_beneficiary"
+      ],
+      "reasoning": [
+        "XLE: delta(US10Y) = 0.0041 > 0.002 (t=5.04) -- significantly positive linear rate sensitivity.",
+        "gamma(US10Y) = -0.0006: concave -- benefit diminishes at larger rate moves.",
+        "Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
+      ]
+    },
+    {
+      "ticker": "XLK",
+      "direction": 1,
+      "confidence": 0.7616,
+      "rule": "rate_beneficiary",
+      "signal_type": "OVERWEIGHT",
+      "regime": "mid_vix",
+      "all_rules": [
+        "rate_beneficiary"
+      ],
+      "reasoning": [
+        "XLK: delta(US2Y) = 0.0035 > 0.002 (t=3.96) -- significantly positive linear rate sensitivity.",
+        "gamma(US2Y) = 0.0010: convex to rate rises, amplifying benefit.",
+        "Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
+      ]
+    },
+    {
+      "ticker": "XLRE",
+      "direction": -1,
+      "confidence": 0.6935,
+      "rule": "rate_victim",
+      "signal_type": "UNDERWEIGHT",
+      "regime": "mid_vix",
+      "all_rules": [
+        "rate_victim"
+      ],
+      "reasoning": [
+        "XLRE: delta(US10Y) = -0.0024 < -0.001 (t=-4.50) -- significant negative linear rate sensitivity.",
+        "gamma(US10Y) = -0.0006: concave to rate rises -- losses accelerate as rates increase further.",
+        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      ]
+    },
+    {
+      "ticker": "XLU",
+      "direction": -1,
+      "confidence": 0.673,
+      "rule": "rate_victim",
+      "signal_type": "UNDERWEIGHT",
+      "regime": "mid_vix",
+      "all_rules": [
+        "rate_victim"
+      ],
+      "reasoning": [
+        "XLU: delta(US10Y) = -0.0020 < -0.001 (t=-3.83) -- significant negative linear rate sensitivity.",
+        "gamma(US10Y) = -0.0005: concave to rate rises -- losses accelerate as rates increase further.",
+        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      ]
+    },
+    {
+      "ticker": "XLV",
+      "direction": -1,
+      "confidence": 0.646,
+      "rule": "rate_victim",
+      "signal_type": "UNDERWEIGHT",
+      "regime": "mid_vix",
+      "all_rules": [
+        "rate_victim"
+      ],
+      "reasoning": [
+        "XLV: delta(US10Y) = -0.0016 < -0.001 (t=-2.87) -- significant negative linear rate sensitivity.",
+        "gamma(US10Y) = -0.0001: concave to rate rises -- losses accelerate as rates increase further.",
+        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      ]
+    },
+    {
+      "ticker": "XLP",
+      "direction": -1,
+      "confidence": 0.6352,
+      "rule": "rate_victim",
+      "signal_type": "UNDERWEIGHT",
+      "regime": "mid_vix",
+      "all_rules": [
+        "rate_victim"
+      ],
+      "reasoning": [
+        "XLP: delta(US10Y) = -0.0014 < -0.001 (t=-3.02) -- significant negative linear rate sensitivity.",
+        "gamma(US10Y) = -0.0000: concave to rate rises -- losses accelerate as rates increase further.",
+        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      ]
+    }
+  ],
+  "short_straddle_candidates": [],
+  "variance_decomposition": {
+    "by_sector": [
+      {
+        "ticker": "XLE",
+        "self_share": 0.9605,
+        "propagation_score": 0.0298,
+        "cholesky_order": 0,
+        "top_sources": [
+          {
+            "src": "XLB",
+            "share": 0.0152
+          },
+          {
+            "src": "XLY",
+            "share": 0.0085
+          },
+          {
+            "src": "XLC",
+            "share": 0.0059
+          }
+        ]
+      },
+      {
+        "ticker": "XLU",
+        "self_share": 0.7904,
+        "propagation_score": 0.2201,
+        "cholesky_order": 1,
+        "top_sources": [
+          {
+            "src": "XLRE",
+            "share": 0.0936
+          },
+          {
+            "src": "XLI",
+            "share": 0.0372
+          },
+          {
+            "src": "XLP",
+            "share": 0.029
+          }
+        ]
+      },
+      {
+        "ticker": "XLV",
+        "self_share": 0.7615,
+        "propagation_score": 0.2647,
+        "cholesky_order": 2,
+        "top_sources": [
+          {
+            "src": "XLRE",
+            "share": 0.0458
+          },
+          {
+            "src": "XLB",
+            "share": 0.0389
+          },
+          {
+            "src": "XLP",
+            "share": 0.0383
+          }
+        ]
+      },
+      {
+        "ticker": "XLP",
+        "self_share": 0.7159,
+        "propagation_score": 0.2428,
+        "cholesky_order": 3,
+        "top_sources": [
+          {
+            "src": "XLRE",
+            "share": 0.0703
+          },
+          {
+            "src": "XLK",
+            "share": 0.057
+          },
+          {
+            "src": "XLV",
+            "share": 0.0447
+          }
+        ]
+      },
+      {
+        "ticker": "XLK",
+        "self_share": 0.6635,
+        "propagation_score": 0.3302,
+        "cholesky_order": 4,
+        "top_sources": [
+          {
+            "src": "XLY",
+            "share": 0.0995
+          },
+          {
+            "src": "XLI",
+            "share": 0.0728
+          },
+          {
+            "src": "XLP",
+            "share": 0.0528
+          }
+        ]
+      },
+      {
+        "ticker": "XLC",
+        "self_share": 0.6507,
+        "propagation_score": 0.3015,
+        "cholesky_order": 5,
+        "top_sources": [
+          {
+            "src": "XLY",
+            "share": 0.1227
+          },
+          {
+            "src": "XLF",
+            "share": 0.0725
+          },
+          {
+            "src": "XLK",
+            "share": 0.043
+          }
+        ]
+      },
+      {
+        "ticker": "XLF",
+        "self_share": 0.6472,
+        "propagation_score": 0.3383,
+        "cholesky_order": 6,
+        "top_sources": [
+          {
+            "src": "XLI",
+            "share": 0.0727
+          },
+          {
+            "src": "XLY",
+            "share": 0.0727
+          },
+          {
+            "src": "XLC",
+            "share": 0.0651
+          }
+        ]
+      },
+      {
+        "ticker": "XLRE",
+        "self_share": 0.5843,
+        "propagation_score": 0.4075,
+        "cholesky_order": 7,
+        "top_sources": [
+          {
+            "src": "XLU",
+            "share": 0.1029
+          },
+          {
+            "src": "XLP",
+            "share": 0.0651
+          },
+          {
+            "src": "XLB",
+            "share": 0.0562
+          }
+        ]
+      },
+      {
+        "ticker": "XLY",
+        "self_share": 0.5768,
+        "propagation_score": 0.5128,
+        "cholesky_order": 8,
+        "top_sources": [
+          {
+            "src": "XLC",
+            "share": 0.096
+          },
+          {
+            "src": "XLK",
+            "share": 0.0849
+          },
+          {
+            "src": "XLI",
+            "share": 0.0657
+          }
+        ]
+      },
+      {
+        "ticker": "XLB",
+        "self_share": 0.5692,
+        "propagation_score": 0.4148,
+        "cholesky_order": 9,
+        "top_sources": [
+          {
+            "src": "XLI",
+            "share": 0.1139
+          },
+          {
+            "src": "XLY",
+            "share": 0.0669
+          },
+          {
+            "src": "XLRE",
+            "share": 0.056
+          }
+        ]
+      },
+      {
+        "ticker": "XLI",
+        "self_share": 0.5151,
+        "propagation_score": 0.5022,
+        "cholesky_order": 10,
+        "top_sources": [
+          {
+            "src": "XLB",
+            "share": 0.1041
+          },
+          {
+            "src": "XLY",
+            "share": 0.0803
+          },
+          {
+            "src": "XLK",
+            "share": 0.0732
+          }
+        ]
+      }
+    ],
+    "variance_concentrated": [],
+    "shock_propagators": []
+  },
+  "joint_simulation": {
+    "tickers": [
+      "XLI",
+      "XLB",
+      "XLY",
+      "XLF",
+      "XLRE",
+      "XLC",
+      "XLV",
+      "XLK",
+      "XLP",
+      "XLU",
+      "XLE"
+    ],
+    "horizon": 21,
+    "n_sim": 5000,
+    "per_threshold": [
+      {
+        "threshold": 0.03,
+        "p_any": 0.9874,
+        "p_all": 0.0222,
+        "p_half": 0.4882,
+        "mean_hit_count": 5.49
+      },
+      {
+        "threshold": 0.05,
+        "p_any": 0.9276,
+        "p_all": 0.0022,
+        "p_half": 0.1972,
+        "mean_hit_count": 3.36
+      },
+      {
+        "threshold": 0.1,
+        "p_any": 0.5268,
+        "p_all": 0.0,
+        "p_half": 0.0052,
+        "mean_hit_count": 0.81
+      }
+    ],
+    "pair_threshold": 0.05,
+    "top_pair_co_drawdown": [
+      {
+        "a": "XLY",
+        "b": "XLK",
+        "p_co": 0.2728
+      },
+      {
+        "a": "XLB",
+        "b": "XLK",
+        "p_co": 0.2572
+      },
+      {
+        "a": "XLK",
+        "b": "XLE",
+        "p_co": 0.2266
+      },
+      {
+        "a": "XLF",
+        "b": "XLK",
+        "p_co": 0.2
+      },
+      {
+        "a": "XLV",
+        "b": "XLK",
+        "p_co": 0.1914
+      },
+      {
+        "a": "XLC",
+        "b": "XLK",
+        "p_co": 0.183
+      },
+      {
+        "a": "XLRE",
+        "b": "XLK",
+        "p_co": 0.1826
+      },
+      {
+        "a": "XLB",
+        "b": "XLY",
+        "p_co": 0.18
+      },
+      {
+        "a": "XLI",
+        "b": "XLK",
+        "p_co": 0.1694
+      },
+      {
+        "a": "XLB",
+        "b": "XLRE",
+        "p_co": 0.1572
+      }
+    ],
+    "sigmas_annual": {
+      "XLI": 0.1508,
+      "XLB": 0.2065,
+      "XLY": 0.2012,
+      "XLF": 0.1758,
+      "XLRE": 0.1824,
+      "XLC": 0.1637,
+      "XLV": 0.1854,
+      "XLK": 0.4503,
+      "XLP": 0.1449,
+      "XLU": 0.167,
+      "XLE": 0.2261
+    }
+  }
+}

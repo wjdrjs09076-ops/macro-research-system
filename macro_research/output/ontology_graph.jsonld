@@ -1,0 +1,1971 @@
+{
+  "@context": {
+    "sector": "schema:sector",
+    "macro": "schema:macro",
+    "SENSITIVE_TO": "schema:sensitivity",
+    "CO_CRASH_WITH": "schema:tailDependence",
+    "GENERATES": "schema:generates"
+  },
+  "@graph": {
+    "nodes": [
+      {
+        "@id": "XLK",
+        "node_type": "Sector",
+        "name": "Technology",
+        "xi": 0.0380451990962835,
+        "var99": 0.0504629007569038,
+        "es99": 0.0652355644164146,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.9993163948110468,
+        "skewness": 0.6089292266798979,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0359678531626689
+      },
+      {
+        "@id": "XLF",
+        "node_type": "Sector",
+        "name": "Financials",
+        "xi": 0.0788013148936515,
+        "var99": 0.0393204449890403,
+        "es99": 0.054296916399954,
+        "cf_var99": NaN,
+        "cf_over_normal": 2.3486606286685845,
+        "skewness": -0.6840293402216852,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0390342531353049
+      },
+      {
+        "@id": "XLE",
+        "node_type": "Sector",
+        "name": "Energy",
+        "xi": 0.3361938261789167,
+        "var99": 0.0498753081367106,
+        "es99": 0.0830045954455786,
+        "cf_var99": NaN,
+        "cf_over_normal": 2.1562984220805785,
+        "skewness": -1.512184765914078,
+        "kurtosis": NaN,
+        "vrp_latest": -0.0295669851525028
+      },
+      {
+        "@id": "XLV",
+        "node_type": "Sector",
+        "name": "Health Care",
+        "xi": 0.1509504533371433,
+        "var99": 0.0315433181692632,
+        "es99": 0.0439799997370927,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.4834336752121555,
+        "skewness": -0.5080479696813301,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0167772169715512
+      },
+      {
+        "@id": "XLY",
+        "node_type": "Sector",
+        "name": "Consumer Discretionary",
+        "xi": 0.0655762825681704,
+        "var99": 0.0390103299525468,
+        "es99": 0.0497624085916533,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.5330191961918764,
+        "skewness": 0.8383146406516745,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0615171666235047
+      },
+      {
+        "@id": "XLP",
+        "node_type": "Sector",
+        "name": "Consumer Staples",
+        "xi": 0.3341620736174596,
+        "var99": 0.0218402145334925,
+        "es99": 0.0329947056184418,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.3946226244194244,
+        "skewness": -0.1676039592191782,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0133778405194615
+      },
+      {
+        "@id": "XLU",
+        "node_type": "Sector",
+        "name": "Utilities",
+        "xi": 0.1289390583410108,
+        "var99": 0.0279723130243383,
+        "es99": 0.0378459474449887,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.5802935796630282,
+        "skewness": -0.6488182621139974,
+        "kurtosis": NaN,
+        "vrp_latest": -0.0083127111589256
+      },
+      {
+        "@id": "XLI",
+        "node_type": "Sector",
+        "name": "Industrials",
+        "xi": 0.21638538531056,
+        "var99": 0.0328287801666502,
+        "es99": 0.0487696021975578,
+        "cf_var99": NaN,
+        "cf_over_normal": 2.371694533597685,
+        "skewness": 0.2942668437392021,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0210981565805485
+      },
+      {
+        "@id": "XLB",
+        "node_type": "Sector",
+        "name": "Materials",
+        "xi": 0.4305042439602068,
+        "var99": 0.0320013800809572,
+        "es99": 0.0550213038775575,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.8515018324617056,
+        "skewness": 0.4018304351526248,
+        "kurtosis": NaN,
+        "vrp_latest": -0.0086024793375885
+      },
+      {
+        "@id": "XLRE",
+        "node_type": "Sector",
+        "name": "Real Estate",
+        "xi": -0.1619972159764228,
+        "var99": 0.0318202395687089,
+        "es99": 0.0379756486310635,
+        "cf_var99": NaN,
+        "cf_over_normal": 1.4657916276641496,
+        "skewness": -0.1759101379935462,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0241645917550194
+      },
+      {
+        "@id": "XLC",
+        "node_type": "Sector",
+        "name": "Communication Services",
+        "xi": 0.2130723550458708,
+        "var99": 0.033667627889388,
+        "es99": 0.0500906322142404,
+        "cf_var99": NaN,
+        "cf_over_normal": 2.179263437331957,
+        "skewness": 0.4535784512736606,
+        "kurtosis": NaN,
+        "vrp_latest": 0.0415960758997168
+      },
+      {
+        "@id": "VIX",
+        "node_type": "MacroFactor",
+        "name": "CBOE Volatility Index"
+      },
+      {
+        "@id": "US10Y",
+        "node_type": "MacroFactor",
+        "name": "US 10Y Treasury Yield"
+      },
+      {
+        "@id": "US2Y",
+        "node_type": "MacroFactor",
+        "name": "US 2Y Treasury Yield"
+      },
+      {
+        "@id": "DXY",
+        "node_type": "MacroFactor",
+        "name": "US Dollar Index"
+      },
+      {
+        "@id": "OIL",
+        "node_type": "MacroFactor",
+        "name": "WTI Crude Oil Price"
+      },
+      {
+        "@id": "CPI",
+        "node_type": "MacroFactor",
+        "name": "Consumer Price Index"
+      },
+      {
+        "@id": "FED_FUNDS",
+        "node_type": "MacroFactor",
+        "name": "Federal Funds Rate"
+      },
+      {
+        "@id": "CREDIT_SPREAD",
+        "node_type": "MacroFactor",
+        "name": "Moody's Baa - 10Y Spread"
+      },
+      {
+        "@id": "low_vix",
+        "node_type": "Regime",
+        "label": "Low Volatility (VIX < 15)",
+        "vix_lo": 0.0,
+        "vix_hi": 15.0,
+        "active": false,
+        "vix_latest": 15.739999771118164
+      },
+      {
+        "@id": "mid_vix",
+        "node_type": "Regime",
+        "label": "Medium Volatility (15 <= VIX < 25)",
+        "vix_lo": 15.0,
+        "vix_hi": 25.0,
+        "active": true,
+        "vix_latest": 15.739999771118164
+      },
+      {
+        "@id": "high_vix",
+        "node_type": "Regime",
+        "label": "High Volatility (VIX >= 25)",
+        "vix_lo": 25.0,
+        "vix_hi": 9999.0,
+        "active": false,
+        "vix_latest": 15.739999771118164
+      },
+      {
+        "@id": "1b81e2f6",
+        "node_type": "Signal",
+        "sector": "XLK",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.7620967741935484,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLK co-crashes with 6 peers (lambda_L >= 0.40): XLF, XLE, XLY, XLI, XLB, XLC. | Mean lower tail dependence = 0.524 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "e5ba27a5",
+        "node_type": "Signal",
+        "sector": "XLK",
+        "signal_type": "OVERWEIGHT",
+        "regime": "mid_vix",
+        "confidence": 0.7615829787824321,
+        "rule_name": "rate_beneficiary",
+        "reasoning": "XLK: delta(US2Y) = 0.0035 > 0.002 (t=3.96) -- significantly positive linear rate sensitivity. | gamma(US2Y) = 0.0010: convex to rate rises, amplifying benefit. | Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
+      },
+      {
+        "@id": "086fc696",
+        "node_type": "Signal",
+        "sector": "XLK",
+        "signal_type": "OVERWEIGHT",
+        "regime": "low_vix",
+        "confidence": 0.7658071189760134,
+        "rule_name": "vol_overpriced",
+        "reasoning": "XLK: VRP (CAPM IV - RV) = 0.0360 (3.60 pp annualized) > threshold 2 pp. | Implied volatility exceeds realized volatility on a rolling basis -- the market is over-paying for hedges relative to actual risk realized. | Rule: vol_overpriced. A persistent positive VRP implies options sellers are compensated -- systematic short-vol on this sector earns a risk premium. Equivalently, the sector's perceived risk is exaggerated vs actual moves, creating a mispricing opportunity in the low-to-mid vol regime."
+      },
+      {
+        "@id": "59123eb7",
+        "node_type": "Signal",
+        "sector": "XLK",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.6706830767951905,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLK: VIX에 delta=0.0134로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | 보조 체인: DXY --> ... --> US2Y (총 7m, score=0.819, delta=0.0035) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "3f4a21bd",
+        "node_type": "Signal",
+        "sector": "XLF",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.7649769585253456,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLF co-crashes with 7 peers (lambda_L >= 0.40): XLE, XLY, XLI, XLB, XLRE, XLC, XLK. | Mean lower tail dependence = 0.530 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "5524b182",
+        "node_type": "Signal",
+        "sector": "XLF",
+        "signal_type": "OVERWEIGHT",
+        "regime": "low_vix",
+        "confidence": 0.7842055188118294,
+        "rule_name": "vol_overpriced",
+        "reasoning": "XLF: VRP (CAPM IV - RV) = 0.0390 (3.90 pp annualized) > threshold 2 pp. | Implied volatility exceeds realized volatility on a rolling basis -- the market is over-paying for hedges relative to actual risk realized. | Rule: vol_overpriced. A persistent positive VRP implies options sellers are compensated -- systematic short-vol on this sector earns a risk premium. Equivalently, the sector's perceived risk is exaggerated vs actual moves, creating a mispricing opportunity in the low-to-mid vol regime."
+      },
+      {
+        "@id": "2ced9878",
+        "node_type": "Signal",
+        "sector": "XLF",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.6133682677758472,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLF: VIX에 delta=0.0089로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "bde132a6",
+        "node_type": "Signal",
+        "sector": "XLE",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.7073732718894009,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLE co-crashes with 7 peers (lambda_L >= 0.40): XLY, XLI, XLB, XLRE, XLC, XLK, XLF. | Mean lower tail dependence = 0.415 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "92e498e6",
+        "node_type": "Signal",
+        "sector": "XLE",
+        "signal_type": "OVERWEIGHT",
+        "regime": "mid_vix",
+        "confidence": 0.7935360548348981,
+        "rule_name": "rate_beneficiary",
+        "reasoning": "XLE: delta(US10Y) = 0.0041 > 0.002 (t=5.04) -- significantly positive linear rate sensitivity. | gamma(US10Y) = -0.0006: concave -- benefit diminishes at larger rate moves. | Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
+      },
+      {
+        "@id": "da0eae87",
+        "node_type": "Signal",
+        "sector": "XLE",
+        "signal_type": "MONITOR",
+        "regime": "high_vix",
+        "confidence": 0.8189550609431334,
+        "rule_name": "fat_tail_alert",
+        "reasoning": "XLE: GPD tail index xi = 0.3362 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process. | EVT Expected Shortfall (99%) = 8.30% per day -- tail losses are severe when triggered. | Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      },
+      {
+        "@id": "5cad1158",
+        "node_type": "Signal",
+        "sector": "XLE",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.5912496668167411,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLE: VIX에 delta=0.0072로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | 보조 체인: US10Y --> ... --> US10Y (총 8m, score=0.823, delta=0.0041) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "8decc716",
+        "node_type": "Signal",
+        "sector": "XLV",
+        "signal_type": "UNDERWEIGHT",
+        "regime": "mid_vix",
+        "confidence": 0.646004544759268,
+        "rule_name": "rate_victim",
+        "reasoning": "XLV: delta(US10Y) = -0.0016 < -0.001 (t=-2.87) -- significant negative linear rate sensitivity. | gamma(US10Y) = -0.0001: concave to rate rises -- losses accelerate as rates increase further. | Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      },
+      {
+        "@id": "77924a0b",
+        "node_type": "Signal",
+        "sector": "XLV",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.57015019629818,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLV: VIX에 delta=0.0055로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "db502f54",
+        "node_type": "Signal",
+        "sector": "XLY",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.7995391705069124,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLY co-crashes with 7 peers (lambda_L >= 0.40): XLI, XLB, XLRE, XLC, XLK, XLF, XLE. | Mean lower tail dependence = 0.599 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "a9616209",
+        "node_type": "Signal",
+        "sector": "XLY",
+        "signal_type": "OVERWEIGHT",
+        "regime": "low_vix",
+        "confidence": 0.88,
+        "rule_name": "vol_overpriced",
+        "reasoning": "XLY: VRP (CAPM IV - RV) = 0.0615 (6.15 pp annualized) > threshold 2 pp. | Implied volatility exceeds realized volatility on a rolling basis -- the market is over-paying for hedges relative to actual risk realized. | Rule: vol_overpriced. A persistent positive VRP implies options sellers are compensated -- systematic short-vol on this sector earns a risk premium. Equivalently, the sector's perceived risk is exaggerated vs actual moves, creating a mispricing opportunity in the low-to-mid vol regime."
+      },
+      {
+        "@id": "9c27a211",
+        "node_type": "Signal",
+        "sector": "XLY",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.6424051680180788,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLY: VIX에 delta=0.0112로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "dc36fab5",
+        "node_type": "Signal",
+        "sector": "XLP",
+        "signal_type": "UNDERWEIGHT",
+        "regime": "mid_vix",
+        "confidence": 0.6352181919924881,
+        "rule_name": "rate_victim",
+        "reasoning": "XLP: delta(US10Y) = -0.0014 < -0.001 (t=-3.02) -- significant negative linear rate sensitivity. | gamma(US10Y) = -0.0000: concave to rate rises -- losses accelerate as rates increase further. | Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      },
+      {
+        "@id": "d0ddb642",
+        "node_type": "Signal",
+        "sector": "XLP",
+        "signal_type": "MONITOR",
+        "regime": "high_vix",
+        "confidence": 0.8173296588939678,
+        "rule_name": "fat_tail_alert",
+        "reasoning": "XLP: GPD tail index xi = 0.3342 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process. | EVT Expected Shortfall (99%) = 3.30% per day -- tail losses are severe when triggered. | Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      },
+      {
+        "@id": "5e41bd86",
+        "node_type": "Signal",
+        "sector": "XLU",
+        "signal_type": "UNDERWEIGHT",
+        "regime": "mid_vix",
+        "confidence": 0.6729537623103461,
+        "rule_name": "rate_victim",
+        "reasoning": "XLU: delta(US10Y) = -0.0020 < -0.001 (t=-3.83) -- significant negative linear rate sensitivity. | gamma(US10Y) = -0.0005: concave to rate rises -- losses accelerate as rates increase further. | Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      },
+      {
+        "@id": "30987b4f",
+        "node_type": "Signal",
+        "sector": "XLU",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.5552424884984972,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLU: VIX에 delta=0.0043로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "3e5ffe83",
+        "node_type": "Signal",
+        "sector": "XLI",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.782258064516129,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLI co-crashes with 7 peers (lambda_L >= 0.40): XLB, XLRE, XLC, XLK, XLF, XLE, XLY. | Mean lower tail dependence = 0.565 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "32768488",
+        "node_type": "Signal",
+        "sector": "XLI",
+        "signal_type": "OVERWEIGHT",
+        "regime": "low_vix",
+        "confidence": 0.676588939483291,
+        "rule_name": "vol_overpriced",
+        "reasoning": "XLI: VRP (CAPM IV - RV) = 0.0211 (2.11 pp annualized) > threshold 2 pp. | Implied volatility exceeds realized volatility on a rolling basis -- the market is over-paying for hedges relative to actual risk realized. | Rule: vol_overpriced. A persistent positive VRP implies options sellers are compensated -- systematic short-vol on this sector earns a risk premium. Equivalently, the sector's perceived risk is exaggerated vs actual moves, creating a mispricing opportunity in the low-to-mid vol regime."
+      },
+      {
+        "@id": "e9e95fd8",
+        "node_type": "Signal",
+        "sector": "XLI",
+        "signal_type": "MONITOR",
+        "regime": "high_vix",
+        "confidence": 0.7231083082484481,
+        "rule_name": "fat_tail_alert",
+        "reasoning": "XLI: GPD tail index xi = 0.2164 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process. | EVT Expected Shortfall (99%) = 4.88% per day -- tail losses are severe when triggered. | Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      },
+      {
+        "@id": "9c7e272d",
+        "node_type": "Signal",
+        "sector": "XLI",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.6164164165588125,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLI: VIX에 delta=0.0091로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "6ee19cab",
+        "node_type": "Signal",
+        "sector": "XLB",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.7534562211981566,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLB co-crashes with 7 peers (lambda_L >= 0.40): XLRE, XLC, XLK, XLF, XLE, XLY, XLI. | Mean lower tail dependence = 0.507 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "2a56b0d0",
+        "node_type": "Signal",
+        "sector": "XLB",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.8944033951681656,
+        "rule_name": "fat_tail_alert",
+        "reasoning": "XLB: GPD tail index xi = 0.4305 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process. | EVT Expected Shortfall (99%) = 5.50% per day -- tail losses are severe when triggered. | Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      },
+      {
+        "@id": "cab216e3",
+        "node_type": "Signal",
+        "sector": "XLB",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.611515119736754,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLB: VIX에 delta=0.0088로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "14c5f877",
+        "node_type": "Signal",
+        "sector": "XLRE",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.721774193548387,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLRE co-crashes with 8 peers (lambda_L >= 0.40): XLC, XLF, XLE, XLY, XLP, XLU, XLI, XLB. | Mean lower tail dependence = 0.444 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "da3a86b6",
+        "node_type": "Signal",
+        "sector": "XLRE",
+        "signal_type": "UNDERWEIGHT",
+        "regime": "mid_vix",
+        "confidence": 0.6934773278505161,
+        "rule_name": "rate_victim",
+        "reasoning": "XLRE: delta(US10Y) = -0.0024 < -0.001 (t=-4.50) -- significant negative linear rate sensitivity. | gamma(US10Y) = -0.0006: concave to rate rises -- losses accelerate as rates increase further. | Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      },
+      {
+        "@id": "e3c7baef",
+        "node_type": "Signal",
+        "sector": "XLRE",
+        "signal_type": "OVERWEIGHT",
+        "regime": "low_vix",
+        "confidence": 0.6949875505301164,
+        "rule_name": "vol_overpriced",
+        "reasoning": "XLRE: VRP (CAPM IV - RV) = 0.0242 (2.42 pp annualized) > threshold 2 pp. | Implied volatility exceeds realized volatility on a rolling basis -- the market is over-paying for hedges relative to actual risk realized. | Rule: vol_overpriced. A persistent positive VRP implies options sellers are compensated -- systematic short-vol on this sector earns a risk premium. Equivalently, the sector's perceived risk is exaggerated vs actual moves, creating a mispricing opportunity in the low-to-mid vol regime."
+      },
+      {
+        "@id": "93b71820",
+        "node_type": "Signal",
+        "sector": "XLRE",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.5753478119515059,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLRE: VIX에 delta=0.0059로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      },
+      {
+        "@id": "fc2702b5",
+        "node_type": "Signal",
+        "sector": "XLC",
+        "signal_type": "HEDGE",
+        "regime": "high_vix",
+        "confidence": 0.7880184331797234,
+        "rule_name": "co_crash_cluster",
+        "reasoning": "XLC co-crashes with 7 peers (lambda_L >= 0.40): XLK, XLF, XLE, XLY, XLI, XLB, XLRE. | Mean lower tail dependence = 0.576 -- these sectors jointly decline in extreme drawdowns. | Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      },
+      {
+        "@id": "2c445f4e",
+        "node_type": "Signal",
+        "sector": "XLC",
+        "signal_type": "OVERWEIGHT",
+        "regime": "low_vix",
+        "confidence": 0.7995764553983008,
+        "rule_name": "vol_overpriced",
+        "reasoning": "XLC: VRP (CAPM IV - RV) = 0.0416 (4.16 pp annualized) > threshold 2 pp. | Implied volatility exceeds realized volatility on a rolling basis -- the market is over-paying for hedges relative to actual risk realized. | Rule: vol_overpriced. A persistent positive VRP implies options sellers are compensated -- systematic short-vol on this sector earns a risk premium. Equivalently, the sector's perceived risk is exaggerated vs actual moves, creating a mispricing opportunity in the low-to-mid vol regime."
+      },
+      {
+        "@id": "4878961d",
+        "node_type": "Signal",
+        "sector": "XLC",
+        "signal_type": "MONITOR",
+        "regime": "high_vix",
+        "confidence": 0.7204578840366966,
+        "rule_name": "fat_tail_alert",
+        "reasoning": "XLC: GPD tail index xi = 0.2131 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process. | EVT Expected Shortfall (99%) = 5.01% per day -- tail losses are severe when triggered. | Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      },
+      {
+        "@id": "eadae257",
+        "node_type": "Signal",
+        "sector": "XLC",
+        "signal_type": "MONITOR",
+        "regime": "mid_vix",
+        "confidence": 0.6078112776075725,
+        "rule_name": "causal_chain_monitor",
+        "reasoning": "XLC: VIX에 delta=0.0085로 노출 -- 업스트림 인과 체인 감지. | 전파 경로: CPI --(+3m,emer)--> US2Y  =>  US2Y --(+1m,stru)--> FED_FUNDS  =>  FED_FUNDS --(-3m,stru)--> VIX | 총 지연: ~7개월 (체인 내 최소 stability_score=0.849) | Rule: causal_chain_monitor. PCMCI 인과 발견(2022 레짐 기준)에서 검증된 전파 경로. 업스트림 변수(OIL/CPI/FED_FUNDS 등) 이상 시 해당 섹터까지 ~7개월 내 영향 전달 가능."
+      }
+    ],
+    "edges": [
+      {
+        "@from": "XLK",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0133995192962153,
+        "gamma": 0.0001093585078844,
+        "speed": 0.0013439409211322,
+        "color": -0.002557487436098,
+        "t_delta": -24.819963185274005,
+        "t_gamma": 1.0440457653958122,
+        "r2": 0.6448691819507062,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLK",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0018267837025559,
+        "gamma": -0.0008541414416049,
+        "speed": 0.0030884206995252,
+        "color": 9.90308009228818e-06,
+        "t_delta": 2.047135918232146,
+        "t_gamma": -1.5021429536128774,
+        "r2": 0.0182355686423829,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLK",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0035263829797072,
+        "gamma": 0.0009791799632272,
+        "speed": 0.0013398855979643,
+        "color": -0.0003613438088621,
+        "t_delta": 3.95602161556264,
+        "t_gamma": 2.9891096125553047,
+        "r2": 0.0565702970712279,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.1612903225806451
+      },
+      {
+        "@from": "XLK",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0001417344485622,
+        "gamma": -0.0018498193241411,
+        "speed": 0.0037662125502022,
+        "color": 0.0014844049015031,
+        "t_delta": -0.1541321318468336,
+        "t_gamma": -3.83638116423566,
+        "r2": 0.0432706260536235,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.4032258064516129
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLF",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLV",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLY",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.6451612903225806,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLP",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.0806451612903225,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLU",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.4838709677419354
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLK",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLK",
+        "@to": "1b81e2f6",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLK",
+        "@to": "e5ba27a5",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLK",
+        "@to": "086fc696",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLK",
+        "@to": "59123eb7",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLF",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0089000053207605,
+        "gamma": -0.0001616878884492,
+        "speed": -0.0004241002841318,
+        "color": -0.0005280211636015,
+        "t_delta": -22.0306357281549,
+        "t_gamma": -2.062857832741366,
+        "r2": 0.5831596789340718,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLF",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0005723318840084,
+        "gamma": -0.0004014620171241,
+        "speed": 0.0024139632952274,
+        "color": 3.267464320630539e-05,
+        "t_delta": 0.9225739795324608,
+        "t_gamma": -1.0155928731022184,
+        "r2": 0.0053943329651152,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLF",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0011685719439334,
+        "gamma": 0.0003293326210325,
+        "speed": 0.0016663120689463,
+        "color": -0.0012571941843732,
+        "t_delta": 1.8557947015374348,
+        "t_gamma": 1.423178485401455,
+        "r2": 0.0131525781439112,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLF",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0001704561470265,
+        "gamma": -0.0015864620394423,
+        "speed": 0.0017233123893953,
+        "color": 0.0015945476645582,
+        "t_delta": -0.2716508707270607,
+        "t_gamma": -4.821728913654045,
+        "r2": 0.0661893309858259,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.4838709677419354
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLV",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLY",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.6451612903225806
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLP",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLU",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.7258064516129032,
+        "lambda_upper": 0.7258064516129032
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4838709677419354,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4838709677419354,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLF",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.6451612903225806,
+        "lambda_upper": 0.4838709677419354
+      },
+      {
+        "@from": "XLF",
+        "@to": "3f4a21bd",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLF",
+        "@to": "5524b182",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLF",
+        "@to": "2ced9878",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLE",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0071635788048941,
+        "gamma": -0.0003435792379853,
+        "speed": -0.0023901319805419,
+        "color": -0.0020724743726455,
+        "t_delta": -9.60194348027866,
+        "t_gamma": -2.3736192766085744,
+        "r2": 0.2131516658785376,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLE",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0040589342472483,
+        "gamma": -0.0006221107473567,
+        "speed": 0.0017238874558213,
+        "color": -0.0008447519319613,
+        "t_delta": 5.038840842171667,
+        "t_gamma": -1.2120157133147766,
+        "r2": 0.0718328628387864,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.1612903225806451
+      },
+      {
+        "@from": "XLE",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0026127107028813,
+        "gamma": 0.0002825107345746,
+        "speed": 0.0012174500659421,
+        "color": -0.0004169500608712,
+        "t_delta": 3.1093875382241603,
+        "t_gamma": 0.9148894670454496,
+        "r2": 0.0273918846486318,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.1612903225806451
+      },
+      {
+        "@from": "XLE",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0015071025379401,
+        "gamma": -0.001756033120733,
+        "speed": 0.0032950023032707,
+        "color": -0.0003160352051653,
+        "t_delta": 1.7881628183903835,
+        "t_gamma": -3.973485505307037,
+        "r2": 0.067533651744969,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLV",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLY",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLP",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLU",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.4838709677419354
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4838709677419354,
+        "lambda_upper": 0.4838709677419354
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLE",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLE",
+        "@to": "bde132a6",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLE",
+        "@to": "92e498e6",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLE",
+        "@to": "da0eae87",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLE",
+        "@to": "5cad1158",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLV",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0055071593890862,
+        "gamma": -0.000109033433091,
+        "speed": -0.0007468526448545,
+        "color": 0.0008388751511806,
+        "t_delta": -11.37580460414556,
+        "t_gamma": -1.1608315687874635,
+        "r2": 0.2716417236855351,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLV",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0016000757459878,
+        "gamma": -8.638503980791923e-05,
+        "speed": 0.0011363599837849,
+        "color": 0.0003464922932661,
+        "t_delta": -2.871173963684737,
+        "t_gamma": -0.2432648852218926,
+        "r2": 0.0233694890614475,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLV",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0007220873418208,
+        "gamma": 0.0005681937585129,
+        "speed": 0.0011504579550006,
+        "color": -0.0001212621197005,
+        "t_delta": 1.2709715809495543,
+        "t_gamma": 2.7214020691783234,
+        "r2": 0.0224983207217278,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLV",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0015792423924755,
+        "gamma": -0.0011991385334353,
+        "speed": 0.0013114290717686,
+        "color": 0.001549751130882,
+        "t_delta": -2.754219254414382,
+        "t_gamma": -3.988354440584823,
+        "r2": 0.0512166976882916,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.1612903225806451
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLY",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLP",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLU",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLV",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLV",
+        "@to": "8decc716",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLV",
+        "@to": "77924a0b",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLY",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0111795547195854,
+        "gamma": 0.0001623625105215,
+        "speed": 0.002061461564719,
+        "color": -0.0019222445402168,
+        "t_delta": -23.29156937087845,
+        "t_gamma": 1.7434722916696277,
+        "r2": 0.6177954007614013,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLY",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.000249664945887,
+        "gamma": -0.0007010465355987,
+        "speed": 0.0027971629520848,
+        "color": -0.0009654926169859,
+        "t_delta": 0.3244724401983769,
+        "t_gamma": -1.429845174616608,
+        "r2": 0.0061562449207382,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLY",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0013919273865945,
+        "gamma": 0.0010450332835423,
+        "speed": 0.0027023869221626,
+        "color": -0.0001231182304898,
+        "t_delta": 1.807325965586744,
+        "t_gamma": 3.692327160034088,
+        "r2": 0.0411287500018189,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLY",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0002247687625453,
+        "gamma": -0.0016486246063194,
+        "speed": 0.0037167387364015,
+        "color": 0.0021706407128505,
+        "t_delta": -0.2856366374301399,
+        "t_gamma": -3.9955300922877455,
+        "r2": 0.0461041980318629,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.4032258064516129
+      },
+      {
+        "@from": "XLY",
+        "@to": "XLP",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.0806451612903225,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLY",
+        "@to": "XLU",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLY",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.7258064516129032,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLY",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLY",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4838709677419354,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLY",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.8064516129032258,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLY",
+        "@to": "db502f54",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLY",
+        "@to": "a9616209",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLY",
+        "@to": "9c27a211",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLP",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0028389493002176,
+        "gamma": 4.1135046459642806e-05,
+        "speed": -0.001743100260333,
+        "color": 0.0015104515264853,
+        "t_delta": -6.249381566452098,
+        "t_gamma": 0.4667092873246124,
+        "r2": 0.1042304635667715,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLP",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0014203031998748,
+        "gamma": -2.512340111036391e-05,
+        "speed": 0.0001313851228418,
+        "color": 0.0003638163455409,
+        "t_delta": -3.0153423953947813,
+        "t_gamma": -0.0837058714103986,
+        "r2": 0.0255531287934887,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLP",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0004993793670974,
+        "gamma": 0.0001889320178888,
+        "speed": 0.0005821322469335,
+        "color": -0.0001492718889487,
+        "t_delta": -1.0310405971577594,
+        "t_gamma": 1.061453267754913,
+        "r2": 0.0077514570081934,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLP",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0016076329050766,
+        "gamma": -0.0006807494915245,
+        "speed": -0.0006733386117054,
+        "color": 0.0012590498672104,
+        "t_delta": -3.292181364813909,
+        "t_gamma": -2.6586358843806,
+        "r2": 0.0388883985818521,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLP",
+        "@to": "XLU",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLP",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLP",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLP",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLP",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.1612903225806451,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLP",
+        "@to": "dc36fab5",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLP",
+        "@to": "d0ddb642",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLU",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0043368259144683,
+        "gamma": -0.0001129746778125,
+        "speed": -0.0011723625654375,
+        "color": 0.0010319365962041,
+        "t_delta": -8.689314026464423,
+        "t_gamma": -1.1666743787197604,
+        "r2": 0.1788072438727836,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLU",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0020492293718391,
+        "gamma": -0.0004917156329256,
+        "speed": 0.0007565399193088,
+        "color": 0.0003147009733414,
+        "t_delta": -3.832064015144677,
+        "t_gamma": -1.4430391727120786,
+        "r2": 0.0461019691028781,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.1612903225806451
+      },
+      {
+        "@from": "XLU",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.00024519873708,
+        "gamma": 4.761685123224183e-05,
+        "speed": 0.000629088254056,
+        "color": 5.106876314766944e-05,
+        "t_delta": -0.4396613327056632,
+        "t_gamma": 0.232332978638029,
+        "r2": 0.0008567856389941,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLU",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.001487480905869,
+        "gamma": -0.0011403239642798,
+        "speed": -0.0002784945677581,
+        "color": 0.000715273258275,
+        "t_delta": -2.6685690935139443,
+        "t_gamma": -3.901485297417164,
+        "r2": 0.0488906242362912,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.2419354838709677
+      },
+      {
+        "@from": "XLU",
+        "@to": "XLI",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.3225806451612903,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLU",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.0806451612903225,
+        "lambda_upper": 0.1612903225806451
+      },
+      {
+        "@from": "XLU",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLU",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.2419354838709677,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLU",
+        "@to": "5e41bd86",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLU",
+        "@to": "30987b4f",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLI",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.009139301033036,
+        "gamma": -4.90107227351528e-06,
+        "speed": -0.0003429945390686,
+        "color": -0.0010140885433246,
+        "t_delta": -22.08551700110007,
+        "t_gamma": -0.061043684667583,
+        "r2": 0.5870308944134779,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLI",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0003286703454576,
+        "gamma": -0.0007466048379933,
+        "speed": 0.0026049596742712,
+        "color": -0.000740509367296,
+        "t_delta": 0.5161118358347246,
+        "t_gamma": -1.8399076224610595,
+        "r2": 0.0104121685763625,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLI",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0015010524077465,
+        "gamma": 0.0006423655230305,
+        "speed": 0.0014660510832455,
+        "color": -0.0006248978977265,
+        "t_delta": 2.336651712940911,
+        "t_gamma": 2.721012243402211,
+        "r2": 0.0302356951754984,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLI",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0008497259046585,
+        "gamma": -0.0014726059276033,
+        "speed": 0.0021852583589144,
+        "color": 0.001689989511233,
+        "t_delta": -1.3052251494394111,
+        "t_gamma": -4.3138773210156085,
+        "r2": 0.0509129676190865,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLI",
+        "@to": "XLB",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.564516129032258
+      },
+      {
+        "@from": "XLI",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLI",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.4838709677419354
+      },
+      {
+        "@from": "XLI",
+        "@to": "3e5ffe83",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLI",
+        "@to": "32768488",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLI",
+        "@to": "e9e95fd8",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLI",
+        "@to": "9c7e272d",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLB",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0087545234524065,
+        "gamma": -8.791343327054396e-06,
+        "speed": -0.0004526335224113,
+        "color": -0.0009098085332016,
+        "t_delta": -18.31095107395091,
+        "t_gamma": -0.0947738838147437,
+        "r2": 0.4940892673110995,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLB",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0007465892739293,
+        "gamma": -0.0006397719539933,
+        "speed": 0.0021388714761793,
+        "color": -0.0008304570766928,
+        "t_delta": -1.1229486601845335,
+        "t_gamma": -1.510168037421991,
+        "r2": 0.0101062801789058,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLB",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0013763896726603,
+        "gamma": 0.0006801139330851,
+        "speed": 0.0008212719831382,
+        "color": -0.0003483739633534,
+        "t_delta": 2.0502345195129035,
+        "t_gamma": 2.756728220234262,
+        "r2": 0.0280092827853988,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLB",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0023198262513942,
+        "gamma": -0.0018548431237924,
+        "speed": 0.0023264546017518,
+        "color": 0.0014128739077119,
+        "t_delta": -3.476885788893645,
+        "t_gamma": -5.301720417122512,
+        "r2": 0.085100911431024,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.2419354838709677
+      },
+      {
+        "@from": "XLB",
+        "@to": "XLRE",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4032258064516129,
+        "lambda_upper": 0.2419354838709677
+      },
+      {
+        "@from": "XLB",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.4838709677419354,
+        "lambda_upper": 0.4032258064516129
+      },
+      {
+        "@from": "XLB",
+        "@to": "6ee19cab",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLB",
+        "@to": "2a56b0d0",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLB",
+        "@to": "cab216e3",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLRE",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0059151995565635,
+        "gamma": -1.1387664019494852e-05,
+        "speed": -0.0003800795081871,
+        "color": 1.6770055169609702e-06,
+        "t_delta": -13.142432670040876,
+        "t_gamma": -0.1304055427771103,
+        "r2": 0.3344987496168488,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLRE",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0023912887975086,
+        "gamma": -0.0005957616720346,
+        "speed": 0.001067020669503,
+        "color": -0.0006492266702785,
+        "t_delta": -4.504417142946957,
+        "t_gamma": -1.7611690891146707,
+        "r2": 0.0631659824686121,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLRE",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0002666647217387,
+        "gamma": 0.0003931206360885,
+        "speed": 0.0005563832653433,
+        "color": -0.0001964224566406,
+        "t_delta": -0.4801737119477413,
+        "t_gamma": 1.9262329213735867,
+        "r2": 0.0126942226237501,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLRE",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0021103012111546,
+        "gamma": -0.0017597534776406,
+        "speed": 0.0011001328453444,
+        "color": 0.0008922530897497,
+        "t_delta": -3.910515766973577,
+        "t_gamma": -6.218936127100049,
+        "r2": 0.1116280018787354,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.3225806451612903
+      },
+      {
+        "@from": "XLRE",
+        "@to": "XLC",
+        "edge_type": "CO_CRASH_WITH",
+        "lambda_lower": 0.564516129032258,
+        "lambda_upper": 0.3225806451612903
+      },
+      {
+        "@from": "XLRE",
+        "@to": "14c5f877",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLRE",
+        "@to": "da3a86b6",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLRE",
+        "@to": "e3c7baef",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLRE",
+        "@to": "93b71820",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLC",
+        "@to": "VIX",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0084637523636028,
+        "gamma": 4.556884251886756e-05,
+        "speed": -0.0002638283861789,
+        "color": -0.0010618999208499,
+        "t_delta": -22.65091063729061,
+        "t_gamma": 0.628558583856092,
+        "r2": 0.6009928016256545,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0
+      },
+      {
+        "@from": "XLC",
+        "@to": "US10Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0004843076522258,
+        "gamma": -0.0004325384080319,
+        "speed": 0.0022897068999146,
+        "color": 0.0001547987767306,
+        "t_delta": 0.8259486101973508,
+        "t_gamma": -1.1576527145592004,
+        "r2": 0.0057926271397963,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.4032258064516129
+      },
+      {
+        "@from": "XLC",
+        "@to": "US2Y",
+        "edge_type": "SENSITIVE_TO",
+        "delta": 0.0006380270563977,
+        "gamma": 0.0005415313751513,
+        "speed": 0.0006988291937595,
+        "color": -0.0005536751183218,
+        "t_delta": 1.0746802147452486,
+        "t_gamma": 2.482069427293766,
+        "r2": 0.0184745474536425,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.0806451612903225
+      },
+      {
+        "@from": "XLC",
+        "@to": "DXY",
+        "edge_type": "SENSITIVE_TO",
+        "delta": -0.0007745098530517,
+        "gamma": -0.0015490913870464,
+        "speed": 0.0022612953997362,
+        "color": 0.0010181858917159,
+        "t_delta": -1.3060392163210497,
+        "t_gamma": -4.98173911960328,
+        "r2": 0.0667885087015297,
+        "tail_asymmetry": NaN,
+        "tail_dep_lower": 0.4032258064516129
+      },
+      {
+        "@from": "XLC",
+        "@to": "fc2702b5",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLC",
+        "@to": "2c445f4e",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLC",
+        "@to": "4878961d",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "XLC",
+        "@to": "eadae257",
+        "edge_type": "GENERATES"
+      },
+      {
+        "@from": "VIX",
+        "@to": "US2Y",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 3,
+        "coef": 0.35,
+        "p_value": 0.03932,
+        "stability": "emerging",
+        "score": 0.8166,
+        "direction": "+"
+      },
+      {
+        "@from": "US10Y",
+        "@to": "CREDIT_SPREAD",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 3,
+        "coef": 0.3834,
+        "p_value": 0.01914,
+        "stability": "emerging",
+        "score": 0.8337,
+        "direction": "+"
+      },
+      {
+        "@from": "US10Y",
+        "@to": "FED_FUNDS",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": -0.4226,
+        "p_value": 0.01143,
+        "stability": "emerging",
+        "score": 0.8403,
+        "direction": "-"
+      },
+      {
+        "@from": "US10Y",
+        "@to": "VIX",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": -0.3873,
+        "p_value": 0.01962,
+        "stability": "emerging",
+        "score": 0.8333,
+        "direction": "-"
+      },
+      {
+        "@from": "US2Y",
+        "@to": "FED_FUNDS",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": 0.6627,
+        "p_value": 0.0,
+        "stability": "structural",
+        "score": 1.0,
+        "direction": "+"
+      },
+      {
+        "@from": "DXY",
+        "@to": "CREDIT_SPREAD",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 3,
+        "coef": 0.3455,
+        "p_value": 0.03364,
+        "stability": "emerging",
+        "score": 0.8214,
+        "direction": "+"
+      },
+      {
+        "@from": "DXY",
+        "@to": "FED_FUNDS",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": -0.3312,
+        "p_value": 0.04847,
+        "stability": "emerging",
+        "score": 0.8088,
+        "direction": "-"
+      },
+      {
+        "@from": "DXY",
+        "@to": "US2Y",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 2,
+        "coef": -0.3491,
+        "p_value": 0.03691,
+        "stability": "emerging",
+        "score": 0.8186,
+        "direction": "-"
+      },
+      {
+        "@from": "OIL",
+        "@to": "CPI",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": 0.4349,
+        "p_value": 0.0,
+        "stability": "structural",
+        "score": 0.9977,
+        "direction": "+"
+      },
+      {
+        "@from": "OIL",
+        "@to": "DXY",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 3,
+        "coef": -0.4263,
+        "p_value": 0.00851,
+        "stability": "emerging",
+        "score": 0.8428,
+        "direction": "-"
+      },
+      {
+        "@from": "OIL",
+        "@to": "US2Y",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": 0.3441,
+        "p_value": 0.04294,
+        "stability": "emerging",
+        "score": 0.8135,
+        "direction": "+"
+      },
+      {
+        "@from": "OIL",
+        "@to": "VIX",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 5,
+        "coef": -0.3341,
+        "p_value": 0.04643,
+        "stability": "emerging",
+        "score": 0.8105,
+        "direction": "-"
+      },
+      {
+        "@from": "CPI",
+        "@to": "FED_FUNDS",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 6,
+        "coef": 0.33,
+        "p_value": 0.04935,
+        "stability": "emerging",
+        "score": 0.8081,
+        "direction": "+"
+      },
+      {
+        "@from": "CPI",
+        "@to": "US10Y",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": 0.3499,
+        "p_value": 0.03129,
+        "stability": "emerging",
+        "score": 0.8234,
+        "direction": "+"
+      },
+      {
+        "@from": "CPI",
+        "@to": "US2Y",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 3,
+        "coef": 0.5216,
+        "p_value": 0.00093,
+        "stability": "emerging",
+        "score": 0.8492,
+        "direction": "+"
+      },
+      {
+        "@from": "FED_FUNDS",
+        "@to": "CREDIT_SPREAD",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": 0.2237,
+        "p_value": 0.00276,
+        "stability": "structural",
+        "score": 0.9786,
+        "direction": "+"
+      },
+      {
+        "@from": "FED_FUNDS",
+        "@to": "VIX",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 3,
+        "coef": -0.1864,
+        "p_value": 0.0135,
+        "stability": "structural",
+        "score": 0.9874,
+        "direction": "-"
+      },
+      {
+        "@from": "CREDIT_SPREAD",
+        "@to": "DXY",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 2,
+        "coef": -0.439,
+        "p_value": 0.00583,
+        "stability": "emerging",
+        "score": 0.845,
+        "direction": "-"
+      },
+      {
+        "@from": "CREDIT_SPREAD",
+        "@to": "FED_FUNDS",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 1,
+        "coef": 0.3459,
+        "p_value": 0.0388,
+        "stability": "emerging",
+        "score": 0.817,
+        "direction": "+"
+      },
+      {
+        "@from": "CREDIT_SPREAD",
+        "@to": "OIL",
+        "edge_type": "TRANSMITS_TO",
+        "lag_months": 4,
+        "coef": 0.3626,
+        "p_value": 0.02525,
+        "stability": "emerging",
+        "score": 0.8285,
+        "direction": "+"
+      }
+    ]
+  }
+}

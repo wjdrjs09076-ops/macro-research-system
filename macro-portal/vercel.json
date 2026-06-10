@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/classify.py": {
+      "maxDuration": 30
+    },
+    "api/quantify.py": {
+      "maxDuration": 120
+    }
+  }
+}

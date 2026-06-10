@@ -1,0 +1,87 @@
+# ── invest-portal (별도 프로젝트) ────────────────────────────
+invest-portal/
+
+# ── Claude Code / 로컬 도구 ────────────────────────────────
+.claude/
+do/
+do
+nul
+
+# ── 사용자 PDF / 코드리뷰 (별도 관리) ─────────────────────
+*.pdf
+code_review_*.md
+research_*.py
+model_specification.md
+
+# ── 시크릿/자격증명 ────────────────────────────────────────
+**/.env
+**/*.env
+**/credentials.json
+**/.vercel/
+
+# ── Python ─────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# ── Next.js ────────────────────────────────────────────────
+node_modules/
+.next/
+.next/**
+out/
+.turbo/
+
+# ── 분석 산출물 (매시간 재생성 — 누적 안 함) ─────────────
+macro_research/output/*.parquet
+macro_research/output/*.png
+macro_research/output/figures/
+macro_research/output/rolling/
+macro_research/output/causal_*.csv
+macro_research/output/static_results.csv
+macro_research/output/poly4_static.csv
+macro_research/output/tail_*.csv
+macro_research/output/vrp_*.csv
+macro_research/output/iv_comparison.csv
+macro_research/output/iv_spread_series.csv
+macro_research/output/kurtosis_*.csv
+macro_research/output/extended_regression.csv
+macro_research/output/crisis_results.csv
+macro_research/output/energy_trade_results.csv
+macro_research/output/market_iv_snapshot.csv
+macro_research/output/ml_ontology_graph.json
+macro_research/output/ontology_*.json
+macro_research/output/ontology_*.csv
+macro_research/output/gate_scores.json
+macro_research/output/evt_bridge.json
+macro_research/output/backtest_results.json
+
+# 누적 데이터는 *유지* (commit)
+# trade_journal.jsonl ← 거래 기록
+# iv_history.jsonl    ← IV 시계열 누적
+# rule_performance.json ← feedback 승수
+# attribution.json    ← 귀인 결과
+
+# ── 로그/임시 ─────────────────────────────────────────────
+*.log
+vol_monitor.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# ── PDF 산출물 (재생성 가능) ─────────────────────────────
+macro_research_overview.pdf
+
+# ── 백테스트 저널 (대용량, 별도 trigger 시 재생성) ─────
+macro_research/output/backtest_journal.jsonl
+
+# ── 기타 ──────────────────────────────────────────────────
+.cache/
+.idea/
+.vscode/
+*.swp

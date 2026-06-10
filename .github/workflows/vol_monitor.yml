@@ -1,0 +1,98 @@
+name: Vol Monitor Hourly
+
+on:
+  schedule:
+    # 매시간 정각 — 미국 RTH 09:30-16:00 ET = UTC 13:30-20:00 / KST 22:30-05:00
+    # 모든 시간 트리거. kinetic 은 RTH 가드 있어 휴장 시 no-op.
+    - cron: "0 * * * *"
+  workflow_dispatch:   # 수동 트리거 가능
+
+permissions:
+  contents: write      # 누적 데이터 (trade_journal, iv_history) commit/push
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Stage 1 — Vol monitor pipeline (yfinance + EIA + FRED)
+        env:
+          EIA_API_KEY:  ${{ secrets.EIA_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          python vol_monitor_pipeline.py
+        continue-on-error: false
+
+      - name: Stage 2 — Refresh analytical caches (data_loader + GARCH + IV)
+        env:
+          NASDAQ_DATA_LINK_KEY: ${{ secrets.NASDAQ_DATA_LINK_KEY }}
+        working-directory: ./macro_research
+        run: |
+          python data_loader.py
+          python garch_estimator.py
+          python implied_vol.py
+        continue-on-error: true
+
+      - name: Stage 3 — Kinetic executor (--auto --minimal, RTH-guarded)
+        env:
+          ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_ENDPOINT:   ${{ secrets.ALPACA_ENDPOINT }}
+          RISK_FREE_RATE:    "0.05"
+        working-directory: ./macro_research
+        run: |
+          python kinetic_executor.py --auto --minimal
+
+      - name: Stage 4 — Feedback (per rule|strategy multipliers)
+        working-directory: ./macro_research
+        run: |
+          python feedback.py
+        continue-on-error: true
+
+      - name: Stage 5 — Commit accumulated data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add macro_research/output/trade_journal.jsonl \
+                  macro_research/output/iv_history.jsonl \
+                  macro_research/output/rule_performance.json \
+                  macro_research/output/attribution.json \
+                  macro-portal/public/data/vol_monitor_data.json \
+                  macro-portal/public/data/ontology_signals.json \
+                  macro-portal/public/data/iv_history.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "data: hourly cycle $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push || echo "nothing to push or push failed"
+
+      - name: Stage 6 — Deploy to Vercel
+        env:
+          VERCEL_TOKEN:      ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID:     ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        working-directory: ./macro-portal
+        run: |
+          npm install --global vercel@latest
+          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+          vercel build --prod --token=$VERCEL_TOKEN
+          vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Pipeline failed — check logs above"
