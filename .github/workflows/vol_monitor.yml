@@ -88,9 +88,8 @@ jobs:
         working-directory: ./macro-portal
         run: |
           npm install --global vercel@latest
-          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
-          vercel build --prod --token=$VERCEL_TOKEN
-          vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+          # Vercel 클라우드에서 빌드 (Python API routes 의 uv 의존성 회피).
+          vercel deploy --prod --yes --token=$VERCEL_TOKEN
 
       - name: Notify on failure
         if: failure()
