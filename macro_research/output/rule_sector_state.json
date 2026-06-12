@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-12T14:21:54",
+  "generated": "2026-06-12T14:42:41",
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
     "co_crash_cluster|XLC",
