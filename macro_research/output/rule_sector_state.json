@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-13T01:04:10",
+  "generated": "2026-06-12T17:25:37",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v1",
@@ -18,9 +18,7 @@
     "rate_victim|XLRE",
     "rate_victim|XLY",
     "vol_overpriced|XLC",
-    "vol_overpriced|XLF",
-    "vol_overpriced|XLI",
-    "vol_overpriced|XLRE"
+    "vol_overpriced|XLF"
   ],
   "rate_verdicts": [
     {
@@ -33,7 +31,7 @@
         "t": 1.98,
         "q_fdr": 0.1105
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -45,7 +43,7 @@
         "t": 1.98,
         "q_fdr": 0.1105
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -57,7 +55,7 @@
         "t": -0.88,
         "q_fdr": 0.5383
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -69,7 +67,7 @@
         "t": -0.88,
         "q_fdr": 0.5383
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -81,7 +79,7 @@
         "t": 0.9,
         "q_fdr": 0.5383
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -93,7 +91,7 @@
         "t": 0.9,
         "q_fdr": 0.5383
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -105,7 +103,7 @@
         "t": -0.13,
         "q_fdr": 0.9396
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -117,7 +115,7 @@
         "t": -0.13,
         "q_fdr": 0.9396
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -129,7 +127,7 @@
         "t": -3.32,
         "q_fdr": 0.013
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -141,7 +139,7 @@
         "t": -3.32,
         "q_fdr": 0.013
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -153,7 +151,7 @@
         "t": -1.62,
         "q_fdr": 0.2
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -165,7 +163,7 @@
         "t": -1.62,
         "q_fdr": 0.2
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -177,7 +175,7 @@
         "t": -2.05,
         "q_fdr": 0.1092
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -189,7 +187,7 @@
         "t": -2.05,
         "q_fdr": 0.1092
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -201,7 +199,7 @@
         "t": -0.63,
         "q_fdr": 0.6664
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -213,7 +211,7 @@
         "t": -0.63,
         "q_fdr": 0.6664
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -225,7 +223,7 @@
         "t": -0.25,
         "q_fdr": 0.8753
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -237,7 +235,7 @@
         "t": -0.25,
         "q_fdr": 0.8753
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -249,7 +247,7 @@
         "t": -2.84,
         "q_fdr": 0.0218
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -261,7 +259,7 @@
         "t": -2.84,
         "q_fdr": 0.0218
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_victim",
@@ -273,7 +271,7 @@
         "t": -3.08,
         "q_fdr": 0.0141
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     },
     {
       "rule": "rate_beneficiary",
@@ -285,7 +283,7 @@
         "t": -3.08,
         "q_fdr": 0.0141
       },
-      "judged": "2026-06-13"
+      "judged": "2026-06-12"
     }
   ]
 }
