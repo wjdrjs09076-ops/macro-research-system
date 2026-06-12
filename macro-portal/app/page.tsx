@@ -280,8 +280,10 @@ export default function ArchitecturePage() {
           </div>
         </div>
 
-        {/* Sensitivity Audit — 라이브 (단일 진실원) */}
-        <LiveAudit />
+      </div>
+
+      {/* Sensitivity Audit — 라이브 (단일 진실원) */}
+      <LiveAudit />
 
       {/* Navigation Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
