@@ -35,11 +35,15 @@ SECTOR_ETFS: dict[str, str] = {
 BENCHMARK = "SPY"
 
 # yfinance tickers for macro variables
+# OIL (2026-06-12 추가): 금리 delta의 유가 교란 통제용. 호르무즈 표본에서
+# 유가↑→금리↑ 동시 발생이 XLE delta(US10Y)>0 을 만들었을 가능성 — OIL 을
+# 회귀에 동시 투입해야 partial delta 가 깨끗해진다.
 MACRO_TICKERS: dict[str, str] = {
     "VIX":   "^VIX",
     "US10Y": "^TNX",
     "US2Y":  "^IRX",
     "DXY":   "DX-Y.NYB",
+    "OIL":   "CL=F",
 }
 
 ROLLING_WINDOW = 63   # ~3 months

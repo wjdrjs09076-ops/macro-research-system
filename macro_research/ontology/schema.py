@@ -156,7 +156,12 @@ class SignalNode:
 
 @dataclass
 class SensitiveToEdge:
-    """Sector -> MacroFactor sensitivity from OLS / poly4 regression."""
+    """Sector -> MacroFactor sensitivity from OLS / poly4 regression.
+
+    delta/gamma          : 이변량 2차 OLS (매크로 1개씩) — 교란 노출
+    delta_ctrl/gamma_ctrl: 다변량 partial (전 매크로 동시 + SPY 통제, 2026-06-12)
+                           rate_* 룰은 ctrl 우선 사용 (유가↑→금리↑ 교란 제거)
+    """
     delta: float = float("nan")
     gamma: float = float("nan")
     speed: float = float("nan")
@@ -166,6 +171,11 @@ class SensitiveToEdge:
     r2: float = float("nan")
     tail_asymmetry: float = float("nan")    # beta(0.05) - beta(0.95)
     tail_dep_lower: float = float("nan")    # lambda_L sector->macro
+    delta_ctrl: float = float("nan")        # partial delta (타 매크로+SPY 통제)
+    gamma_ctrl: float = float("nan")
+    t_delta_ctrl: float = float("nan")
+    beta_mkt: float = float("nan")          # 시장(SPY) 통제 베타
+    vif: float = float("nan")               # 해당 매크로 regressor 의 VIF (공선성 진단)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -179,20 +189,32 @@ class SensitiveToEdge:
             "r2":             self.r2,
             "tail_asymmetry": self.tail_asymmetry,
             "tail_dep_lower": self.tail_dep_lower,
+            "delta_ctrl":     self.delta_ctrl,
+            "gamma_ctrl":     self.gamma_ctrl,
+            "t_delta_ctrl":   self.t_delta_ctrl,
+            "beta_mkt":       self.beta_mkt,
+            "vif":            self.vif,
         }
 
 
 @dataclass
 class CoCrashEdge:
-    """Sector -> Sector lower tail dependence."""
+    """Sector -> Sector lower tail dependence.
+
+    lambda_lower_hi (2026-06-12): 블록 부트스트랩 95% 상한. 점추정 λ_L 은
+    u=0.05 조건부 표본 ~18개라 SE>0.1 — 무한손실 방향(thin_tail_greenlight)
+    판정은 상한으로 한다.
+    """
     lambda_lower: float = float("nan")
     lambda_upper: float = float("nan")
+    lambda_lower_hi: float = float("nan")
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "edge_type":    EdgeType.CO_CRASH_WITH.value,
-            "lambda_lower": self.lambda_lower,
-            "lambda_upper": self.lambda_upper,
+            "edge_type":       EdgeType.CO_CRASH_WITH.value,
+            "lambda_lower":    self.lambda_lower,
+            "lambda_upper":    self.lambda_upper,
+            "lambda_lower_hi": self.lambda_lower_hi,
         }
 
 
@@ -258,10 +280,13 @@ SECTOR_NAMES: dict[str, str] = {
     "XLC":  "Communication Services",
 }
 
+# OIL 은 2026-06-12 부터 일별 SENSITIVE_TO 대상에도 포함 (CAUSAL_MACRO_NAMES
+# 의 월별 PCMCI 노드와 동일 노드 — build_empty_graph 에서 중복 add 는 무해).
 MACRO_NAMES: dict[str, str] = {
     "VIX":   "CBOE Volatility Index",
     "US10Y": "US 10Y Treasury Yield",
     "US2Y":  "US 2Y Treasury Yield",
+    "OIL":   "WTI Crude Oil Price",
     "DXY":   "US Dollar Index",
 }
 

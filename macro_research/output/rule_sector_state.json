@@ -1,0 +1,16 @@
+{
+  "generated": "2026-06-12T19:56:14",
+  "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
+  "valid_pairs": [
+    "co_crash_cluster|XLF",
+    "fat_tail_alert|XLE",
+    "fat_tail_alert|XLI",
+    "fat_tail_alert|XLV",
+    "rate_victim|XLC",
+    "rate_victim|XLRE",
+    "rate_victim|XLY",
+    "vol_overpriced|XLC",
+    "vol_overpriced|XLF",
+    "vol_overpriced|XLI"
+  ]
+}

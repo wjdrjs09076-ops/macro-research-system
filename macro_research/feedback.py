@@ -47,8 +47,12 @@ from attribution import build_attribution
 
 RULE_PERF_JSON = OUTPUT_DIR / "rule_performance.json"
 
-MIN_TRADES = 5      # 이 미만이면 승수 1.0 고정 (페이퍼 표본 노이즈 피팅 방지)
-STABLE_N   = 15     # 이만큼 쌓이면 승수 효과 100% (이전 10에서 보수화)
+# 표본 수 게이트는 전부 *cohort(유효 표본)* 기준 (2026-06-12).
+# 같은 (rule|strategy) 로 같은 날 동시 진입한 거래들은 같은 매크로 드라이버로
+# 함께 맞고 함께 틀리는 상관 표본 — 거래 수로 세면 금리 한 번 움직임이
+# "증거 6개" 로 부풀려져 승수/stop-rule 이 단일 사건에 좌우된다.
+MIN_TRADES = 5      # 유효 표본(cohort) 이 미만이면 승수 1.0 고정
+STABLE_N   = 15     # 유효 표본 이만큼 쌓이면 승수 효과 100%
 MULT_MIN   = 0.7    # clip 범위 좁힘 (이전 0.5 → 0.7)
 MULT_MAX   = 1.3    # clip 범위 좁힘 (이전 1.5 → 1.3)
 
@@ -72,25 +76,30 @@ def build_feedback(write: bool = True) -> dict:
 
     perf: dict[str, dict] = {}
     for key, s in by_rule_strategy.items():
-        n = s["trades"]
-        avg = s["avg_pnl_pct"]
+        n_raw = s["trades"]
+        # 유효 표본 = 동시진입 cohort 수. 구버전 attribution.json(cohorts 없음)
+        # 폴백은 raw 거래 수 (기존 동작 유지).
+        n = s.get("cohorts", n_raw)
+        avg = s.get("avg_pnl_pct_eff", s["avg_pnl_pct"])
         killed = False
         if n < MIN_TRADES:
             mult = 1.0
         elif n >= STOP_RULE_MIN_N and avg < STOP_RULE_AVG_PNL:
-            # 영구 0 — 충분한 표본에서 평균 손실 명백 → 진입 자체 차단
+            # 영구 0 — 충분한 유효 표본에서 평균 손실 명백 → 진입 자체 차단
             mult = KILL_MULT
             killed = True
         else:
             factor = min(1.0, n / STABLE_N)
             mult = _clip(1.0 + avg * factor, MULT_MIN, MULT_MAX)
         perf[key] = {
-            "multiplier":  round(mult, 4),
-            "killed":      killed,
-            "trades":      n,
-            "win_rate":    s["win_rate"],
-            "avg_pnl_pct": avg,
-            "total_pnl":   s["total_pnl"],
+            "multiplier":      round(mult, 4),
+            "killed":          killed,
+            "trades":          n_raw,
+            "cohorts":         n,
+            "win_rate":        s["win_rate"],
+            "avg_pnl_pct":     s["avg_pnl_pct"],
+            "avg_pnl_pct_eff": avg,
+            "total_pnl":       s["total_pnl"],
         }
 
     if write:
@@ -115,12 +124,13 @@ def main() -> None:
         print(f"\n-> {RULE_PERF_JSON}")
         return
 
-    print(f"  {'rule|strategy':32s} {'mult':>6} {'n':>4} {'win%':>6} {'avgP&L%':>9}")
-    print(f"  {'-'*64}")
+    print(f"  {'rule|strategy':32s} {'mult':>6} {'n':>4} {'n_eff':>5} {'win%':>6} {'effP&L%':>9}")
+    print(f"  {'-'*70}")
     for rule, p in sorted(perf.items(), key=lambda kv: -kv[1]["multiplier"]):
-        flag = "" if p["trades"] >= MIN_TRADES else "  (표본부족→1.0)"
-        print(f"  {rule:32s} {p['multiplier']:>6.2f} {p['trades']:>4} "
-              f"{p['win_rate']*100:>5.0f}% {p['avg_pnl_pct']*100:>8.1f}%{flag}")
+        n_eff = p.get("cohorts", p["trades"])
+        flag = "" if n_eff >= MIN_TRADES else "  (유효표본부족→1.0)"
+        print(f"  {rule:32s} {p['multiplier']:>6.2f} {p['trades']:>4} {n_eff:>5} "
+              f"{p['win_rate']*100:>5.0f}% {p['avg_pnl_pct_eff']*100:>8.1f}%{flag}")
     print(f"\n-> {RULE_PERF_JSON}")
 
 

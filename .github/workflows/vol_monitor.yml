@@ -1,10 +1,11 @@
-name: Vol Monitor Hourly
+name: Vol Monitor 30min
 
 on:
   schedule:
-    # 매시간 정각 — 미국 RTH 09:30-16:00 ET = UTC 13:30-20:00 / KST 22:30-05:00
+    # 30분 주기 (2026-06-12 변경) — 미국 RTH 09:30-16:00 ET = UTC 13:30-20:00 / KST 22:30-05:00
     # 모든 시간 트리거. kinetic 은 RTH 가드 있어 휴장 시 no-op.
-    - cron: "0 * * * *"
+    # ⚠ GH Actions cron 은 5-15분 지터 가능 — 정확한 시각 보장 안 됨.
+    - cron: "*/30 * * * *"
   workflow_dispatch:   # 수동 트리거 가능
 
 permissions:
@@ -40,7 +41,7 @@ jobs:
           python vol_monitor_pipeline.py
         continue-on-error: false
 
-      - name: Stage 2 — Refresh analytical caches (data_loader + GARCH + IV)
+      - name: Stage 2 — Refresh analytical caches (data_loader + GARCH + IV + partial 회귀)
         env:
           NASDAQ_DATA_LINK_KEY: ${{ secrets.NASDAQ_DATA_LINK_KEY }}
         working-directory: ./macro_research
@@ -48,6 +49,8 @@ jobs:
           python data_loader.py
           python garch_estimator.py
           python implied_vol.py
+          # 다변량 partial 회귀 (rate_* 룰의 delta_ctrl/FDR 입력) — 빠름 (~10s)
+          python regression_engine.py
         continue-on-error: true
 
       - name: Stage 3 — Kinetic executor (--auto --minimal, RTH-guarded)
@@ -66,18 +69,26 @@ jobs:
           python feedback.py
         continue-on-error: true
 
-      - name: Stage 5 — Commit accumulated data
+      - name: Stage 5 — Commit accumulated data + cross-run state
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 누적 데이터 + 사이클 간 상태 (러너 휘발성 — 커밋 없이는 트레일 피크/
+          # 레짐 히스테리시스/시그널은퇴 기준이 매 사이클 리셋됨, 2026-06-12)
           git add macro_research/output/trade_journal.jsonl \
                   macro_research/output/iv_history.jsonl \
                   macro_research/output/rule_performance.json \
                   macro_research/output/attribution.json \
+                  macro_research/output/trail_state.json \
+                  macro_research/output/regime_state.json \
+                  macro_research/output/rule_sector_state.json \
+                  macro_research/output/partial_results.csv \
+                  macro_research/output/static_results.csv \
                   macro-portal/public/data/vol_monitor_data.json \
                   macro-portal/public/data/ontology_signals.json \
                   macro-portal/public/data/iv_history.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "data: hourly cycle $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git diff --staged --quiet || git commit -m "data: cycle $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git pull --rebase origin main || true
           git push || echo "nothing to push or push failed"
 
       - name: Stage 6 — Deploy to Vercel

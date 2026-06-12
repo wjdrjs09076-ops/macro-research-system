@@ -257,29 +257,69 @@ def rule_co_crash_cluster(G: nx.DiGraph, sector: str) -> list[SignalNode]:
     )]
 
 
+def _rate_delta(G: nx.DiGraph, sector: str, macro: str) -> tuple[float, float, float, bool]:
+    """(delta, t, gamma, is_ctrl) — partial(통제) 계수 우선, 없으면 이변량 폴백.
+
+    2026-06-12: 이변량 delta(US10Y) 는 유가/시장 교란에 노출 (호르무즈 표본에서
+    유가↑→금리↑ 동시 발생 → XLE 가 가짜 '금리 수혜'). partial_results.csv 가
+    있으면 OIL·VIX·DXY·SPY 통제 후의 delta_ctrl 로 판정한다.
+    """
+    d_ctrl = _edge(G, sector, macro, "delta_ctrl")
+    if _is_finite(d_ctrl):
+        return (d_ctrl,
+                _edge(G, sector, macro, "t_delta_ctrl"),
+                _edge(G, sector, macro, "gamma_ctrl"),
+                True)
+    return (_edge(G, sector, macro, "delta"),
+            _edge(G, sector, macro, "t_delta"),
+            _edge(G, sector, macro, "gamma"),
+            False)
+
+
+def _rate_significant(G: nx.DiGraph, sector: str, macro: str, t: float) -> bool:
+    """rate_* 룰의 유의성 게이트 — 감사와 동일한 BH FDR q < 0.10.
+
+    q 부재(구버전 캐시/이변량 폴백) 시 |t|>1.96 폴백. t>1.96 단독으론 55개
+    가설 다중비교에서 우연 통과를 못 거른다 (XLU q=0.12, XLK q>0.1 사례).
+    """
+    q = _edge(G, sector, macro, "q_delta_ctrl")
+    if _is_finite(q):
+        return q < 0.10
+    return _is_finite(t) and abs(t) > 1.96
+
+
 def rule_rate_beneficiary(G: nx.DiGraph, sector: str) -> list[SignalNode]:
-    """Positive delta to US10Y or US2Y -- benefits from rising rates."""
-    d10 = _edge(G, sector, "US10Y", "delta")
-    d2  = _edge(G, sector, "US2Y",  "delta")
+    """Positive *partial* delta to US10Y or US2Y -- benefits from rising rates.
 
-    best_delta, best_macro = float("nan"), None
-    for d, m in [(d10, "US10Y"), (d2, "US2Y")]:
-        if _is_finite(d) and d > T["rate_benefit_delta_min"]:
-            if not _is_finite(best_delta) or d > best_delta:
-                best_delta, best_macro = d, m
+    2026-06-12 후반: delta 크기 + **t > 1.96 유의성** 동시 요구. 직교화 기저에서
+    contrast 복원된 US2Y 는 점추정이 커도 SE 가 부풀어 있어, 크기 게이트만으론
+    감사(killed)가 기각한 무의미 계수가 뒷문으로 재발화한다 (XLK/XLE 사례).
+    """
+    d10, t10, g10, ctrl10 = _rate_delta(G, sector, "US10Y")
+    d2,  t2,  g2,  ctrl2  = _rate_delta(G, sector, "US2Y")
 
-    if best_macro is None:
+    best = None   # (delta, t, gamma, is_ctrl, macro)
+    for d, t, g, c, m in [(d10, t10, g10, ctrl10, "US10Y"), (d2, t2, g2, ctrl2, "US2Y")]:
+        if (_is_finite(d) and d > T["rate_benefit_delta_min"]
+                and _is_finite(t) and t > 0
+                and _rate_significant(G, sector, m, t)):
+            if best is None or d > best[0]:
+                best = (d, t, g, c, m)
+
+    if best is None:
         return []
+    best_delta, t_d, gamma, is_ctrl, best_macro = best
 
-    gamma = _edge(G, sector, best_macro, "gamma")
-    t_d   = _edge(G, sector, best_macro, "t_delta")
-
+    ctrl_note = ("partial -- OIL/VIX/DXY/SPY controlled, rates orthogonalized (lvl+2s10s)"
+                 if is_ctrl else "bivariate raw -- partial unavailable, confounding possible")
+    gamma_txt = (f"gamma({best_macro}) = {gamma:.4f}: "
+                 + ("convex to rate rises, amplifying benefit." if gamma > 0
+                    else "concave -- benefit diminishes at larger rate moves.")
+                 ) if _is_finite(gamma) else f"gamma({best_macro}) = n/a (contrast-derived coefficient)."
     reasoning = [
         f"{sector}: delta({best_macro}) = {best_delta:.4f} > {T['rate_benefit_delta_min']:.3f} "
-        f"(t={t_d:.2f}) -- significantly positive linear rate sensitivity.",
-        f"gamma({best_macro}) = {gamma:.4f}: "
-        + ("convex to rate rises, amplifying benefit." if gamma > 0
-           else "concave -- benefit diminishes at larger rate moves."),
+        f"(t={t_d:.2f}, {ctrl_note}) -- significantly positive linear rate sensitivity.",
+        gamma_txt,
         "Rule: rate_beneficiary. "
         "Positive delta to yield changes implies the sector's returns are positively "
         "correlated with rate increases -- typically financials (NIM expansion) "
@@ -298,18 +338,23 @@ def rule_rate_beneficiary(G: nx.DiGraph, sector: str) -> list[SignalNode]:
 
 
 def rule_rate_victim(G: nx.DiGraph, sector: str) -> list[SignalNode]:
-    """Strongly negative delta to US10Y -- suffers from rate rises."""
-    d10 = _edge(G, sector, "US10Y", "delta")
-    if not (_is_finite(d10) and d10 < T["rate_victim_delta_max"]):
+    """Strongly negative *partial* delta to US10Y -- suffers from rate rises.
+
+    delta 크기 + t < -1.96 유의성 동시 요구 (rate_beneficiary 와 동일 근거).
+    """
+    d10, t_d, gamma, is_ctrl = _rate_delta(G, sector, "US10Y")
+    if not (_is_finite(d10) and d10 < T["rate_victim_delta_max"]
+            and _is_finite(t_d) and t_d < 0
+            and _rate_significant(G, sector, "US10Y", t_d)):
         return []
 
-    gamma = _edge(G, sector, "US10Y", "gamma")
-    t_d   = _edge(G, sector, "US10Y", "t_delta")
     speed = _edge(G, sector, "US10Y", "speed")
 
+    ctrl_note = ("partial -- OIL/VIX/DXY/SPY controlled"
+                 if is_ctrl else "bivariate raw -- partial unavailable, confounding possible")
     reasoning = [
         f"{sector}: delta(US10Y) = {d10:.4f} < {T['rate_victim_delta_max']:.3f} "
-        f"(t={t_d:.2f}) -- significant negative linear rate sensitivity.",
+        f"(t={t_d:.2f}, {ctrl_note}) -- significant negative linear rate sensitivity.",
         f"gamma(US10Y) = {gamma:.4f}: "
         + ("concave to rate rises -- losses accelerate as rates increase further." if gamma < 0
            else "convex -- some protection at large moves."),
@@ -695,19 +740,29 @@ def rule_causal_chain_monitor(G: nx.DiGraph, sector: str) -> list[SignalNode]:
 def rule_thin_tail_greenlight(G: nx.DiGraph, sector: str) -> list[SignalNode]:
     """EVT + Copula + Cornish-Fisher 세 안전 측정 동시 통과 → 숏 볼 안전 가설.
 
-    조건:
-      ξ < 0.10            (EVT: 꼬리 얇음, 정규에 가까움)
-      max λ_L 인접 < 0.20  (Copula: 위기 시 다른 섹터와 동조 낮음)
-      CF/Normal < 1.50     (Cornish-Fisher: 정규 VaR 모델이 적절)
+    2026-06-12 (라운드 6 비평 4번): 판정을 점추정이 아니라 **부트스트랩 CI 상한**
+    으로 한다. ~370일 표본에서 ξ(SE≈0.2)·λ_L(SE>0.1) 점추정은 노이즈와 구분 불가
+    — 이 룰은 *무한손실 숏 스트래들* 의 게이트라 "노이즈가 안전을 선언" 하는
+    비대칭 위험이 가장 크다. CI 상한이 없으면(구버전 캐시) 발화하지 않는다 (안전 폐쇄).
+
+    조건 (전부 95% 상한 기준):
+      xi_hi < 0.10              (EVT: 최악으로 봐도 꼬리 얇음)
+      max λ_L_hi 인접 < 0.20    (Copula: 최악으로 봐도 위기 동조 낮음)
+      CF/Normal_hi < 1.50       (CF: 최악으로 봐도 정규 VaR 적절)
 
     단독으론 *정보 신호* (SignalType.MONITOR). trigger 단에서 vol_overpriced 와
-    AND 조건으로 만나면 short_straddle 후보가 됨 — 시스템 테제 코히어런스:
-    "EVT/copula 가 얇은 꼬리 그린라이트를 줄 때만 숏 볼" (라운드 4 비평 반영).
+    AND 조건으로 만나면 short_straddle 후보가 됨 — 시스템 테제 코히어런스.
     """
-    xi = _node(G, sector, "xi")
-    cf_n = _node(G, sector, "cf_over_normal")
+    xi_pt = _node(G, sector, "xi")
+    xi    = _node(G, sector, "xi_hi")
+    cf_pt = _node(G, sector, "cf_over_normal")
+    cf_n  = _node(G, sector, "cf_over_normal_hi")
 
-    # 가장 높은 λ_L 인접 (이 섹터가 다른 섹터들과 가장 강하게 동조하는 정도)
+    # CI 상한 부재 (구버전 tail_gpd.csv 등) → 안전 폐쇄: 발화 안 함
+    if not _is_finite(xi) or not _is_finite(cf_n):
+        return []
+
+    # 가장 높은 λ_L 인접 — 상한 기준 (상한 부재 페어는 점추정의 1.5배로 보수 대체)
     lambda_l_max = 0.0
     for nbr in list(G.successors(sector)) + list(G.predecessors(sector)):
         if nbr not in SECTOR_NAMES or nbr == sector:
@@ -715,33 +770,36 @@ def rule_thin_tail_greenlight(G: nx.DiGraph, sector: str) -> list[SignalNode]:
         data = G.get_edge_data(sector, nbr) or G.get_edge_data(nbr, sector) or {}
         if data.get("edge_type") != EdgeType.CO_CRASH_WITH.value:
             continue
-        lam = data.get("lambda_lower", 0)
-        if _is_finite(lam):
-            lambda_l_max = max(lambda_l_max, float(lam))
+        lam_hi = data.get("lambda_lower_hi")
+        if not _is_finite(lam_hi):
+            lam_pt = data.get("lambda_lower", 0)
+            lam_hi = float(lam_pt) * 1.5 if _is_finite(lam_pt) else 0.0
+        lambda_l_max = max(lambda_l_max, float(lam_hi))
 
-    if not (_is_finite(xi) and xi < T["thin_tail_xi_max"]):
+    if xi >= T["thin_tail_xi_max"]:
         return []
     if lambda_l_max > T["thin_tail_lambda_max"]:
         return []
-    if _is_finite(cf_n) and cf_n > T["thin_tail_cf_max"]:
+    if cf_n > T["thin_tail_cf_max"]:
         return []
 
     reasoning = [
-        f"{sector}: ξ (GPD) = {xi:.3f} < {T['thin_tail_xi_max']:.2f} → 꼬리 얇음 (EVT).",
-        f"max λ_L 인접 = {lambda_l_max:.3f} < {T['thin_tail_lambda_max']:.2f} → "
-        f"위기 동조 낮음 (Copula).",
-        f"CF/Normal = {cf_n:.2f} < {T['thin_tail_cf_max']:.2f} → 정규 VaR 적절.",
+        f"{sector}: ξ 95%상한 = {xi:.3f} < {T['thin_tail_xi_max']:.2f} "
+        f"(점추정 {xi_pt:.3f}) → 최악으로 봐도 꼬리 얇음 (EVT, 부트스트랩).",
+        f"max λ_L 인접 95%상한 = {lambda_l_max:.3f} < {T['thin_tail_lambda_max']:.2f} → "
+        f"최악으로 봐도 위기 동조 낮음 (Copula).",
+        f"CF/Normal 95%상한 = {cf_n:.2f} < {T['thin_tail_cf_max']:.2f} "
+        f"(점추정 {cf_pt:.2f}) → 정규 VaR 적절.",
         "Rule: thin_tail_greenlight. "
-        "세 안전 측정 동시 통과 → '꼬리가 얇다' 가설. 단독으론 정보 신호이며, "
-        "vol_overpriced 와 AND 조건 발화 시 *숏 스트래들* 후보가 된다. "
-        "라운드 4 비평의 '시스템 테제 코히어런스' 조건 — EVT/copula 가 얇은 꼬리 "
-        "그린라이트를 줄 때만 숏 볼.",
+        "세 안전 측정의 *CI 상한* 동시 통과 → '꼬리가 얇다' 가설. 점추정 게이트는 "
+        "표본 노이즈가 무한손실 방향의 안전을 선언할 수 있어 상한으로 보수화 (06-12). "
+        "vol_overpriced 와 AND 발화 시 숏 스트래들 후보.",
     ]
 
-    # 신뢰도: 세 안전 측정 모두 임계의 안쪽에 있을수록 높음
+    # 신뢰도: 세 안전 측정(상한)이 임계의 안쪽에 있을수록 높음
     safety = (1 - xi / T["thin_tail_xi_max"]) * 0.4 \
            + (1 - lambda_l_max / T["thin_tail_lambda_max"]) * 0.3 \
-           + (1 - (cf_n if _is_finite(cf_n) else 1.0) / T["thin_tail_cf_max"]) * 0.3
+           + (1 - cf_n / T["thin_tail_cf_max"]) * 0.3
     confidence = min(0.85, 0.55 + max(0.0, safety) * 0.30)
 
     return [SignalNode(

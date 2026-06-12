@@ -21,6 +21,9 @@ interface ClassifyResult {
   can_proceed: boolean;
   name_score: number;
   context_score: number;
+  context_year?: number | null;
+  resolved_title?: string | null;
+  warnings?: string[];
   news: { title: string; snippet: string; url: string }[];
 }
 
@@ -490,6 +493,26 @@ export default function AnalyzePage() {
                 <span className="text-xs text-gray-400">
                   섹터: <span className="text-gray-200">{classResult.sector}</span>
                 </span>
+              </div>
+            )}
+
+            {classResult.can_proceed && (classResult.warnings?.length ?? 0) > 0 && (
+              <div className="space-y-1.5 border-l-2 border-amber-500/60 pl-3">
+                {classResult.warnings!.map((w, i) => (
+                  <div key={i} className="text-xs text-amber-300 flex gap-1.5">
+                    <span>⚠</span>
+                    <span>{w}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {classResult.can_proceed && classResult.resolved_title && (
+              <div className="text-[11px] text-gray-500">
+                위키 해석: <span className="text-gray-400">{classResult.resolved_title}</span>
+                {classResult.context_year && (
+                  <span> · 컨텍스트 연도 <span className="text-gray-400">{classResult.context_year}</span></span>
+                )}
               </div>
             )}
 

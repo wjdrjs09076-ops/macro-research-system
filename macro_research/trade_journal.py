@@ -104,14 +104,20 @@ def log_entry(
     expiry: str | None = None,
     call_sym: str | None = None,
     put_sym: str | None = None,
+    hedge_symbol: str | None = None,
+    hedge_qty: int | None = None,
+    hedge_price: float | None = None,
+    hedge_beta: float | None = None,
+    hedge_resid_vol: float | None = None,
 ) -> str:
     """진입 기록. 생성된 trade_id 반환.
 
     strategy='straddle' 이면 strike/expiry/call_sym/put_sym 사용,
     'directional' 이면 direction/entry_price 사용.
+    hedge_* (2026-06-12): 베타헤지 페어 — directional 진입에 붙는 SPY 반대 레그.
     """
     trade_id = new_trade_id(ticker)
-    _append({
+    rec = {
         "event":           "entry",
         "trade_id":        trade_id,
         "ts":              _now(),
@@ -134,7 +140,16 @@ def log_entry(
         "budget":          round(float(budget), 2),
         "entry_cost":      round(float(entry_cost), 2),
         "reasoning":       reasoning,
-    })
+    }
+    if hedge_qty:
+        rec.update({
+            "hedge_symbol":    hedge_symbol or "SPY",
+            "hedge_qty":       int(hedge_qty),
+            "hedge_price":     round(float(hedge_price or 0), 2),
+            "hedge_beta":      round(float(hedge_beta or 0), 4),
+            "hedge_resid_vol": round(float(hedge_resid_vol or 0), 6),
+        })
+    _append(rec)
     return trade_id
 
 
@@ -198,6 +213,7 @@ def closed_trades() -> list[dict]:
             e = entries[tid]
             out.append({
                 "trade_id":     tid,
+                "entry_ts":     e.get("ts"),
                 "strategy":     e.get("strategy", "straddle"),
                 "ticker":       e["ticker"],
                 "rule":         e.get("rule"),
@@ -207,6 +223,8 @@ def closed_trades() -> list[dict]:
                 "confidence":   e.get("confidence"),
                 "regime":       e.get("regime"),
                 "entry_cost":   rec.get("entry_cost", e.get("entry_cost")),
+                "hedge_qty":    e.get("hedge_qty"),
+                "hedge_beta":   e.get("hedge_beta"),
                 "exit_value":   rec.get("exit_value"),
                 "pnl":          rec.get("pnl"),
                 "pnl_pct":      rec.get("pnl_pct"),

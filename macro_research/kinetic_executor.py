@@ -72,15 +72,48 @@ MINIMAL_MAX_SIGNALS       = 2       # 전략별 최대 2건 (vs 통상 6)
 BASE_WEIGHT       = 0.03    # 시그널당 계좌 자본의 3%를 프리미엄 예산으로
 DTE_MIN, DTE_MAX  = 25, 50  # 만기 선택 윈도우 (일)
 STRIKE_BAND       = 0.15    # ATM 후보 strike 범위 (±15%)
-TAKE_PROFIT_PCT   = 0.25    # 프리미엄 +25% → 익절
 STOP_LOSS_PCT     = None    # 하드 손절 없음 — 손실은 DTE로 통제
 EXIT_MIN_DTE      = 10      # 만기 10일 이내 → 청산
 
+# 트레일링 청산 (2026-06-12, 라운드 6 비평 1번 — TP +25% 고정 절단 폐지)
+# fat-tail 탐지 시스템이 롱 스트래들 이익을 +25%에서 자르는 건 자기부정:
+# 위기 컨벡시티 수익 분포는 우측 꼬리가 전부. arm(+25%) 후 피크 이익의
+# 40% 반납 시 청산 — 피크 100% 면 60% 에서, 피크 25% 면 15% 에서.
+# 사이클 간 피크는 output/trail_state.json 에 유지 (매시간 갱신).
+TRAIL_ARM_PCT     = 0.25    # 이 이익률 도달 시 트레일 가동 (구 TP 지점)
+TRAIL_GIVEBACK    = 0.40    # 피크 이익률의 40% 반납 → 청산
+PARTIAL_FRACTION  = 0.5     # arm 시 부분청산 비율 (계약 ≥2 일 때만, 1회)
+TRAIL_STATE_JSON  = OUTPUT_DIR / "trail_state.json"
+
 # ── DIRECTIONAL(현물 롱/숏) 파라미터 ─────────────────────────────
 DIR_BASE_WEIGHT   = 0.05    # 시그널당 계좌 자본의 5%를 명목(notional)으로
-DIR_TAKE_PROFIT   = 0.10    # 현물 +10% → 익절 (방향 맞음)
-DIR_STOP_LOSS     = -0.07   # 현물 -7% → 손절 (방향 틀림)
+DIR_TAKE_PROFIT   = 0.10    # 페어 +10% → 익절 (방향 맞음)
+DIR_STOP_LOSS     = -0.07   # 페어 -7% → 손절 (방향 틀림)
 DIR_MAX_HOLD_DAYS = 21      # 최대 보유 ~1개월: 설명의 예측 지평 안에서 채점
+
+# 베타헤지 페어 (2026-06-12, 라운드 6 비평 2번)
+# partial 회귀가 검증한 건 *시장 통제 후* 민감도인데 아웃라이트 숏의 P&L 은
+# -β×R_SPY 가 지배 — 검증한 효과와 거래하는 효과가 달랐다. 진입 시 SPY 반대
+# 레그(β×명목)를 붙여 페어로 거래: 숏 XLRE + 롱 β·SPY. TP/SL/만료 판정은 페어 P&L.
+HEDGE_SYMBOL = "SPY"
+PARTIAL_RESULTS_CSV = OUTPUT_DIR / "partial_results.csv"
+
+# 페어 TP/SL = σ_residual 단위 (라운드 7 비평 5번). β 헤지된 잔차 변동성은
+# 아웃라이트의 ~1/3 — 고정 ±10/-7% 면 사실상 전부 21일 타임아웃으로 끝난다.
+# 21일 보유지평 잔차 σ 기준 ±k σ 로 재정의. 잔차 σ 는 진입 시 저널에 기록.
+PAIR_TP_SIGMA = 2.0    # 익절 = +2.0 × σ_residual(21d)
+PAIR_SL_SIGMA = 1.5    # 손절 = -1.5 × σ_residual(21d)
+
+# rate 패밀리 노출 캡 (라운드 7 비평 6번). β 헤지로 시장 리스크를 빼면서
+# 방향성 북이 순수 금리 베팅 하나로 농축 — 패밀리 합산 섹터레그 명목을 제한.
+RATE_FAMILY_CAP_PCT = 0.15
+RULE_FAMILY = {"rate_beneficiary": "rate", "rate_victim": "rate"}
+
+# 단일 진실원 (라운드 7 비평 1번): trigger 가 쓰는 (rule × sector) 유효 상태표.
+# 룰은퇴(룰 단위)가 못 잡는 *섹터 단위 사망* (예: XLV/XLP 공선성 판명) 을
+# '시그널은퇴' 청산으로 회수한다.
+SIGNAL_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
+SIGNAL_STATE_MAX_AGE_H = 48
 
 # ── SHORT STRADDLE(숏 볼) 파라미터 (2026-06-10 신설) ────────────
 # 시스템 테제 코히어런스 — vol_overpriced ∩ thin_tail_greenlight 만 발화.
@@ -100,9 +133,80 @@ SIGNAL_TYPE_WEIGHT = {
     "MONITOR":     0.3,
 }
 
+# ── 예산 초과 가드 (2026-06-12) ─────────────────────────────────
+# 최소 1계약(1주) 정책이 confidence 가중 사이징을 역전시키는 것 방지:
+# MONITOR ×0.3 으로 예산 $77 인데 1계약이 $1,452 면 의도의 18.8배 노출.
+# 1단위 비용이 예산의 BUDGET_OVERRUN_CAP 배를 넘으면 진입 자체를 스킵.
+BUDGET_OVERRUN_CAP = 2.0
+
 
 def mult_key(rule: str, strategy: str) -> str:
     return f"{rule}|{strategy}"
+
+
+def active_rule_names() -> set[str]:
+    """현재 룰셋에 살아있는 룰 short-name 집합.
+
+    inference.ALL_RULES 에서 도출 (rule_natural_hedge → natural_hedge).
+    vol_monitor_z 는 --source vol 폴백 트리거라 룰셋 외부 — 항상 유효 취급.
+    """
+    from ontology.inference import ALL_RULES
+    names = {fn.__name__.removeprefix("rule_") for fn in ALL_RULES}
+    names.add("vol_monitor_z")
+    return names
+
+
+def load_valid_signal_pairs() -> set[str] | None:
+    """단일 진실원 상태표 로드. 없거나 48h 초과 시 None (시그널은퇴 판정 보류)."""
+    if not SIGNAL_STATE_JSON.exists():
+        return None
+    try:
+        st = json.loads(SIGNAL_STATE_JSON.read_text(encoding="utf-8"))
+        ts = dt.datetime.fromisoformat(st.get("generated", ""))
+        if (dt.datetime.now() - ts).total_seconds() > 3600 * SIGNAL_STATE_MAX_AGE_H:
+            return None
+        return set(st.get("valid_pairs", []))
+    except (ValueError, OSError, TypeError):
+        return None
+
+
+def signal_retired_reason(rec: dict | None, valid_pairs: set[str] | None) -> str | None:
+    """진입 시그널(rule × sector)이 현재 데이터에서 더 이상 유효하지 않으면 사유.
+
+    룰은퇴(룰 단위)와 별개의 *섹터 단위* 수명주기 — FDR 재판정으로 특정 섹터의
+    시그널만 죽는 경우 (XLV/XLP rate_victim 공선성 판명) 를 잡는다.
+    상태표 부재/노후 시 None (보수적 보류 — 오청산 방지).
+    """
+    if not rec or valid_pairs is None:
+        return None
+    rule, tkr = rec.get("rule"), rec.get("ticker")
+    if not rule or not tkr or rule == "vol_monitor_z":
+        return None
+    if f"{rule}|{tkr}" not in valid_pairs:
+        return f"시그널은퇴({rule}|{tkr})"
+    return None
+
+
+def rule_retired_reason(rec: dict | None, strategy: str,
+                        active: set[str], multipliers: dict[str, float]
+                        ) -> str | None:
+    """진입 테제가 시스템에서 폐기됐으면 사유 문자열, 아니면 None.
+
+    두 가지 경로:
+      1. 룰이 inference.ALL_RULES 에서 제거됨 (코드 레벨 은퇴)
+      2. feedback.py stop-rule 로 multiplier == 0 (성과 레벨 은퇴)
+    저널 매칭이 안 되는 포지션(rec=None)은 판정 불가 → 기존 TP/SL/DTE 로직만 적용.
+    """
+    if not rec:
+        return None
+    rule = rec.get("rule")
+    if not rule:
+        return None
+    if rule not in active:
+        return f"룰은퇴({rule})"
+    if multipliers.get(mult_key(rule, strategy)) == 0:
+        return f"룰은퇴({rule}|stop-rule)"
+    return None
 
 
 def load_rule_multipliers() -> dict[str, float]:
@@ -353,6 +457,10 @@ def build_plan(cand: dict, equity: float, multipliers: dict[str, float]) -> Stra
     scale = min(max(conf / CONF_REF, 0.5), CONF_SCALE_CAP) * mult * type_w * vol_pen
     budget = equity * BASE_WEIGHT * scale
     straddle_unit = (call_mid + put_mid) * 100
+    if straddle_unit > budget * BUDGET_OVERRUN_CAP:
+        print(f"  [skip] {ticker}: 1계약 ${straddle_unit:,.0f} > 예산 ${budget:,.0f}"
+              f"×{BUDGET_OVERRUN_CAP:.0f} — 사이징 역전 방지 (최소계약이 의도 노출 초과)")
+        return None
     qty = max(1, math.floor(budget / straddle_unit))
 
     return StraddlePlan(
@@ -370,7 +478,47 @@ def build_plan(cand: dict, equity: float, multipliers: dict[str, float]) -> Stra
     )
 
 
-# ── 방향성 진입 계획 (ETF 현물 롱/숏) ───────────────────────────
+# ── 방향성 진입 계획 (베타헤지 페어: 섹터 현물 + β·SPY 반대 레그) ──
+HEDGE_BETA_WINDOW = 126   # 헤지 베타·잔차 σ 추정 창 (~6개월)
+
+
+def load_hedge_stats() -> dict[str, dict]:
+    """섹터별 {beta, resid_vol(일별)} = 최근 126일 단순 OLS (sec ~ SPY).
+
+    ⚠ partial_results.csv 의 beta_mkt 를 쓰면 안 됨: 그건 VIX·금리 등을 통제한
+    *조건부* SPY 계수라 헤지 비율로는 과소 (VIX 변화가 시장 움직임 대부분을
+    흡수해 XLP 같은 섹터는 조건부 베타 ≈ 0 으로 나옴). partial 회귀는
+    *시그널 검증*, 단순 베타는 *실행 헤지* — 역할이 다르다 (2026-06-12).
+
+    resid_vol = std(sec − β·SPY) 일별 — 페어 TP/SL 의 σ 단위 (라운드 7 비평 5번:
+    헤지된 잔차 변동성은 아웃라이트의 ~1/3 라 고정 ±10/-7% 는 사실상 도달 불가).
+    """
+    path = OUTPUT_DIR / "sector_returns.parquet"
+    if not path.exists():
+        return {}
+    try:
+        import pandas as pd
+        rets = pd.read_parquet(path).tail(HEDGE_BETA_WINDOW)
+        if "SPY" not in rets.columns:
+            return {}
+        spy = rets["SPY"]
+        var = float(spy.var())
+        if not (var and math.isfinite(var)):
+            return {}
+        out: dict[str, dict] = {}
+        for col in rets.columns:
+            if col == "SPY":
+                continue
+            b = float(rets[col].cov(spy)) / var
+            if not math.isfinite(b):
+                continue
+            rv = float((rets[col] - b * spy).std())
+            out[col] = {"beta": b, "resid_vol": rv if math.isfinite(rv) else 0.0}
+        return out
+    except Exception:
+        return {}
+
+
 @dataclass
 class DirectionalPlan:
     ticker: str
@@ -385,10 +533,19 @@ class DirectionalPlan:
     spot: float
     qty: int
     budget: float
+    hedge_beta: float = 0.0       # 단순 126D β (실행 헤지용)
+    hedge_qty: int = 0            # SPY 반대 레그 수량 (0 = 헤지 없음)
+    hedge_price: float = 0.0      # SPY 현물가 (진입 시점)
+    hedge_resid_vol: float = 0.0  # 일별 잔차 σ — 페어 TP/SL 의 단위
 
     @property
     def side(self) -> str:
         return "buy" if self.direction > 0 else "sell"
+
+    @property
+    def hedge_side(self) -> str:
+        # 섹터 숏 → SPY 롱 / 섹터 롱 → SPY 숏 (시장 노출 중립화)
+        return "buy" if self.direction < 0 else "sell"
 
     @property
     def cost(self) -> float:
@@ -398,14 +555,22 @@ class DirectionalPlan:
         arrow = "LONG " if self.direction > 0 else "SHORT"
         rules = ", ".join(self.all_rules)
         mult = f"×{self.conf_multiplier:.2f}" if self.conf_multiplier != 1.0 else ""
+        hedge_arrow = "LONG" if self.direction < 0 else "SHORT"
+        hedge_txt = (f"\n    헤지: {hedge_arrow} {HEDGE_SYMBOL} {self.hedge_qty}주 "
+                     f"(β={self.hedge_beta:.2f}, ${self.hedge_qty * self.hedge_price:,.0f}) "
+                     f"— 페어 P&L 로 채점"
+                     if self.hedge_qty else
+                     "\n    헤지 생략 (β≤0 또는 미미) — 현 레짐 시장 노출 자체가 작음, 아웃라이트")
         return (
             f"  {self.ticker}  conf={self.confidence:.2f}{mult}  [{self.signal_type}]  spot=${self.spot:.2f}\n"
             f"    트리거 룰: {rules}  (regime={self.regime})\n"
             f"    {arrow} EQUITY  {self.qty}주  명목 ${self.cost:,.0f}  (예산 ${self.budget:,.0f})"
+            f"{hedge_txt}"
         )
 
 
-def build_directional_plan(cand: dict, equity: float, multipliers: dict[str, float]) -> DirectionalPlan | None:
+def build_directional_plan(cand: dict, equity: float, multipliers: dict[str, float],
+                           hedge_stats: dict[str, dict] | None = None) -> DirectionalPlan | None:
     ticker = cand["ticker"]
     if "=" in ticker or "^" in ticker:
         return None
@@ -423,7 +588,24 @@ def build_directional_plan(cand: dict, equity: float, multipliers: dict[str, flo
         return None
     scale = min(max(conf / CONF_REF, 0.5), CONF_SCALE_CAP) * mult
     budget = equity * DIR_BASE_WEIGHT * scale
+    if spot > budget * BUDGET_OVERRUN_CAP:
+        print(f"  [skip] {ticker}: 1주 ${spot:,.2f} > 예산 ${budget:,.0f}"
+              f"×{BUDGET_OVERRUN_CAP:.0f} — 사이징 역전 방지")
+        return None
     qty = max(1, math.floor(budget / spot))
+
+    # 베타헤지 레그 — partial 회귀가 검증한 '시장 대비' 효과를 실제로 거래
+    hedge_beta, hedge_qty, hedge_price, hedge_rv = 0.0, 0, 0.0, 0.0
+    hs = (hedge_stats or {}).get(ticker) or {}
+    beta = hs.get("beta")
+    if beta is not None and math.isfinite(beta) and beta > 0:
+        spy_spot = get_spot(HEDGE_SYMBOL)
+        if spy_spot:
+            hedge_notional = beta * qty * spot
+            hedge_qty = math.floor(hedge_notional / spy_spot)
+            if hedge_qty > 0:
+                hedge_beta, hedge_price = beta, spy_spot
+                hedge_rv = float(hs.get("resid_vol", 0.0) or 0.0)
 
     return DirectionalPlan(
         ticker=ticker, direction=int(cand.get("direction", 0)), confidence=conf,
@@ -431,6 +613,8 @@ def build_directional_plan(cand: dict, equity: float, multipliers: dict[str, flo
         signal_type=cand.get("signal_type", "?"), regime=cand.get("regime", "?"),
         conf_multiplier=mult, reasoning=cand.get("reasoning", []),
         spot=spot, qty=qty, budget=budget,
+        hedge_beta=hedge_beta, hedge_qty=hedge_qty, hedge_price=hedge_price,
+        hedge_resid_vol=hedge_rv,
     )
 
 
@@ -521,6 +705,10 @@ def build_short_straddle_plan(cand: dict, equity: float,
     # qty 계산: budget 을 *위험 허용 한도* 로 해석. SL +100% 면 손실 한도 = credit.
     # → qty = budget / (credit_per_unit). credit_per_unit = (call_mid + put_mid) * 100.
     unit_credit = (call_mid + put_mid) * 100
+    if unit_credit > budget * BUDGET_OVERRUN_CAP:
+        print(f"  [skip] {ticker}: 1계약 credit ${unit_credit:,.0f} > 한도 ${budget:,.0f}"
+              f"×{BUDGET_OVERRUN_CAP:.0f} — 사이징 역전 방지")
+        return None
     qty = max(1, math.floor(budget / unit_credit))
 
     return ShortStraddlePlan(
@@ -681,25 +869,59 @@ def _run_straddle_entry(candidates, equity, multipliers, live, market_open) -> N
 
 
 def _run_directional_entry(candidates, equity, multipliers, live, market_open) -> None:
-    held = held_equity_underlyings()
-    print(f"\n  ── DIRECTIONAL (현물 롱/숏)  보유중 {sorted(held) or '없음'} ──")
+    held = held_equity_underlyings() - {HEDGE_SYMBOL}   # SPY 는 헤지 인벤토리 — dedup 제외
+    print(f"\n  ── DIRECTIONAL (베타헤지 페어: 섹터 + β·{HEDGE_SYMBOL})  "
+          f"보유중 {sorted(held) or '없음'} ──")
+
+    hedge_stats = load_hedge_stats()
+    if not hedge_stats:
+        print(f"  ⚠ sector_returns.parquet 없음 — 헤지 불가, 아웃라이트 폴백")
+
+    # rate 패밀리 기존 노출 (저널 기준 섹터레그 entry_cost 합)
+    family_open: dict[str, float] = {}
+    for (tkr, strat), rec in trade_journal.open_trades().items():
+        if strat != "directional":
+            continue
+        fam = RULE_FAMILY.get(rec.get("rule") or "")
+        if fam:
+            family_open[fam] = family_open.get(fam, 0.0) + abs(float(rec.get("entry_cost") or 0))
 
     plans: list[DirectionalPlan] = []
+    family_planned: dict[str, float] = {}
     for cand in candidates:
         if cand["ticker"] in held:
             print(f"  [skip] {cand['ticker']}: 이미 현물 포지션 보유 (중복 진입 방지)")
             continue
-        plan = build_directional_plan(cand, equity, multipliers)
-        if plan:
-            plans.append(plan)
-            print(plan.describe())
+        plan = build_directional_plan(cand, equity, multipliers, hedge_stats)
+        if not plan:
+            continue
+        # 패밀리 노출 캡 — 같은 팩터(rate) 베팅 농축 제한 (라운드 7 비평 6번)
+        fam = RULE_FAMILY.get(plan.rule)
+        if fam:
+            cap = equity * RATE_FAMILY_CAP_PCT
+            used = family_open.get(fam, 0.0) + family_planned.get(fam, 0.0)
+            if used + plan.cost > cap:
+                print(f"  [skip] {plan.ticker}: {fam} 패밀리 캡 — "
+                      f"기존 ${used:,.0f} + 신규 ${plan.cost:,.0f} > "
+                      f"한도 ${cap:,.0f} ({RATE_FAMILY_CAP_PCT*100:.0f}% equity)")
+                continue
+            family_planned[fam] = family_planned.get(fam, 0.0) + plan.cost
+        plans.append(plan)
+        print(plan.describe())
 
     if not plans:
         print("  진입할 신규 방향성 포지션 없음.")
         return
 
     total = sum(p.cost for p in plans)
-    print(f"  → {len(plans)}개 방향성  명목 합계 ${total:,.0f} ({total/equity*100:.1f}% equity)")
+    total_hedge = sum(p.hedge_qty * p.hedge_price for p in plans)
+    print(f"  → {len(plans)}개 페어  섹터 명목 ${total:,.0f} + 헤지 명목 ${total_hedge:,.0f} "
+          f"({(total+total_hedge)/equity*100:.1f}% equity 그로스)")
+    if family_open or family_planned:
+        for fam in set(family_open) | set(family_planned):
+            print(f"     {fam} 패밀리: 기존 ${family_open.get(fam,0):,.0f} "
+                  f"+ 신규 ${family_planned.get(fam,0):,.0f} "
+                  f"/ 캡 ${equity*RATE_FAMILY_CAP_PCT:,.0f}")
 
     if not live:
         return
@@ -707,22 +929,39 @@ def _run_directional_entry(candidates, equity, multipliers, live, market_open) -
         print("  [중단] 휴장 중 — 현물 주문도 장중에만. (미제출)")
         return
 
-    print("  [LIVE] 방향성 주문 제출...")
+    print("  [LIVE] 페어 주문 제출...")
     for p in plans:
         res = submit_equity_order(p.ticker, p.qty, side=p.side)
         ok = res["status_code"] in (200, 201)
         oid = res["body"].get("id", res["body"]) if ok else res["body"]
         arrow = "LONG" if p.direction > 0 else "SHORT"
         print(f"    {'OK ' if ok else 'ERR'} {arrow} {p.qty} {p.ticker} -> {oid}")
-        if ok:
-            tid = trade_journal.log_entry(
-                strategy="directional", ticker=p.ticker, rule=p.rule, all_rules=p.all_rules,
-                signal_type=p.signal_type, confidence=p.confidence,
-                regime=p.regime, conf_multiplier=p.conf_multiplier,
-                direction=p.direction, spot=p.spot, entry_price=p.spot,
-                qty=p.qty, budget=p.budget, entry_cost=p.cost, reasoning=p.reasoning,
-            )
-            print(f"    [journal] directional entry: {tid}")
+        if not ok:
+            continue
+        # 헤지 레그 — 섹터 레그 체결 후에만
+        hedged = False
+        if p.hedge_qty > 0:
+            hres = submit_equity_order(HEDGE_SYMBOL, p.hedge_qty, side=p.hedge_side)
+            hedged = hres["status_code"] in (200, 201)
+            print(f"    {'OK ' if hedged else 'ERR'} hedge {p.hedge_side} "
+                  f"{p.hedge_qty} {HEDGE_SYMBOL} -> "
+                  f"{hres['body'].get('id', hres['body']) if hedged else hres['body']}")
+            if not hedged:
+                print(f"    ⚠ {p.ticker}: 헤지 실패 — 아웃라이트로 저널 기록")
+        tid = trade_journal.log_entry(
+            strategy="directional", ticker=p.ticker, rule=p.rule, all_rules=p.all_rules,
+            signal_type=p.signal_type, confidence=p.confidence,
+            regime=p.regime, conf_multiplier=p.conf_multiplier,
+            direction=p.direction, spot=p.spot, entry_price=p.spot,
+            qty=p.qty, budget=p.budget, entry_cost=p.cost, reasoning=p.reasoning,
+            hedge_symbol=HEDGE_SYMBOL if hedged else None,
+            hedge_qty=p.hedge_qty if hedged else None,
+            hedge_price=p.hedge_price if hedged else None,
+            hedge_beta=p.hedge_beta if hedged else None,
+            hedge_resid_vol=p.hedge_resid_vol if hedged else None,
+        )
+        print(f"    [journal] directional entry: {tid}"
+              + (f" (β={p.hedge_beta:.2f} 헤지 포함)" if hedged else " (아웃라이트)"))
 
 
 def _run_short_straddle_entry(candidates, equity, multipliers, live, market_open) -> None:
@@ -791,17 +1030,39 @@ def run_exit(live: bool) -> None:
         [p for p in positions if p.get("asset_class") == "us_equity"], live)
 
 
+def _load_trail_state() -> dict:
+    if not TRAIL_STATE_JSON.exists():
+        return {}
+    try:
+        return json.loads(TRAIL_STATE_JSON.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return {}
+
+
+def _save_trail_state(state: dict) -> None:
+    try:
+        TRAIL_STATE_JSON.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+    except OSError:
+        pass
+
+
 def _run_straddle_exit(positions: list[dict], live: bool) -> None:
     mode = "*** LIVE 청산 ***" if live else "DRY-RUN (청산 미제출)"
 
     print(f"\n{'='*60}")
     print(f"  스트래들 청산(EXIT)  |  {mode}")
-    sl_txt = f"손절 {STOP_LOSS_PCT*100:.0f}%" if STOP_LOSS_PCT is not None else "손절 없음(만기로 통제)"
-    print(f"  익절 +{TAKE_PROFIT_PCT*100:.0f}% / {sl_txt} / 만기 {EXIT_MIN_DTE}일 이내")
+    print(f"  트레일 arm +{TRAIL_ARM_PCT*100:.0f}% → 피크 {TRAIL_GIVEBACK*100:.0f}% 반납 청산 "
+          f"/ 손절 없음(만기 통제) / 만기 {EXIT_MIN_DTE}일 / 룰은퇴 즉시")
     print(f"{'='*60}")
+
+    state = _load_trail_state()
 
     if not positions:
         print("  보유 옵션 포지션 없음.")
+        # 보유가 없으면 잔존 상태 정리
+        if state:
+            _save_trail_state({})
         return
 
     # underlying 별로 묶어 스트래들 단위 평가
@@ -813,39 +1074,103 @@ def _run_straddle_exit(positions: list[dict], live: bool) -> None:
             under = p["symbol"]
         groups.setdefault(under, []).append(p)
 
+    # 더 이상 보유하지 않는 underlying 의 트레일 상태 제거
+    for stale in [u for u in state if u not in groups]:
+        state.pop(stale, None)
+
+    active = active_rule_names()
+    multipliers = load_rule_multipliers()
+    valid_pairs = load_valid_signal_pairs()
+    open_str = {tkr: rec for (tkr, strat), rec in trade_journal.open_trades().items()
+                if strat == "straddle"}
+
     today = dt.date.today()
     to_close: list[tuple[str, list[dict], str, float, float, int]] = []
+    to_partial: list[tuple[str, list[dict], float]] = []
 
     for under, legs in groups.items():
         cost = sum(abs(float(l.get("cost_basis", 0) or 0)) for l in legs)
         mv = sum(float(l.get("market_value", 0) or 0) for l in legs)
         pnl_pct = (mv - cost) / cost if cost else 0.0
         min_dte = min((parse_occ(l["symbol"])[1] - today).days for l in legs)
+        retired = (rule_retired_reason(open_str.get(under), "straddle", active, multipliers)
+                   or signal_retired_reason(open_str.get(under), valid_pairs))
+
+        st = state.setdefault(under, {"peak_pnl_pct": pnl_pct, "partial_done": False,
+                                       "partial_realized": 0.0, "orig_cost": cost})
+        if pnl_pct > st.get("peak_pnl_pct", -9.9):
+            st["peak_pnl_pct"] = pnl_pct
+        peak = st["peak_pnl_pct"]
+
+        # arm 시점 부분청산 (각 레그 qty≥2, 1회) — 이익 일부 고정 + 잔여 무제한
+        min_leg_qty = min(abs(float(l.get("qty", 0) or 0)) for l in legs)
+        if (not st.get("partial_done") and pnl_pct >= TRAIL_ARM_PCT
+                and min_leg_qty >= 2):
+            to_partial.append((under, legs, pnl_pct))
 
         reason = None
-        if pnl_pct >= TAKE_PROFIT_PCT:
-            reason = "익절"
+        if retired:
+            reason = retired   # 폐기된 테제 — 세타 흘리며 대기할 이유 없음
+        elif peak >= TRAIL_ARM_PCT and pnl_pct <= peak * (1 - TRAIL_GIVEBACK):
+            reason = f"트레일청산(피크{peak*100:+.0f}%)"
         elif STOP_LOSS_PCT is not None and pnl_pct <= STOP_LOSS_PCT:
             reason = "손절"
         elif min_dte <= EXIT_MIN_DTE:
             reason = "만기임박"
 
+        armed = "armed" if peak >= TRAIL_ARM_PCT else "-"
         tag = f"→ 청산({reason})" if reason else "유지"
         print(f"  {under}: {len(legs)}레그  비용 ${cost:,.0f}  평가 ${mv:,.0f}  "
-              f"P&L {pnl_pct*100:+.1f}%  최소DTE {min_dte}일  {tag}")
+              f"P&L {pnl_pct*100:+.1f}% (피크 {peak*100:+.1f}%, {armed})  "
+              f"최소DTE {min_dte}일  {tag}")
         if reason:
             to_close.append((under, legs, reason, mv, pnl_pct, min_dte))
 
-    if not to_close:
-        print("\n청산 대상 없음.")
-        return
+    _save_trail_state(state)
+
+    if to_partial and not live:
+        print(f"\n[DRY-RUN] 부분익절 대상 {len(to_partial)}건 "
+              f"(arm 도달, 레그당 {PARTIAL_FRACTION*100:.0f}% 매도): "
+              + ", ".join(u for u, _, _ in to_partial))
+
+    if not to_close and not (to_partial and live):
+        if not to_close:
+            print("\n청산 대상 없음.")
+        if not live:
+            return
 
     if not live:
         print(f"\n[DRY-RUN] {len(to_close)}개 스트래들 청산 대상. 실제 청산은 --exit --live.")
         return
 
-    if not get_market_open():
-        print("\n[중단] 휴장 중 — 옵션 청산도 장중에만 가능. (청산 미제출)")
+    if (to_close or to_partial) and not get_market_open():
+        print("\n[중단] 휴장 중 — 옵션 청산도 장중에만 가능. (미제출)")
+        return
+
+    # 부분익절 — 각 레그 절반 매도 (실현분을 상태에 기록, 최종 저널에 합산)
+    for under, legs, pnl_pct in to_partial:
+        st = state.get(under, {})
+        all_ok = True
+        realized = 0.0
+        for l in legs:
+            qty = int(abs(float(l.get("qty", 0) or 0)))
+            qty_close = max(1, int(qty * PARTIAL_FRACTION))
+            res = submit_option_order(l["symbol"], qty_close, side="sell")
+            ok = res["status_code"] in (200, 201)
+            all_ok = all_ok and ok
+            if ok:
+                leg_cost = abs(float(l.get("cost_basis", 0) or 0))
+                leg_mv = float(l.get("market_value", 0) or 0)
+                realized += (leg_mv - leg_cost) * (qty_close / qty)
+            print(f"    {'OK ' if ok else 'ERR'} 부분익절 sell {qty_close} {l['symbol']} "
+                  f"-> {res['status_code']}")
+        if all_ok:
+            st["partial_done"] = True
+            st["partial_realized"] = round(st.get("partial_realized", 0.0) + realized, 2)
+            print(f"    [trail] {under} 부분익절 실현 ${realized:+,.0f} — 잔여분 트레일 지속")
+    _save_trail_state(state)
+
+    if not to_close:
         return
 
     print("\n[LIVE] 청산 주문 제출 중...")
@@ -857,12 +1182,20 @@ def _run_straddle_exit(positions: list[dict], live: bool) -> None:
             all_ok = all_ok and ok
             print(f"    {'OK ' if ok else 'ERR'} close {l['symbol']} ({reason}) -> {res['status_code']}")
         if all_ok:
-            cost = sum(abs(float(l.get("cost_basis", 0) or 0)) for l in legs)
+            st = state.pop(under, {})
+            cost_rem = sum(abs(float(l.get("cost_basis", 0) or 0)) for l in legs)
+            partial = float(st.get("partial_realized", 0.0) or 0.0)
+            orig_cost = float(st.get("orig_cost", cost_rem) or cost_rem)
+            total_pnl = (mv - cost_rem) + partial
             tid = trade_journal.log_exit(
-                strategy="straddle", ticker=under, exit_reason=reason, exit_value=mv,
-                pnl_pct=pnl_pct, min_dte=min_dte, entry_cost_fallback=cost,
+                strategy="straddle", ticker=under, exit_reason=reason,
+                exit_value=orig_cost + total_pnl,
+                pnl_pct=(total_pnl / orig_cost if orig_cost else pnl_pct),
+                min_dte=min_dte, entry_cost_fallback=orig_cost,
             )
-            print(f"    [journal] exit logged: {tid or '(미매칭)'}")
+            print(f"    [journal] exit logged: {tid or '(미매칭)'}"
+                  + (f"  (부분익절 ${partial:+,.0f} 합산)" if partial else ""))
+    _save_trail_state(state)
 
 
 def _run_short_straddle_exit(positions: list[dict], live: bool) -> None:
@@ -877,7 +1210,7 @@ def _run_short_straddle_exit(positions: list[dict], live: bool) -> None:
     print(f"\n{'='*60}")
     print(f"  숏 스트래들 청산  |  {mode}")
     print(f"  익절 -{SHORT_TAKE_PROFIT_PCT*100:.0f}% 회수 / "
-          f"손절 +{SHORT_STOP_LOSS_PCT*100:.0f}% 손실 / 만기 {SHORT_EXIT_MIN_DTE}일 이내")
+          f"손절 +{SHORT_STOP_LOSS_PCT*100:.0f}% 손실 / 만기 {SHORT_EXIT_MIN_DTE}일 이내 / 룰은퇴 즉시")
     print(f"{'='*60}")
 
     if not positions:
@@ -893,6 +1226,12 @@ def _run_short_straddle_exit(positions: list[dict], live: bool) -> None:
             under = p["symbol"]
         groups.setdefault(under, []).append(p)
 
+    active = active_rule_names()
+    multipliers = load_rule_multipliers()
+    valid_pairs = load_valid_signal_pairs()
+    open_short = {tkr: rec for (tkr, strat), rec in trade_journal.open_trades().items()
+                  if strat == "short_straddle"}
+
     today = dt.date.today()
     to_close: list[tuple[str, list[dict], str, float, float, int]] = []
 
@@ -904,10 +1243,15 @@ def _run_short_straddle_exit(positions: list[dict], live: bool) -> None:
         pnl = credit - buyback   # 양수면 익절 방향
         pnl_pct = pnl / credit if credit else 0.0
         min_dte = min((parse_occ(l["symbol"])[1] - today).days for l in legs)
+        retired = (rule_retired_reason(open_short.get(under), "short_straddle",
+                                       active, multipliers)
+                   or signal_retired_reason(open_short.get(under), valid_pairs))
 
         reason = None
         if pnl_pct >= SHORT_TAKE_PROFIT_PCT:
             reason = "익절"
+        elif retired:
+            reason = retired   # naked 숏 — 폐기된 테제를 감마 리스크로 끌고 갈 이유 없음
         elif pnl_pct <= -SHORT_STOP_LOSS_PCT:
             reason = "손절"
         elif min_dte <= SHORT_EXIT_MIN_DTE:
@@ -950,39 +1294,65 @@ def _run_short_straddle_exit(positions: list[dict], live: bool) -> None:
             print(f"    [journal] short_straddle exit logged: {tid or '(미매칭)'}")
 
 
-def _run_directional_exit(positions: list[dict], live: bool) -> None:
-    """현물(방향성) 청산. 익절/손절은 Alpaca unrealized_plpc, 보유일은 저널 진입ts 기준.
+def _pair_pnl_pct(p: dict, entry: dict | None, spy_now: float | None) -> tuple[float, bool]:
+    """(pnl_pct, is_pair). 헤지 저널이 있으면 페어 P&L (검증된 시장-대비 효과),
+    없으면 레거시 아웃라이트 plpc."""
+    outright = float(p.get("unrealized_plpc", 0) or 0)
+    if not entry or not entry.get("hedge_qty") or not spy_now:
+        return outright, False
+    cost = abs(float(p.get("cost_basis", 0) or 0))
+    if not cost:
+        return outright, False
+    sector_pnl = cost * outright
+    h_qty   = int(entry["hedge_qty"])
+    h_price = float(entry.get("hedge_price") or 0)
+    h_dir   = +1 if int(entry.get("direction", 0)) < 0 else -1   # 섹터숏→SPY롱
+    hedge_pnl = h_qty * (spy_now - h_price) * h_dir if h_price else 0.0
+    return (sector_pnl + hedge_pnl) / cost, True
 
-    방향성 베팅은 '설명의 예측 지평'(~수주) 안에서 채점 → 보유일 초과 시 무조건 청산해
-    방향이 맞았는지/틀렸는지 실현 P&L로 확정한다 (롱볼 스트래들과 달리 시간을 우호로 두지 않음).
+
+def _run_directional_exit(positions: list[dict], live: bool) -> None:
+    """방향성(베타헤지 페어) 청산. 판정은 *페어 P&L* — partial 회귀가 검증한
+    시장-대비 효과 그 자체로 채점 (2026-06-12). 레거시 무헤지 포지션은 아웃라이트.
+
+    보유일 초과 시 무조건 청산해 방향이 맞았는지 실현 P&L로 확정한다.
+    SPY 포지션은 여러 페어의 헤지 인벤토리 합산이므로 직접 평가하지 않고,
+    각 페어 청산 시 해당 hedge_qty 만큼만 반대 주문으로 되감는다.
     """
     mode = "*** LIVE 청산 ***" if live else "DRY-RUN (청산 미제출)"
 
     print(f"\n{'='*60}")
-    print(f"  방향성 청산(EXIT)  |  {mode}")
+    print(f"  방향성 청산(EXIT — 페어 P&L 기준)  |  {mode}")
     print(f"  익절 +{DIR_TAKE_PROFIT*100:.0f}% / 손절 {DIR_STOP_LOSS*100:.0f}% / "
-          f"최대보유 {DIR_MAX_HOLD_DAYS}일")
+          f"최대보유 {DIR_MAX_HOLD_DAYS}일 / 룰은퇴 즉시")
     print(f"{'='*60}")
 
+    positions = [p for p in positions if p["symbol"] != HEDGE_SYMBOL]
     if not positions:
-        print("  보유 현물 포지션 없음.")
+        print("  보유 현물 포지션 없음 (헤지 인벤토리 제외).")
         return
 
     open_dir = {
         tkr: rec for (tkr, strat), rec in trade_journal.open_trades().items()
         if strat == "directional"
     }
+    needs_spy = any(e.get("hedge_qty") for e in open_dir.values())
+    spy_now = get_spot(HEDGE_SYMBOL) if needs_spy else None
+
+    active = active_rule_names()
+    multipliers = load_rule_multipliers()
+    valid_pairs = load_valid_signal_pairs()
     today = dt.date.today()
-    to_close: list[tuple[dict, str, float, float]] = []
+    to_close: list[tuple[dict, str, float, float, dict | None]] = []
 
     for p in positions:
         tkr = p["symbol"]
         mv = float(p.get("market_value", 0) or 0)
-        pnl_pct = float(p.get("unrealized_plpc", 0) or 0)
         qty = float(p.get("qty", 0) or 0)
+        entry = open_dir.get(tkr)
+        pnl_pct, is_pair = _pair_pnl_pct(p, entry, spy_now)
 
         held_days = None
-        entry = open_dir.get(tkr)
         if entry and entry.get("ts"):
             try:
                 t0 = dt.datetime.fromisoformat(entry["ts"]).date()
@@ -990,21 +1360,37 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
             except ValueError:
                 held_days = None
 
+        retired = (rule_retired_reason(entry, "directional", active, multipliers)
+                   or signal_retired_reason(entry, valid_pairs))
+
+        # TP/SL 임계 — 페어는 σ_residual(21d) 단위 (라운드 7 비평 5번:
+        # 헤지 잔차 변동성은 아웃라이트의 ~1/3 라 고정 ±10/-7% 는 도달 불가)
+        tp, sl = DIR_TAKE_PROFIT, DIR_STOP_LOSS
+        rv = float(entry.get("hedge_resid_vol") or 0) if entry else 0.0
+        if is_pair and rv > 0:
+            sig_hold = rv * math.sqrt(DIR_MAX_HOLD_DAYS)
+            tp = PAIR_TP_SIGMA * sig_hold
+            sl = -PAIR_SL_SIGMA * sig_hold
+
         reason = None
-        if pnl_pct >= DIR_TAKE_PROFIT:
+        if pnl_pct >= tp:
             reason = "익절"
-        elif pnl_pct <= DIR_STOP_LOSS:
+        elif retired:
+            reason = retired
+        elif pnl_pct <= sl:
             reason = "손절"
         elif held_days is not None and held_days >= DIR_MAX_HOLD_DAYS:
             reason = "보유만료"
 
         side = "LONG " if qty >= 0 else "SHORT"
         held_txt = f"{held_days}일" if held_days is not None else "?일"
+        pair_txt = (f"페어 TP{tp*100:+.1f}/SL{sl*100:+.1f}%" if (is_pair and rv > 0)
+                    else ("페어(σ無→고정임계)" if is_pair else "아웃라이트"))
         tag = f"→ 청산({reason})" if reason else "유지"
         print(f"  {tkr}: {side} {abs(qty):.0f}주  평가 ${mv:,.0f}  "
-              f"P&L {pnl_pct*100:+.1f}%  보유 {held_txt}  {tag}")
+              f"P&L {pnl_pct*100:+.1f}% ({pair_txt})  보유 {held_txt}  {tag}")
         if reason:
-            to_close.append((p, reason, mv, pnl_pct))
+            to_close.append((p, reason, mv, pnl_pct, entry))
 
     if not to_close:
         print("\n청산 대상 없음.")
@@ -1019,20 +1405,29 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
         return
 
     print("\n[LIVE] 청산 주문 제출 중...")
-    for p, reason, mv, pnl_pct in to_close:
+    for p, reason, mv, pnl_pct, entry in to_close:
         tkr = p["symbol"]
         res = close_position(tkr)
         ok = res["status_code"] in (200, 201, 207)
         print(f"    {'OK ' if ok else 'ERR'} close {tkr} ({reason}) -> {res['status_code']}")
-        if ok:
-            cost = abs(float(p.get("cost_basis", 0) or 0))
-            # 숏은 market_value가 음수 → entry_cost×(1+pnl_pct)로 일관되게 환산
-            exit_value = cost * (1 + pnl_pct)
-            tid = trade_journal.log_exit(
-                strategy="directional", ticker=tkr, exit_reason=reason, exit_value=exit_value,
-                pnl_pct=pnl_pct, entry_cost_fallback=cost,
-            )
-            print(f"    [journal] exit logged: {tid or '(미매칭)'}")
+        if not ok:
+            continue
+        # 헤지 되감기 — SPY 전체가 아니라 이 페어의 hedge_qty 만 반대 주문
+        if entry and entry.get("hedge_qty"):
+            h_qty = int(entry["hedge_qty"])
+            unwind_side = "sell" if int(entry.get("direction", 0)) < 0 else "buy"
+            hres = submit_equity_order(HEDGE_SYMBOL, h_qty, side=unwind_side)
+            hok = hres["status_code"] in (200, 201)
+            print(f"    {'OK ' if hok else 'ERR'} unwind hedge {unwind_side} "
+                  f"{h_qty} {HEDGE_SYMBOL} -> {hres['status_code']}")
+        cost = abs(float(p.get("cost_basis", 0) or 0))
+        # pnl_pct 는 페어 기준 — exit_value 도 페어 P&L 로 환산
+        exit_value = cost * (1 + pnl_pct)
+        tid = trade_journal.log_exit(
+            strategy="directional", ticker=tkr, exit_reason=reason, exit_value=exit_value,
+            pnl_pct=pnl_pct, entry_cost_fallback=cost,
+        )
+        print(f"    [journal] exit logged: {tid or '(미매칭)'}")
 
 
 # ── 진입점 ─────────────────────────────────────────────────────

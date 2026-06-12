@@ -50,7 +50,11 @@ def _fetch_sfp_ticker(ticker: str) -> pd.Series:
     except Exception as e:
         print(f"  [SFP WARN] {ticker}: {e} → yfinance fallback")
         raw = yf.download(ticker, start=START_DATE, end=END_DATE, auto_adjust=True, progress=False)
-        return raw["Close"].rename(ticker)
+        close = raw["Close"]
+        # yfinance >= 0.2 는 단일 티커도 MultiIndex 컬럼 → Close 가 DataFrame
+        if isinstance(close, pd.DataFrame):
+            close = close.iloc[:, 0]
+        return close.rename(ticker)
 
 
 def _fetch_macro_levels() -> pd.DataFrame:
@@ -92,12 +96,13 @@ def compute_macro_changes(macro: pd.DataFrame) -> pd.DataFrame:
     """
     매크로 변화량:
       VIX, US10Y, US2Y → 레벨 1차 차분 (Δ)
-      DXY              → 로그 수익률 (%)
+      DXY, OIL         → 로그 수익률 (가격 시리즈)
     """
     chg = macro.diff().copy()
-    # DXY는 퍼센트 변화로 덮어씀
-    if "DXY" in macro.columns:
-        chg["DXY"] = np.log(macro["DXY"] / macro["DXY"].shift(1))
+    # 가격 시리즈는 퍼센트 변화로 덮어씀
+    for px_col in ("DXY", "OIL"):
+        if px_col in macro.columns:
+            chg[px_col] = np.log(macro[px_col] / macro[px_col].shift(1))
     return chg
 
 

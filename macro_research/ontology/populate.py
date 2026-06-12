@@ -72,16 +72,19 @@ def _populate_tail_risk(G: nx.DiGraph) -> None:
             row = gpd.loc[sec]
             attrs.update({
                 "xi":    _safe(row.get("xi")),
+                "xi_lo": _safe(row.get("xi_lo")),   # 부트스트랩 90% CI (2026-06-12)
+                "xi_hi": _safe(row.get("xi_hi")),
                 "var99": _safe(row.get("var99")),
                 "es99":  _safe(row.get("es99")),
             })
         if cf is not None and sec in cf.index:
             row = cf.loc[sec]
             attrs.update({
-                "cf_var99":       _safe(row.get("cf_var99")),
-                "cf_over_normal": _safe(row.get("cf_over_normal")),
-                "skewness":       _safe(row.get("skewness")),
-                "kurtosis":       _safe(row.get("kurtosis")),
+                "cf_var99":          _safe(row.get("cf_var99")),
+                "cf_over_normal":    _safe(row.get("cf_over_normal")),
+                "cf_over_normal_hi": _safe(row.get("cf_over_normal_hi")),
+                "skewness":          _safe(row.get("skewness")),
+                "kurtosis":          _safe(row.get("kurtosis")),
             })
         if attrs:
             nx.set_node_attributes(G, {sec: attrs})
@@ -158,11 +161,51 @@ def _populate_vrp_iv(G: nx.DiGraph) -> None:
 # Step 3: SENSITIVE_TO edges (delta/gamma from OLS + speed/color from poly4)
 # ---------------------------------------------------------------------------
 
+def _attach_fdr_q(G: nx.DiGraph) -> None:
+    """SENSITIVE_TO 엣지 전체(family)에 BH FDR q값 부착 (2026-06-12).
+
+    rate_* 룰의 유의성 게이트를 감사(trigger)와 동일한 q<0.10 기준으로 통일 —
+    t>1.96 단독 게이트는 55개 가설 다중비교에서 우연 통과 2~3건을 허용한다.
+    (trigger._bh_qvalues 와 동일 로직 — 순환 import 회피를 위한 의도적 중복.)
+    """
+    import math
+
+    def _p(t):
+        try:
+            t = float(t)
+        except (TypeError, ValueError):
+            return float("nan")
+        if not math.isfinite(t):
+            return float("nan")
+        return math.erfc(abs(t) / math.sqrt(2.0))
+
+    edges = [(u, v) for u, v, d in G.edges(data=True)
+             if d.get("edge_type") == "SENSITIVE_TO"]
+    ps = [_p(G.edges[u, v].get("t_delta_ctrl")) for u, v in edges]
+    finite = [i for i, p in enumerate(ps) if math.isfinite(p)]
+    if not finite:
+        return
+    m = len(finite)
+    order = sorted(finite, key=lambda i: ps[i])
+    prev = 1.0
+    qs = {i: float("nan") for i in range(len(ps))}
+    for rank in range(m, 0, -1):
+        i = order[rank - 1]
+        q = min(prev, ps[i] * m / rank)
+        qs[i] = q
+        prev = q
+    for i, (u, v) in enumerate(edges):
+        G.edges[u, v]["q_delta_ctrl"] = qs[i]
+
+
 def _populate_sensitivity(G: nx.DiGraph) -> None:
     static  = _load_csv_safe(OUTPUT_DIR / "static_results.csv")
+    partial = _load_csv_safe(OUTPUT_DIR / "partial_results.csv")
     poly4   = _load_csv_safe(OUTPUT_DIR / "poly4_static.csv")
     asymm   = _load_csv_safe(OUTPUT_DIR / "tail_asymmetry.csv")
     tdep_m  = _load_csv_safe(OUTPUT_DIR / "tail_dep_macro_lower.csv")
+    if partial is None:
+        print("  [WARN] partial_results.csv 없음 — rate_* 룰이 이변량(raw) delta 로 폴백")
 
     def _lookup_row(df: pd.DataFrame | None, sec: str, mac: str) -> pd.Series | None:
         """CSV가 (sector_index, macro_column) 구조이거나 compound_key 구조 양쪽을 지원."""
@@ -192,6 +235,15 @@ def _populate_sensitivity(G: nx.DiGraph) -> None:
                 edge.t_gamma = _safe(row.get("t_gamma"))
                 edge.r2      = _safe(row.get("r2"))
 
+            # 다변량 partial (전 매크로 동시 + SPY 통제) — rate_* 룰이 우선 사용
+            row_p = _lookup_row(partial, sec, mac)
+            if row_p is not None:
+                edge.delta_ctrl   = _safe(row_p.get("delta_ctrl"))
+                edge.gamma_ctrl   = _safe(row_p.get("gamma_ctrl"))
+                edge.t_delta_ctrl = _safe(row_p.get("t_delta_ctrl"))
+                edge.beta_mkt     = _safe(row_p.get("beta_mkt"))
+                edge.vif          = _safe(row_p.get("vif"))
+
             # Poly4 (speed = 3rd order, color = 4th order)
             row4 = _lookup_row(poly4, sec, mac)
             if row4 is not None:
@@ -212,7 +264,8 @@ def _populate_sensitivity(G: nx.DiGraph) -> None:
             G.add_edge(sec, mac, **edge.to_dict())
             added += 1
 
-    print(f"  [OK] SENSITIVE_TO edges added: {added}")
+    _attach_fdr_q(G)
+    print(f"  [OK] SENSITIVE_TO edges added: {added} (+ FDR q값 부착)")
 
 
 # ---------------------------------------------------------------------------
@@ -223,6 +276,9 @@ def _populate_co_crash(G: nx.DiGraph) -> None:
     lower = _load_csv_safe(OUTPUT_DIR / "tail_dep_sector_lower.csv")
     upper_path = OUTPUT_DIR / "tail_dep_sector_upper.csv"
     upper = pd.read_csv(upper_path, index_col=0) if upper_path.exists() else None
+    # λ_L 부트스트랩 95% 상한 (2026-06-12) — thin_tail_greenlight 보수 게이트용
+    hi_path = OUTPUT_DIR / "tail_dep_sector_lower_hi.csv"
+    lower_hi = pd.read_csv(hi_path, index_col=0) if hi_path.exists() else None
 
     if lower is None:
         print("  [WARN] tail_dep_sector_lower.csv not found, skipping CO_CRASH_WITH")
@@ -236,9 +292,13 @@ def _populate_co_crash(G: nx.DiGraph) -> None:
             lam_u = float("nan")
             if upper is not None and s1 in upper.index and s2 in upper.columns:
                 lam_u = _safe(upper.loc[s1, s2])
+            lam_hi = float("nan")
+            if lower_hi is not None and s1 in lower_hi.index and s2 in lower_hi.columns:
+                lam_hi = _safe(lower_hi.loc[s1, s2])
 
             if not np.isnan(lam_l):
-                edge = CoCrashEdge(lambda_lower=lam_l, lambda_upper=lam_u)
+                edge = CoCrashEdge(lambda_lower=lam_l, lambda_upper=lam_u,
+                                   lambda_lower_hi=lam_hi)
                 G.add_edge(s1, s2, **edge.to_dict())
                 added += 1
 
@@ -316,6 +376,58 @@ def _populate_co_moves(G: nx.DiGraph) -> None:
 # Step 5: Active regime (from latest VIX)
 # ---------------------------------------------------------------------------
 
+# 레짐 히스테리시스 (2026-06-12): VIX 가 15/25 경계를 넘나들 때 사이클마다 레짐이
+# 플래핑하면 일시적 스파이크에 high_vix 룰이 발화해 포지션이 고착됨 (06-08 XLI 사례).
+# 새 레짐은 연속 REGIME_CONFIRM_CYCLES 사이클 관측돼야 confirmed 로 전환.
+# 상태는 output/regime_state.json 에 사이클 간 유지 (라이브 전용 — backtest_pipeline
+# 은 _set_active_regime 를 쓰지 않고 자체 계산하므로 오염 없음).
+REGIME_CONFIRM_CYCLES = 2
+REGIME_STATE_JSON = OUTPUT_DIR / "regime_state.json"
+
+_VALID_REGIMES = frozenset(
+    r.value for r in (RegimeType.LOW_VIX, RegimeType.MID_VIX, RegimeType.HIGH_VIX))
+
+
+def _confirm_regime(raw: str, vix: float) -> str:
+    """사이클 간 히스테리시스. raw 레짐이 연속 N회 관측돼야 confirmed 전환."""
+    import datetime as _dt
+    import json as _json
+
+    state: dict = {}
+    if REGIME_STATE_JSON.exists():
+        try:
+            state = _json.loads(REGIME_STATE_JSON.read_text(encoding="utf-8"))
+        except (ValueError, OSError):
+            state = {}
+
+    confirmed = state.get("confirmed")
+    pending = state.get("pending")
+    count = int(state.get("pending_count", 0) or 0)
+
+    if confirmed not in _VALID_REGIMES:
+        confirmed, pending, count = raw, None, 0     # 첫 실행/상태 손상 → 즉시 채택
+    elif raw == confirmed:
+        pending, count = None, 0                      # 기존 레짐 유지 → 보류 리셋
+    else:
+        count = count + 1 if raw == pending else 1    # 새 레짐 관측 누적
+        pending = raw
+        if count >= REGIME_CONFIRM_CYCLES:
+            confirmed, pending, count = raw, None, 0  # 연속 N회 확인 → 전환
+
+    try:
+        REGIME_STATE_JSON.write_text(_json.dumps({
+            "confirmed": confirmed,
+            "pending": pending,
+            "pending_count": count,
+            "vix": round(vix, 2),
+            "ts": _dt.datetime.now().isoformat(timespec="seconds"),
+        }, ensure_ascii=False, indent=2), encoding="utf-8")
+    except OSError:
+        pass   # 상태 저장 실패는 치명적이지 않음 — 다음 사이클에 재시도
+
+    return confirmed
+
+
 def _set_active_regime(G: nx.DiGraph) -> str:
     macro_path = OUTPUT_DIR / "macro_levels.parquet"
     if not macro_path.exists():
@@ -327,16 +439,22 @@ def _set_active_regime(G: nx.DiGraph) -> str:
     vix_latest = float(macro_lvl["VIX"].dropna().iloc[-1])
 
     if vix_latest < 15:
-        regime = RegimeType.LOW_VIX.value
+        raw_regime = RegimeType.LOW_VIX.value
     elif vix_latest < 25:
-        regime = RegimeType.MID_VIX.value
+        raw_regime = RegimeType.MID_VIX.value
     else:
-        regime = RegimeType.HIGH_VIX.value
+        raw_regime = RegimeType.HIGH_VIX.value
+
+    regime = _confirm_regime(raw_regime, vix_latest)
 
     for r in [RegimeType.LOW_VIX.value, RegimeType.MID_VIX.value, RegimeType.HIGH_VIX.value]:
         nx.set_node_attributes(G, {r: {"active": r == regime, "vix_latest": vix_latest}})
 
-    print(f"  [OK] Active regime: {regime}  (VIX={vix_latest:.2f})")
+    if regime != raw_regime:
+        print(f"  [OK] Active regime: {regime}  (VIX={vix_latest:.2f}, raw={raw_regime} 보류 — "
+              f"연속 {REGIME_CONFIRM_CYCLES}사이클 확인 대기)")
+    else:
+        print(f"  [OK] Active regime: {regime}  (VIX={vix_latest:.2f})")
     return regime
 
 

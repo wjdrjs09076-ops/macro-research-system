@@ -250,6 +250,153 @@ def _extract_variance_diagnostics(G, signals: list) -> dict:
     }
 
 
+AUDIT_FDR_Q = 0.10   # Benjamini-Hochberg 유의 기준 (라운드 6 비평 7번)
+
+
+def _p_from_t(t: float) -> float:
+    """양측 p값 (정규 근사 — n≈360 이라 t분포와 거의 동일)."""
+    import math
+    if not math.isfinite(t):
+        return float("nan")
+    return math.erfc(abs(t) / math.sqrt(2.0))
+
+
+def _bh_qvalues(ps: list[float]) -> list[float]:
+    """Benjamini-Hochberg q값. NaN 은 그대로 NaN."""
+    import math
+    finite = [i for i, p in enumerate(ps) if isinstance(p, float) and math.isfinite(p)]
+    m = len(finite)
+    qs: list[float] = [float("nan")] * len(ps)
+    if not m:
+        return qs
+    order = sorted(finite, key=lambda i: ps[i])
+    prev = 1.0
+    for rank in range(m, 0, -1):
+        i = order[rank - 1]
+        q = min(prev, ps[i] * m / rank)
+        qs[i] = q
+        prev = q
+    return qs
+
+
+def _extract_sensitivity_audit(G) -> list[dict]:
+    """이변량(raw) vs 다변량 통제(ctrl) delta 비교 — UI 감사 테이블 (2026-06-12).
+
+    2026-06-12 후반 (라운드 6 비평 7번): 55개 가설을 |t|>2 로 스캔하면 우연
+    기대치가 2~3건 — 유의 판정을 BH FDR q < 0.10 으로 보정. 또한 다변량
+    회귀가 금리를 레벨+기울기(2s10s)로 직교화하고 행마다 VIF 를 실어,
+    'KILLED' 가 교란 제거인지 분산 팽창(공선성)인지 구분 가능해졌다.
+
+    verdict:
+      confirmed = 양쪽 유의·동일 부호 (교란 아님 — 진짜 민감도)
+      killed    = raw 만 유의 (통제 후 소멸 — 교란이었음, 룰 발화 안 함)
+      emerged   = ctrl 만 유의 (교란이 가리고 있던 민감도)
+      flipped   = 양쪽 유의·부호 반대 (심한 교란)
+    """
+    import math
+    from ontology.schema import SECTOR_NAMES, MACRO_NAMES
+
+    def _f(v) -> float:
+        try:
+            x = float(v)
+            return x if math.isfinite(x) else float("nan")
+        except (TypeError, ValueError):
+            return float("nan")
+
+    # 1) 전체 가설 수집 (FDR 은 전체 family 에 적용해야 함)
+    cand: list[dict] = []
+    for sec in SECTOR_NAMES:
+        for mac in MACRO_NAMES:
+            if not G.has_edge(sec, mac):
+                continue
+            e = G.edges[sec, mac]
+            cand.append({
+                "sector": sec, "macro": mac,
+                "d_raw": _f(e.get("delta")),   "t_raw": _f(e.get("t_delta")),
+                "d_ctl": _f(e.get("delta_ctrl")), "t_ctl": _f(e.get("t_delta_ctrl")),
+                "vif":   _f(e.get("vif")),
+            })
+    if not cand:
+        return []
+
+    q_raw = _bh_qvalues([_p_from_t(c["t_raw"]) for c in cand])
+    q_ctl = _bh_qvalues([_p_from_t(c["t_ctl"]) for c in cand])
+
+    out: list[dict] = []
+    for c, qr, qc in zip(cand, q_raw, q_ctl):
+        sig_raw = math.isfinite(qr) and qr < AUDIT_FDR_Q
+        sig_ctl = math.isfinite(qc) and qc < AUDIT_FDR_Q
+        if not (sig_raw or sig_ctl):
+            continue
+        if sig_raw and sig_ctl:
+            verdict = "confirmed" if c["d_raw"] * c["d_ctl"] > 0 else "flipped"
+        elif sig_raw:
+            verdict = "killed"
+        else:
+            verdict = "emerged"
+        out.append({
+            "sector":     c["sector"],
+            "macro":      c["macro"],
+            "delta_raw":  round(c["d_raw"], 4) if math.isfinite(c["d_raw"]) else None,
+            "t_raw":      round(c["t_raw"], 2) if math.isfinite(c["t_raw"]) else None,
+            "delta_ctrl": round(c["d_ctl"], 4) if math.isfinite(c["d_ctl"]) else None,
+            "t_ctrl":     round(c["t_ctl"], 2) if math.isfinite(c["t_ctl"]) else None,
+            "q_raw":      round(qr, 4) if math.isfinite(qr) else None,
+            "q_ctrl":     round(qc, 4) if math.isfinite(qc) else None,
+            "vif":        round(c["vif"], 1) if math.isfinite(c["vif"]) else None,
+            "verdict":    verdict,
+        })
+    # killed/flipped (교란 발견) 먼저, 그 안에선 |t_raw| 큰 순
+    rank = {"flipped": 0, "killed": 1, "emerged": 2, "confirmed": 3}
+    out.sort(key=lambda r: (rank[r["verdict"]], -(abs(r["t_raw"] or 0))))
+    return out
+
+
+def _load_regime_state() -> dict | None:
+    """populate._confirm_regime 의 히스테리시스 상태 (confirmed/pending/카운트)."""
+    path = OUTPUT_DIR / "regime_state.json"
+    if not path.exists():
+        return None
+    try:
+        st = json.loads(path.read_text(encoding="utf-8"))
+        return {
+            "confirmed":      st.get("confirmed"),
+            "pending":        st.get("pending"),
+            "pending_count":  st.get("pending_count", 0),
+            "confirm_cycles": 2,
+            "vix":            st.get("vix"),
+            "ts":             st.get("ts"),
+        }
+    except (ValueError, OSError):
+        return None
+
+
+RULE_SECTOR_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
+
+
+def _write_rule_sector_state(G, active_regime: str) -> None:
+    """**단일 진실원** (라운드 7 비평 1번): 현재 데이터에서 유효한 (rule × sector)
+    상태표를 한 곳에 기록. 문서(p.8/9/14)와 포지션 수명주기가 전부 이 파일을 참조.
+
+    유효성 = run_all_regimes 발화 (레짐 무관 *데이터* 유효성 — 레짐이 바뀌어도
+    데이터가 유효하면 포지션을 털지 않기 위해 레짐 필터와 분리).
+    kinetic 의 '시그널은퇴' 청산이 이 파일로 죽은 시그널 위의 포지션을 회수한다
+    (룰은퇴 가드는 룰 단위라 섹터 단위 사망 — XLV/XLP 공선성 판명 — 을 못 잡던 갭).
+    """
+    try:
+        all_sig = generate_signals(G, active_regime, run_all_regimes=True)
+        valid = sorted({f"{s.rule_name}|{s.sector}" for s in all_sig})
+        payload = {
+            "generated": dt.datetime.now().isoformat(timespec="seconds"),
+            "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
+            "valid_pairs": valid,
+        }
+        RULE_SECTOR_STATE_JSON.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as exc:
+        print(f"  [WARN] rule_sector_state 기록 실패: {exc}")
+
+
 def get_action_candidates(
     run_all_regimes: bool = False,
     write_json: bool = True,
@@ -260,6 +407,7 @@ def get_action_candidates(
     G = build_empty_graph()
     active_regime = populate(G)
     signals = generate_signals(G, active_regime, run_all_regimes)
+    _write_rule_sector_state(G, active_regime)
 
     straddle = _aggregate_straddle(signals)
     directional = _aggregate_directional(signals)
@@ -278,6 +426,7 @@ def get_action_candidates(
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         payload = {
             "active_regime": active_regime,
+            "regime_state":  _load_regime_state(),
             "generated":     dt.datetime.now().isoformat(timespec="seconds"),
             "policy": {
                 "long_straddle_rules": sorted(LONG_STRADDLE_RULES),
@@ -286,6 +435,7 @@ def get_action_candidates(
             "straddle_candidates":       straddle,
             "directional_candidates":    directional,
             "short_straddle_candidates": short_straddle,
+            "sensitivity_audit":         _extract_sensitivity_audit(G),
             "variance_decomposition":    variance_info,
             "joint_simulation":          joint_sim,
         }

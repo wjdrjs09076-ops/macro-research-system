@@ -11,17 +11,20 @@ const CAUSAL_LINKS = [
   { src: "US10Y", dst: "DXY",         lag: 2,  coef: "-0.62", stability: "emerging",   dir: "-" },
 ];
 
-const CAUSAL_SECTORS = [
-  { ticker: "XLK",  name: "Technology",            delta: 0.0447, chain: "CPI(3m)→US2Y(1m)→FED_FUNDS(3m)→VIX", conf: 0.671 },
-  { ticker: "XLE",  name: "Energy",                delta: 0.0391, chain: "OIL(1m)→CPI(3m)→US2Y(1m)→FED_FUNDS(3m)→VIX", conf: 0.643 },
-  { ticker: "XLF",  name: "Financials",            delta: 0.0362, chain: "CPI(3m)→US2Y(1m)→FED_FUNDS(3m)→VIX", conf: 0.618 },
-  { ticker: "XLY",  name: "Consumer Discr.",       delta: 0.0318, chain: "CPI(3m)→US2Y(1m)→FED_FUNDS(3m)→VIX", conf: 0.594 },
-  { ticker: "XLC",  name: "Comm. Services",        delta: 0.0297, chain: "CPI(3m)→US2Y(1m)→FED_FUNDS(3m)→VIX", conf: 0.572 },
-  { ticker: "XLI",  name: "Industrials",           delta: 0.0261, chain: "CREDIT_SPREAD(1m)→VIX",               conf: 0.541 },
-  { ticker: "XLB",  name: "Materials",             delta: 0.0244, chain: "CREDIT_SPREAD(1m)→VIX",               conf: 0.523 },
-  { ticker: "XLRE", name: "Real Estate",           delta: 0.0231, chain: "FED_FUNDS(3m)→VIX",                   conf: 0.508 },
-  { ticker: "XLU",  name: "Utilities",             delta: 0.0198, chain: "FED_FUNDS(3m)→VIX",                   conf: 0.487 },
-  { ticker: "XLV",  name: "Health Care",           delta: 0.0143, chain: "CREDIT_SPREAD(1m)→VIX",               conf: 0.456 },
+// 2026-06-12 다변량(partial) 회귀 감사 — 이변량 raw delta 와 전 매크로(OIL 포함)
+// 동시 + SPY 통제 후 delta 비교. KILLED = 통제 후 유의성 소멸 (교란이었음).
+// 구 causal_chain_monitor 섹터 표는 룰 은퇴(2026-06-10) + raw delta 반증으로 교체됨.
+const SENSITIVITY_AUDIT = [
+  { pair: "XLK × VIX",    raw: -0.0138, tRaw: -25.2, ctrl: 0.0019,  tCtrl: 2.3,  verdict: "FLIPPED",   note: "VIX 민감도의 거의 전부가 시장베타였음" },
+  { pair: "XLE × US10Y",  raw: 0.0041,  tRaw: 5.1,   ctrl: 0.0007,  tCtrl: 1.1,  verdict: "KILLED",    note: "'금리 수혜'는 유가 교란 — 진짜 드라이버는 OIL" },
+  { pair: "XLK × US2Y",   raw: 0.0034,  tRaw: 3.8,   ctrl: 0.0006,  tCtrl: 1.5,  verdict: "KILLED",    note: "시장베타 교란" },
+  { pair: "XLE × US2Y",   raw: 0.0027,  tRaw: 3.3,   ctrl: 0.0004,  tCtrl: 0.6,  verdict: "KILLED",    note: "유가 교란" },
+  { pair: "XLI × US2Y",   raw: 0.0013,  tRaw: 2.1,   ctrl: -0.0002, tCtrl: -0.7, verdict: "KILLED",    note: "" },
+  { pair: "XLE × OIL",    raw: 0.0088,  tRaw: 12.4,  ctrl: 0.0087,  tCtrl: 13.6, verdict: "CONFIRMED", note: "에너지의 진짜 드라이버" },
+  { pair: "XLRE × US10Y", raw: -0.0024, tRaw: -4.5,  ctrl: -0.0025, tCtrl: -5.1, verdict: "CONFIRMED", note: "듀레이션 테제 — 통제 후 더 강해짐" },
+  { pair: "XLU × US10Y",  raw: -0.0021, tRaw: -3.9,  ctrl: -0.0024, tCtrl: -4.3, verdict: "CONFIRMED", note: "듀레이션 테제" },
+  { pair: "XLV × US10Y",  raw: -0.0016, tRaw: -2.9,  ctrl: -0.0015, tCtrl: -2.8, verdict: "CONFIRMED", note: "" },
+  { pair: "XLP × US10Y",  raw: -0.0013, tRaw: -2.8,  ctrl: -0.0011, tCtrl: -2.1, verdict: "CONFIRMED", note: "" },
 ];
 
 const LAYERS = [
@@ -290,29 +293,55 @@ export default function ArchitecturePage() {
           </div>
         </div>
 
-        {/* Sector Signal Summary */}
+        {/* Sensitivity Audit — raw vs controlled delta (2026-06-12) */}
         <div>
-          <div className="text-xs text-gray-500 mb-2">
-            causal_chain_monitor 신호 — 인과 체인을 통해 VIX에 노출된 섹터 (상위 10개)
+          <div className="flex items-center justify-between mb-2">
+            <div className="text-xs text-gray-500">
+              민감도 감사 (2026-06-12) — 이변량 raw vs 다변량 통제(OIL·VIX·DXY·SPY) delta
+            </div>
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-900/40 text-red-300">
+              교란 판정 5건
+            </span>
           </div>
-          <div className="space-y-1.5">
-            {CAUSAL_SECTORS.map((s) => (
-              <div key={s.ticker} className="flex items-center gap-3 text-xs">
-                <span className="font-mono text-purple-300 w-10">{s.ticker}</span>
-                <span className="text-gray-500 w-28">{s.name}</span>
-                <span className="text-gray-600 w-8">δ={s.delta.toFixed(3)}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-purple-500"
-                      style={{ width: `${s.conf * 100}%` }}
-                    />
-                  </div>
-                </div>
-                <span className="font-mono text-gray-400 w-10 text-right">{s.conf.toFixed(3)}</span>
-                <span className="text-gray-600 hidden lg:block truncate max-w-[280px]">{s.chain}</span>
-              </div>
-            ))}
+          <p className="text-[10px] text-gray-600 mb-3 max-w-3xl leading-relaxed">
+            구 causal_chain_monitor 섹터 표(이변량 VIX delta)는 룰 은퇴 + 통제 회귀 반증으로 교체.
+            rate_* 룰은 이제 통제(partial) delta 로 발화 — &quot;XLE 금리 수혜&quot; 류의 교란 신호는 차단됨.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-gray-800 text-gray-500 text-[10px]">
+                  <th className="text-left py-1.5 pr-3">Sector × Macro</th>
+                  <th className="text-right py-1.5 pr-3">δ raw (t)</th>
+                  <th className="text-right py-1.5 pr-3">δ ctrl (t)</th>
+                  <th className="text-left py-1.5 pr-3">Verdict</th>
+                  <th className="text-left py-1.5">해석</th>
+                </tr>
+              </thead>
+              <tbody>
+                {SENSITIVITY_AUDIT.map((r) => (
+                  <tr key={r.pair} className="border-b border-gray-800/30 hover:bg-gray-900/20">
+                    <td className="py-1.5 pr-3 font-mono text-purple-300">{r.pair}</td>
+                    <td className="py-1.5 pr-3 text-right font-mono text-gray-400">
+                      {r.raw.toFixed(4)} <span className="text-gray-600">({r.tRaw.toFixed(1)})</span>
+                    </td>
+                    <td className="py-1.5 pr-3 text-right font-mono text-gray-300">
+                      {r.ctrl.toFixed(4)} <span className="text-gray-600">({r.tCtrl.toFixed(1)})</span>
+                    </td>
+                    <td className="py-1.5 pr-3">
+                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
+                        r.verdict === "CONFIRMED"
+                          ? "bg-emerald-900/50 text-emerald-300"
+                          : "bg-red-900/50 text-red-300"
+                      }`}>
+                        {r.verdict}
+                      </span>
+                    </td>
+                    <td className="py-1.5 text-gray-500">{r.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

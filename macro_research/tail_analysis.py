@@ -29,6 +29,92 @@ from config import OUTPUT_DIR, FIGURES_DIR, SECTOR_ETFS, MACRO_TICKERS
 
 
 # ---------------------------------------------------------------------------
+# 0. 블록 부트스트랩 (2026-06-12, 라운드 6 비평 4번)
+# ---------------------------------------------------------------------------
+# ~370 영업일 표본에서 ξ(초과분 ~37개, SE≈0.2)와 λ_L(u=0.05, 조건부 표본 ~18개,
+# SE>0.1)은 점추정만으론 노이즈와 구분 불가. 모든 꼬리 추정치에 CI 를 붙이고,
+# 특히 *무한손실 방향* 인 thin_tail_greenlight 는 CI 상한으로 판정한다
+# (노이즈가 "안전" 을 선언하는 비대칭 위험 차단).
+# 이동블록 부트스트랩(블록 10일) — 변동성 군집 보존. iid 보다 CI 약간 넓음.
+
+N_BOOT     = 500
+BOOT_BLOCK = 10
+_BOOT_RNG  = np.random.default_rng(42)   # 재현성
+
+
+def _block_indices(n: int, rng, block: int = BOOT_BLOCK) -> np.ndarray:
+    """이동블록 부트스트랩용 인덱스 (길이 n, 순환 블록)."""
+    idx = np.empty(n, dtype=int)
+    pos = 0
+    while pos < n:
+        start = rng.integers(0, n)
+        take = min(block, n - pos)
+        idx[pos:pos + take] = (start + np.arange(take)) % n
+        pos += take
+    return idx
+
+
+def bootstrap_xi_ci(losses: np.ndarray, threshold_pct: float = 0.10,
+                    n_boot: int = N_BOOT, q: tuple = (0.05, 0.95)) -> tuple[float, float]:
+    """GPD 꼬리지수 ξ 의 블록 부트스트랩 CI (기본 90%)."""
+    losses = losses[~np.isnan(losses)]
+    n = len(losses)
+    if n < 100:
+        return np.nan, np.nan
+    xis = []
+    for _ in range(n_boot):
+        sample = losses[_block_indices(n, _BOOT_RNG)]
+        u = np.quantile(sample, 1 - threshold_pct)
+        exc = sample[sample > u] - u
+        if len(exc) < 20:
+            continue
+        try:
+            xi, _, _ = ss.genpareto.fit(exc, floc=0)
+            xis.append(xi)
+        except Exception:
+            pass
+    if len(xis) < 50:
+        return np.nan, np.nan
+    return float(np.quantile(xis, q[0])), float(np.quantile(xis, q[1]))
+
+
+def bootstrap_lambda_lower_hi(x: np.ndarray, y: np.ndarray, u: float = 0.05,
+                              n_boot: int = N_BOOT, q: float = 0.95) -> float:
+    """λ_L 의 블록 부트스트랩 상한 (기본 95%). 페어 행 단위 공동 리샘플."""
+    mask = ~(np.isnan(x) | np.isnan(y))
+    x, y = x[mask], y[mask]
+    n = len(x)
+    if n < 100:
+        return np.nan
+    vals = []
+    for _ in range(n_boot):
+        idx = _block_indices(n, _BOOT_RNG)
+        xs, ys = x[idx], y[idx]
+        qx, qy = np.quantile(xs, u), np.quantile(ys, u)
+        vals.append(np.mean((xs < qx) & (ys < qy)) / u)
+    return float(np.quantile(vals, q))
+
+
+def bootstrap_cf_ratio_hi(returns: pd.Series, alpha: float = 0.01,
+                          n_boot: int = N_BOOT, q: float = 0.95) -> float:
+    """CF/Normal VaR 비율의 블록 부트스트랩 상한 (기본 95%)."""
+    r = returns.dropna().values
+    n = len(r)
+    if n < 100:
+        return np.nan
+    vals = []
+    for _ in range(n_boot):
+        sample = pd.Series(r[_block_indices(n, _BOOT_RNG)])
+        res = cornish_fisher_var(sample, alpha)
+        v = res.get("cf_over_normal")
+        if v is not None and np.isfinite(v):
+            vals.append(v)
+    if len(vals) < 50:
+        return np.nan
+    return float(np.quantile(vals, q))
+
+
+# ---------------------------------------------------------------------------
 # 1. GPD / Extreme Value Theory
 # ---------------------------------------------------------------------------
 
@@ -76,13 +162,14 @@ def fit_gpd(losses: np.ndarray, threshold_pct: float = 0.10) -> dict:
 
 
 def run_gpd_all(returns: pd.DataFrame) -> pd.DataFrame:
-    """Fit GPD to left tail of each sector's daily returns."""
+    """Fit GPD to left tail of each sector's daily returns (+ 부트스트랩 CI)."""
     sectors = [c for c in returns.columns if c != "SPY"]
     rows = []
     for sec in sectors:
         losses = -returns[sec].dropna().values  # flip sign: loss = positive
         res = fit_gpd(losses)
-        rows.append({"sector": sec, **res})
+        xi_lo, xi_hi = bootstrap_xi_ci(losses)
+        rows.append({"sector": sec, **res, "xi_lo": xi_lo, "xi_hi": xi_hi})
     df = pd.DataFrame(rows).set_index("sector")
 
     # Also compute historical (empirical) VaR/ES for comparison
@@ -421,6 +508,7 @@ def run_cf_var_all(returns: pd.DataFrame, alpha: float = 0.01) -> pd.DataFrame:
     rows = []
     for sec in sectors:
         res = cornish_fisher_var(returns[sec], alpha)
+        res["cf_over_normal_hi"] = bootstrap_cf_ratio_hi(returns[sec], alpha)
         rows.append({"sector": sec, **res})
     return pd.DataFrame(rows).set_index("sector")
 
@@ -465,6 +553,11 @@ def plot_var_comparison(cf_df: pd.DataFrame, gpd_df: pd.DataFrame, filename: str
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
+    import sys
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -515,6 +608,19 @@ if __name__ == "__main__":
     sec_hi.to_csv(OUTPUT_DIR / "tail_dep_sector_upper.csv")
     mac_lo.to_csv(OUTPUT_DIR / "tail_dep_macro_lower.csv")
     mac_hi.to_csv(OUTPUT_DIR / "tail_dep_macro_upper.csv")
+
+    # λ_L 부트스트랩 상한 행렬 (thin_tail_greenlight 보수 게이트용)
+    print("\n  λ_L 부트스트랩 상한 (95%) 계산 중 — 55 페어 × 500 리샘플 ...")
+    sectors_l = sec_lo.index.tolist()
+    common_b = returns.index
+    sec_lo_hi = pd.DataFrame(index=sectors_l, columns=sectors_l, dtype=float)
+    for i, s1 in enumerate(sectors_l):
+        for s2 in sectors_l[i:]:
+            hi = bootstrap_lambda_lower_hi(returns.loc[common_b, s1].values,
+                                           returns.loc[common_b, s2].values)
+            sec_lo_hi.loc[s1, s2] = sec_lo_hi.loc[s2, s1] = hi
+    sec_lo_hi.to_csv(OUTPUT_DIR / "tail_dep_sector_lower_hi.csv")
+    print("  → tail_dep_sector_lower_hi.csv 저장")
 
     print("\n  Sector x Sector lower tail dependence (co-crash):")
     print(sec_lo.astype(float).round(3).to_string())

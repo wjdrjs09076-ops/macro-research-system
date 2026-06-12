@@ -195,12 +195,31 @@ type JointSim = {
   top_pair_co_drawdown: { a: string; b: string; p_co: number }[];
   sigmas_annual?: Record<string, number>;
 };
+type RegimeState = {
+  confirmed: string;
+  pending: string | null;
+  pending_count: number;
+  confirm_cycles: number;
+  vix: number | null;
+  ts: string | null;
+};
+type AuditRow = {
+  sector: string;
+  macro: string;
+  delta_raw: number | null;
+  t_raw: number | null;
+  delta_ctrl: number | null;
+  t_ctrl: number | null;
+  verdict: "confirmed" | "killed" | "emerged" | "flipped";
+};
 type LiveSignals = {
   active_regime: string;
+  regime_state?: RegimeState | null;
   generated: string;
   straddle_candidates: LiveCandidate[];
   directional_candidates: LiveCandidate[];
   short_straddle_candidates?: LiveCandidate[];
+  sensitivity_audit?: AuditRow[];
   variance_decomposition: {
     by_sector: VarianceRow[];
     shock_propagators: { ticker: string; propagation_score: number; confidence: number; reasoning: string[] }[];
@@ -719,9 +738,17 @@ function LiveSignalsBlock({ live }: { live: LiveSignals }) {
             Cholesky 분산 분해는 평상시 가우시안 의존성으로 '왜 이 섹터가 움직였나'를 직교 충격으로 귀인.
           </p>
         </div>
-        <div className="text-right text-xs bg-gray-900/60 rounded-lg p-3 min-w-[140px]">
-          <div className="text-gray-500 mb-0.5">활성 레짐</div>
+        <div className="text-right text-xs bg-gray-900/60 rounded-lg p-3 min-w-[160px]">
+          <div className="text-gray-500 mb-0.5">활성 레짐 (확정)</div>
           <div className="font-mono text-cyan-300 text-base">{live.active_regime}</div>
+          {live.regime_state?.pending && (
+            <div className="mt-1 inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-900/50 text-amber-300">
+              raw {live.regime_state.pending} 보류 {live.regime_state.pending_count}/{live.regime_state.confirm_cycles}
+            </div>
+          )}
+          {live.regime_state?.vix != null && (
+            <div className="text-gray-500 mt-0.5 text-[10px]">VIX {live.regime_state.vix.toFixed(2)} · 연속 {live.regime_state?.confirm_cycles ?? 2}사이클 확인 후 전환</div>
+          )}
           <div className="text-gray-600 mt-0.5 text-[10px]">{live.generated.slice(0, 16)}</div>
         </div>
       </div>
@@ -766,6 +793,11 @@ function LiveSignalsBlock({ live }: { live: LiveSignals }) {
           ))}
         </div>
       </div>
+
+      {/* Sensitivity audit — raw vs controlled delta (2026-06-12) */}
+      {live.sensitivity_audit && live.sensitivity_audit.length > 0 && (
+        <SensitivityAuditBlock rows={live.sensitivity_audit} />
+      )}
 
       {/* Variance attribution matrix */}
       <div className="rounded-lg bg-gray-900/30 p-4">
@@ -819,6 +851,75 @@ function LiveSignalsBlock({ live }: { live: LiveSignals }) {
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// Sensitivity audit — 이변량(raw) vs 다변량 통제(ctrl) delta (2026-06-12)
+// ────────────────────────────────────────────────────────────────────────
+
+const VERDICT_STYLE: Record<AuditRow["verdict"], { label: string; cls: string }> = {
+  killed:    { label: "KILLED",    cls: "bg-red-900/50 text-red-300" },
+  flipped:   { label: "FLIPPED",   cls: "bg-red-900/70 text-red-200" },
+  emerged:   { label: "EMERGED",   cls: "bg-blue-900/50 text-blue-300" },
+  confirmed: { label: "CONFIRMED", cls: "bg-emerald-900/50 text-emerald-300" },
+};
+
+function SensitivityAuditBlock({ rows }: { rows: AuditRow[] }) {
+  const nKilled = rows.filter((r) => r.verdict === "killed" || r.verdict === "flipped").length;
+  return (
+    <div className="rounded-lg bg-gray-900/30 border border-red-900/30 p-4">
+      <div className="flex items-center justify-between mb-1">
+        <h4 className="text-xs font-mono text-gray-400">
+          SENSITIVITY AUDIT — raw vs controlled delta
+        </h4>
+        <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-900/40 text-red-300">
+          교란 판정 {nKilled}건
+        </span>
+      </div>
+      <p className="text-[10px] text-gray-500 mb-3">
+        raw = 이변량 OLS (매크로 1개씩) · ctrl = 전 매크로(OIL 포함) 동시 + SPY 통제 partial.
+        KILLED = 통제 후 유의성 소멸(교란이었음 — 룰 발화 차단) · CONFIRMED = 양쪽 생존(진짜 민감도).
+        rate_* 룰은 ctrl delta 로 판정.
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full text-xs border-collapse">
+          <thead>
+            <tr className="border-b border-gray-800 text-gray-500 text-[10px]">
+              <th className="text-left py-1.5 pr-3">Sector × Macro</th>
+              <th className="text-right py-1.5 pr-3">δ raw (t)</th>
+              <th className="text-right py-1.5 pr-3">δ ctrl (t)</th>
+              <th className="text-left py-1.5">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => {
+              const v = VERDICT_STYLE[r.verdict];
+              return (
+                <tr key={`${r.sector}-${r.macro}`} className="border-b border-gray-800/30 hover:bg-gray-900/20">
+                  <td className="py-1.5 pr-3 font-mono">
+                    <span className="text-gray-200">{r.sector}</span>
+                    <span className="text-gray-600"> × </span>
+                    <span className="text-purple-300">{r.macro}</span>
+                  </td>
+                  <td className="py-1.5 pr-3 text-right font-mono text-gray-400">
+                    {r.delta_raw != null ? r.delta_raw.toFixed(4) : "—"}
+                    <span className="text-gray-600"> ({r.t_raw != null ? r.t_raw.toFixed(1) : "—"})</span>
+                  </td>
+                  <td className="py-1.5 pr-3 text-right font-mono text-gray-300">
+                    {r.delta_ctrl != null ? r.delta_ctrl.toFixed(4) : "—"}
+                    <span className="text-gray-600"> ({r.t_ctrl != null ? r.t_ctrl.toFixed(1) : "—"})</span>
+                  </td>
+                  <td className="py-1.5">
+                    <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${v.cls}`}>{v.label}</span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

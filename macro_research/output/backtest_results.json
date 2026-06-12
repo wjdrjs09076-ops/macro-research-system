@@ -1,0 +1,197 @@
+{
+  "period": {
+    "start": "2025-12-11",
+    "end": "2026-06-09",
+    "n_days": 123
+  },
+  "tp25": {
+    "period": {
+      "start": "2025-12-11",
+      "end": "2026-06-09",
+      "n_days": 123
+    },
+    "n_closed": 41,
+    "by_strategy": {
+      "directional": {
+        "trades": 28,
+        "wins": 12,
+        "win_rate": 0.4286,
+        "avg_pnl_pct": -0.0044,
+        "total_pnl": -67.44
+      },
+      "straddle": {
+        "trades": 13,
+        "wins": 8,
+        "win_rate": 0.6154,
+        "avg_pnl_pct": 0.1245,
+        "total_pnl": 785.2
+      }
+    },
+    "by_rule_strategy": {
+      "rate_victim|directional": {
+        "trades": 23,
+        "wins": 9,
+        "win_rate": 0.3913,
+        "avg_pnl_pct": -0.0052,
+        "total_pnl": -55.67
+      },
+      "co_crash_cluster|straddle": {
+        "trades": 7,
+        "wins": 6,
+        "win_rate": 0.8571,
+        "avg_pnl_pct": 0.2702,
+        "total_pnl": 915.07
+      },
+      "fat_tail_alert|straddle": {
+        "trades": 6,
+        "wins": 2,
+        "win_rate": 0.3333,
+        "avg_pnl_pct": -0.0454,
+        "total_pnl": -129.87
+      },
+      "co_crash_cluster|directional": {
+        "trades": 5,
+        "wins": 3,
+        "win_rate": 0.6,
+        "avg_pnl_pct": -0.0007,
+        "total_pnl": -11.77
+      }
+    }
+  },
+  "trail": {
+    "period": {
+      "start": "2025-12-11",
+      "end": "2026-06-09",
+      "n_days": 123
+    },
+    "n_closed": 41,
+    "by_strategy": {
+      "directional": {
+        "trades": 28,
+        "wins": 12,
+        "win_rate": 0.4286,
+        "avg_pnl_pct": -0.0044,
+        "total_pnl": -67.44
+      },
+      "straddle": {
+        "trades": 13,
+        "wins": 9,
+        "win_rate": 0.6923,
+        "avg_pnl_pct": 0.2405,
+        "total_pnl": 1319.85
+      }
+    },
+    "by_rule_strategy": {
+      "rate_victim|directional": {
+        "trades": 23,
+        "wins": 9,
+        "win_rate": 0.3913,
+        "avg_pnl_pct": -0.0052,
+        "total_pnl": -55.67
+      },
+      "co_crash_cluster|straddle": {
+        "trades": 7,
+        "wins": 6,
+        "win_rate": 0.8571,
+        "avg_pnl_pct": 0.3308,
+        "total_pnl": 1313.46
+      },
+      "fat_tail_alert|straddle": {
+        "trades": 6,
+        "wins": 3,
+        "win_rate": 0.5,
+        "avg_pnl_pct": 0.1352,
+        "total_pnl": 6.39
+      },
+      "co_crash_cluster|directional": {
+        "trades": 5,
+        "wins": 3,
+        "win_rate": 0.6,
+        "avg_pnl_pct": -0.0007,
+        "total_pnl": -11.77
+      }
+    }
+  },
+  "baseline_spy": {
+    "rule": "VIX>25 → SPY ATM 스트래들 (trail 청산)",
+    "trades": 2,
+    "wins": 2,
+    "win_rate": 1.0,
+    "avg_pnl_pct": 0.7791,
+    "total_pnl": 3409.35
+  },
+  "trail_sensitivity": [
+    {
+      "arm": 0.2,
+      "giveback": 0.3,
+      "trades": 13,
+      "win_rate": 0.6923,
+      "avg_pnl_pct": 0.2206,
+      "total_pnl": 1437.53
+    },
+    {
+      "arm": 0.2,
+      "giveback": 0.4,
+      "trades": 13,
+      "win_rate": 0.6923,
+      "avg_pnl_pct": 0.2026,
+      "total_pnl": 1227.83
+    },
+    {
+      "arm": 0.2,
+      "giveback": 0.5,
+      "trades": 12,
+      "win_rate": 0.6667,
+      "avg_pnl_pct": 0.3073,
+      "total_pnl": 1557.76
+    },
+    {
+      "arm": 0.25,
+      "giveback": 0.3,
+      "trades": 13,
+      "win_rate": 0.6923,
+      "avg_pnl_pct": 0.2585,
+      "total_pnl": 1529.55
+    },
+    {
+      "arm": 0.25,
+      "giveback": 0.4,
+      "trades": 13,
+      "win_rate": 0.6923,
+      "avg_pnl_pct": 0.2405,
+      "total_pnl": 1319.85
+    },
+    {
+      "arm": 0.25,
+      "giveback": 0.5,
+      "trades": 12,
+      "win_rate": 0.75,
+      "avg_pnl_pct": 0.3732,
+      "total_pnl": 1821.32
+    },
+    {
+      "arm": 0.3,
+      "giveback": 0.3,
+      "trades": 13,
+      "win_rate": 0.6923,
+      "avg_pnl_pct": 0.2585,
+      "total_pnl": 1529.55
+    },
+    {
+      "arm": 0.3,
+      "giveback": 0.4,
+      "trades": 13,
+      "win_rate": 0.6923,
+      "avg_pnl_pct": 0.2405,
+      "total_pnl": 1319.85
+    },
+    {
+      "arm": 0.3,
+      "giveback": 0.5,
+      "trades": 12,
+      "win_rate": 0.75,
+      "avg_pnl_pct": 0.3732,
+      "total_pnl": 1821.32
+    }
+  ]
+}

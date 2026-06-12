@@ -23,8 +23,25 @@ from trade_journal import closed_trades
 ATTRIBUTION_JSON = OUTPUT_DIR / "attribution.json"
 
 
+def _entry_date(t: dict) -> str:
+    """진입 날짜 (cohort 키용). entry_ts 우선, 없으면 trade_id 의 날짜 부분."""
+    ts = t.get("entry_ts")
+    if ts:
+        return str(ts)[:10]
+    parts = (t.get("trade_id") or "").split("-")
+    if len(parts) >= 4:
+        return "-".join(parts[-4:-1])   # TICKER-YYYY-MM-DD-uuid → YYYY-MM-DD
+    return "?"
+
+
 def _agg(trades: list[dict], key, label: str | None = None) -> dict[str, dict]:
-    """key 가 문자열이면 해당 필드로, 호출가능이면 t->버킷키 로 집계."""
+    """key 가 문자열이면 해당 필드로, 호출가능이면 t->버킷키 로 집계.
+
+    cohort 통계 (2026-06-12): 같은 (rule, strategy, 진입일) 동시 진입은 같은
+    매크로 드라이버로 함께 움직이는 *상관 표본* — 독립 증거로 세면 표본 수가
+    부풀려진다 (금리 한 번 움직임 = rate_* 거래 6건 = "증거 6개" 왜곡).
+    cohort 당 1 유효 표본으로 묶은 _eff 지표를 함께 산출한다.
+    """
     keyfn = key if callable(key) else (lambda t, k=key: t.get(k) or "?")
     buckets: dict[str, list[dict]] = {}
     for t in trades:
@@ -38,13 +55,31 @@ def _agg(trades: list[dict], key, label: str | None = None) -> dict[str, dict]:
         holds = [t["holding_days"] for t in ts if t.get("holding_days") is not None]
         wins = sum(1 for p in pnls if p > 0)
         n = len(ts)
+
+        cohorts: dict[tuple, list[dict]] = {}
+        for t in ts:
+            ck = (t.get("rule"), t.get("strategy"), _entry_date(t))
+            cohorts.setdefault(ck, []).append(t)
+        co_mean_pcts = [
+            sum(float(x.get("pnl_pct") or 0) for x in cts) / len(cts)
+            for cts in cohorts.values()
+        ]
+        co_total_pnls = [
+            sum(float(x.get("pnl") or 0) for x in cts)
+            for cts in cohorts.values()
+        ]
+        n_eff = len(cohorts)
+
         out[k] = {
-            "trades":        n,
-            "wins":          wins,
-            "win_rate":      round(wins / n, 4) if n else 0.0,
-            "avg_pnl_pct":   round(sum(pnl_pcts) / n, 4) if n else 0.0,
-            "total_pnl":     round(sum(pnls), 2),
-            "avg_hold_days": round(sum(holds) / len(holds), 1) if holds else None,
+            "trades":          n,
+            "wins":            wins,
+            "win_rate":        round(wins / n, 4) if n else 0.0,
+            "avg_pnl_pct":     round(sum(pnl_pcts) / n, 4) if n else 0.0,
+            "total_pnl":       round(sum(pnls), 2),
+            "avg_hold_days":   round(sum(holds) / len(holds), 1) if holds else None,
+            "cohorts":         n_eff,
+            "win_rate_eff":    round(sum(1 for p in co_total_pnls if p > 0) / n_eff, 4) if n_eff else 0.0,
+            "avg_pnl_pct_eff": round(sum(co_mean_pcts) / n_eff, 4) if n_eff else 0.0,
         }
     return out
 
@@ -73,12 +108,14 @@ def build_attribution(write: bool = True) -> dict:
 
 def _print_table(title: str, stats: dict[str, dict]) -> None:
     print(f"\n  {title}")
-    print(f"  {'key':32s} {'n':>4} {'win%':>6} {'avgP&L%':>9} {'totP&L$':>10} {'hold':>6}")
-    print(f"  {'-'*70}")
+    print(f"  {'key':32s} {'n':>4} {'n_eff':>5} {'win%':>6} {'avgP&L%':>9} "
+          f"{'eff%':>7} {'totP&L$':>10} {'hold':>6}")
+    print(f"  {'-'*84}")
     for k, s in sorted(stats.items(), key=lambda kv: -kv[1]["total_pnl"]):
         hold = f"{s['avg_hold_days']:.1f}" if s["avg_hold_days"] is not None else "-"
-        print(f"  {k:32s} {s['trades']:>4} {s['win_rate']*100:>5.0f}% "
-              f"{s['avg_pnl_pct']*100:>8.1f}% {s['total_pnl']:>10,.0f} {hold:>6}")
+        print(f"  {k:32s} {s['trades']:>4} {s['cohorts']:>5} {s['win_rate']*100:>5.0f}% "
+              f"{s['avg_pnl_pct']*100:>8.1f}% {s['avg_pnl_pct_eff']*100:>6.1f}% "
+              f"{s['total_pnl']:>10,.0f} {hold:>6}")
 
 
 def main() -> None:

@@ -37,15 +37,13 @@ node_modules/
 out/
 .turbo/
 
-# ── 분석 산출물 (매시간 재생성 — 누적 안 함) ─────────────
+# ── 분석 산출물: 사이클마다 재생성되는 것만 ignore ─────────
+# (2026-06-12: GH Actions 러너는 휘발성 — Stage 2 가 재생성하지 *않는*
+#  무거운 통계(tail/poly4/causal)와 사이클 간 상태는 커밋 대상으로 전환)
 macro_research/output/*.parquet
 macro_research/output/*.png
 macro_research/output/figures/
 macro_research/output/rolling/
-macro_research/output/causal_*.csv
-macro_research/output/static_results.csv
-macro_research/output/poly4_static.csv
-macro_research/output/tail_*.csv
 macro_research/output/vrp_*.csv
 macro_research/output/iv_comparison.csv
 macro_research/output/iv_spread_series.csv
@@ -55,11 +53,13 @@ macro_research/output/crisis_results.csv
 macro_research/output/energy_trade_results.csv
 macro_research/output/market_iv_snapshot.csv
 macro_research/output/ml_ontology_graph.json
-macro_research/output/ontology_*.json
-macro_research/output/ontology_*.csv
+macro_research/output/ontology_graph.jsonld
+macro_research/output/ontology_trace.json
+macro_research/output/ontology_trading.json
+macro_research/output/ontology_signals.csv
 macro_research/output/gate_scores.json
 macro_research/output/evt_bridge.json
-macro_research/output/backtest_results.json
+macro_research/output/capm_iv_series.csv
 
 # 누적 데이터는 *유지* (commit)
 # trade_journal.jsonl ← 거래 기록
