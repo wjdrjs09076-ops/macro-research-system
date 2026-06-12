@@ -1,4 +1,4 @@
-nasdaqdatalink>=1.0.0
+# nasdaqdatalink: PyPI 제거 + Sharadar 구독 취소 — data_loader 선택적 import (yfinance 폴백)
 yfinance>=0.2.40
 pandas>=2.0.0
 numpy>=1.24.0

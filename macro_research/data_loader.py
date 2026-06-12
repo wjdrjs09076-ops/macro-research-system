@@ -12,10 +12,16 @@ from __future__ import annotations
 import warnings
 warnings.filterwarnings("ignore")
 
-import nasdaqdatalink
 import numpy as np
 import pandas as pd
 import yfinance as yf
+
+# nasdaqdatalink 는 PyPI 에서 제거됨 (현 패키지명 nasdaq-data-link) + Sharadar
+# 구독 취소(2026-06) — 선택적 import. 미설치 시 yfinance 폴백 전용 (2026-06-12).
+try:
+    import nasdaqdatalink
+except ImportError:
+    nasdaqdatalink = None
 
 from config import (
     SHARADAR_API_KEY,
@@ -27,7 +33,8 @@ from config import (
     OUTPUT_DIR,
 )
 
-nasdaqdatalink.ApiConfig.api_key = SHARADAR_API_KEY
+if nasdaqdatalink is not None:
+    nasdaqdatalink.ApiConfig.api_key = SHARADAR_API_KEY
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -37,6 +44,8 @@ nasdaqdatalink.ApiConfig.api_key = SHARADAR_API_KEY
 def _fetch_sfp_ticker(ticker: str) -> pd.Series:
     """SHARADAR/SFP에서 단일 ticker의 조정종가를 반환. 실패 시 yfinance fallback."""
     try:
+        if nasdaqdatalink is None:
+            raise ImportError("nasdaqdatalink 미설치 — yfinance 폴백")
         df = nasdaqdatalink.get_table(
             "SHARADAR/SFP",
             ticker=ticker,
