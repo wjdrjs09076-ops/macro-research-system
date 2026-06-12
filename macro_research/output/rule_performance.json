@@ -1,1 +1,52 @@
-{}
+{
+  "causal_chain_monitor|straddle": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 3,
+    "cohorts": 2,
+    "win_rate": 0.0,
+    "avg_pnl_pct": -0.2267,
+    "avg_pnl_pct_eff": -0.2354,
+    "total_pnl": -396.0
+  },
+  "shock_propagator|straddle": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 1,
+    "cohorts": 1,
+    "win_rate": 0.0,
+    "avg_pnl_pct": -0.2744,
+    "avg_pnl_pct_eff": -0.2744,
+    "total_pnl": -71.5
+  },
+  "rate_beneficiary|directional": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 2,
+    "cohorts": 2,
+    "win_rate": 0.5,
+    "avg_pnl_pct": 0.0041,
+    "avg_pnl_pct_eff": 0.0041,
+    "total_pnl": 3.84
+  },
+  "shock_propagator|directional": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 1,
+    "cohorts": 1,
+    "win_rate": 0.0,
+    "avg_pnl_pct": -0.005,
+    "avg_pnl_pct_eff": -0.005,
+    "total_pnl": -2.8
+  },
+  "rate_victim|directional": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 2,
+    "cohorts": 1,
+    "win_rate": 0.5,
+    "avg_pnl_pct": -0.004,
+    "avg_pnl_pct_eff": -0.004,
+    "total_pnl": -4.19
+  }
+}
