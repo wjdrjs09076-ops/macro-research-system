@@ -389,6 +389,11 @@ export default function AnalyzePage() {
         <p className="text-gray-400 text-sm">
           시장 사건명을 입력하면 AI가 뉴스를 검색해 섹터·ETF·방향을 자동 감지합니다.
         </p>
+        <p className="text-[11px] text-amber-400/80 mt-2 max-w-3xl leading-relaxed">
+          ⚠ 방법론 한계: 이미 알려진 위기를 이름으로 입력하는 구조는 <b>사후 선택</b>입니다 —
+          여기서 나온 게이트/성과 수치는 &ldquo;그 사건을 미리 알았다면&rdquo;의 조건부 결과이지
+          전향적 예측력의 증거가 아닙니다. 전향 검증은 Vol Monitor 플래그 적중률 패널이 담당합니다.
+        </p>
       </div>
 
       {/* ── History panel ── */}

@@ -1,5 +1,11 @@
 {
-  "generated": "2026-06-12T15:02:11",
+  "generated": "2026-06-13T01:04:10",
+  "audit_version": "2026-06-12-orthogonal-fdr",
+  "freeze": {
+    "version": "v1",
+    "date": "2026-06-12",
+    "note": "이후 구조 변경 시 OOS 시계 리셋 — 변경일을 여기 기록"
+  },
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
     "co_crash_cluster|XLF",
@@ -14,6 +20,272 @@
     "vol_overpriced|XLC",
     "vol_overpriced|XLF",
     "vol_overpriced|XLI",
-    "vol_overpriced|XLY"
+    "vol_overpriced|XLRE"
+  ],
+  "rate_verdicts": [
+    {
+      "rule": "rate_victim",
+      "sector": "XLK",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": 0.0024,
+        "t": 1.98,
+        "q_fdr": 0.1105
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLK",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": 0.0024,
+        "t": 1.98,
+        "q_fdr": 0.1105
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLF",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0011,
+        "t": -0.88,
+        "q_fdr": 0.5383
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLF",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0011,
+        "t": -0.88,
+        "q_fdr": 0.5383
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLE",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": 0.0017,
+        "t": 0.9,
+        "q_fdr": 0.5383
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLE",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": 0.0017,
+        "t": 0.9,
+        "q_fdr": 0.5383
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLV",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0002,
+        "t": -0.13,
+        "q_fdr": 0.9396
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLV",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0002,
+        "t": -0.13,
+        "q_fdr": 0.9396
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLY",
+      "macro": "US10Y",
+      "verdict": "ALIVE",
+      "evidence": {
+        "delta_ctrl": -0.0039,
+        "t": -3.32,
+        "q_fdr": 0.013
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLY",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0039,
+        "t": -3.32,
+        "q_fdr": 0.013
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLP",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0024,
+        "t": -1.62,
+        "q_fdr": 0.2
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLP",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0024,
+        "t": -1.62,
+        "q_fdr": 0.2
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLU",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0033,
+        "t": -2.05,
+        "q_fdr": 0.1092
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLU",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0033,
+        "t": -2.05,
+        "q_fdr": 0.1092
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLI",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0007,
+        "t": -0.63,
+        "q_fdr": 0.6664
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLI",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0007,
+        "t": -0.63,
+        "q_fdr": 0.6664
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLB",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0004,
+        "t": -0.25,
+        "q_fdr": 0.8753
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLB",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0004,
+        "t": -0.25,
+        "q_fdr": 0.8753
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLRE",
+      "macro": "US10Y",
+      "verdict": "ALIVE",
+      "evidence": {
+        "delta_ctrl": -0.004,
+        "t": -2.84,
+        "q_fdr": 0.0218
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLRE",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.004,
+        "t": -2.84,
+        "q_fdr": 0.0218
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLC",
+      "macro": "US10Y",
+      "verdict": "ALIVE",
+      "evidence": {
+        "delta_ctrl": -0.0032,
+        "t": -3.08,
+        "q_fdr": 0.0141
+      },
+      "judged": "2026-06-13"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLC",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "evidence": {
+        "delta_ctrl": -0.0032,
+        "t": -3.08,
+        "q_fdr": 0.0141
+      },
+      "judged": "2026-06-13"
+    }
   ]
 }

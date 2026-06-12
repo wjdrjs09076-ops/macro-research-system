@@ -388,6 +388,36 @@ def run():
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
     print(f"[{datetime.now().strftime('%H:%M:%S')}] Saved -> {OUTPUT_PATH}")
+
+    # ── 플래그 전향 로그 (감사 P2-9) ─────────────────────────────────
+    # ALERT(level≥2) 플래그를 append-only 로 누적 — 사후선택의 해독제인
+    # 전향 적중률(플래그 → 게이트 OPEN / 실제 이벤트 전환율) 집계의 원료.
+    # 같은 (ticker, 날짜) 는 1회만 기록 (30분 사이클 중복 방지).
+    try:
+        flag_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 "macro_research", "output", "flag_log.jsonl")
+        seen = set()
+        if os.path.exists(flag_path):
+            with open(flag_path, encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        r = json.loads(line)
+                        seen.add((r.get("ticker"), str(r.get("ts", ""))[:10]))
+                    except json.JSONDecodeError:
+                        pass
+        today_key = payload["scan_date"][:10]
+        with open(flag_path, "a", encoding="utf-8") as f:
+            for r in etf_signals:
+                if r["level"] >= 2 and (r["ticker"], today_key) not in seen:
+                    f.write(json.dumps({
+                        "ts": payload["scan_date"], "ticker": r["ticker"],
+                        "level": r["level"], "z_score": r.get("z_score"),
+                        "vrp": r.get("vrp"), "reason": r.get("reason", ""),
+                    }, ensure_ascii=False) + "\n")
+        print(f"  [flag_log] level>=2 플래그 누적 -> {flag_path}")
+    except Exception as e:
+        print(f"  [flag_log] 기록 실패: {e}")
+
     return payload
 
 

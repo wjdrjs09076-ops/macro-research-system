@@ -798,7 +798,7 @@ def page_rules(pdf, n, total):
         ("vol_overpriced",         "VRP_true > 2% (Alpaca IV)",                   "OVERWEIGHT", "IV>RV — directional 제외 + SHORT 페어", False, False),
         ("fat_tail_alert",         "ξ (GPD) > 0.20",                              "HEDGE/MONI",  "정규 VaR 부적합 ✓ +9.4% 백테스트", False, False),
         ("normal_var_inadequate",  "CF VaR / Normal VaR > 2.5",                   "MONITOR",     "정규 VaR 실제의 절반", False, False),
-        ("thin_tail_greenlight 💤", "CI 95%상한: ξ<0.10 & λ_L<0.20 & CF<1.5",      "MONITOR",     "휴면 — 1.5y 표본의 CI 폭으론 사실상 도달 불가 (의도된 동결)", True, False),
+        ("thin_tail_greenlight 💤", "CI 95%상한: ξ<0.10 & λ_L<0.20 & CF<1.5",      "MONITOR",     "휴면 — 재개 필요 표본 λ≈1.9y / ξ≈10.7y (P2-5 산출). 재론 시 횡단면 상대임계 검토", True, False),
         ("─" * 30, "", "", "── 2026-06-10 제거 (정합성 의심) ──", False, False),
         ("~~causal_chain_monitor~~", "PCMCI 4개월 stale, 변별력 낮음",                "—",           "백테스트 -$649 / n=50", False, True),
         ("~~shock_propagator~~",     "Shapley 평균이라도 비인과 휴리스틱",             "—",           "백테스트 -$1,949 / n=50 (최대 손실)", False, True),

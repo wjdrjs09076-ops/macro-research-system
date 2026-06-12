@@ -80,6 +80,7 @@ jobs:
           # 레짐 히스테리시스/시그널은퇴 기준이 매 사이클 리셋됨, 2026-06-12)
           git add macro_research/output/trade_journal.jsonl \
                   macro_research/output/iv_history.jsonl \
+                  macro_research/output/flag_log.jsonl \
                   macro_research/output/rule_performance.json \
                   macro_research/output/attribution.json \
                   macro_research/output/trail_state.json \
