@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LiveAudit from "./components/LiveAudit";
 
 const CAUSAL_LINKS = [
   { src: "OIL", dst: "CPI",           lag: 1,  coef: "+0.65", stability: "structural", dir: "+" },
@@ -11,21 +12,7 @@ const CAUSAL_LINKS = [
   { src: "US10Y", dst: "DXY",         lag: 2,  coef: "-0.62", stability: "emerging",   dir: "-" },
 ];
 
-// 2026-06-12 다변량(partial) 회귀 감사 — 이변량 raw delta 와 전 매크로(OIL 포함)
-// 동시 + SPY 통제 후 delta 비교. KILLED = 통제 후 유의성 소멸 (교란이었음).
-// 구 causal_chain_monitor 섹터 표는 룰 은퇴(2026-06-10) + raw delta 반증으로 교체됨.
-const SENSITIVITY_AUDIT = [
-  { pair: "XLK × VIX",    raw: -0.0138, tRaw: -25.2, ctrl: 0.0019,  tCtrl: 2.3,  verdict: "FLIPPED",   note: "VIX 민감도의 거의 전부가 시장베타였음" },
-  { pair: "XLE × US10Y",  raw: 0.0041,  tRaw: 5.1,   ctrl: 0.0007,  tCtrl: 1.1,  verdict: "KILLED",    note: "'금리 수혜'는 유가 교란 — 진짜 드라이버는 OIL" },
-  { pair: "XLK × US2Y",   raw: 0.0034,  tRaw: 3.8,   ctrl: 0.0006,  tCtrl: 1.5,  verdict: "KILLED",    note: "시장베타 교란" },
-  { pair: "XLE × US2Y",   raw: 0.0027,  tRaw: 3.3,   ctrl: 0.0004,  tCtrl: 0.6,  verdict: "KILLED",    note: "유가 교란" },
-  { pair: "XLI × US2Y",   raw: 0.0013,  tRaw: 2.1,   ctrl: -0.0002, tCtrl: -0.7, verdict: "KILLED",    note: "" },
-  { pair: "XLE × OIL",    raw: 0.0088,  tRaw: 12.4,  ctrl: 0.0087,  tCtrl: 13.6, verdict: "CONFIRMED", note: "에너지의 진짜 드라이버" },
-  { pair: "XLRE × US10Y", raw: -0.0024, tRaw: -4.5,  ctrl: -0.0025, tCtrl: -5.1, verdict: "CONFIRMED", note: "듀레이션 테제 — 통제 후 더 강해짐" },
-  { pair: "XLU × US10Y",  raw: -0.0021, tRaw: -3.9,  ctrl: -0.0024, tCtrl: -4.3, verdict: "CONFIRMED", note: "듀레이션 테제" },
-  { pair: "XLV × US10Y",  raw: -0.0016, tRaw: -2.9,  ctrl: -0.0015, tCtrl: -2.8, verdict: "CONFIRMED", note: "" },
-  { pair: "XLP × US10Y",  raw: -0.0013, tRaw: -2.8,  ctrl: -0.0011, tCtrl: -2.1, verdict: "CONFIRMED", note: "" },
-];
+// 민감도 감사는 LiveAudit 컴포넌트가 단일 진실원(ontology_signals.json)에서 라이브 로드 (감사 P0-1)
 
 const LAYERS = [
   {
@@ -207,7 +194,7 @@ export default function ArchitecturePage() {
               <span className="text-xs font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
                 PCMCI+
               </span>
-              <h3 className="text-sm font-semibold text-gray-100">Layer 6 — Causal Discovery</h3>
+              <h3 className="text-sm font-semibold text-gray-100">Causal Discovery — 참고용 (거래 검증 실패로 룰 은퇴)</h3>
             </div>
             <p className="text-xs text-gray-400 max-w-2xl leading-relaxed">
               tigramite PCMCI+로 8개 매크로 변수 간 인과 관계 발견. MCI 검정이 X·Y의 과거 + 전체 변수 조건화 →
@@ -225,7 +212,7 @@ export default function ArchitecturePage() {
 
         {/* Key Chain */}
         <div className="bg-gray-900/50 rounded-lg p-4">
-          <div className="text-xs text-gray-500 mb-2">핵심 인과 전파 체인 (총 7개월 선행)</div>
+          <div className="text-xs text-gray-500 mb-2">인과 후보 체인 — 참고용 (거래 룰 causal_chain_monitor 는 백테스트 -$649/n=50 으로 은퇴)</div>
           <div className="flex items-center gap-1 flex-wrap text-xs font-mono">
             {[
               { node: "OIL", type: "causal" },
@@ -256,7 +243,7 @@ export default function ArchitecturePage() {
 
         {/* Causal Links Table */}
         <div>
-          <div className="text-xs text-gray-500 mb-2">TRANSMITS_TO 엣지 (structural + emerging)</div>
+          <div className="text-xs text-gray-500 mb-2">TRANSMITS_TO 엣지 (structural + emerging) — 참고용 · US2Y→FED_FUNDS 류는 정책 선반영의 준기계적 관계</div>
           <div className="overflow-x-auto">
             <table className="w-full text-xs border-collapse">
               <thead>
@@ -293,58 +280,8 @@ export default function ArchitecturePage() {
           </div>
         </div>
 
-        {/* Sensitivity Audit — raw vs controlled delta (2026-06-12) */}
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <div className="text-xs text-gray-500">
-              민감도 감사 (2026-06-12) — 이변량 raw vs 다변량 통제(OIL·VIX·DXY·SPY) delta
-            </div>
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-900/40 text-red-300">
-              교란 판정 5건
-            </span>
-          </div>
-          <p className="text-[10px] text-gray-600 mb-3 max-w-3xl leading-relaxed">
-            구 causal_chain_monitor 섹터 표(이변량 VIX delta)는 룰 은퇴 + 통제 회귀 반증으로 교체.
-            rate_* 룰은 이제 통제(partial) delta 로 발화 — &quot;XLE 금리 수혜&quot; 류의 교란 신호는 차단됨.
-          </p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs border-collapse">
-              <thead>
-                <tr className="border-b border-gray-800 text-gray-500 text-[10px]">
-                  <th className="text-left py-1.5 pr-3">Sector × Macro</th>
-                  <th className="text-right py-1.5 pr-3">δ raw (t)</th>
-                  <th className="text-right py-1.5 pr-3">δ ctrl (t)</th>
-                  <th className="text-left py-1.5 pr-3">Verdict</th>
-                  <th className="text-left py-1.5">해석</th>
-                </tr>
-              </thead>
-              <tbody>
-                {SENSITIVITY_AUDIT.map((r) => (
-                  <tr key={r.pair} className="border-b border-gray-800/30 hover:bg-gray-900/20">
-                    <td className="py-1.5 pr-3 font-mono text-purple-300">{r.pair}</td>
-                    <td className="py-1.5 pr-3 text-right font-mono text-gray-400">
-                      {r.raw.toFixed(4)} <span className="text-gray-600">({r.tRaw.toFixed(1)})</span>
-                    </td>
-                    <td className="py-1.5 pr-3 text-right font-mono text-gray-300">
-                      {r.ctrl.toFixed(4)} <span className="text-gray-600">({r.tCtrl.toFixed(1)})</span>
-                    </td>
-                    <td className="py-1.5 pr-3">
-                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                        r.verdict === "CONFIRMED"
-                          ? "bg-emerald-900/50 text-emerald-300"
-                          : "bg-red-900/50 text-red-300"
-                      }`}>
-                        {r.verdict}
-                      </span>
-                    </td>
-                    <td className="py-1.5 text-gray-500">{r.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+        {/* Sensitivity Audit — 라이브 (단일 진실원) */}
+        <LiveAudit />
 
       {/* Navigation Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">

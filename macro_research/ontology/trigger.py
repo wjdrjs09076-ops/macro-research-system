@@ -373,23 +373,70 @@ def _load_regime_state() -> dict | None:
 
 RULE_SECTOR_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
 
+AUDIT_VERSION = "2026-06-12-orthogonal-fdr"   # 직교화(lvl+2s10s) + VIF + BH FDR
+FREEZE_VERSION = "v1"
+FREEZE_DATE = "2026-06-12"
+
+
+def _rate_evidence(G) -> list[dict]:
+    """rate_* 룰의 섹터별 verdict + 증거 (감사 지시서 P0-1 스키마).
+
+    ALIVE/KILLED 판정 = 룰 게이트와 동일 (delta 임계 + FDR q<0.10).
+    XLU 모호성 해소: 직교화 후 t=-2.05 지만 q=0.120 → FDR 탈락 = KILLED.
+    """
+    import math
+    from ontology.schema import SECTOR_NAMES
+    from ontology.inference import T as THRESH
+
+    out = []
+    today = dt.date.today().isoformat()
+    for sec in SECTOR_NAMES:
+        for rule, mac, cond in (
+            ("rate_victim", "US10Y", lambda d: d < THRESH["rate_victim_delta_max"]),
+            ("rate_beneficiary", "US10Y", lambda d: d > THRESH["rate_benefit_delta_min"]),
+            ("rate_beneficiary", "US2Y",  lambda d: d > THRESH["rate_benefit_delta_min"]),
+        ):
+            if not G.has_edge(sec, mac):
+                continue
+            e = G.edges[sec, mac]
+            d = e.get("delta_ctrl")
+            t = e.get("t_delta_ctrl")
+            q = e.get("q_delta_ctrl")
+            if d is None or not math.isfinite(float(d or float("nan"))):
+                continue
+            d, t = float(d), float(t) if t is not None else float("nan")
+            q = float(q) if q is not None and math.isfinite(float(q)) else float("nan")
+            alive = bool(cond(d) and math.isfinite(q) and q < 0.10)
+            out.append({
+                "rule": rule, "sector": sec, "macro": mac,
+                "verdict": "ALIVE" if alive else "KILLED",
+                "evidence": {"delta_ctrl": round(d, 4),
+                             "t": round(t, 2) if math.isfinite(t) else None,
+                             "q_fdr": round(q, 4) if math.isfinite(q) else None},
+                "judged": today,
+            })
+    return out
+
 
 def _write_rule_sector_state(G, active_regime: str) -> None:
-    """**단일 진실원** (라운드 7 비평 1번): 현재 데이터에서 유효한 (rule × sector)
-    상태표를 한 곳에 기록. 문서(p.8/9/14)와 포지션 수명주기가 전부 이 파일을 참조.
+    """**단일 진실원** (라운드 7 비평 1번 / 감사 P0-1): 현재 데이터에서 유효한
+    (rule × sector) 상태표 + 증거 + freeze 메타. 실행기·PDF·포털이 이것만 참조.
 
     유효성 = run_all_regimes 발화 (레짐 무관 *데이터* 유효성 — 레짐이 바뀌어도
     데이터가 유효하면 포지션을 털지 않기 위해 레짐 필터와 분리).
-    kinetic 의 '시그널은퇴' 청산이 이 파일로 죽은 시그널 위의 포지션을 회수한다
-    (룰은퇴 가드는 룰 단위라 섹터 단위 사망 — XLV/XLP 공선성 판명 — 을 못 잡던 갭).
+    kinetic 의 '시그널은퇴' 청산이 이 파일로 죽은 시그널 위의 포지션을 회수한다.
     """
     try:
         all_sig = generate_signals(G, active_regime, run_all_regimes=True)
         valid = sorted({f"{s.rule_name}|{s.sector}" for s in all_sig})
         payload = {
             "generated": dt.datetime.now().isoformat(timespec="seconds"),
+            "audit_version": AUDIT_VERSION,
+            "freeze": {"version": FREEZE_VERSION, "date": FREEZE_DATE,
+                       "note": "이후 구조 변경 시 OOS 시계 리셋 — 변경일을 여기 기록"},
             "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
             "valid_pairs": valid,
+            "rate_verdicts": _rate_evidence(G),
         }
         RULE_SECTOR_STATE_JSON.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
