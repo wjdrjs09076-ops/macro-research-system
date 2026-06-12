@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-12T02:59:38",
+  "scan_date": "2026-06-12T07:27:47",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -114,20 +114,6 @@
       "sector": "Healthcare"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 19.1,
-      "baseline_rv": 12.0,
-      "z_score": 1.94,
-      "vrp": -0.0041,
-      "beta_30d": 1.012,
-      "consec_vol": 5,
-      "excess_10d": -0.01,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "vol z=1.9, 5d consec vol",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "^KS11",
       "current_rv": 77.5,
       "baseline_rv": 34.4,
@@ -140,6 +126,20 @@
       "label": "ALERT",
       "reason": "vol z=1.9, VRP=-0.108, beta=1.82, 5d consec vol",
       "sector": "KOSPI"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 18.5,
+      "baseline_rv": 12.0,
+      "z_score": 1.77,
+      "vrp": 0.0008,
+      "beta_30d": 0.996,
+      "consec_vol": 5,
+      "excess_10d": -0.22,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "EWJ",
@@ -282,20 +282,6 @@
       "sector": "UK (MSCI)"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 31.2,
-      "baseline_rv": 25.6,
-      "z_score": 0.38,
-      "vrp": -0.0405,
-      "beta_30d": 1.463,
-      "consec_vol": 5,
-      "excess_10d": -4.28,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.46, 5d consec vol",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "^HSI",
       "current_rv": 20.6,
       "baseline_rv": 19.0,
@@ -324,18 +310,46 @@
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 49.9,
-      "baseline_rv": 45.3,
-      "z_score": 0.16,
-      "vrp": 0.2931,
-      "beta_30d": -1.517,
-      "consec_vol": 5,
-      "excess_10d": 0.09,
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 3.9,
+      "z_score": 0.13,
+      "vrp": 0.0141,
+      "beta_30d": 0.269,
+      "consec_vol": 3,
+      "excess_10d": 2.1,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-1.52, 5d consec vol",
+      "reason": "beta=0.27",
+      "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 47.9,
+      "baseline_rv": 45.3,
+      "z_score": 0.09,
+      "vrp": 0.3126,
+      "beta_30d": -1.434,
+      "consec_vol": 5,
+      "excess_10d": 1.25,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.43, 5d consec vol",
       "sector": "WTI Crude Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 26.1,
+      "baseline_rv": 25.6,
+      "z_score": 0.04,
+      "vrp": 0.0033,
+      "beta_30d": 1.256,
+      "consec_vol": 5,
+      "excess_10d": -7.17,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "000001.SS",
@@ -406,20 +420,6 @@
       "label": "---",
       "reason": "",
       "sector": "Euro Stoxx 50"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.2,
-      "baseline_rv": 3.9,
-      "z_score": -0.68,
-      "vrp": 0.021,
-      "beta_30d": 0.249,
-      "consec_vol": 2,
-      "excess_10d": 1.81,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.25",
-      "sector": "10Y Treasury Futures"
     }
   ],
   "oil": {
