@@ -17,13 +17,13 @@ jobs:
     timeout-minutes: 25
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
@@ -32,6 +32,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          # macro_research 전용 의존성 (nasdaqdatalink 등) — 누락 시 Stage 2 가
+          # ModuleNotFoundError 로 조용히 죽어 캐시 갱신이 전부 스킵됐었음 (2026-06-12)
+          pip install -r macro_research/requirements.txt
 
       - name: Stage 1 — Vol monitor pipeline (yfinance + EIA + FRED)
         env:
