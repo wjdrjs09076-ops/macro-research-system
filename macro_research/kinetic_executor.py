@@ -244,10 +244,17 @@ def get_account() -> dict:
 
 
 def get_market_open() -> bool:
+    """시장 개장 여부. 2026-06-12: 실패를 휴장으로 *조용히* 위장하지 않는다 —
+    GH Actions 러너에서 /clock 실패가 '휴장 no-op'으로 보여 클라우드 kinetic이
+    이틀간 무거래였던 원인. 실패 사유를 반드시 출력 (진짜 휴장과 구분)."""
     try:
-        return bool(requests.get(f"{TRADE_BASE}/clock", headers=HEADERS,
-                                 timeout=10).json().get("is_open"))
-    except Exception:
+        r = requests.get(f"{TRADE_BASE}/clock", headers=HEADERS, timeout=10)
+        if r.status_code != 200:
+            print(f"  [clock] HTTP {r.status_code} {r.text[:120]} — 휴장 취급 (오류!)")
+            return False
+        return bool(r.json().get("is_open"))
+    except Exception as exc:
+        print(f"  [clock] 조회 실패 ({exc.__class__.__name__}: {exc}) — 휴장 취급 (오류!)")
         return False
 
 
