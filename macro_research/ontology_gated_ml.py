@@ -60,6 +60,13 @@ GATE_WINDOW   = 15   # 게이트 점수 계산 롤링 윈도우
 GATE_CONSEC   = 5    # 게이트 열리려면 점수 >= threshold 연속 일수
 GATE_THRESH   = 0.45 # 게이트 점수 임계값
 
+# ── 평가 재설계 (감사 라운드 7 P1-2/P1-3) ──────────────────────────────
+VOLTGT_TARGET = 0.15   # P1-2: vol-target 연 15% 목표 변동성
+VOLTGT_CAP    = 1.5    # vol-target 레버리지 상한 (w_t = target/σ̂_t)
+MA_FILTER_WIN = 200    # P1-2: 200일 이동평균 필터
+NULL_SIMS     = 10000  # P1-3: 랜덤 타이밍 널 시뮬 횟수
+NULL_SEED     = 42
+
 FEATURE_COLS = [
     "beta_30d", "vrp", "vix",
     "beta_30d_z", "vrp_z", "vix_z",
@@ -217,7 +224,92 @@ def backtest(price_ret, signal, tc=TC, oos_start=None):
         r_oos   = net[net.index >= oos_dt]
         c_oos   = (1 + r_oos).cumprod()
         res["oos"] = _s(r_oos, c_oos)
+        res["oos_ret"] = r_oos          # OOS 전용 순수익 (재기준 차트/raw 산출용)
     return res
+
+
+# ===========================================================================
+# 평가 재설계 — 베이스라인 / 랜덤 타이밍 널 (감사 라운드 7 P1-2/P1-3)
+# ===========================================================================
+
+def vol_target_signal(etf_ret, target=VOLTGT_TARGET, span=EWMA_SPAN,
+                      cap=VOLTGT_CAP):
+    """P1-2 베이스라인 ①: 연 target 변동성 목표 가변 비중.
+
+    w_t = target / σ̂_t. σ̂_t = EWMA(span) 연환산 변동성 — 인과적(과거만).
+    shift(1) 로 어제 추정 변동성으로 오늘 비중 결정 (look-ahead 차단).
+    """
+    sigma = etf_ret.ewm(span=span, min_periods=20).std() * np.sqrt(252)
+    w = (target / sigma).clip(upper=cap)
+    return w.shift(1).fillna(0.0)
+
+
+def ma_filter_signal(etf_ret, window=MA_FILTER_WIN):
+    """P1-2 베이스라인 ②: 가격 > N일 이동평균이면 롱 (on/off)."""
+    px = (1 + etf_ret).cumprod()
+    ma = px.rolling(window, min_periods=window).mean()
+    return (px > ma).shift(1).fillna(False)
+
+
+def backtest_weighted(price_ret, weight, tc=TC, oos_start=None):
+    """연속 비중 백테스트 (vol-target 용). 활성일 = 비중>0 인 날."""
+    w    = weight.reindex(price_ret.index).fillna(0.0).astype(float)
+    cost = w.diff().abs() * tc
+    net  = w * price_ret - cost
+    cum  = (1 + net).cumprod()
+
+    def _s(r, c, wseg):
+        n = len(r)
+        if n < 5 or c.empty or c.iloc[-1] <= 0:
+            return dict(cagr=np.nan, sharpe=np.nan, mdd=np.nan, n=0)
+        cagr   = c.iloc[-1] ** (252 / n) - 1
+        sharpe = r.mean() / r.std() * np.sqrt(252) if r.std() > 0 else np.nan
+        mdd    = ((c - c.cummax()) / c.cummax()).min()
+        return dict(cagr=cagr, sharpe=sharpe, mdd=mdd, n=int((wseg > 0).sum()))
+
+    res = {"total": _s(net, cum, w), "cum": cum}
+    if oos_start:
+        oos_dt = pd.Timestamp(oos_start)
+        r_oos  = net[net.index >= oos_dt]
+        w_oos  = w[w.index >= oos_dt]
+        c_oos  = (1 + r_oos).cumprod()
+        res["oos"] = _s(r_oos, c_oos, w_oos)
+        res["oos_ret"] = r_oos
+    return res
+
+
+def random_timing_null(oos_r, n_active, n_sims=NULL_SIMS, seed=NULL_SEED):
+    """P1-3: 활성일 수를 n_active 로 고정한 무작위 노출의 OOS gross 누적수익 분포.
+
+    long-spot on/off 매핑 (노출일 = 1+r, 비노출 = 1). 거래비용 제외(순수 타이밍).
+    반환: 길이 n_sims ndarray (각 시뮬의 누적수익률), 불가 시 None.
+    """
+    T = len(oos_r)
+    if n_active <= 0 or n_active >= T:
+        return None
+    rng   = np.random.default_rng(seed)
+    order = rng.random((n_sims, T)).argsort(axis=1)[:, :n_active]
+    mask  = np.zeros((n_sims, T))
+    np.put_along_axis(mask, order, 1.0, axis=1)
+    return np.prod(1 + mask * oos_r, axis=1) - 1
+
+
+def timing_null_for_signal(etf_ret, signal, oos_start, n_sims=NULL_SIMS):
+    """이진 신호의 실제 OOS gross 수익이 같은 활성일 수의 무작위 노출 분포에서
+    차지하는 백분위를 계산. p≈0.5 면 타이밍 무정보, p→1 이면 평균 대비 우월."""
+    oos_dt = pd.Timestamp(oos_start)
+    oos_r  = etf_ret[etf_ret.index >= oos_dt].dropna()
+    sig    = signal.reindex(oos_r.index).fillna(False).astype(float)
+    n_active = int(sig.sum())
+    gross  = float(np.prod(1 + sig.values * oos_r.values) - 1)
+    sims   = random_timing_null(oos_r.values, n_active, n_sims)
+    if sims is None:
+        return {"n_active": n_active, "gross_return": round(gross * 100, 2),
+                "null_pctile": None, "null_median": None}
+    return {"n_active": n_active,
+            "gross_return": round(gross * 100, 2),
+            "null_pctile": round(float((sims < gross).mean()), 3),
+            "null_median": round(float(np.median(sims)) * 100, 2)}
 
 
 # ===========================================================================
@@ -667,42 +759,81 @@ if __name__ == "__main__":
         },
     }
 
-    bnh_oos = etf_ret[etf_ret.index >= oos_dt2]
-    bnh_raw = float((1 + bnh_oos).cumprod().iloc[-1] - 1)
-    bnh_cagr = float((1 + bnh_oos).cumprod().iloc[-1] ** (252 / len(bnh_oos)) - 1)
+    bnh_oos  = etf_ret[etf_ret.index >= oos_dt2]
+    bnh_cum  = (1 + bnh_oos).cumprod()        # OOS 시작=1.0 기준 (전부 OOS 수익만)
+    bnh_raw  = float(bnh_cum.iloc[-1] - 1)
+    bnh_cagr = float(bnh_cum.iloc[-1] ** (252 / len(bnh_oos)) - 1)
     bnh_sh   = float(bnh_oos.mean() / bnh_oos.std() * np.sqrt(252))
+    bnh_mdd  = float(((bnh_cum - bnh_cum.cummax()) / bnh_cum.cummax()).min())
 
-    strategies_payload = {}
-    for sname, sig in signals.items():
-        res  = backtest(etf_ret, sig, TC, OOS_START)
-        oos_r = res.get("oos", {})
-        cum   = res["cum"]
-        cum_oos = cum[cum.index >= oos_dt2]
-        raw_ret = float(cum_oos.iloc[-1] - 1) if len(cum_oos) > 0 else 0.0
-        strategies_payload[sname] = {
-            "oos_cagr"     : round(float(oos_r.get("cagr", 0) or 0) * 100, 2),
-            "oos_sharpe"   : round(float(oos_r.get("sharpe", 0) or 0), 3),
-            "oos_mdd"      : round(float(oos_r.get("mdd", 0) or 0) * 100, 2),
+    def _card(res, sig=None, weighted=False):
+        """OOS 카드 1장 + (on/off 신호면) 랜덤 타이밍 널.
+
+        raw/누적은 OOS 전용 수익(res['oos_ret'])으로 재계산 — 기존엔 전체기간
+        누적을 슬라이스해 IS 손익이 OOS 시작 기준에 섞여 raw 가 오염됐었다 (P1-4).
+        """
+        oos_r   = res.get("oos", {})
+        r_oos   = res.get("oos_ret")
+        cum_oos = (1 + r_oos).cumprod() if r_oos is not None and len(r_oos) else None
+        raw_ret = float(cum_oos.iloc[-1] - 1) if cum_oos is not None else 0.0
+        card = {
+            "oos_cagr"       : round(float(oos_r.get("cagr", 0) or 0) * 100, 2),
+            "oos_sharpe"     : round(float(oos_r.get("sharpe", 0) or 0), 3),
+            "oos_mdd"        : round(float(oos_r.get("mdd", 0) or 0) * 100, 2),
             "oos_active_days": int(oos_r.get("n", 0)),
-            "alpha_capture": round(raw_ret / bnh_raw * 100, 1) if bnh_raw != 0 else 0,
+            # alpha_capture = OOS 누적수익(raw) / B&H 누적수익(raw) × 100
+            "oos_raw_return" : round(raw_ret * 100, 2),
+            "alpha_capture"  : round(raw_ret / bnh_raw * 100, 1) if bnh_raw != 0 else 0,
             "cumulative": {
                 "dates" : cum_oos.index.strftime("%Y-%m-%d").tolist(),
                 "values": [round(x, 6) for x in cum_oos.tolist()],
             },
         }
+        if sig is not None and not weighted:
+            card["timing_null"] = timing_null_for_signal(etf_ret, sig, OOS_START)
+        return card
+
+    strategies_payload = {}
+    for sname, sig in signals.items():
+        strategies_payload[sname] = _card(backtest(etf_ret, sig, TC, OOS_START), sig)
+
+    # P1-2: 멍청한 브레이크 베이스라인 2종 (게이트와 같은 일 = 노출 조절)
+    vt_sig = vol_target_signal(etf_ret)
+    ma_sig = ma_filter_signal(etf_ret)
+    strategies_payload["VolTgt XLE"] = _card(
+        backtest_weighted(etf_ret, vt_sig, TC, OOS_START), weighted=True)
+    strategies_payload["200DMA XLE"] = _card(
+        backtest(etf_ret, ma_sig, TC, OOS_START), ma_sig)
+
     strategies_payload["BnH XLE"] = {
-        "oos_cagr"     : round(bnh_cagr * 100, 2),
-        "oos_sharpe"   : round(bnh_sh, 3),
-        "oos_mdd"      : None,
+        "oos_cagr"       : round(bnh_cagr * 100, 2),
+        "oos_sharpe"     : round(bnh_sh, 3),
+        "oos_mdd"        : round(bnh_mdd * 100, 2),
         "oos_active_days": len(bnh_oos),
-        "alpha_capture": 100.0,
+        "oos_raw_return" : round(bnh_raw * 100, 2),
+        "alpha_capture"  : 100.0,
         "cumulative": {
             "dates" : bnh_oos.index.strftime("%Y-%m-%d").tolist(),
-            "values": [round(x, 6) for x in (1 + bnh_oos).cumprod().tolist()],
+            "values": [round(x, 6) for x in bnh_cum.tolist()],
         },
     }
 
     gate_payload["strategies"] = strategies_payload
+    gate_payload["evaluation_meta"] = {
+        "alpha_capture_def": "OOS 누적수익(raw) / B&H 누적수익(raw) × 100",
+        "bnh_raw_return"   : round(bnh_raw * 100, 2),
+        "random_null": {
+            "sims"  : NULL_SIMS,
+            "method": "활성일 수 고정 · 무작위 노출 · gross(거래비용 제외) "
+                      "누적수익 분포에서의 백분위. p≈0.5=타이밍 무정보, "
+                      "p→1=평균일 대비 우월, p→0=열등.",
+        },
+        "baselines": {
+            "VolTgt XLE": f"연 {VOLTGT_TARGET*100:.0f}% vol-target "
+                          f"(EWMA span={EWMA_SPAN}, cap {VOLTGT_CAP}x, 연속 비중)",
+            "200DMA XLE": f"가격 > {MA_FILTER_WIN}일 이동평균 시 롱 (on/off)",
+        },
+    }
 
     json_out = BASE_DIR / "output" / "gate_scores.json"
     json_out.parent.mkdir(parents=True, exist_ok=True)

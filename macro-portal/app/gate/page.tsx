@@ -6,10 +6,22 @@ import {
   Tooltip, ReferenceLine, ReferenceArea, ResponsiveContainer, Legend,
 } from "recharts";
 
+type TimingNull = {
+  n_active: number; gross_return: number;
+  null_pctile: number | null; null_median: number | null;
+};
 type StrategyData = {
   oos_cagr: number; oos_sharpe: number; oos_mdd: number | null;
   oos_active_days: number; alpha_capture: number;
+  oos_raw_return?: number;
+  timing_null?: TimingNull;
   cumulative: { dates: string[]; values: number[] };
+};
+type EvaluationMeta = {
+  alpha_capture_def: string;
+  bnh_raw_return: number;
+  random_null: { sims: number; method: string };
+  baselines: Record<string, string>;
 };
 type GateData = {
   generated_at: string;
@@ -24,6 +36,7 @@ type GateData = {
     dir_component: number[]; gate_open: boolean[];
   };
   strategies: Record<string, StrategyData>;
+  evaluation_meta?: EvaluationMeta;
 };
 
 const STRATEGY_COLORS: Record<string, string> = {
@@ -31,21 +44,37 @@ const STRATEGY_COLORS: Record<string, string> = {
   "Gate Only": "#10b981",
   "Gate+ML"  : "#8b5cf6",
   "Gate+S2"  : "#f59e0b",
+  "VolTgt XLE": "#38bdf8",
+  "200DMA XLE": "#facc15",
   "BnH XLE"  : "#6b7280",
 };
 
-const STRATEGY_ORDER = ["Gate Only", "Gate+S2", "Pure ML", "Gate+ML", "BnH XLE"];
+const STRATEGY_ORDER = [
+  "Gate Only", "Gate+S2", "Pure ML", "Gate+ML",
+  "VolTgt XLE", "200DMA XLE", "BnH XLE",
+];
+
+// 베이스라인(한 줄짜리 경쟁자) — 게이트와 같은 일(노출 조절)을 하는 대조군
+const BASELINE_NAMES = new Set(["VolTgt XLE", "200DMA XLE"]);
 
 function MetricCard({
-  name, cagr, sharpe, mdd, days, capture, color,
+  name, cagr, sharpe, mdd, days, capture, rawReturn, bnhRaw, timingNull, isBaseline, color,
 }: {
   name: string; cagr: number; sharpe: number; mdd: number | null;
-  days: number; capture: number; color: string;
+  days: number; capture: number; rawReturn?: number; bnhRaw?: number;
+  timingNull?: TimingNull; isBaseline?: boolean; color: string;
 }) {
+  const pct = timingNull?.null_pctile ?? null;
+  // 백분위 색상: ≥0.95 유의(녹) / 0.5~0.95 약함(노랑) / <0.5 평균 이하(빨강)
+  const pctColor = pct == null ? "text-gray-500"
+    : pct >= 0.95 ? "text-emerald-400" : pct >= 0.5 ? "text-amber-400" : "text-red-400";
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+    <div className={`rounded-xl border p-4 ${isBaseline
+      ? "border-sky-800/50 bg-sky-950/10" : "border-gray-800 bg-gray-900/50"}`}>
       <div className="flex items-center justify-between mb-3">
-        <span className="text-sm font-medium text-gray-200">{name}</span>
+        <span className="text-sm font-medium text-gray-200">
+          {name}{isBaseline && <span className="ml-1 text-[10px] text-sky-500">베이스라인</span>}
+        </span>
         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
       </div>
       <div className="grid grid-cols-2 gap-2 text-xs">
@@ -70,7 +99,14 @@ function MetricCard({
           <div className="font-mono text-gray-400 mt-0.5">{days}일</div>
         </div>
         <div className="col-span-2">
-          <div className="text-gray-500">Alpha Capture</div>
+          <div className="text-gray-500" title="OOS 누적수익(raw) ÷ B&H 누적수익(raw) × 100">
+            Alpha Capture
+            {rawReturn != null && bnhRaw != null && (
+              <span className="ml-1 text-[10px] text-gray-600 font-mono">
+                = {rawReturn.toFixed(1)}/{bnhRaw.toFixed(1)}
+              </span>
+            )}
+          </div>
           <div className="flex items-center gap-2 mt-1">
             <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
               <div
@@ -81,6 +117,16 @@ function MetricCard({
             <span className="font-mono text-gray-300">{capture.toFixed(1)}%</span>
           </div>
         </div>
+        {timingNull && (
+          <div className="col-span-2 border-t border-gray-800 pt-1.5 mt-0.5">
+            <div className="text-gray-500" title="활성일 수를 고정한 무작위 노출 분포에서의 백분위. 0.5≈타이밍 무정보, ≥0.95=유의">
+              랜덤 타이밍 백분위
+            </div>
+            <div className={`font-mono mt-0.5 ${pctColor}`}>
+              {pct == null ? "N/A (상시 노출)" : `p=${pct.toFixed(2)} ${pct >= 0.95 ? "(유의)" : pct >= 0.5 ? "(무정보)" : "(평균 이하)"}`}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -228,7 +274,12 @@ export default function GatePage() {
                 key={name} name={name}
                 cagr={s.oos_cagr} sharpe={s.oos_sharpe}
                 mdd={s.oos_mdd} days={s.oos_active_days}
-                capture={s.alpha_capture} color={STRATEGY_COLORS[name]}
+                capture={s.alpha_capture}
+                rawReturn={s.oos_raw_return}
+                bnhRaw={data.evaluation_meta?.bnh_raw_return}
+                timingNull={s.timing_null}
+                isBaseline={BASELINE_NAMES.has(name)}
+                color={STRATEGY_COLORS[name]}
               />
             );
           })}
@@ -269,28 +320,57 @@ export default function GatePage() {
         </ResponsiveContainer>
       </div>
 
-      {/* Insight Box */}
+      {/* Insight Box — 데이터 기반 (감사 라운드 7 P1-2/P1-3/P1-4) */}
+      {(() => {
+        const g  = data.strategies["Gate Only"];
+        const vt = data.strategies["VolTgt XLE"];
+        const ma = data.strategies["200DMA XLE"];
+        const gp = g?.timing_null?.null_pctile ?? null;
+        const beatsBaselines = g && vt && ma && (g.oos_sharpe >= vt.oos_sharpe && g.oos_sharpe >= ma.oos_sharpe);
+        return (
       <div className="rounded-xl border border-gray-800 bg-gray-900/30 p-5 space-y-3">
-        <h2 className="text-sm font-semibold text-gray-200">핵심 해석</h2>
+        <h2 className="text-sm font-semibold text-gray-200">핵심 해석 — 평가 재설계 결과</h2>
+        <p className="text-xs text-gray-500 leading-relaxed">
+          이 OOS 창(XLE/호르무즈)은 수혜 섹터 + 상방 쇼크라 B&amp;H가 정의상 강한 대조군이다.
+          따라서 게이트의 가치는 CAGR이 아니라 ① 한 줄짜리 베이스라인 대비 우위와
+          ② 랜덤 타이밍 대비 정보량으로 판정한다. 불리한 결과도 그대로 게시한다.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-400">
           <div className="bg-gray-900 rounded-lg p-3">
-            <div className="text-emerald-400 font-medium mb-1">Gate Only (+23.5%)</div>
-            온톨로지 레짐 필터 자체가 유효한 신호 — Pure ML(+8.8%) 대비 3배 CAGR
+            <div className={`font-medium mb-1 ${beatsBaselines ? "text-emerald-400" : "text-red-400"}`}>
+              베이스라인 대비 {beatsBaselines ? "우위" : "열위"} (P1-2)
+            </div>
+            {g && vt && ma ? (
+              <>Gate Only Sharpe {g.oos_sharpe.toFixed(2)} vs VolTgt {vt.oos_sharpe.toFixed(2)} ·
+              200DMA {ma.oos_sharpe.toFixed(2)}. {beatsBaselines
+                ? "게이트가 한 줄짜리들을 이김."
+                : "한 줄짜리 vol-target/200DMA 필터가 게이트를 이김 → 6레이어의 한계 기여 ≈ 0."}</>
+            ) : "데이터 없음"}
           </div>
           <div className="bg-gray-900 rounded-lg p-3">
-            <div className="text-purple-400 font-medium mb-1">Gate+ML 활성 2일만</div>
-            게이트 조건 + ML 조건 동시 충족이 극히 드묾 — 신호 자체는 유효하나 과도한 필터링
+            <div className={`font-medium mb-1 ${gp == null ? "text-gray-400" : gp >= 0.95 ? "text-emerald-400" : "text-amber-400"}`}>
+              랜덤 타이밍 널 (P1-3)
+            </div>
+            {gp != null ? (
+              <>Gate Only 백분위 p={gp.toFixed(2)} ({data.evaluation_meta?.random_null.sims.toLocaleString()}회 시뮬).
+              {gp >= 0.95 ? " 무작위 노출 대비 유의." : " 무작위 노출과 통계적으로 구분 안 됨 = 타이밍 정보량 거의 0."}</>
+            ) : "데이터 없음"}
           </div>
           <div className="bg-gray-900 rounded-lg p-3">
-            <div className="text-gray-400 font-medium mb-1">BnH XLE (+85.9%)</div>
-            저VIX 구간(VIX&lt;20)이 전체 수익의 대부분 — 위기 신호 기반 전략의 구조적 gap
+            <div className="text-sky-400 font-medium mb-1">Alpha Capture 산식 (P1-4)</div>
+            {data.evaluation_meta
+              ? <>{data.evaluation_meta.alpha_capture_def}. B&amp;H raw = {data.evaluation_meta.bnh_raw_return.toFixed(1)}%.
+                카드의 raw/B&amp;H 비율로 재현 가능 (기존 13.7%는 IS 손익 오염값이었음).</>
+              : "산식 메타 없음"}
           </div>
           <div className="bg-gray-900 rounded-lg p-3">
-            <div className="text-amber-400 font-medium mb-1">다음 개선 방향</div>
-            임계값 0.45를 MEF plot 기반 데이터-driven u로 교체 → Layer 3 Bridge 구현
+            <div className="text-purple-400 font-medium mb-1">Gate+ML 활성 2일</div>
+            게이트·ML이 강한 역상관 → AND 결합이 구조적으로 굶음 (결합자 재설계는 P1-5에서 진단).
           </div>
         </div>
       </div>
+        );
+      })()}
     </div>
   );
 }
