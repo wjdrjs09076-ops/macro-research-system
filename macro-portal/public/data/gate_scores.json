@@ -2397,7 +2397,7 @@
       "oos_cagr": 8.78,
       "oos_sharpe": 2.136,
       "oos_mdd": -0.05,
-      "oos_active_days": 50,
+      "oos_active_days": 2,
       "oos_raw_return": 3.43,
       "alpha_capture": 12.2,
       "cumulative": {
@@ -2619,7 +2619,7 @@
       "oos_cagr": 23.48,
       "oos_sharpe": 1.803,
       "oos_mdd": -6.62,
-      "oos_active_days": 31,
+      "oos_active_days": 24,
       "oos_raw_return": 8.82,
       "alpha_capture": 31.3,
       "cumulative": {
@@ -2841,7 +2841,7 @@
       "oos_cagr": 3.41,
       "oos_sharpe": 1.522,
       "oos_mdd": -0.05,
-      "oos_active_days": 2,
+      "oos_active_days": 1,
       "oos_raw_return": 1.35,
       "alpha_capture": 4.8,
       "cumulative": {
@@ -3063,7 +3063,7 @@
       "oos_cagr": 8.95,
       "oos_sharpe": 0.988,
       "oos_mdd": -4.49,
-      "oos_active_days": 14,
+      "oos_active_days": 13,
       "oos_raw_return": 3.5,
       "alpha_capture": 12.4,
       "cumulative": {
@@ -3501,7 +3501,7 @@
       "oos_cagr": 85.89,
       "oos_sharpe": 2.677,
       "oos_mdd": -12.05,
-      "oos_active_days": 209,
+      "oos_active_days": 101,
       "oos_raw_return": 28.21,
       "alpha_capture": 100.0,
       "cumulative": {
@@ -3947,5 +3947,58 @@
       "VolTgt XLE": "연 15% vol-target (EWMA span=32, cap 1.5x, 연속 비중)",
       "200DMA XLE": "가격 > 200일 이동평균 시 롱 (on/off)"
     }
+  },
+  "gate_ml_concordance": {
+    "crosstab": {
+      "both": 1,
+      "gate_only": 23,
+      "ml_only": 1,
+      "neither": 76
+    },
+    "phi": 0.088,
+    "observed_both": 1,
+    "expected_both_if_independent": 0.48,
+    "ml_active_total": 2,
+    "gate_active_total": 24,
+    "note": "AND 결합(Gate+ML)은 'both' 칸에서만 발화. 활성일 버그 수정 후 OOS ML 발화는 단 2일 — Gate+ML 이 굶는 원인은 역상관이 아니라 ML 자체가 이 레짐에서 거의 발화하지 않기 때문 (감사 가설 정정)."
+  },
+  "threshold_sensitivity": [
+    {
+      "threshold": 0.4,
+      "oos_cagr": 20.48,
+      "oos_sharpe": 1.211,
+      "oos_active_days": 41
+    },
+    {
+      "threshold": 0.45,
+      "oos_cagr": 20.03,
+      "oos_sharpe": 1.308,
+      "oos_active_days": 34
+    },
+    {
+      "threshold": 0.5,
+      "oos_cagr": 8.6,
+      "oos_sharpe": 0.679,
+      "oos_active_days": 27
+    }
+  ],
+  "param_freeze": {
+    "params": {
+      "threshold": 0.45,
+      "window": 15,
+      "consec": 5,
+      "weights": {
+        "beta": 0.4,
+        "vrp": 0.35,
+        "direction": 0.25
+      }
+    },
+    "first_commit": "2026-06-11",
+    "oos_window": {
+      "start": "2026-01-01",
+      "end": "2026-05-29"
+    },
+    "verdict": "designer_leakage_possible",
+    "note": "macro_research 최초 git 커밋(2026-06-11)이 OOS 창 종료일(2026-05-29)보다 이후 — 5개 수동 파라미터의 동결을 커밋 이력으로 증명할 수 없다. OOS 전 구간을 보면서 값을 고를 수 있었으므로 모든 OOS 게이트 결과에 designer leakage 가능 라벨을 부여한다."
   }
 }

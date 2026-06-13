@@ -215,8 +215,10 @@ def backtest(price_ret, signal, tc=TC, oos_start=None):
         cagr   = c.iloc[-1] ** (252 / n) - 1
         sharpe = r.mean() / r.std() * np.sqrt(252) if r.std() > 0 else np.nan
         mdd    = ((c - c.cummax()) / c.cummax()).min()
-        return dict(cagr=cagr, sharpe=sharpe, mdd=mdd,
-                    n=int(sig.sum()))
+        # 활성일 = 해당 세그먼트(r.index) 내에서만 — 기존 sig.sum() 은 전체기간을
+        # 세어 OOS 카드에 전체기간 활성일이 찍히던 버그 (P1-5 진단 중 발견)
+        active = int((sig.reindex(r.index).fillna(0).abs() > 0).sum())
+        return dict(cagr=cagr, sharpe=sharpe, mdd=mdd, n=active)
 
     res = {"total": _s(net, cum), "cum": cum}
     if oos_start:
@@ -833,6 +835,61 @@ if __name__ == "__main__":
                           f"(EWMA span={EWMA_SPAN}, cap {VOLTGT_CAP}x, 연속 비중)",
             "200DMA XLE": f"가격 > {MA_FILTER_WIN}일 이동평균 시 롱 (on/off)",
         },
+    }
+
+    # ── P1-5: 게이트 ↔ ML 일치 진단 (OOS 2×2 교차표 + φ 계수) ──────────
+    # 실제 매매되는 신호를 그대로 사용 (build_all_signals 결과) — unshifted gate_open
+    # 을 쓰면 카드 활성일과 어긋난다. 'both' 칸 = Gate+ML 발화일과 정확히 일치.
+    g_oos = signals["Gate Only"].reindex(etf_ret.index).fillna(False)
+    m_oos = signals["Pure ML"].reindex(etf_ret.index).fillna(False)
+    g_oos = g_oos[g_oos.index >= oos_dt2].astype(bool)
+    m_oos = m_oos[m_oos.index >= oos_dt2].astype(bool)
+    a = int((g_oos & m_oos).sum())          # 둘 다 활성 (= Gate+ML)
+    b = int((g_oos & ~m_oos).sum())         # 게이트만
+    c = int((~g_oos & m_oos).sum())         # ML만
+    d = int((~g_oos & ~m_oos).sum())         # 둘 다 비활성
+    n_tot = a + b + c + d
+    phi_den = np.sqrt(float((a+b)*(c+d)*(a+c)*(b+d)))
+    phi = float((a*d - b*c) / phi_den) if phi_den > 0 else 0.0
+    exp_both = float((a+b) * (a+c) / n_tot) if n_tot > 0 else 0.0
+    gate_payload["gate_ml_concordance"] = {
+        "crosstab": {"both": a, "gate_only": b, "ml_only": c, "neither": d},
+        "phi": round(phi, 3),
+        "observed_both": a,
+        "expected_both_if_independent": round(exp_both, 2),
+        "ml_active_total": a + c,
+        "gate_active_total": a + b,
+        "note": "AND 결합(Gate+ML)은 'both' 칸에서만 발화. 활성일 버그 수정 후 "
+                "OOS ML 발화는 단 %d일 — Gate+ML 이 굶는 원인은 역상관이 아니라 "
+                "ML 자체가 이 레짐에서 거의 발화하지 않기 때문 (감사 가설 정정)." % (a + c),
+    }
+
+    # ── P1-6: 임계값 민감도 (0.40 / 0.45 / 0.50) — Gate Only OOS ───────
+    def _gate_only_at(th):
+        above = (gate_df["gate_score"] >= th).astype(float)
+        go    = above.rolling(GATE_CONSEC, min_periods=GATE_CONSEC).min().fillna(0).astype(bool)
+        sig   = go.reindex(etf_ret.index).fillna(False).shift(1).fillna(False)
+        o     = backtest(etf_ret, sig, TC, OOS_START).get("oos", {})
+        return {"threshold": th,
+                "oos_cagr": round(float(o.get("cagr", 0) or 0) * 100, 2),
+                "oos_sharpe": round(float(o.get("sharpe", 0) or 0), 3),
+                "oos_active_days": int(o.get("n", 0))}
+    gate_payload["threshold_sensitivity"] = [_gate_only_at(t) for t in (0.40, 0.45, 0.50)]
+
+    # ── P1-6: 파라미터 동결 증명 (git 최초 커밋 = 2026-06-11) ──────────
+    gate_payload["param_freeze"] = {
+        "params": {
+            "threshold": GATE_THRESH, "window": GATE_WINDOW,
+            "consec": GATE_CONSEC,
+            "weights": {"beta": 0.40, "vrp": 0.35, "direction": 0.25},
+        },
+        "first_commit": "2026-06-11",
+        "oos_window": {"start": OOS_START, "end": OOS_END},
+        "verdict": "designer_leakage_possible",
+        "note": "macro_research 최초 git 커밋(2026-06-11)이 OOS 창 종료일"
+                "(2026-05-29)보다 이후 — 5개 수동 파라미터의 동결을 커밋 이력으로 "
+                "증명할 수 없다. OOS 전 구간을 보면서 값을 고를 수 있었으므로 모든 "
+                "OOS 게이트 결과에 designer leakage 가능 라벨을 부여한다.",
     }
 
     json_out = BASE_DIR / "output" / "gate_scores.json"

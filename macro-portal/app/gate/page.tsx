@@ -37,6 +37,17 @@ type GateData = {
   };
   strategies: Record<string, StrategyData>;
   evaluation_meta?: EvaluationMeta;
+  gate_ml_concordance?: {
+    crosstab: { both: number; gate_only: number; ml_only: number; neither: number };
+    phi: number; observed_both: number; expected_both_if_independent: number;
+    ml_active_total: number; gate_active_total: number; note: string;
+  };
+  threshold_sensitivity?: { threshold: number; oos_cagr: number; oos_sharpe: number; oos_active_days: number }[];
+  param_freeze?: {
+    params: { threshold: number; window: number; consec: number; weights: Record<string, number> };
+    first_commit: string; oos_window: { start: string; end: string };
+    verdict: string; note: string;
+  };
 };
 
 const STRATEGY_COLORS: Record<string, string> = {
@@ -364,13 +375,80 @@ export default function GatePage() {
               : "산식 메타 없음"}
           </div>
           <div className="bg-gray-900 rounded-lg p-3">
-            <div className="text-purple-400 font-medium mb-1">Gate+ML 활성 2일</div>
-            게이트·ML이 강한 역상관 → AND 결합이 구조적으로 굶음 (결합자 재설계는 P1-5에서 진단).
+            <div className="text-purple-400 font-medium mb-1">Gate+ML 기아 원인 (P1-5)</div>
+            {data.gate_ml_concordance
+              ? <>OOS ML 발화 {data.gate_ml_concordance.ml_active_total}일뿐 → φ={data.gate_ml_concordance.phi.toFixed(2)}
+                (약한 양). 역상관이 아니라 ML이 이 레짐에서 거의 안 켜지는 게 원인 (감사 가설 정정).</>
+              : "게이트·ML AND 결합이 거의 발화 안 함."}
           </div>
         </div>
       </div>
         );
       })()}
+
+      {/* P1-5 게이트↔ML 교차표 + P1-6 동결/민감도 진단 */}
+      {(data.gate_ml_concordance || data.param_freeze) && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {data.gate_ml_concordance && (
+            <div className="rounded-xl border border-gray-800 bg-gray-900/30 p-5">
+              <h2 className="text-sm font-semibold text-gray-200 mb-1">게이트 ↔ ML 일치 (P1-5)</h2>
+              <p className="text-xs text-gray-500 mb-3">OOS 2×2 · φ 계수</p>
+              {(() => {
+                const ct = data.gate_ml_concordance!;
+                return (
+                  <>
+                    <div className="grid grid-cols-3 text-xs font-mono text-center mb-3">
+                      <div></div><div className="text-gray-500">ML 활성</div><div className="text-gray-500">ML 비활성</div>
+                      <div className="text-gray-500 flex items-center justify-end pr-2">게이트 OPEN</div>
+                      <div className="bg-emerald-950/40 text-emerald-300 py-2 rounded-l">{ct.crosstab.both}</div>
+                      <div className="bg-gray-800/50 text-gray-300 py-2 rounded-r">{ct.crosstab.gate_only}</div>
+                      <div className="text-gray-500 flex items-center justify-end pr-2">게이트 CLOSED</div>
+                      <div className="bg-gray-800/50 text-gray-300 py-2 rounded-l">{ct.crosstab.ml_only}</div>
+                      <div className="bg-gray-900 text-gray-500 py-2 rounded-r">{ct.crosstab.neither}</div>
+                    </div>
+                    <div className="text-xs text-gray-400 space-y-1">
+                      <div>φ = <span className="font-mono text-gray-200">{ct.phi.toFixed(3)}</span> (약한 양의 상관)</div>
+                      <div>both 관측 <span className="font-mono text-gray-200">{ct.observed_both}</span> vs 독립기대 <span className="font-mono text-gray-200">{ct.expected_both_if_independent}</span></div>
+                      <div className="text-amber-400/80 pt-1">{ct.note}</div>
+                      <div className="text-gray-500 pt-1">권고: AND 결합 자체가 아니라 ML 임계(0.55)/캘리브레이션이 병목. 레짐 스위치 결합 또는 ML 임계 하향을 다음 분기에서 검토.</div>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          )}
+          {data.param_freeze && (
+            <div className="rounded-xl border border-red-900/40 bg-red-950/10 p-5">
+              <h2 className="text-sm font-semibold text-gray-200 mb-1">파라미터 동결 증명 (P1-6)</h2>
+              <p className="text-xs text-red-400/80 mb-3">⚠ designer leakage 가능</p>
+              <div className="text-xs text-gray-400 space-y-1.5">
+                <div>최초 git 커밋 <span className="font-mono text-gray-200">{data.param_freeze.first_commit}</span> &gt; OOS 종료 <span className="font-mono text-gray-200">{data.param_freeze.oos_window.end}</span></div>
+                <div className="text-gray-500">{data.param_freeze.note}</div>
+                {data.threshold_sensitivity && (
+                  <div className="pt-2">
+                    <div className="text-gray-500 mb-1">임계값 민감도 (Gate Only OOS):</div>
+                    <table className="w-full font-mono text-[11px]">
+                      <thead><tr className="text-gray-600">
+                        <th className="text-left">임계</th><th className="text-right">CAGR</th><th className="text-right">Sharpe</th><th className="text-right">활성일</th>
+                      </tr></thead>
+                      <tbody>
+                        {data.threshold_sensitivity.map((r) => (
+                          <tr key={r.threshold} className={r.threshold === data.param_freeze!.params.threshold ? "text-emerald-300" : "text-gray-300"}>
+                            <td className="text-left">{r.threshold.toFixed(2)}{r.threshold === data.param_freeze!.params.threshold ? " ◀" : ""}</td>
+                            <td className="text-right">{r.oos_cagr >= 0 ? "+" : ""}{r.oos_cagr.toFixed(1)}%</td>
+                            <td className="text-right">{r.oos_sharpe.toFixed(2)}</td>
+                            <td className="text-right">{r.oos_active_days}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
