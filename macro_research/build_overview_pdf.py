@@ -1301,7 +1301,8 @@ def page_backtest(pdf, n, total):
     _title(fig, f"백테스트 — {period.get('start','?')} ~ {period.get('end','?')} "
                 f"({period.get('n_days','?')}일, 8룰·FDR 게이트 기준)",
            "backtest_results.json 라이브 수치 · BS+GARCH IV · 슬리피지 5% · "
-           "⚠ look-ahead + 룰 가지치기 생존편향 — 모든 수치는 '후보', 검증은 전향 페이퍼 표본")
+           "⚠ 라운드6-7 in-sample 재구성(트레일25/40·페어헤지·룰제거) ¤ — 전향 검증 아님 · "
+           "look-ahead + 룰 가지치기 생존편향 — 모든 수치는 '후보', 검증은 전향 페이퍼 표본")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
 
@@ -1322,6 +1323,13 @@ def page_backtest(pdf, n, total):
                 f"total=${v.get('total_pnl',0):+8,.0f}",
                 color=c, fontsize=10.5, fontfamily="monospace", fontweight="bold")
         y -= 0.035
+
+    # 시스템 합산(straddle+directional) — W3 의 +$1,252. ★ in-sample 재구성 라벨 필수
+    sys_tot = (s_tr.get("total_pnl", 0) or 0) + (d_tr.get("total_pnl", 0) or 0)
+    ax.text(0.02, y, f"시스템 합산  total=${sys_tot:+,.0f}   "
+            f"(라운드6-7 in-sample 재구성 ¤ — 전향 검증 아님)",
+            color=C_ACCENT_5, fontsize=10, fontweight="bold")
+    y -= 0.045
 
     # 베이스라인 — 라운드 6/7 비평의 결정적 비교
     ax.text(0.02, y - 0.01, "베이스라인 대조군 (시그널 없음): " + base.get("rule", "미실행"),
