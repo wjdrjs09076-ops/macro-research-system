@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-14T21:20:34",
+  "scan_date": "2026-06-14T22:45:21",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -297,31 +297,17 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 33.2,
+      "current_rv": 31.2,
       "baseline_rv": 25.6,
-      "z_score": 0.51,
-      "vrp": -0.0451,
-      "beta_30d": 1.293,
+      "z_score": 0.37,
+      "vrp": -0.0351,
+      "beta_30d": 1.282,
       "consec_vol": 5,
-      "excess_10d": -5.19,
+      "excess_10d": -5.77,
       "level": 1,
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Gold Futures"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.4,
-      "baseline_rv": 3.9,
-      "z_score": 0.5,
-      "vrp": 0.01,
-      "beta_30d": 0.26,
-      "consec_vol": 3,
-      "excess_10d": 1.39,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.26",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^FTSE",
@@ -392,6 +378,20 @@
       "label": "WATCH",
       "reason": "beta=-1.48, 5d consec vol",
       "sector": "WTI Crude Futures"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.1,
+      "baseline_rv": 3.9,
+      "z_score": 0.15,
+      "vrp": 0.0112,
+      "beta_30d": 0.265,
+      "consec_vol": 3,
+      "excess_10d": 1.63,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.26",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^STOXX50E",
