@@ -1329,11 +1329,14 @@ def page_backtest(pdf, n, total):
     y -= 0.045
     if base:
         beat = s_tr.get("total_pnl", 0) > base.get("total_pnl", 0)
-        ax.text(0.02, y, f"{'baseline':14s} n={base.get('trades',0):>3}  "
+        n_base = base.get("trades", 0)
+        # 에피스테믹 대칭(W3): 대조군 n<10 이면 패배도 '주장 불가' caveat (co_crash n=8 강등과 동일 잣대)
+        caveat = f"  (단 대조군 n={n_base} — 주장 불가)" if n_base < 10 else ""
+        ax.text(0.02, y, f"{'baseline':14s} n={n_base:>3}  "
                 f"win={base.get('win_rate',0)*100:>3.0f}%  "
                 f"avg={base.get('avg_pnl_pct',0)*100:+5.1f}%  "
                 f"total=${base.get('total_pnl',0):+8,.0f}   → 시스템이 "
-                + ("이김" if beat else "짐 — 6레이어의 한계 기여 미증명"),
+                + ("이김" if beat else "짐 — 6레이어의 한계 기여 미증명") + caveat,
                 color=C_ACCENT_3 if beat else C_ACCENT_5,
                 fontsize=10.5, fontfamily="monospace", fontweight="bold")
     y -= 0.05
