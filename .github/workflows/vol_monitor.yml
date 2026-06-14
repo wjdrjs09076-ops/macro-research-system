@@ -56,6 +56,13 @@ jobs:
           python regression_engine.py
         continue-on-error: true
 
+      # ⚠ 타이밍 민감 청산(시그널 사망·손절 등)은 cron 지터(위 5-15분)로 최대
+      #    수십 분 늦을 수 있다. 즉시 청산이 필요하면 Actions 탭에서
+      #    workflow_dispatch 로 수동 트리거(장중 한정 — kinetic RTH 가드 적용).
+      # ⚠ ALPACA_ENDPOINT 는 반드시 paper-api.alpaca.markets (페이퍼). kinetic 은
+      #    코드 레벨 paper 가드 없이 이 값을 그대로 사용한다(TRADE_BASE). 실자본
+      #    전환 시 (1) 엔드포인트 변경 (2) GH Secrets 키 영속 상주 blast-radius
+      #    재검토 — pending 의 'real_capital_key_residency' 항목 참조.
       - name: Stage 3 — Kinetic executor (--auto --minimal, RTH-guarded)
         env:
           ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
