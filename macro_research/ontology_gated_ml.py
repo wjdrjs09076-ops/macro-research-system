@@ -425,6 +425,69 @@ def action_comparison(sec_ret, spy_ret, gate_open, oos_start, etf_label):
     }
 
 
+def straddle_iv_sensitivity(etf_ret, gate_open, oos_start,
+                            iv_mults=(1.0, 1.5, 2.0), dte=21, r=0.04):
+    """W2-B: 게이트 OPEN 시 ATM 스트래들. GARCH-IV × 배수로 일별 BS 재평가.
+
+    위기 IV 는 보통 GARCH 의 1.5~2배(스파이크)이므로 1.0배에서만 이기는 결과는
+    기각 처리(단일 IV 결과 금지). 진입=게이트 OPEN 전환, 보유=DTE 또는 게이트 종료.
+    프리미엄 대비 수익률 시계열 → CAGR/Sharpe/MDD. 반환: {mult: metrics}.
+    """
+    from garch_estimator import fit_garch_single
+    from iv_extractor import _bs_price
+
+    oos_dt = pd.Timestamp(oos_start)
+    gv = fit_garch_single(etf_ret).reindex(etf_ret.index).ffill()
+    px = (1 + etf_ret).cumprod() * 100.0
+    go = gate_open.reindex(etf_ret.index).fillna(False).astype(bool)
+    idx = etf_ret.index
+    out = {}
+    for mult in iv_mults:
+        daily = pd.Series(0.0, index=idx)
+        n_tr = wins = 0
+        i = 0
+        while i < len(idx):
+            if not go.iloc[i] or (go.iloc[i] and i > 0 and go.iloc[i-1]):
+                i += 1; continue   # 진입은 OPEN 전환(0→1) 에서만
+            entry_i = i
+            S0 = float(px.iloc[entry_i]); K = S0
+            sig0 = float(gv.iloc[entry_i]) * mult
+            if not (sig0 > 0) or not np.isfinite(sig0):
+                i += 1; continue
+            T0 = dte / 252.0
+            prem0 = (_bs_price(S0, K, T0, r, sig0, "call")
+                     + _bs_price(S0, K, T0, r, sig0, "put"))
+            if prem0 <= 0:
+                i += 1; continue
+            prev_v = prem0
+            j = entry_i + 1
+            held = 0
+            while j < len(idx) and held < dte and go.iloc[j]:
+                S = float(px.iloc[j]); held += 1
+                Tr = max((dte - held) / 252.0, 1e-6)
+                sig = float(gv.iloc[j]) * mult
+                v = (_bs_price(S, K, Tr, r, sig, "call")
+                     + _bs_price(S, K, Tr, r, sig, "put"))
+                daily.iloc[j] = (v - prev_v) / prem0   # 프리미엄 대비 일수익
+                prev_v = v
+                j += 1
+            n_tr += 1
+            if prev_v > prem0:
+                wins += 1
+            i = j  # 다음 OPEN 탐색
+        d_oos = daily[daily.index >= oos_dt]
+        cum = 1 + d_oos.cumsum()           # 프리미엄 1단위 베팅의 가산 자본
+        sh = float(d_oos.mean() / d_oos.std() * np.sqrt(252)) if d_oos.std() > 0 else None
+        mdd = float(((cum - cum.cummax()) / cum.cummax()).min()) if len(cum) else 0.0
+        out[f"{mult:g}x"] = {
+            "iv_mult": mult, "n_trades": n_tr, "wins": wins,
+            "total_return": round(float(d_oos.sum()) * 100, 2),
+            "oos_sharpe": round(sh, 3) if sh is not None else None,
+            "oos_mdd": round(mdd * 100, 2),
+        }
+    return out
+
+
 # 하락 위기 창 — 게이트의 '홈그라운드 시험' (감사 P1-1). 시점-aware:
 # IS = full_start~oos_start 로만 ML 학습, 위기 창 이후 데이터 미사용.
 CRISIS_WINDOWS = [
@@ -469,6 +532,8 @@ def evaluate_window(etf, full_start, oos_start, oos_end, direction="LONG"):
         "bnh_raw_return": meta["bnh_raw_return"],
         "action_comparison": action_comparison(
             etf_ret, spy_ret, gate_df["gate_open"], oos_start, etf),
+        "straddle_iv": straddle_iv_sensitivity(
+            etf_ret, gate_df["gate_open"], oos_start),
     }
 
 
@@ -1010,6 +1075,9 @@ if __name__ == "__main__":
     # ── W2-A: 호르무즈 창 현물 액션 3종 비교 (IV 가정 0) ──────────────
     gate_payload["action_comparison_hormuz"] = action_comparison(
         etf_ret, spy_ret, gate_df["gate_open"], OOS_START, "XLE")
+    # ── W2-B: 호르무즈 스트래들 IV 배수 민감도 ────────────────────────
+    gate_payload["straddle_iv_hormuz"] = straddle_iv_sensitivity(
+        etf_ret, gate_df["gate_open"], OOS_START)
 
     # ── P1-1: 하락 위기 홈그라운드 시험 (GFC/COVID/2022, 시점-aware) ────
     print("\n[6c] 하락 위기 OOS 카드 (P1-1)...")

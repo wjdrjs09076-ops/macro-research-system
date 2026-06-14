@@ -53,16 +53,19 @@ type GateData = {
     reeval_ready: boolean; note: string; verdict: string;
   };
   action_comparison_hormuz?: Record<string, ActionMetric>;
+  straddle_iv_hormuz?: Record<string, StraddleIV>;
   crisis_windows?: Record<string, {
     label: string; etf: string; direction: string;
     oos_start: string; oos_end: string;
     oos_gate_open_pct: number; bnh_raw_return: number;
     strategies: Record<string, StrategyData>;
     action_comparison?: Record<string, ActionMetric>;
+    straddle_iv?: Record<string, StraddleIV>;
   }>;
 };
 
 type ActionMetric = { oos_cagr: number; oos_sharpe: number | null; oos_mdd: number; oos_active_days: number } | null;
+type StraddleIV = { iv_mult: number; n_trades: number; wins: number; total_return: number; oos_sharpe: number | null; oos_mdd: number };
 
 const STRATEGY_COLORS: Record<string, string> = {
   "Pure ML" : "#ef4444",
@@ -534,6 +537,52 @@ export default function GatePage() {
               레버리지가 아니라 빠지는 것. 즉 게이트의 위기 수익화는 <b className="text-gray-300">미해결이 아니라
               스프레드가 더 나은 매핑</b>이다. 단 이 OOS는 P1-6 designer leakage 라벨 위의 숫자임.
             </p>
+
+            {data.straddle_iv_hormuz && (() => {
+              const sw: { label: string; iv: Record<string, StraddleIV> }[] = [
+                { label: "호르무즈", iv: data.straddle_iv_hormuz! },
+                ...Object.values(data.crisis_windows ?? {})
+                  .filter((w) => w.straddle_iv)
+                  .map((w) => ({ label: w.label, iv: w.straddle_iv! })),
+              ];
+              const mults = ["1x", "1.5x", "2x"];
+              return (
+                <div className="border-t border-gray-800 pt-3 mt-1">
+                  <h3 className="text-xs font-semibold text-gray-300 mb-1">W2-B · ATM 스트래들 IV 배수 민감도 (총수익%)</h3>
+                  <p className="text-[11px] text-gray-500 mb-2 leading-relaxed">
+                    GARCH-IV × 배수로 BS 재평가. 위기 IV는 통상 GARCH의 1.5~2배 →
+                    <b className="text-gray-400"> 1.0배에서만 이기는 결과는 기각</b>(단일 IV 결과 금지).
+                  </p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-[11px] font-mono">
+                      <thead><tr className="text-gray-600">
+                        <th className="text-left font-normal pb-1">창 \ IV배수</th>
+                        {mults.map((m) => <th key={m} className="text-right font-normal px-2 pb-1">{m}</th>)}
+                      </tr></thead>
+                      <tbody>
+                        {sw.map((w) => (
+                          <tr key={w.label} className="text-gray-300">
+                            <td className="text-left py-0.5">{w.label}</td>
+                            {mults.map((m) => {
+                              const v = w.iv[m];
+                              const val = v ? v.total_return : null;
+                              return <td key={m} className={`text-right px-2 ${val == null ? "text-gray-600" : val > 0 ? "text-emerald-400" : "text-red-400"}`}>
+                                {val == null ? "—" : `${val >= 0 ? "+" : ""}${val.toFixed(0)}%`}
+                              </td>;
+                            })}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="text-[11px] text-red-400/90 mt-2 leading-relaxed">
+                    결론: 스트래들은 현실적 IV(1.5~2배)에서 견디지 못한다 — 유일한 상방창(호르무즈)도
+                    1.0배 +95% → 2.0배 -14%로 붕괴, 하락 3창은 전 배수 손실. 라이브 시스템의 실제
+                    instrument(스트래들)보다 W2-A의 β헤지 스프레드가 우월.
+                  </p>
+                </div>
+              );
+            })()}
           </div>
         );
       })()}
