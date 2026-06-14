@@ -798,7 +798,7 @@ def page_rules(pdf, n, total):
         ("vol_overpriced",         "VRP_true > 2% (Alpaca IV)",                   "OVERWEIGHT", "IV>RV — directional 제외 + SHORT 페어", False, False),
         ("fat_tail_alert",         "ξ (GPD) > 0.20",                              "HEDGE/MONI",  "정규 VaR 부적합 ✓ +9.4% 백테스트", False, False),
         ("normal_var_inadequate",  "CF VaR / Normal VaR > 2.5",                   "MONITOR",     "정규 VaR 실제의 절반", False, False),
-        ("thin_tail_greenlight 💤", "CI 95%상한: ξ<0.10 & λ_L<0.20 & CF<1.5",      "MONITOR",     "휴면 — 재개 필요 표본 λ≈1.9y / ξ≈10.7y (P2-5 산출). 재론 시 횡단면 상대임계 검토", True, False),
+        ("thin_tail_greenlight 💤", "CI 95%상한: ξ<0.10 & λ_L<0.20 & CF<1.5",      "MONITOR",     "死코드 — 발화 불가 (↓ 하단 주)", True, False),
         ("─" * 30, "", "", "── 2026-06-10 제거 (정합성 의심) ──", False, False),
         ("~~causal_chain_monitor~~", "PCMCI 4개월 stale, 변별력 낮음",                "—",           "백테스트 -$649 / n=50", False, True),
         ("~~shock_propagator~~",     "Shapley 평균이라도 비인과 휴리스틱",             "—",           "백테스트 -$1,949 / n=50 (최대 손실)", False, True),
@@ -827,6 +827,13 @@ def page_rules(pdf, n, total):
             ax.text(x, y, txt, color=color, fontsize=9.5,
                     fontweight="bold" if x == cols_x[0] else "normal")
         y -= 0.048
+
+    # 💤 thin_tail_greenlight 휴면 사유 전면화 (R8 검토 3) — 셀에 안 잘리게 본문에
+    ax.text(0.02, 0.225,
+            "[휴면] thin_tail_greenlight (무한손실 숏볼 게이트 — ξ·λ_L·CF 95% 상한으로만 발화): "
+            "P2-5 실측 — 게이트 통과에 ξ≈10.7년·λ_L≈1.9년치 표본 필요 = 현 데이터 체계에서\n"
+            "수학적으로 발화 불가. 횡단면 상대임계 재설계 없이는 死코드(영구 동결) — 흐리지 않고 명시.",
+            color="#6ee7b7", fontsize=8.5, linespacing=1.4, va="top")
 
     # 레짐별 활성 룰 (8개)
     ax.text(0.02, 0.17, "레짐별 활성 룰 (8개, 2026-06-10)",
@@ -941,7 +948,7 @@ def page_sensitivity(pdf, n, total, live):
     # 위 표가 그 라이브 출력. 문서에 명단을 박으면 p.8/9/14 가 서로 어긋난다)
     fig.text(0.04, 0.045,
              "핵심 발견: XLE '금리 수혜' = 유가 교란 (직교화 후에도 t=0.9) · XLK×VIX FLIPPED = 시장베타 · "
-             "직교화+FDR 로 일부 rate_victim 도 공선성 아티팩트 판명 — 현재 유효 명단은 위 표(=상태표)가 유일한 기준",
+             "직교화+FDR 로 일부 rate_victim 도 통제 후 유의성 소멸로 사망 — 현재 유효 명단은 위 표(=상태표)가 유일한 기준",
              color=C_ACCENT_4, fontsize=9.5, fontweight="bold")
 
     _footer(fig, n, total)
@@ -1299,10 +1306,10 @@ def page_backtest(pdf, n, total):
 
     fig = _new_page(figsize=(12.0, 9.0))
     _title(fig, f"백테스트 — {period.get('start','?')} ~ {period.get('end','?')} "
-                f"({period.get('n_days','?')}일, 8룰·FDR 게이트 기준)",
-           "backtest_results.json 라이브 수치 · BS+GARCH IV · 슬리피지 5% · "
-           "⚠ 라운드6-7 in-sample 재구성(트레일25/40·페어헤지·룰제거) ¤ — 전향 검증 아님 · "
-           "look-ahead + 룰 가지치기 생존편향 — 모든 수치는 '후보', 검증은 전향 페이퍼 표본")
+                f"({period.get('n_days','?')}일 · {trail.get('n_closed','?')} closed, 8룰·FDR 게이트)",
+           f"거래 수 이력: 라운드6 194 closed → 룰 가지치기(11→8)+FDR 게이트로 "
+           f"{trail.get('n_closed','?')} closed(straddle 13 + directional 28) · 감소분 = 쳐낸 룰·게이트 컷. "
+           "BS+GARCH IV · 슬리피지 5% · ⚠ 라운드6-7 in-sample 재구성 ¤ — 전향 검증 아님(생존편향 상향)")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
 
@@ -1338,14 +1345,18 @@ def page_backtest(pdf, n, total):
     if base:
         beat = s_tr.get("total_pnl", 0) > base.get("total_pnl", 0)
         n_base = base.get("trades", 0)
-        # 에피스테믹 대칭(W3): 대조군 n<10 이면 패배도 '주장 불가' caveat (co_crash n=8 강등과 동일 잣대)
-        caveat = f"  (단 대조군 n={n_base} — 주장 불가)" if n_base < 10 else ""
+        # 에피스테믹 대칭(R8 검토 1): n<10 이면 시스템 패배도, 대조군 숫자(+3,409)도 둘 다
+        # 주장 불가 — n=2 caveat 를 한쪽(시스템 열위)에만 붙이면 비대칭. 방향만 시사.
+        if n_base < 10:
+            verdict = (f"→ n={n_base} 라 양쪽 다 판정 불가(대조군 숫자도 무의미), "
+                       f"단 방향은 시스템 열위 시사")
+        else:
+            verdict = "→ 시스템이 " + ("이김" if beat else "짐 — 6레이어의 한계 기여 미증명")
         ax.text(0.02, y, f"{'baseline':14s} n={n_base:>3}  "
                 f"win={base.get('win_rate',0)*100:>3.0f}%  "
                 f"avg={base.get('avg_pnl_pct',0)*100:+5.1f}%  "
-                f"total=${base.get('total_pnl',0):+8,.0f}   → 시스템이 "
-                + ("이김" if beat else "짐 — 6레이어의 한계 기여 미증명") + caveat,
-                color=C_ACCENT_3 if beat else C_ACCENT_5,
+                f"total={base.get('total_pnl',0):+,.0f} USD   " + verdict,
+                color=C_ACCENT_5,
                 fontsize=10.5, fontfamily="monospace", fontweight="bold")
     y -= 0.05
 
@@ -1516,8 +1527,8 @@ def page_limitations(pdf, n, total):
 
         ("3. ✓ 추정 노이즈 보수화 + 공선성/FDR (라운드 6 비평 4·7번)",
          "ξ·λ_L·CF 블록 부트스트랩 CI — thin_tail_greenlight(무한손실 게이트)는 95% 상한으로만 발화.\n"
-         "금리 직교화(레벨+2s10s)+VIF: XLE 금리수혜 kill 은 교란 확정, XLV/XLP rate_victim 은 공선성\n"
-         "아티팩트로 판명·사망. 감사 verdict 는 BH FDR q<0.10 (55가설 다중비교 보정).",
+         "금리 직교화(레벨+2s10s)+VIF: XLE 금리수혜 kill 은 교란 확정, XLV/XLP rate_victim 은 직교화 후\n"
+         "t 유의성 소멸로 사망(KILLED, ctrl t=-0.1/-1.6 — p.9 표와 동일 사유). verdict 는 BH FDR q<0.10.",
          C_ACCENT_3),
 
         ("4. (남은 한계) 생존편향 + 열린 루프 + 노출 캡 부재",
@@ -1547,10 +1558,14 @@ def page_limitations(pdf, n, total):
                 linespacing=1.4, va="top")
         y -= 0.155
 
-    ax.text(0.5, 0.005,
+    ax.text(0.5, 0.022,
             "★ CONFIG FREEZE v1 (2026-06-12): 8룰 + FDR q<0.10 게이트 + 트레일 25/40 (민감도 9칸 전부 + 확인) "
             "+ β페어 σ임계(2.0/1.5) + rate 캡 15% + 숏볼 휴면. 이 시점부터의 페이퍼 표본 = 유일한 OOS.",
             ha="center", color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
+    ax.text(0.5, 0.004,
+            "⚠ freeze v1 은 paper-guard 미구현 상태를 동결한다 (TRADE_BASE=env[ALPACA_ENDPOINT], 무가드). "
+            "실자본 계좌 연결일 = freeze v1 파기 + v2 강제 트리거 — 동결된 채 잊히지 않게 못 박음.",
+            ha="center", color=C_ACCENT_5, fontsize=9, fontweight="bold")
 
     _footer(fig, n, total)
     pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
