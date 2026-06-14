@@ -52,13 +52,17 @@ type GateData = {
     in_decision_path: boolean; n_fire: number; reeval_n: number;
     reeval_ready: boolean; note: string; verdict: string;
   };
+  action_comparison_hormuz?: Record<string, ActionMetric>;
   crisis_windows?: Record<string, {
     label: string; etf: string; direction: string;
     oos_start: string; oos_end: string;
     oos_gate_open_pct: number; bnh_raw_return: number;
     strategies: Record<string, StrategyData>;
+    action_comparison?: Record<string, ActionMetric>;
   }>;
 };
+
+type ActionMetric = { oos_cagr: number; oos_sharpe: number | null; oos_mdd: number; oos_active_days: number } | null;
 
 const STRATEGY_COLORS: Record<string, string> = {
   "Pure ML" : "#ef4444",
@@ -472,6 +476,67 @@ export default function GatePage() {
           </p>
         </div>
       )}
+
+      {/* W2-A 감지→액션 분리: 현물 액션 3종 비교 (IV 가정 0) */}
+      {data.action_comparison_hormuz && (() => {
+        const windows: { label: string; ac: Record<string, ActionMetric> }[] = [
+          { label: "호르무즈", ac: data.action_comparison_hormuz! },
+          ...Object.values(data.crisis_windows ?? {})
+            .filter((w) => w.action_comparison)
+            .map((w) => ({ label: w.label, ac: w.action_comparison! })),
+        ];
+        const norm = (ac: Record<string, ActionMetric>, base: string) => {
+          const k = Object.keys(ac).find((x) => x.startsWith(base));
+          return k ? ac[k] : null;
+        };
+        const rows: { key: string; label: string; hl?: boolean }[] = [
+          { key: "on_off", label: "① 현물 on/off (현행)" },
+          { key: "exposure_var", label: "② 노출가변 1.5x" },
+          { key: "spread_hedged", label: "③ β헤지 스프레드", hl: true },
+          { key: "VolTgt", label: "VolTgt (베이스라인)" },
+          { key: "200DMA", label: "200DMA (베이스라인)" },
+        ];
+        const cell = (ac: Record<string, ActionMetric>, key: string) => {
+          const m = key === "VolTgt" || key === "200DMA" ? norm(ac, key) : ac[key];
+          if (!m) return <span className="text-gray-600">—</span>;
+          return <span>{m.oos_cagr >= 0 ? "+" : ""}{m.oos_cagr.toFixed(0)}% <span className="text-amber-400/80">{m.oos_mdd.toFixed(0)}%</span></span>;
+        };
+        return (
+          <div className="rounded-xl border border-gray-800 bg-gray-900/30 p-5 space-y-3">
+            <div>
+              <h2 className="text-sm font-semibold text-gray-200">감지 → 액션 분리 (W2-A · IV 가정 0)</h2>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                게이트 OPEN 신호의 수익화 방식 비교 — 셀은 <span className="text-gray-300">CAGR</span> /
+                <span className="text-amber-400/80"> MDD</span>. 현물·가격만 사용(옵션 IV 가정 없음).
+                핵심: 어떤 현물 액션이 한 줄짜리 베이스라인을 이기는가.
+              </p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-[11px] font-mono">
+                <thead><tr className="text-gray-600">
+                  <th className="text-left font-normal pb-1">액션 \ 창</th>
+                  {windows.map((w) => <th key={w.label} className="text-right font-normal pb-1 px-1">{w.label}</th>)}
+                </tr></thead>
+                <tbody>
+                  {rows.map((r) => (
+                    <tr key={r.key} className={r.hl ? "text-emerald-300" : r.key.match(/VolTgt|200DMA/) ? "text-sky-300/80" : "text-gray-300"}>
+                      <td className="text-left py-0.5">{r.label}</td>
+                      {windows.map((w) => <td key={w.label} className="text-right px-1 whitespace-nowrap">{cell(w.ac, r.key)}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              결론: <b className="text-emerald-300">③ β헤지 스프레드가 현행 on/off를 4창 전부 MDD에서 이기고,
+              200DMA 베이스라인을 3/4창에서 이긴다</b> (호르무즈 -5% · GFC -7% · 긴축 -2%).
+              <b className="text-red-400"> ② 노출가변(OPEN 시 1.5x)은 재앙</b>(GFC MDD -76%) — 게이트의 가치는
+              레버리지가 아니라 빠지는 것. 즉 게이트의 위기 수익화는 <b className="text-gray-300">미해결이 아니라
+              스프레드가 더 나은 매핑</b>이다. 단 이 OOS는 P1-6 designer leakage 라벨 위의 숫자임.
+            </p>
+          </div>
+        );
+      })()}
 
       {/* P1-5 게이트↔ML 교차표 + P1-6 동결/민감도 진단 */}
       {(data.gate_ml_concordance || data.param_freeze) && (

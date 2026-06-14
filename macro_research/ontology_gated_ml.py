@@ -386,6 +386,45 @@ def build_cards(etf_ret, signals, oos_start, etf_label="XLE", n_null_sims=NULL_S
     return sp, meta
 
 
+def action_comparison(sec_ret, spy_ret, gate_open, oos_start, etf_label):
+    """W2-A: 게이트 OPEN 시 현물 액션 3종 비교 (IV 가정 0 — 가격만).
+
+    ① on_off       : OPEN 시 섹터 롱 (현행)
+    ② exposure_var : 평시 1.0x / OPEN 1.5x 연속 비중
+    ③ spread_hedged: OPEN 시 섹터 롱 − 63D β·SPY 숏 (시장중립, 디커플링 격리)
+    + 베이스라인 VolTgt/200DMA (한 줄짜리). 반환: {action: {cagr,sharpe,mdd,days}}.
+    """
+    oos_dt = pd.Timestamp(oos_start)
+    go = gate_open.reindex(sec_ret.index).fillna(False).astype(float)
+    b63 = rolling_beta(sec_ret, spy_ret, 63).reindex(sec_ret.index).ffill().fillna(1.0)
+
+    def _m(net, active):
+        r = net[net.index >= oos_dt]
+        if len(r) < 5:
+            return None
+        c = (1 + r).cumprod()
+        sh = float(r.mean() / r.std() * np.sqrt(252)) if r.std() > 0 else None
+        mdd = float(((c - c.cummax()) / c.cummax()).min())
+        am = active[active.index >= oos_dt]
+        return {"oos_cagr": round(float(c.iloc[-1] ** (252 / len(r)) - 1) * 100, 2),
+                "oos_sharpe": round(sh, 3) if sh is not None else None,
+                "oos_mdd": round(mdd * 100, 2),
+                "oos_active_days": int((am.abs() > 0).sum())}
+
+    s_on  = go.shift(1).fillna(0.0)
+    w_var = (1.0 + 0.5 * go).shift(1).fillna(0.0)
+    vt    = vol_target_signal(sec_ret)
+    ma    = ma_filter_signal(sec_ret).astype(float)
+    spread = sec_ret - b63 * spy_ret
+    return {
+        "on_off":        _m(s_on * sec_ret - s_on.diff().abs() * TC, s_on),
+        "exposure_var":  _m(w_var * sec_ret - w_var.diff().abs() * TC, w_var),
+        "spread_hedged": _m(s_on * spread - s_on.diff().abs() * TC * 2, s_on),
+        f"VolTgt {etf_label}": _m(vt * sec_ret - vt.diff().abs() * TC, vt),
+        f"200DMA {etf_label}": _m(ma * sec_ret - ma.diff().abs() * TC, ma),
+    }
+
+
 # 하락 위기 창 — 게이트의 '홈그라운드 시험' (감사 P1-1). 시점-aware:
 # IS = full_start~oos_start 로만 ML 학습, 위기 창 이후 데이터 미사용.
 CRISIS_WINDOWS = [
@@ -428,6 +467,8 @@ def evaluate_window(etf, full_start, oos_start, oos_end, direction="LONG"):
             gate_df["gate_open"][gate_df.index >= pd.Timestamp(oos_start)].mean() * 100), 1),
         "strategies": sp,
         "bnh_raw_return": meta["bnh_raw_return"],
+        "action_comparison": action_comparison(
+            etf_ret, spy_ret, gate_df["gate_open"], oos_start, etf),
     }
 
 
@@ -965,6 +1006,10 @@ if __name__ == "__main__":
             f.write(json.dumps(shadow_line, ensure_ascii=False) + "\n")
     except Exception as exc:
         print(f"  [WARN] ml_shadow_log 기록 실패: {exc}")
+
+    # ── W2-A: 호르무즈 창 현물 액션 3종 비교 (IV 가정 0) ──────────────
+    gate_payload["action_comparison_hormuz"] = action_comparison(
+        etf_ret, spy_ret, gate_df["gate_open"], OOS_START, "XLE")
 
     # ── P1-1: 하락 위기 홈그라운드 시험 (GFC/COVID/2022, 시점-aware) ────
     print("\n[6c] 하락 위기 OOS 카드 (P1-1)...")
