@@ -937,6 +937,35 @@ if __name__ == "__main__":
                 "OOS 게이트 결과에 designer leakage 가능 라벨을 부여한다.",
     }
 
+    # ── W1: ML shadow 격리 (결정 D안) ─────────────────────────────────
+    # ML(LR/RF/GBT 앙상블·VQC)은 라이브 사이징/진입 경로에 부재 — kinetic_executor·
+    # trigger·inference 어디서도 predict_proba 미호출. 평가 레이어 전용이므로 발화만
+    # 누적하고 결정에 반영하지 않는다. n_fire≥30 도달 시 A/B/C 재결정.
+    ML_REEVAL_N = 30
+    n_fire = a + c   # OOS Pure ML 조건 충족일 (concordance 의 ml_active_total)
+    gate_payload["ml_shadow"] = {
+        "in_decision_path": False,
+        "n_fire": n_fire,
+        "reeval_n": ML_REEVAL_N,
+        "reeval_ready": bool(n_fire >= ML_REEVAL_N),
+        "note": "ML 은 라이브 사이징/진입 경로(kinetic_executor·trigger·inference)에 "
+                "부재 — 평가 전용. shadow 로 발화만 누적, 사이징 미반영.",
+        "verdict": f"무가치 확정 불가 (n_fire={n_fire}<{ML_REEVAL_N}) — co_crash n=8 "
+                   f"'주장 불가' 강등과 대칭. 표본 누적 후 A/B/C 재결정.",
+    }
+    try:
+        shadow_line = {
+            "ts": pd.Timestamp.now().isoformat(timespec="seconds"),
+            "window": "hormuz_oos",
+            "n_fire_oos": n_fire,
+            "gate_cofire": a,        # 게이트 OPEN 과 동시 발화일
+            "phi": round(phi, 4),
+        }
+        with open(BASE_DIR / "output" / "ml_shadow_log.jsonl", "a", encoding="utf-8") as f:
+            f.write(json.dumps(shadow_line, ensure_ascii=False) + "\n")
+    except Exception as exc:
+        print(f"  [WARN] ml_shadow_log 기록 실패: {exc}")
+
     # ── P1-1: 하락 위기 홈그라운드 시험 (GFC/COVID/2022, 시점-aware) ────
     print("\n[6c] 하락 위기 OOS 카드 (P1-1)...")
     crisis_cards = {}

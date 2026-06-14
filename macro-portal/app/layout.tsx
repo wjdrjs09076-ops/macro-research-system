@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Macro Research Portal",
-  description: "Ontology-Gated ML Framework — Crisis Signal Visualization",
+  description: "Ontology-Gated Framework (ML in shadow eval) — Crisis Signal Visualization",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

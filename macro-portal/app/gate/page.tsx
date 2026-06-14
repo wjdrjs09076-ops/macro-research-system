@@ -48,6 +48,10 @@ type GateData = {
     first_commit: string; oos_window: { start: string; end: string };
     verdict: string; note: string;
   };
+  ml_shadow?: {
+    in_decision_path: boolean; n_fire: number; reeval_n: number;
+    reeval_ready: boolean; note: string; verdict: string;
+  };
   crisis_windows?: Record<string, {
     label: string; etf: string; direction: string;
     oos_start: string; oos_end: string;
@@ -75,11 +79,11 @@ const STRATEGY_ORDER = [
 const BASELINE_NAMES = new Set(["VolTgt XLE", "200DMA XLE"]);
 
 function MetricCard({
-  name, cagr, sharpe, mdd, days, capture, rawReturn, bnhRaw, timingNull, isBaseline, color,
+  name, cagr, sharpe, mdd, days, capture, rawReturn, bnhRaw, timingNull, isBaseline, shadowNote, color,
 }: {
   name: string; cagr: number; sharpe: number; mdd: number | null;
   days: number; capture: number; rawReturn?: number; bnhRaw?: number;
-  timingNull?: TimingNull; isBaseline?: boolean; color: string;
+  timingNull?: TimingNull; isBaseline?: boolean; shadowNote?: string; color: string;
 }) {
   const pct = timingNull?.null_pctile ?? null;
   // 백분위 색상: ≥0.95 유의(녹) / 0.5~0.95 약함(노랑) / <0.5 평균 이하(빨강)
@@ -142,6 +146,11 @@ function MetricCard({
             <div className={`font-mono mt-0.5 ${pctColor}`}>
               {pct == null ? "N/A (상시 노출)" : `p=${pct.toFixed(2)} ${pct >= 0.95 ? "(유의)" : pct >= 0.5 ? "(무정보)" : "(평균 이하)"}`}
             </div>
+          </div>
+        )}
+        {shadowNote && (
+          <div className="col-span-2 border-t border-violet-900/40 pt-1.5 mt-0.5 text-[10px] text-violet-300/80">
+            {shadowNote}
           </div>
         )}
       </div>
@@ -296,6 +305,9 @@ export default function GatePage() {
                 bnhRaw={data.evaluation_meta?.bnh_raw_return}
                 timingNull={s.timing_null}
                 isBaseline={BASELINE_NAMES.has(name)}
+                shadowNote={(name === "Pure ML" || name === "Gate+ML") && data.ml_shadow
+                  ? `ML shadow 격리 중 — 사이징 미반영, 평가 표본 누적 중 (n=${data.ml_shadow.n_fire}/${data.ml_shadow.reeval_n})`
+                  : undefined}
                 color={STRATEGY_COLORS[name]}
               />
             );
