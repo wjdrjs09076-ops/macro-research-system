@@ -277,15 +277,15 @@ def _rate_delta(G: nx.DiGraph, sector: str, macro: str) -> tuple[float, float, f
 
 
 def _rate_significant(G: nx.DiGraph, sector: str, macro: str, t: float) -> bool:
-    """rate_* 룰의 유의성 게이트 — 감사와 동일한 BH FDR q < 0.10.
+    """rate_* 룰의 유의성 게이트 — BH FDR q < 0.10 강제 (감사 P0-1, 옵션1).
 
-    q 부재(구버전 캐시/이변량 폴백) 시 |t|>1.96 폴백. t>1.96 단독으론 55개
-    가설 다중비교에서 우연 통과를 못 거른다 (XLU q=0.12, XLK q>0.1 사례).
+    q 부재(직교화 partial 미적용 contrast, 예: US2Y) 시 **발화 금지**. 과거엔
+    |t|>1.96 폴백이 있었으나, raw t 단독은 55개 가설 다중비교 미보정이라
+    감사(FDR)가 기각한 계수를 US2Y 경유로 뒷문 재발화시켰다 (XLK/XLE 사례).
+    q 없는 축은 FDR 통과 불가 = KILLED 로 간주.
     """
     q = _edge(G, sector, macro, "q_delta_ctrl")
-    if _is_finite(q):
-        return q < 0.10
-    return _is_finite(t) and abs(t) > 1.96
+    return _is_finite(q) and q < 0.10
 
 
 def rule_rate_beneficiary(G: nx.DiGraph, sector: str) -> list[SignalNode]:

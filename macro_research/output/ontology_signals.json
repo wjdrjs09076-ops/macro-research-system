@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 19.44,
-    "ts": "2026-06-13T01:04:10"
+    "ts": "2026-06-14T12:47:22"
   },
-  "generated": "2026-06-13T01:04:15",
+  "generated": "2026-06-14T12:47:22",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -59,22 +59,6 @@
       ]
     },
     {
-      "ticker": "XLK",
-      "direction": 1,
-      "confidence": 0.7548,
-      "rule": "rate_beneficiary",
-      "signal_type": "OVERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_beneficiary"
-      ],
-      "reasoning": [
-        "XLK: delta(US2Y) = 0.0034 > 0.002 (t=3.76, bivariate raw -- partial unavailable, confounding possible) -- significantly positive linear rate sensitivity.",
-        "gamma(US2Y) = 0.0010: convex to rate rises, amplifying benefit.",
-        "Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
-      ]
-    },
-    {
       "ticker": "XLC",
       "direction": -1,
       "confidence": 0.7419,
@@ -88,22 +72,6 @@
         "XLC: delta(US10Y) = -0.0032 < -0.001 (t=-3.08, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
         "gamma(US10Y) = 0.0001: convex -- some protection at large moves.",
         "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
-    {
-      "ticker": "XLE",
-      "direction": 1,
-      "confidence": 0.7112,
-      "rule": "rate_beneficiary",
-      "signal_type": "OVERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_beneficiary"
-      ],
-      "reasoning": [
-        "XLE: delta(US2Y) = 0.0027 > 0.002 (t=3.25, bivariate raw -- partial unavailable, confounding possible) -- significantly positive linear rate sensitivity.",
-        "gamma(US2Y) = 0.0003: convex to rate rises, amplifying benefit.",
-        "Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
       ]
     }
   ],

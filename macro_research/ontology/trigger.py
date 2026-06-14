@@ -399,17 +399,24 @@ def _rate_evidence(G) -> list[dict]:
             if not G.has_edge(sec, mac):
                 continue
             e = G.edges[sec, mac]
-            d = e.get("delta_ctrl")
+            d_ctrl = e.get("delta_ctrl")
+            d_raw  = e.get("delta")
             t = e.get("t_delta_ctrl")
             q = e.get("q_delta_ctrl")
-            if d is None or not math.isfinite(float(d or float("nan"))):
+            # 직교화 partial 없는 축(US2Y 등)은 raw delta 로 기록하되 q 부재 → KILLED.
+            controlled = d_ctrl is not None and math.isfinite(float(d_ctrl))
+            d = float(d_ctrl) if controlled else (
+                float(d_raw) if d_raw is not None and math.isfinite(float(d_raw)) else None)
+            if d is None:
                 continue
-            d, t = float(d), float(t) if t is not None else float("nan")
+            t = float(t) if t is not None and math.isfinite(float(t)) else float("nan")
             q = float(q) if q is not None and math.isfinite(float(q)) else float("nan")
+            # 옵션1(P0): q 유한 + q<0.10 동시 요구. q 없는 축은 FDR 통과 불가 = KILLED.
             alive = bool(cond(d) and math.isfinite(q) and q < 0.10)
             out.append({
                 "rule": rule, "sector": sec, "macro": mac,
                 "verdict": "ALIVE" if alive else "KILLED",
+                "controlled": controlled,
                 "evidence": {"delta_ctrl": round(d, 4),
                              "t": round(t, 2) if math.isfinite(t) else None,
                              "q_fdr": round(q, 4) if math.isfinite(q) else None},

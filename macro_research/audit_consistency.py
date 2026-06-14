@@ -89,6 +89,39 @@ def check_registry_vs_audit():
           if xlu else "registry 에 XLU 행 없음")
 
 
+def check_valid_pairs_vs_verdicts():
+    """SSOT 자기정합: valid_pairs(인퍼런스 발화) 와 rate_verdicts(FDR) 가 rate_*
+    전 룰에서 일치해야 한다. rate_beneficiary US2Y 뒷문(raw-t 폴백)이 valid_pairs
+    에 killed 페어를 넣던 결함을 잡는다 (P0 옵션1). (rule,sector) 는 어느 macro든
+    하나라도 ALIVE 면 alive."""
+    state = json.loads((OUTPUT_DIR / "rule_sector_state.json").read_text(encoding="utf-8"))
+    sig   = json.loads((OUTPUT_DIR / "ontology_signals.json").read_text(encoding="utf-8"))
+    valid = set(state.get("valid_pairs", []))
+    verdicts = state.get("rate_verdicts", [])
+
+    alive_any: dict[tuple[str, str], bool] = {}
+    for v in verdicts:
+        key = (v["rule"], v["sector"])
+        alive_any[key] = alive_any.get(key, False) or (v["verdict"] == "ALIVE")
+
+    bad = []
+    for (rule, sec), alive in alive_any.items():
+        in_valid = f"{rule}|{sec}" in valid
+        if in_valid != alive:
+            bad.append(f"{rule}|{sec}: valid_pairs={in_valid} vs verdict_ALIVE={alive}")
+
+    # 라이브 directional 도 교차검증 — killed rate_* 가 매매 후보에 없어야 함
+    live_bad = []
+    for c in sig.get("directional_candidates", []):
+        rule, sec = c.get("rule", ""), c.get("ticker", "")
+        if rule.startswith("rate_") and alive_any.get((rule, sec), False) is False:
+            live_bad.append(f"{rule}|{sec}(conf {c.get('confidence')})")
+
+    check("P0 valid_pairs↔verdicts 정합", not bad, f"불일치 {bad or '0건'}")
+    check("P0 라이브 directional = ALIVE only", not live_bad,
+          f"killed 시그널 라이브 {live_bad or '0건'}")
+
+
 # ── [3] 가드 단위 테스트 (네트워크 모킹) ───────────────────────────
 def check_guards():
     import kinetic_executor as K
@@ -147,6 +180,7 @@ if __name__ == "__main__":
     print("  감사 정합성 대조 (P0-1/P0-2/P2-1/P2-5 완료 기준)")
     print("=" * 64)
     check_registry_vs_audit()
+    check_valid_pairs_vs_verdicts()
     check_positions()
     check_guards()
     dormancy_n()
