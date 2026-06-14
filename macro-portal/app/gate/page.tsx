@@ -48,6 +48,12 @@ type GateData = {
     first_commit: string; oos_window: { start: string; end: string };
     verdict: string; note: string;
   };
+  crisis_windows?: Record<string, {
+    label: string; etf: string; direction: string;
+    oos_start: string; oos_end: string;
+    oos_gate_open_pct: number; bnh_raw_return: number;
+    strategies: Record<string, StrategyData>;
+  }>;
 };
 
 const STRATEGY_COLORS: Record<string, string> = {
@@ -385,6 +391,75 @@ export default function GatePage() {
       </div>
         );
       })()}
+
+      {/* P1-1 하락 위기 홈그라운드 시험 */}
+      {data.crisis_windows && Object.keys(data.crisis_windows).length > 0 && (
+        <div className="rounded-xl border border-gray-800 bg-gray-900/30 p-5 space-y-4">
+          <div>
+            <h2 className="text-sm font-semibold text-gray-200">하락 위기 홈그라운드 시험 (P1-1)</h2>
+            <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+              호르무즈/수에즈는 상방 쇼크라 게이트의 본 주장(하락 손실 회피)을 시험하지 못한다.
+              GFC·COVID·긴축 세 하락 창에 시점-aware로 동일 전략을 적용 — 핵심 지표는 <b className="text-gray-300">MDD</b>.
+              한 줄짜리 200DMA 대비 우위 여부를 그대로 게시한다.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            {Object.values(data.crisis_windows).map((w) => {
+              const order = Object.keys(w.strategies).sort((x, y) => {
+                const rank = (k: string) => k.startsWith("Gate Only") ? 0 : k.startsWith("Gate+S2") ? 1
+                  : k.startsWith("Pure ML") ? 2 : k.startsWith("Gate+ML") ? 3
+                  : k.startsWith("VolTgt") ? 4 : k.startsWith("200DMA") ? 5 : 6;
+                return rank(x) - rank(y);
+              });
+              const gate = w.strategies["Gate Only"];
+              const dma = order.map((k) => k.startsWith("200DMA") ? w.strategies[k] : null).find(Boolean);
+              const gateBeatsDma = gate && dma && Math.abs(gate.oos_mdd ?? 0) <= Math.abs(dma.oos_mdd ?? 0);
+              return (
+                <div key={w.label} className="rounded-lg border border-gray-800 bg-gray-900/50 p-3">
+                  <div className="flex items-baseline justify-between mb-2">
+                    <span className="text-sm font-medium text-gray-200">{w.label}</span>
+                    <span className="text-[10px] text-gray-500 font-mono">{w.etf} · 열림 {w.oos_gate_open_pct}%</span>
+                  </div>
+                  <table className="w-full text-[11px] font-mono">
+                    <thead><tr className="text-gray-600">
+                      <th className="text-left font-normal">전략</th>
+                      <th className="text-right font-normal">CAGR</th>
+                      <th className="text-right font-normal">Shrp</th>
+                      <th className="text-right font-normal">MDD</th>
+                    </tr></thead>
+                    <tbody>
+                      {order.map((k) => {
+                        const s = w.strategies[k];
+                        const isGate = k === "Gate Only";
+                        const isBnh = k.startsWith("BnH");
+                        return (
+                          <tr key={k} className={isGate ? "text-emerald-300" : isBnh ? "text-gray-500" : "text-gray-300"}>
+                            <td className="text-left truncate max-w-[88px]">{isGate ? "▶ " : ""}{k}</td>
+                            <td className="text-right">{s.oos_cagr >= 0 ? "+" : ""}{s.oos_cagr.toFixed(0)}%</td>
+                            <td className="text-right">{s.oos_sharpe == null ? "—" : s.oos_sharpe.toFixed(2)}</td>
+                            <td className={`text-right ${isBnh ? "" : "text-amber-400/90"}`}>{s.oos_mdd != null ? `${s.oos_mdd.toFixed(0)}%` : "—"}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                  <div className={`text-[11px] mt-2 ${gateBeatsDma ? "text-emerald-400" : "text-red-400"}`}>
+                    {gate && dma
+                      ? `게이트 MDD ${gate.oos_mdd?.toFixed(0)}% vs 200DMA ${dma.oos_mdd?.toFixed(0)}% → ${gateBeatsDma ? "게이트 우위" : "200DMA 우위"}`
+                      : ""}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-xs text-gray-500 leading-relaxed">
+            결론: 게이트는 세 위기 모두 B&amp;H 대비 MDD를 크게 줄여 <b className="text-gray-300">브레이크로서 작동</b>한다
+            (예: GFC -19% vs B&amp;H -74%). 그러나 한 줄짜리 200DMA와 비교하면 우열이 갈려
+            (GFC·COVID 200DMA 근소 우위, 2022 게이트 우위) <b className="text-gray-300">명확한 우위는 미확정</b>.
+            Gate+ML은 GFC에서 ML 미발화로 0일(P1-5와 동일 원인).
+          </p>
+        </div>
+      )}
 
       {/* P1-5 게이트↔ML 교차표 + P1-6 동결/민감도 진단 */}
       {(data.gate_ml_concordance || data.param_freeze) && (

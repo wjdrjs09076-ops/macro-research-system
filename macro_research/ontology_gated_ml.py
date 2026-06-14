@@ -314,6 +314,123 @@ def timing_null_for_signal(etf_ret, signal, oos_start, n_sims=NULL_SIMS):
             "null_median": round(float(np.median(sims)) * 100, 2)}
 
 
+def build_cards(etf_ret, signals, oos_start, etf_label="XLE", n_null_sims=NULL_SIMS):
+    """OOS 전략 카드 일괄 생성 (4 게이트 전략 + 베이스라인 2 + BnH).
+
+    raw/누적은 OOS 전용 수익으로 재계산(P1-4), 활성일은 세그먼트 기준(P1-5 수정).
+    반환: (strategies_payload, eval_meta).
+    """
+    oos_dt   = pd.Timestamp(oos_start)
+    bnh_oos  = etf_ret[etf_ret.index >= oos_dt]
+    bnh_cum  = (1 + bnh_oos).cumprod()
+    bnh_raw  = float(bnh_cum.iloc[-1] - 1)
+    bnh_cagr = float(bnh_cum.iloc[-1] ** (252 / len(bnh_oos)) - 1)
+    bnh_sh   = float(bnh_oos.mean() / bnh_oos.std() * np.sqrt(252)) if bnh_oos.std() > 0 else float("nan")
+    bnh_mdd  = float(((bnh_cum - bnh_cum.cummax()) / bnh_cum.cummax()).min())
+
+    def card(res, sig=None, weighted=False):
+        oos_r   = res.get("oos", {})
+        r_oos   = res.get("oos_ret")
+        cum_oos = (1 + r_oos).cumprod() if r_oos is not None and len(r_oos) else None
+        raw_ret = float(cum_oos.iloc[-1] - 1) if cum_oos is not None else 0.0
+        c = {
+            "oos_cagr"       : round(float(oos_r.get("cagr", 0) or 0) * 100, 2),
+            "oos_sharpe"     : round(float(oos_r.get("sharpe", 0) or 0), 3),
+            "oos_mdd"        : round(float(oos_r.get("mdd", 0) or 0) * 100, 2),
+            "oos_active_days": int(oos_r.get("n", 0)),
+            "oos_raw_return" : round(raw_ret * 100, 2),   # alpha_capture = raw / B&H raw
+            "alpha_capture"  : round(raw_ret / bnh_raw * 100, 1) if bnh_raw != 0 else 0,
+            "cumulative": {
+                "dates" : cum_oos.index.strftime("%Y-%m-%d").tolist() if cum_oos is not None else [],
+                "values": [round(x, 6) for x in cum_oos.tolist()] if cum_oos is not None else [],
+            },
+        }
+        if sig is not None and not weighted:
+            c["timing_null"] = timing_null_for_signal(etf_ret, sig, oos_start, n_null_sims)
+        return c
+
+    sp = {}
+    for sname, sig in signals.items():
+        sp[sname] = card(backtest(etf_ret, sig, TC, oos_start), sig)
+    sp[f"VolTgt {etf_label}"] = card(
+        backtest_weighted(etf_ret, vol_target_signal(etf_ret), TC, oos_start), weighted=True)
+    sp[f"200DMA {etf_label}"] = card(
+        backtest(etf_ret, ma_filter_signal(etf_ret), TC, oos_start), ma_filter_signal(etf_ret))
+    sp[f"BnH {etf_label}"] = {
+        "oos_cagr"       : round(bnh_cagr * 100, 2),
+        "oos_sharpe"     : round(bnh_sh, 3) if bnh_sh == bnh_sh else None,
+        "oos_mdd"        : round(bnh_mdd * 100, 2),
+        "oos_active_days": len(bnh_oos),
+        "oos_raw_return" : round(bnh_raw * 100, 2),
+        "alpha_capture"  : 100.0,
+        "cumulative": {
+            "dates" : bnh_oos.index.strftime("%Y-%m-%d").tolist(),
+            "values": [round(x, 6) for x in bnh_cum.tolist()],
+        },
+    }
+    meta = {
+        "alpha_capture_def": "OOS 누적수익(raw) / B&H 누적수익(raw) × 100",
+        "bnh_raw_return"   : round(bnh_raw * 100, 2),
+        "random_null": {
+            "sims"  : n_null_sims,
+            "method": "활성일 수 고정 · 무작위 노출 · gross(거래비용 제외) "
+                      "누적수익 분포에서의 백분위. p≈0.5=타이밍 무정보, "
+                      "p→1=평균일 대비 우월, p→0=열등.",
+        },
+        "baselines": {
+            f"VolTgt {etf_label}": f"연 {VOLTGT_TARGET*100:.0f}% vol-target "
+                                   f"(EWMA span={EWMA_SPAN}, cap {VOLTGT_CAP}x, 연속 비중)",
+            f"200DMA {etf_label}": f"가격 > {MA_FILTER_WIN}일 이동평균 시 롱 (on/off)",
+        },
+    }
+    return sp, meta
+
+
+# 하락 위기 창 — 게이트의 '홈그라운드 시험' (감사 P1-1). 시점-aware:
+# IS = full_start~oos_start 로만 ML 학습, 위기 창 이후 데이터 미사용.
+CRISIS_WINDOWS = [
+    {"key": "gfc",   "label": "GFC (2008)",      "etf": "XLF",
+     "full_start": "2006-06-01", "oos_start": "2008-06-01", "oos_end": "2009-06-30"},
+    {"key": "covid", "label": "COVID (2020)",    "etf": "XLE",
+     "full_start": "2018-06-01", "oos_start": "2020-01-01", "oos_end": "2020-12-31"},
+    {"key": "tighten", "label": "긴축 (2022)",    "etf": "XLK",
+     "full_start": "2020-06-01", "oos_start": "2022-01-01", "oos_end": "2022-12-31"},
+]
+
+
+def evaluate_window(etf, full_start, oos_start, oos_end, direction="LONG"):
+    """한 창(위기)에서 5전략 + 베이스라인 카드 생성. 데이터를 oos_end 까지만
+    받아 OOS 슬라이스가 자동으로 창에 한정된다 (look-ahead 차단)."""
+    prices = fetch([etf], full_start, oos_end)
+    if etf not in prices or "SPY" not in prices or "^VIX" not in prices:
+        return None
+    spy_ret = prices["SPY"].pct_change().dropna()
+    vix_s   = prices["^VIX"]
+    etf_ret = prices[etf].pct_change().dropna()
+    df_full = build_features(etf_ret, spy_ret, vix_s)
+    df_is   = df_full[df_full.index <  oos_start]
+    df_oos  = df_full[df_full.index >= oos_start]
+    if len(df_is) < 60 or len(df_oos) < 10:
+        return None
+    models, sc, accs = train_ensemble(df_is)
+    proba = pd.Series(0.5, index=df_full.index)
+    proba.update(ensemble_proba(models, sc, df_is, accs))
+    proba.update(ensemble_proba(models, sc, df_oos, accs))
+    beta_s  = rolling_beta(etf_ret, spy_ret)
+    vrp_s   = compute_vrp(etf_ret, spy_ret, vix_s)
+    gate_df = compute_gate_scores(beta_s, vrp_s, etf_ret, spy_ret, direction=direction)
+    signals = build_all_signals(df_full, proba, gate_df, vrp_s)
+    sp, meta = build_cards(etf_ret, signals, oos_start, etf_label=etf)
+    return {
+        "etf": etf, "direction": direction,
+        "oos_start": oos_start, "oos_end": oos_end,
+        "oos_gate_open_pct": round(float(
+            gate_df["gate_open"][gate_df.index >= pd.Timestamp(oos_start)].mean() * 100), 1),
+        "strategies": sp,
+        "bnh_raw_return": meta["bnh_raw_return"],
+    }
+
+
 # ===========================================================================
 # 핵심: 온톨로지 게이트 점수
 # ===========================================================================
@@ -761,81 +878,9 @@ if __name__ == "__main__":
         },
     }
 
-    bnh_oos  = etf_ret[etf_ret.index >= oos_dt2]
-    bnh_cum  = (1 + bnh_oos).cumprod()        # OOS 시작=1.0 기준 (전부 OOS 수익만)
-    bnh_raw  = float(bnh_cum.iloc[-1] - 1)
-    bnh_cagr = float(bnh_cum.iloc[-1] ** (252 / len(bnh_oos)) - 1)
-    bnh_sh   = float(bnh_oos.mean() / bnh_oos.std() * np.sqrt(252))
-    bnh_mdd  = float(((bnh_cum - bnh_cum.cummax()) / bnh_cum.cummax()).min())
-
-    def _card(res, sig=None, weighted=False):
-        """OOS 카드 1장 + (on/off 신호면) 랜덤 타이밍 널.
-
-        raw/누적은 OOS 전용 수익(res['oos_ret'])으로 재계산 — 기존엔 전체기간
-        누적을 슬라이스해 IS 손익이 OOS 시작 기준에 섞여 raw 가 오염됐었다 (P1-4).
-        """
-        oos_r   = res.get("oos", {})
-        r_oos   = res.get("oos_ret")
-        cum_oos = (1 + r_oos).cumprod() if r_oos is not None and len(r_oos) else None
-        raw_ret = float(cum_oos.iloc[-1] - 1) if cum_oos is not None else 0.0
-        card = {
-            "oos_cagr"       : round(float(oos_r.get("cagr", 0) or 0) * 100, 2),
-            "oos_sharpe"     : round(float(oos_r.get("sharpe", 0) or 0), 3),
-            "oos_mdd"        : round(float(oos_r.get("mdd", 0) or 0) * 100, 2),
-            "oos_active_days": int(oos_r.get("n", 0)),
-            # alpha_capture = OOS 누적수익(raw) / B&H 누적수익(raw) × 100
-            "oos_raw_return" : round(raw_ret * 100, 2),
-            "alpha_capture"  : round(raw_ret / bnh_raw * 100, 1) if bnh_raw != 0 else 0,
-            "cumulative": {
-                "dates" : cum_oos.index.strftime("%Y-%m-%d").tolist(),
-                "values": [round(x, 6) for x in cum_oos.tolist()],
-            },
-        }
-        if sig is not None and not weighted:
-            card["timing_null"] = timing_null_for_signal(etf_ret, sig, OOS_START)
-        return card
-
-    strategies_payload = {}
-    for sname, sig in signals.items():
-        strategies_payload[sname] = _card(backtest(etf_ret, sig, TC, OOS_START), sig)
-
-    # P1-2: 멍청한 브레이크 베이스라인 2종 (게이트와 같은 일 = 노출 조절)
-    vt_sig = vol_target_signal(etf_ret)
-    ma_sig = ma_filter_signal(etf_ret)
-    strategies_payload["VolTgt XLE"] = _card(
-        backtest_weighted(etf_ret, vt_sig, TC, OOS_START), weighted=True)
-    strategies_payload["200DMA XLE"] = _card(
-        backtest(etf_ret, ma_sig, TC, OOS_START), ma_sig)
-
-    strategies_payload["BnH XLE"] = {
-        "oos_cagr"       : round(bnh_cagr * 100, 2),
-        "oos_sharpe"     : round(bnh_sh, 3),
-        "oos_mdd"        : round(bnh_mdd * 100, 2),
-        "oos_active_days": len(bnh_oos),
-        "oos_raw_return" : round(bnh_raw * 100, 2),
-        "alpha_capture"  : 100.0,
-        "cumulative": {
-            "dates" : bnh_oos.index.strftime("%Y-%m-%d").tolist(),
-            "values": [round(x, 6) for x in bnh_cum.tolist()],
-        },
-    }
-
+    strategies_payload, eval_meta = build_cards(etf_ret, signals, OOS_START, etf_label="XLE")
     gate_payload["strategies"] = strategies_payload
-    gate_payload["evaluation_meta"] = {
-        "alpha_capture_def": "OOS 누적수익(raw) / B&H 누적수익(raw) × 100",
-        "bnh_raw_return"   : round(bnh_raw * 100, 2),
-        "random_null": {
-            "sims"  : NULL_SIMS,
-            "method": "활성일 수 고정 · 무작위 노출 · gross(거래비용 제외) "
-                      "누적수익 분포에서의 백분위. p≈0.5=타이밍 무정보, "
-                      "p→1=평균일 대비 우월, p→0=열등.",
-        },
-        "baselines": {
-            "VolTgt XLE": f"연 {VOLTGT_TARGET*100:.0f}% vol-target "
-                          f"(EWMA span={EWMA_SPAN}, cap {VOLTGT_CAP}x, 연속 비중)",
-            "200DMA XLE": f"가격 > {MA_FILTER_WIN}일 이동평균 시 롱 (on/off)",
-        },
-    }
+    gate_payload["evaluation_meta"] = eval_meta
 
     # ── P1-5: 게이트 ↔ ML 일치 진단 (OOS 2×2 교차표 + φ 계수) ──────────
     # 실제 매매되는 신호를 그대로 사용 (build_all_signals 결과) — unshifted gate_open
@@ -891,6 +936,21 @@ if __name__ == "__main__":
                 "증명할 수 없다. OOS 전 구간을 보면서 값을 고를 수 있었으므로 모든 "
                 "OOS 게이트 결과에 designer leakage 가능 라벨을 부여한다.",
     }
+
+    # ── P1-1: 하락 위기 홈그라운드 시험 (GFC/COVID/2022, 시점-aware) ────
+    print("\n[6c] 하락 위기 OOS 카드 (P1-1)...")
+    crisis_cards = {}
+    for w in CRISIS_WINDOWS:
+        print(f"  [{w['label']}] {w['etf']} {w['oos_start']}~{w['oos_end']} ...")
+        try:
+            r = evaluate_window(w["etf"], w["full_start"], w["oos_start"], w["oos_end"])
+        except Exception as exc:
+            print(f"    SKIP: {exc}")
+            r = None
+        if r:
+            r["label"] = w["label"]
+            crisis_cards[w["key"]] = r
+    gate_payload["crisis_windows"] = crisis_cards
 
     json_out = BASE_DIR / "output" / "gate_scores.json"
     json_out.parent.mkdir(parents=True, exist_ok=True)
