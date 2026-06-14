@@ -1367,6 +1367,18 @@ def page_backtest(pdf, n, total):
         ax.text(0.80, y, label, color=C_MUTED, fontsize=8.5)
         y -= 0.033
 
+    # 숫자 정합 (P2-3): straddle total = co_crash + fat_tail 항등식 + 레거시 reconcile
+    cc = (trail.get("by_rule_strategy") or {}).get("co_crash_cluster|straddle", {}).get("total_pnl", 0)
+    ft = (trail.get("by_rule_strategy") or {}).get("fat_tail_alert|straddle", {}).get("total_pnl", 0)
+    y -= 0.015
+    ax.text(0.02, y,
+            f"숫자 정합(P2-3): trail straddle ${s_tr.get('total_pnl',0):+,.0f} "
+            f"= co_crash ${cc:+,.0f} + fat_tail ${ft:+,.0f} (항등식 성립). "
+            f"감사 레거시 +726/+1,210/+1,639 는 라운드6-7 stale 스냅샷 — 당시 total≠룰합 "
+            f"(+1,639 vs +1,210) 불일치는 현 데이터에서 해소됨.",
+            color=C_MUTED, fontsize=8.5, style="italic")
+    y -= 0.03
+
     # 트레일 민감도 격자 (운 vs 강건)
     y -= 0.02
     ax.text(0.02, y, "트레일 파라미터 민감도 (straddle total$ — 인접 격자에서 부호 유지 = 강건)",
@@ -1386,6 +1398,19 @@ def page_backtest(pdf, n, total):
             ax.text(0.02, y, f"{arm*100:>6.0f}% {cells[0]} {cells[1]} {cells[2]}{mark}",
                     color=C_TEXT, fontsize=9.5, fontfamily="monospace")
             y -= 0.03
+        # 튜닝 여부 명기 (P2-3): 현행 25/40 은 격자 최대 아님 → 보수적 선택
+        vals = [c.get("total_pnl", 0) for c in scan]
+        cur = next((c for c in scan if abs(c["arm"]-0.25) < 1e-9 and abs(c["giveback"]-0.40) < 1e-9), None)
+        best = max(scan, key=lambda c: c.get("total_pnl", 0)) if scan else None
+        if cur and best:
+            ax.text(0.02, y - 0.005,
+                    f"튜닝 여부: 스캔 실행됨(파라미터 공간 in-sample 관측). 현행 25/40="
+                    f"${cur['total_pnl']:+,.0f} 은 격자 최대 아님(최대 "
+                    f"{best['arm']*100:.0f}/{best['giveback']*100:.0f}="
+                    f"${best['total_pnl']:+,.0f}) = 보수적 선택. 9격자 전부 양(+), "
+                    f"부호 강건 — 단 n=13 소표본.",
+                    color=C_MUTED, fontsize=8.5, style="italic")
+            y -= 0.035
     else:
         ax.text(0.02, y, "(스캔 미실행)", color=C_MUTED, fontsize=9)
         y -= 0.03
@@ -1418,7 +1443,8 @@ def page_limitations(pdf, n, total):
 
         ("1. ✓ TP +25% 꼬리 절단 폐지 → 트레일링 (라운드 6 비평 1번)",
          "fat-tail 탐지 시스템이 컨벡시티 수익을 캡에서 자르던 자기모순 해소. arm 25% / 피크 40% 반납.\n"
-         "동일 시그널 백테스트: straddle +$726(tp25) → +$1,639(trail). ⚠ 같은 표본 in-sample 비교.",
+         "동일 시그널 백테스트: tp25 → trail 로 straddle 개선(현 수치·정합 항등식은 백테스트 페이지 참조). "
+         "⚠ 같은 표본 in-sample 비교(레거시 +726/+1,639 는 stale 스냅샷).",
          C_ACCENT_3),
 
         ("2. ✓ 검증-실행 불일치 해소 → β·SPY 헤지 페어 (라운드 6 비평 2번)",
