@@ -158,9 +158,9 @@ def page_cover(pdf, total):
     total_w = box_w * 3 + gap * 2
     x0 = (1 - total_w) / 2
     pillars = [
-        ("① 감지", "6-Layer 온톨로지\n(GARCH→EVT→Copula→Cholesky→Gate→ML)",
+        ("① 감지", "6-Layer 온톨로지\n(GARCH→EVT→Copula→Cholesky→Gate · ML=shadow)",
          C_ACCENT_1),
-        ("② 실행", "트리플 전략 키네틱 레이어\n(롱 스트래들 / 현물 / 숏 스트래들)",
+        ("② 실행", "키네틱 레이어 (현물)\n→ β헤지 스프레드 전환(R8) · 스트래들 기각",
          C_ACCENT_2),
         ("③ 학습", "거래 저널 → (룰×전략) 귀인\n→ 사이징 피드백",
          C_ACCENT_3),
@@ -1326,7 +1326,7 @@ def page_backtest(pdf, n, total):
 
     # 시스템 합산(straddle+directional) — W3 의 +$1,252. ★ in-sample 재구성 라벨 필수
     sys_tot = (s_tr.get("total_pnl", 0) or 0) + (d_tr.get("total_pnl", 0) or 0)
-    ax.text(0.02, y, f"시스템 합산  total=${sys_tot:+,.0f}   "
+    ax.text(0.02, y, f"시스템 합산  total={sys_tot:+,.0f} USD   "
             f"(라운드6-7 in-sample 재구성 ¤ — 전향 검증 아님)",
             color=C_ACCENT_5, fontsize=10, fontweight="bold")
     y -= 0.045
@@ -1372,8 +1372,8 @@ def page_backtest(pdf, n, total):
     ft = (trail.get("by_rule_strategy") or {}).get("fat_tail_alert|straddle", {}).get("total_pnl", 0)
     y -= 0.015
     ax.text(0.02, y,
-            f"숫자 정합(P2-3): trail straddle ${s_tr.get('total_pnl',0):+,.0f} "
-            f"= co_crash ${cc:+,.0f} + fat_tail ${ft:+,.0f} (항등식 성립). "
+            f"숫자 정합(P2-3, USD): trail straddle {s_tr.get('total_pnl',0):+,.0f} "
+            f"= co_crash {cc:+,.0f} + fat_tail {ft:+,.0f} (항등식 성립). "
             f"감사 레거시 +726/+1,210/+1,639 는 라운드6-7 stale 스냅샷 — 당시 total≠룰합 "
             f"(+1,639 vs +1,210) 불일치는 현 데이터에서 해소됨.",
             color=C_MUTED, fontsize=8.5, style="italic")
@@ -1381,7 +1381,7 @@ def page_backtest(pdf, n, total):
 
     # 트레일 민감도 격자 (운 vs 강건)
     y -= 0.02
-    ax.text(0.02, y, "트레일 파라미터 민감도 (straddle total$ — 인접 격자에서 부호 유지 = 강건)",
+    ax.text(0.02, y, "트레일 파라미터 민감도 (straddle total USD — 인접 격자에서 부호 유지 = 강건)",
             color=C_ACCENT_4, fontsize=11, fontweight="bold")
     y -= 0.035
     if scan:
@@ -1404,10 +1404,10 @@ def page_backtest(pdf, n, total):
         best = max(scan, key=lambda c: c.get("total_pnl", 0)) if scan else None
         if cur and best:
             ax.text(0.02, y - 0.005,
-                    f"튜닝 여부: 스캔 실행됨(파라미터 공간 in-sample 관측). 현행 25/40="
-                    f"${cur['total_pnl']:+,.0f} 은 격자 최대 아님(최대 "
+                    f"튜닝 여부(USD): 스캔 실행됨(파라미터 공간 in-sample 관측). 현행 25/40="
+                    f"{cur['total_pnl']:+,.0f} 은 격자 최대 아님(최대 "
                     f"{best['arm']*100:.0f}/{best['giveback']*100:.0f}="
-                    f"${best['total_pnl']:+,.0f}) = 보수적 선택. 9격자 전부 양(+), "
+                    f"{best['total_pnl']:+,.0f}) = 보수적 선택. 9격자 전부 양(+), "
                     f"부호 강건 — 단 n=13 소표본.",
                     color=C_MUTED, fontsize=8.5, style="italic")
             y -= 0.035
@@ -1427,6 +1427,68 @@ def page_backtest(pdf, n, total):
 # ──────────────────────────────────────────────────────────────
 # Page 12 — Known limitations (외부 비평 반영)
 # ──────────────────────────────────────────────────────────────
+
+def page_round78(pdf, n, total):
+    fig = _new_page(figsize=(12.0, 9.0))
+    _title(fig, "라운드 7-8 결론 — 감지는 검증, 수익화는 스프레드",
+           "외부 감사 P0~W3 반영. 모든 손익은 in-sample ¤ — 전향 페이퍼 표본만 진짜 검증.")
+
+    ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
+
+    items = [
+        ("1. 감지 레이어는 가치 있음 (P1-1)",
+         "하락 위기 홈그라운드 시험: 게이트가 B&H 대비 낙폭 대폭 축소 = 브레이크로 작동.\n"
+         "GFC MDD -19% vs B&H -74% · COVID -10% vs -60% · 긴축 -12% vs -33%. 게이트 무가치 아님.",
+         C_ACCENT_3),
+
+        ("2. 수익화 = β헤지 스프레드 (W2-A · IV 가정 0)",
+         "게이트 OPEN 시 액션 비교: ③ β헤지 스프레드가 현행 on/off 를 4창 전부 MDD 우위,\n"
+         "한 줄짜리 200DMA 를 3/4창 우위(호르무즈 -5%·GFC -7%·긴축 -2%). ② 노출가변 1.5x 는 재앙(GFC -76%).\n"
+         "→ 수익화 매핑은 '미해결'이 아니라 '잘못된 instrument' — 답(스프레드)이 데이터로 나옴.",
+         C_ACCENT_3),
+
+        ("3. 스트래들 기각 (W2-B · GARCH-IV 배수 민감도)",
+         "ATM 스트래들 GARCH-IV×{1.0,1.5,2.0}: 호르무즈 +95%→-14%(2x 손실), 하락 3창 전 배수 손실.\n"
+         "위기 IV > 합성가는 구조적 → 라이브 instrument(스트래들)는 현실 IV(1.5~2배)에서 죽는다.",
+         C_ACCENT_5),
+
+        ("4. P0 — rate_* FDR 게이트 강제 (US2Y 뒷문 차단)",
+         "rate_beneficiary 가 US2Y |t|>1.96 폴백으로 FDR 우회 발화하던 결함 차단(q<0.10 강제).\n"
+         "라이브 directional = rate_victim ALIVE 3종(XLRE/XLY/XLC)만. SSOT 자기정합 + 체커 재발방지.",
+         C_ACCENT_3),
+
+        ("5. ML shadow 격리 (W1 · 결정 D안)",
+         "ML(LR/RF/GBT·VQC)은 라이브 사이징 경로에 부재 확정 — 평가 전용. 발화만 누적(n_fire=2/30),\n"
+         "사이징 미반영. 제품명 'Ontology-Gated Framework (ML in shadow eval)'. n≥30 도달 시 재결정.",
+         C_ACCENT_2),
+
+        ("6. 확정 결정 + 라벨 (D1=가 / P2-4=A)",
+         "directional → β헤지 스프레드 전환 확정(G4 freeze 시 적용, 126D β). TP/SL=상수배수×진입 σ_resid.\n"
+         "전제 정정: 시스템 +1,252 USD 도 라운드6-7 in-sample 재구성 ¤ — '검증된 성과' 아님. freeze 후\n"
+         "전향 페이퍼 표본만 유효 OOS. pending_forward_validation 에 미검증 주장 목록 등재(G4).",
+         C_ACCENT_1),
+    ]
+
+    y = 0.97
+    for title, body, color in items:
+        p = FancyBboxPatch((0.0, y - 0.022), 0.98, 0.035,
+                           boxstyle="round,pad=0.003,rounding_size=0.02",
+                           linewidth=1.4, edgecolor=color, facecolor=C_PANEL)
+        ax.add_patch(p)
+        ax.text(0.01, y - 0.005, title, color=color, fontsize=11,
+                fontweight="bold", va="center")
+        ax.text(0.02, y - 0.035, body, color=C_TEXT, fontsize=8.5,
+                linespacing=1.4, va="top")
+        y -= 0.155
+
+    ax.text(0.5, 0.005,
+            "★ 다음 국면 = 데이터 대기: freeze 이후 전향 페이퍼 표본이 유일한 진실. "
+            "감사 재호출 타이밍 = 새 아이디어가 아니라 전향 표본 한 분기치가 쌓였을 때.",
+            ha="center", color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
+
+    _footer(fig, n, total)
+    pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
+
 
 def page_limitations(pdf, n, total):
     fig = _new_page(figsize=(12.0, 9.0))
@@ -1464,10 +1526,10 @@ def page_limitations(pdf, n, total):
          "룰 패밀리별 합산 노출 캡 미구현.",
          C_ACCENT_1),
 
-        ("5. (남은 한계) look-ahead, n=8 통계, 실체결 낙관",
+        ("5. (남은 한계) look-ahead, n=8 통계, 실체결 낙관 + 베이스라인 패배",
          "tail/co_crash 통계 시점-aware 재적합 미구현 → co_crash 75%/n=8 은 이항 p≈0.15 — 알파 '후보' 일 뿐\n"
          "주장 불가 (라운드 6 비평 3번). 섹터 ETF 옵션 실스프레드는 5% 가정보다 나쁜 날 많음 (페이퍼 낙관).\n"
-         "VIX>25 SPY 스트래들 대조군을 백테스트에 추가 — 시스템은 이 베이스라인을 이겨야 함.",
+         "VIX>25 SPY 대조군(R8/W3): 시스템 +1,252 < 대조군 +3,409 (USD) — 시스템이 졌다(n=2 caveat·방향 분명).",
          "#a78bfa"),
     ]
 
@@ -1587,7 +1649,7 @@ def main():
         live = json.loads(sig_path.read_text(encoding="utf-8"))
 
     print(f"[overview-pdf] PDF 빌드 → {PDF_OUT}")
-    total = 15
+    total = 16
     with PdfPages(PDF_OUT) as pdf:
         page_cover(pdf, total)
         page_flow(pdf, 2, total)
@@ -1602,8 +1664,9 @@ def main():
         page_dual(pdf, 11, total)
         page_kinetic_loop(pdf, 12, total)
         page_backtest(pdf, 13, total)            # NEW 2026-06-10
-        page_limitations(pdf, 14, total)
-        page_glossary(pdf, 15, total)
+        page_round78(pdf, 14, total)             # NEW 2026-06-14 (라운드 7-8 결론)
+        page_limitations(pdf, 15, total)
+        page_glossary(pdf, 16, total)
         d = pdf.infodict()
         d["Title"]    = "Macro Research System Overview"
         d["Author"]   = "wjdrj"
