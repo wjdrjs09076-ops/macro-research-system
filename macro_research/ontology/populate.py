@@ -157,6 +157,47 @@ def _populate_vrp_iv(G: nx.DiGraph) -> None:
           f"iv_history.jsonl append")
 
 
+# realized-vol z-score (event_vol 룰 입력, 라운드9) — vol_monitor_pipeline.py 와 동일 공식
+RV_Z_LOOKBACK = 252   # 기준선 창 (1년)
+RV_Z_RECENT   = 10    # 최근 RV 창 (10일)
+
+
+def compute_rv_zscore(rets: "pd.Series") -> float:
+    """단일 섹터 실현변동성 z-score. vol_monitor_pipeline 공식과 동일:
+    RV = rolling(10).std()*√252; z = (current_RV − baseline.mean) / baseline.std,
+    baseline = RV_series[-252:-10]. 데이터 부족/비유한 시 NaN.
+    *VIX 와 독립적인 실현 변동성 급등* 측정 (백테스트도 동일 함수로 재현 가능)."""
+    r = rets.dropna()
+    if len(r) < RV_Z_LOOKBACK // 2:
+        return float("nan")
+    rv_series  = r.rolling(RV_Z_RECENT).std() * np.sqrt(252.0)
+    current_rv = float(rv_series.iloc[-1])
+    hist_rv    = rv_series.iloc[-RV_Z_LOOKBACK:-RV_Z_RECENT]
+    baseline   = float(hist_rv.mean())
+    std_rv     = float(hist_rv.std()) if hist_rv.std() > 0 else 1e-6
+    if not (np.isfinite(current_rv) and np.isfinite(baseline)):
+        return float("nan")
+    return (current_rv - baseline) / std_rv
+
+
+def _populate_rv_zscore(G: nx.DiGraph) -> None:
+    """섹터별 실현변동성 z-score 를 rv_zscore 노드속성으로 부착 (event_vol 룰 입력)."""
+    ret_path = OUTPUT_DIR / "sector_returns.parquet"
+    if not ret_path.exists():
+        print("  [WARN] sector_returns.parquet 없음, rv_zscore 스킵")
+        return
+    rets = pd.read_parquet(ret_path)
+    count = 0
+    for sec in SECTOR_NAMES:
+        if sec not in rets.columns:
+            continue
+        z = compute_rv_zscore(rets[sec])
+        if np.isfinite(z):
+            nx.set_node_attributes(G, {sec: {"rv_zscore": round(float(z), 3)}})
+            count += 1
+    print(f"  [OK] rv_zscore 부착: {count}/{len(SECTOR_NAMES)} 섹터")
+
+
 # ---------------------------------------------------------------------------
 # Step 3: SENSITIVE_TO edges (delta/gamma from OLS + speed/color from poly4)
 # ---------------------------------------------------------------------------
@@ -538,6 +579,9 @@ def populate(G: nx.DiGraph) -> str:
 
     print("[populate] Extracting ATM IV (Alpaca options) → VRP_true ...")
     _populate_vrp_iv(G)
+
+    print("[populate] Realized-vol z-score (event_vol 입력) ...")
+    _populate_rv_zscore(G)
 
     print("[populate] Building SENSITIVE_TO edges ...")
     _populate_sensitivity(G)

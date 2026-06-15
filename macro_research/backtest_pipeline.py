@@ -114,7 +114,7 @@ def _build_graph_as_of(date: pd.Timestamp, returns: pd.DataFrame,
     from ontology.schema import build_empty_graph
     from ontology.populate import (
         _populate_tail_risk, _populate_vrp, _populate_sensitivity,
-        _populate_co_crash, _populate_causal_links,
+        _populate_co_crash, _populate_causal_links, compute_rv_zscore,
     )
     G = build_empty_graph()
     # Tail/VRP/sensitivity 는 정적 캐시 그대로 — look-ahead 한계
@@ -163,8 +163,12 @@ def _build_graph_as_of(date: pd.Timestamp, returns: pd.DataFrame,
             rv_window = returns.loc[:date, sec].tail(20)
             rv = float(rv_window.std() * np.sqrt(252)) if len(rv_window) >= 5 else float("nan")
             vrp = iv - rv if not (np.isnan(iv) or np.isnan(rv)) else float("nan")
-            nx.set_node_attributes(G, {sec: {"iv_atm": round(iv, 4),
-                                              "vrp_iv": round(vrp, 4)}})
+            attrs = {"iv_atm": round(iv, 4), "vrp_iv": round(vrp, 4)}
+            # event_vol 입력 — as_of 절단 returns 로 z 계산 (look-ahead 차단)
+            z = compute_rv_zscore(returns.loc[:date, sec])
+            if np.isfinite(z):
+                attrs["rv_zscore"] = round(float(z), 3)
+            nx.set_node_attributes(G, {sec: attrs})
         except Exception:
             pass
     return G, regime

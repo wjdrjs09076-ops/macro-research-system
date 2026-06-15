@@ -86,6 +86,11 @@ T = {
     "thin_tail_xi_max":            0.10,   # EVT: ξ < 0.10 = 꼬리 얇음 (정규 비슷)
     "thin_tail_lambda_max":        0.20,   # Copula: max λ_L < 0.20 = 위기 동조 낮음
     "thin_tail_cf_max":            1.50,   # CF/Normal < 1.50 = 정규 VaR 모델 적절
+
+    # event_vol (라운드9, 2026-06-15 신설) — VIX 비대칭이 놓치는 *실현* 변동성 급등
+    # 을 IV 가 쌀 때(VRP≤0) 롱 볼로 포착. vol_overpriced 의 대칭 짝.
+    "event_vol_z_min":             2.5,    # 실현변동성 z-score ≥ 2.5 = 큰 실현 무브
+    "event_vol_vrp_max":           0.0,    # VRP_iv = ATM_IV − RV_20d ≤ 0 = IV 가 쌈/공정
 }
 
 
@@ -413,6 +418,52 @@ def rule_vol_overpriced(G: nx.DiGraph, sector: str) -> list[SignalNode]:
         regime      = RegimeType.LOW_VIX.value,
         confidence  = min(0.88, 0.55 + vrp * 6),
         rule_name   = "vol_overpriced",
+        reasoning   = reasoning,
+    )]
+
+
+def rule_event_vol(G: nx.DiGraph, sector: str) -> list[SignalNode]:
+    """실현변동성 급등(z) + 싼 옵셔널리티(VRP≤0) → 롱 스트래들 (라운드9, 2026-06-15).
+
+    VIX 는 *공포* 게이지라 상방 안도랠리에선 오히려 하락 → VIX≥25 게이트가
+    상방 이벤트성 변동성을 구조적으로 누락한다 (2026-06-15 이란휴전→나스닥 급등이 사례).
+    본 룰은 VIX 와 독립적인 *실현* 변동성 z-score(vol_monitor 공식과 동일, populate 가
+    rv_zscore 노드속성으로 부착)를 보고, IV 가 실현을 못 따라올 때(VRP_iv≤0 = 옵셔널리티가
+    싸거나 공정) 롱 볼로 진입. vol_overpriced(VRP>2% = 비싼 IV)의 *대칭 짝* — 두 룰은
+    VRP 부호로 상호배타라 같은 섹터에 동시 발화하지 않는다(내부 정합).
+
+    베팅 성격: 변동성 군집(GARCH 지속성) + IV 캐치업. 리스크: 이벤트 후 vol crush.
+    → in-sample 아닌 전향 표본이 판정 (pending_forward_validation: event_vol_straddle).
+    """
+    z   = _node(G, sector, "rv_zscore")
+    vrp = _node(G, sector, "vrp_iv")
+    if not (_is_finite(z) and z >= T["event_vol_z_min"]):
+        return []
+    if not (_is_finite(vrp) and vrp <= T["event_vol_vrp_max"]):
+        return []
+
+    iv_atm = _node(G, sector, "iv_atm")
+    reasoning = [
+        f"{sector}: 실현변동성 z-score = {z:.2f} >= {T['event_vol_z_min']:.1f} "
+        f"-- 최근 10일 RV 가 1년 기준선 대비 {z:.1f}σ 급등 (VIX 와 독립적인 *실현* 변동).",
+        f"VRP_iv = ATM_IV - RV_20d = {vrp*100:.2f}pp <= {T['event_vol_vrp_max']*100:.0f}pp "
+        f"-- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+    ]
+    if _is_finite(iv_atm):
+        reasoning.append(f"ATM_IV = {iv_atm*100:.1f}% 연환산 (콜+풋 평균).")
+    reasoning.append(
+        "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 "
+        "IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high "
+        "전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
+    )
+
+    return [SignalNode(
+        signal_id   = str(uuid.uuid4())[:8],
+        sector      = sector,
+        signal_type = SignalType.MONITOR,   # 방향 무관 — 스트래들 차량으로만 라우팅
+        regime      = RegimeType.MID_VIX.value,   # 표시용(레짐 독립 — 발화는 REGIME_RULES 3개 전부)
+        confidence  = min(0.92, 0.55 + (z - T["event_vol_z_min"]) * 0.12),
+        rule_name   = "event_vol",
         reasoning   = reasoning,
     )]
 
@@ -827,6 +878,7 @@ ALL_RULES = [
     rule_rate_beneficiary,
     rule_rate_victim,
     rule_vol_overpriced,
+    rule_event_vol,              # 실현변동성 급등 → 롱 볼 (라운드9, 2026-06-15)
     rule_fat_tail_alert,
     rule_normal_var_inadequate,
     rule_thin_tail_greenlight,   # 숏 볼 트랙용 (2026-06-10)
@@ -839,6 +891,7 @@ REGIME_RULES: dict[str, list] = {
         rule_vol_overpriced,
         rule_rate_beneficiary,
         rule_thin_tail_greenlight,    # 평상시에만 — high_vix 에선 자동 비활성
+        rule_event_vol,               # 라운드9: 실현변동성 급등(레짐 독립)
     ],
     RegimeType.MID_VIX.value: [
         rule_rate_beneficiary,
@@ -846,6 +899,7 @@ REGIME_RULES: dict[str, list] = {
         rule_normal_var_inadequate,
         rule_vol_overpriced,
         rule_thin_tail_greenlight,
+        rule_event_vol,               # 라운드9: 실현변동성 급등(레짐 독립)
     ],
     RegimeType.HIGH_VIX.value: [
         rule_natural_hedge,
@@ -853,6 +907,7 @@ REGIME_RULES: dict[str, list] = {
         rule_co_crash_cluster,
         rule_fat_tail_alert,
         rule_rate_victim,
+        rule_event_vol,               # 라운드9: 실현변동성 급등(레짐 독립)
         # thin_tail_greenlight 제외 — high_vix 에선 숏 볼 위험 (시스템 가설)
     ],
 }

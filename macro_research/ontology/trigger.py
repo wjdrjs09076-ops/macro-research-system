@@ -47,6 +47,7 @@ LONG_STRADDLE_RULES: set[str] = {
     "co_crash_cluster",
     "fat_tail_alert",
     "normal_var_inadequate",
+    "event_vol",   # 라운드9(2026-06-15): 실현변동성 급등+싼 IV → 롱 볼
     # causal_chain_monitor / shock_propagator / variance_concentrated 제거 —
     # 정합성 의심 (인과 휴리스틱 또는 PCMCI stale). 라운드 5 비평 선반영.
 }
@@ -66,7 +67,7 @@ SIGNAL_DIRECTION: dict[str, int] = {
 
 # 방향성 베팅에 부적합한 룰 (논리 mismatch). vol_overpriced 는 "IV 비싸다" 신호인데
 # 이를 ETF 현물 롱으로 라우팅하는 건 모순이라 제거 (2026-06-08 비평 반영).
-DIRECTIONAL_EXCLUDE_RULES: set[str] = {"vol_overpriced"}
+DIRECTIONAL_EXCLUDE_RULES: set[str] = {"vol_overpriced", "event_vol"}
 
 SIGNALS_JSON = OUTPUT_DIR / "ontology_signals.json"
 # 사이트 동기화 대상: macro-portal/public/data 가 있으면 함께 발행
@@ -375,11 +376,12 @@ RULE_SECTOR_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
 
 AUDIT_VERSION = "2026-06-12-orthogonal-fdr"   # 직교화(lvl+2s10s) + VIF + BH FDR
 FREEZE_VERSION = "v1"
-# 2026-06-12 = 문서상 freeze v1 선언일. 그러나 라운드8 코드(P0 fix·β헤지 스프레드 등)는
-# origin(=vol_monitor CI)에 2026-06-15 에야 실제 배포됨(그 전엔 옛 코드 가동) — 따라서
-# 진짜 OOS 전향 표본 시계는 6/15 부터 시작. date 를 실배포일로 정정(G4, 2026-06-15).
+# date = 구조 변경(=OOS 전향 시계 리셋) 최신일. 이력:
+#  2026-06-12 문서상 freeze v1 선언 / 2026-06-15 라운드8 코드(P0 fix·β헤지 스프레드) origin 실배포
+#  2026-06-16 라운드9: event_vol 룰 신설(실현변동성 급등→롱 볼, VIX 비대칭 보완) → 시계 재리셋.
+# 구조 변경 시 이 날짜를 갱신하고 pending_forward_validation 시작일도 맞출 것.
 # v2 라벨은 실자본 계좌 연결 시(blast-radius 재검토 트리거)용으로 예약 — 여기 쓰지 말 것.
-FREEZE_DATE = "2026-06-15"
+FREEZE_DATE = "2026-06-16"
 
 
 def _rate_evidence(G) -> list[dict]:

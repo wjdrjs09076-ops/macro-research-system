@@ -1,26 +1,26 @@
 {
-  "schema_version": "1.0",
-  "created": "2026-06-15",
-  "purpose": "config freeze 이후 전향(forward) 페이퍼 표본만이 진짜 OOS. 아래 주장은 전부 in-sample(생존편향/오염 명시)이며 PENDING. 표본 누적 시 status 를 CONFIRMED/REJECTED 로 갱신 (라운드9 핵심).",
+  "schema_version": "1.1",
+  "created": "2026-06-16",
+  "purpose": "config freeze 이후 전향(forward) 페이퍼 표본만 진짜 OOS. 아래는 전부 in-sample(오염 명시) PENDING. 라운드9 event_vol 구조변경으로 OOS 시계 2026-06-16 재리셋.",
   "in_sample_window": {
     "start": "2025-12-11",
     "end": "2026-06-09",
     "n_days": 123
   },
-  "oos_forward_start": "2026-06-15",
-  "freeze_ref": "rule_sector_state.json:freeze (버전·날짜 단일 진실원)",
+  "oos_forward_start": "2026-06-16",
+  "freeze_ref": "rule_sector_state.json:freeze (v1 / 2026-06-16)",
   "claims": [
     {
       "id": "spread_gt_straddle",
-      "claim": "directional 수익화 instrument = β헤지 스프레드가 아웃라이트 숏 / 스트래들보다 우월",
+      "claim": "directional 수익화 instrument = β헤지 스프레드가 아웃라이트 숏/스트래들보다 우월",
       "evidence": {
         "source": "W2-A / W2-B (in-sample, IV 가정=0)",
         "n": null,
         "p_binom_1sided": null,
-        "metric": "W2-A: β헤지 스프레드가 on/off 4창·200DMA 3/4창 MDD 우위. W2-B: ATM 스트래들 현실 IV(1.5~2배)서 전창 손실 → 기각",
-        "contamination": "in-sample; IV 합성가정; 룰 가지치기(11→8) 생존편향; designer leakage(P1-6: OOS창<최초 git커밋)"
+        "metric": "W2-A: β헤지 스프레드 on/off 4창·200DMA 3/4창 MDD 우위. W2-B: ATM 스트래들 현실 IV(1.5~2배)서 전창 손실 → 기각",
+        "contamination": "in-sample; IV 합성가정; 룰 가지치기 생존편향; designer leakage(P1-6)"
       },
-      "start_date": "2026-06-15",
+      "start_date": "2026-06-16",
       "status": "PENDING"
     },
     {
@@ -34,9 +34,9 @@
         "avg_pnl_pct": 0.3308,
         "total_pnl_usd": 1313.46,
         "p_binom_1sided": 0.0625,
-        "contamination": "in-sample; n<10 주장불가; look-ahead(tail/co_crash 시점-aware 재적합 미구현); 룰 가지치기 생존편향"
+        "contamination": "in-sample; n<10 주장불가; look-ahead(시점-aware 재적합 미구현); 룰 가지치기 생존편향"
       },
-      "start_date": "2026-06-15",
+      "start_date": "2026-06-16",
       "status": "PENDING"
     },
     {
@@ -50,43 +50,57 @@
         "avg_pnl_pct": 0.1352,
         "total_pnl_usd": 6.39,
         "p_binom_1sided": 0.6562,
-        "contamination": "in-sample; n<10; 실측 무유의(win 50% / 총 +$6) — 사실상 후보조차 약함"
+        "contamination": "in-sample; n<10; 실측 무유의(win 50%/총 +$6)"
       },
-      "start_date": "2026-06-15",
+      "start_date": "2026-06-16",
       "status": "PENDING"
     },
     {
       "id": "trail_25_40_straddle",
-      "claim": "트레일 25/40 청산이 straddle 에서 양(+) 수익 (tp25 고정 절단보다 우월)",
+      "claim": "트레일 25/40 청산이 straddle 에서 양(+) (tp25 대비)",
       "evidence": {
-        "source": "in-sample backtest (trail config, straddle 합산)",
-        "n": 13,
-        "wins": 9,
-        "win_rate": 0.6923,
-        "avg_pnl_pct": 0.2405,
-        "total_pnl_usd": 1319.85,
-        "p_binom_1sided": 0.1334,
-        "contamination": "in-sample; n=13 소표본; 9격자 in-sample 관측(25/40은 격자 최대 아님 — 25/50=+$1,821); tp25→trail 전환도 같은 표본 비교"
+        "source": "in-sample (trail, straddle 합산)",
+        "n": 15,
+        "wins": 10,
+        "win_rate": 0.6667,
+        "total_pnl_usd": 1367.89,
+        "p_binom_1sided": 0.1509,
+        "contamination": "in-sample; 소표본; 9격자 in-sample 관측"
       },
-      "start_date": "2026-06-15",
+      "start_date": "2026-06-16",
       "status": "PENDING"
     },
     {
-      "id": "system_total_1252",
-      "claim": "시스템 합산 in-sample +$1,252 (n=41) 가 양(+)",
+      "id": "system_total",
+      "claim": "시스템 합산 in-sample 이 양(+)",
       "evidence": {
-        "source": "in-sample 재구성 (라운드6-7, trail config)",
-        "n": 41,
-        "total_pnl_usd": 1252.41,
+        "source": "in-sample 재구성(trail)",
+        "n": 43,
+        "total_pnl_usd": 1300.45,
         "p_binom_1sided": null,
         "baseline_spy": {
-          "rule": "VIX>25 → SPY ATM 스트래들 (trail 청산)",
           "n": 2,
           "total_pnl_usd": 3409.35
         },
-        "contamination": "in-sample 재구성(전향 아님); 룰 가지치기 생존편향; designer leakage(P1-6); 베이스라인 VIX>25 SPY +$3,409 에 패배(n=2 caveat·방향만 시사)"
+        "contamination": "in-sample 재구성; 생존편향; designer leakage(P1-6); baseline VIX>25 SPY 에 패배(n=2)"
       },
-      "start_date": "2026-06-15",
+      "start_date": "2026-06-16",
+      "status": "PENDING"
+    },
+    {
+      "id": "event_vol_straddle",
+      "claim": "event_vol(실현변동성 z≥2.5 + VRP≤0) → 롱 스트래들 알파 (VIX 비대칭 보완)",
+      "evidence": {
+        "source": "in-sample backtest (trail config)",
+        "n": 2,
+        "wins": 1,
+        "win_rate": 0.5,
+        "avg_pnl_pct": 0.067,
+        "total_pnl_usd": 48.04,
+        "p_binom_1sided": 0.75,
+        "contamination": "in-sample n 극소(룰 6/16 신설, 과거 발화 적음); 백테스트 VRP=GARCH proxy(라이브 Alpaca IV와 다름); 진짜 테스트는 전향 표본"
+      },
+      "start_date": "2026-06-16",
       "status": "PENDING"
     }
   ]
