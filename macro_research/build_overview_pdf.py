@@ -827,17 +827,17 @@ def page_rules(pdf, n, total):
         for txt, x in zip((rule_name, cond, sig, meaning), cols_x):
             ax.text(x, y, txt, color=color, fontsize=9.5,
                     fontweight="bold" if x == cols_x[0] else "normal")
-        y -= 0.048
+        y -= 0.0415
 
     # 💤 thin_tail_greenlight 휴면 사유 전면화 (R8 검토 3) — 셀에 안 잘리게 본문에
-    ax.text(0.02, 0.225,
+    ax.text(0.02, 0.35,
             "[휴면] thin_tail_greenlight (무한손실 숏볼 게이트 — ξ·λ_L·CF 95% 상한으로만 발화): "
             "P2-5 실측 — 게이트 통과에 ξ≈10.7년·λ_L≈1.9년치 표본 필요 = 현 데이터 체계에서\n"
             "수학적으로 발화 불가. 횡단면 상대임계 재설계 없이는 死코드(영구 동결) — 흐리지 않고 명시.",
             color="#6ee7b7", fontsize=8.5, linespacing=1.4, va="top")
 
     # 레짐별 활성 룰 (9개)
-    ax.text(0.02, 0.17, "레짐별 활성 룰 (9개, 2026-06-16) — event_vol 은 레짐 독립(전 레짐)",
+    ax.text(0.02, 0.255, "레짐별 활성 룰 (9개, 2026-06-16) — event_vol 은 레짐 독립(전 레짐)",
             color=C_ACCENT_4, fontsize=12, fontweight="bold")
     regimes = [
         ("low_vix (VIX < 15)",
@@ -847,13 +847,13 @@ def page_rules(pdf, n, total):
         ("high_vix (VIX ≥ 25)",
          "natural_hedge · crash_vulnerable · co_crash_cluster · fat_tail_alert · rate_victim · event_vol"),
     ]
-    y = 0.125
+    y = 0.205
     for k, v in regimes:
         ax.text(0.02, y, k, color=C_ACCENT_2, fontsize=10, fontweight="bold")
         ax.text(0.26, y, v, color=C_TEXT, fontsize=9)
         y -= 0.038
 
-    ax.text(0.02, 0.005,
+    ax.text(0.02, 0.05,
             "* 단일 진실원 = output/rule_sector_state.json (매 사이클 갱신, FDR q<0.10 데이터 유효성). "
             "문서의 섹터 명단이 아니라 이 파일이 룰 발화와 '시그널은퇴' 청산의 기준.",
             color=C_ACCENT_4, fontsize=9, fontweight="bold")
@@ -1641,7 +1641,7 @@ def page_glossary(pdf, n, total):
             text_v = v if len(v) <= 80 else v[:80].rsplit(' ', 1)[0] + " ..."
             cax.text(0.0, y - 0.026, text_v, color=C_TEXT, fontsize=8.5,
                      va="top", wrap=True)
-            y -= 0.058
+            y -= 0.0545
 
     _footer(fig, n, total)
     pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
