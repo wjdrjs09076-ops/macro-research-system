@@ -22,12 +22,12 @@
   "rate_beneficiary|directional": {
     "multiplier": 1.0,
     "killed": false,
-    "trades": 2,
-    "cohorts": 2,
+    "trades": 4,
+    "cohorts": 3,
     "win_rate": 0.5,
-    "avg_pnl_pct": 0.0041,
-    "avg_pnl_pct_eff": 0.0041,
-    "total_pnl": 3.84
+    "avg_pnl_pct": -0.0049,
+    "avg_pnl_pct_eff": -0.0019,
+    "total_pnl": -10.17
   },
   "shock_propagator|directional": {
     "multiplier": 1.0,

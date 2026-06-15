@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-15T14:14:00",
+  "scan_date": "2026-06-15T14:18:08",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -240,20 +240,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 14.8,
-      "baseline_rv": 12.6,
-      "z_score": 0.61,
-      "vrp": 0.0224,
-      "beta_30d": 0.486,
-      "consec_vol": 5,
-      "excess_10d": -1.61,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.49, 5d consec vol",
-      "sector": "Communication"
-    },
-    {
       "ticker": "GLD",
       "current_rv": 34.0,
       "baseline_rv": 25.3,
@@ -483,7 +469,7 @@
       "last_date": "2026-06-15"
     }
   ],
-  "flagged_count": 28,
+  "flagged_count": 27,
   "alert_count": 6,
   "high_count": 5
 }
