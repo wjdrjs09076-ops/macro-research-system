@@ -1,21 +1,24 @@
 {
-  "generated": "2026-06-15T14:37:38",
+  "generated": "2026-06-15T15:10:49",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v1",
-    "date": "2026-06-15",
+    "date": "2026-06-16",
     "note": "v1 = 6/12 선언 / 6/15 origin 실배포(그 전 CI 옛코드). OOS 전향 시계 = date 부터. 미검증 주장 목록 = pending_forward_validation.json. v2 = 실자본 연결용 예약(여기 미사용)."
   },
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
     "co_crash_cluster|XLF",
+    "event_vol|XLB",
+    "event_vol|XLI",
+    "event_vol|XLK",
+    "event_vol|XLU",
     "fat_tail_alert|XLE",
     "fat_tail_alert|XLI",
     "fat_tail_alert|XLV",
     "rate_victim|XLC",
     "rate_victim|XLRE",
-    "rate_victim|XLY",
-    "vol_overpriced|XLC"
+    "rate_victim|XLY"
   ],
   "rate_verdicts": [
     {
