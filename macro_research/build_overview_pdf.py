@@ -86,7 +86,7 @@ def _title(fig, title, subtitle=None):
 
 def _footer(fig, n, total):
     fig.text(0.96, 0.03, f"{n} / {total}", color=C_MUTED, fontsize=9, ha="right")
-    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-12",
+    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-16",
              color=C_MUTED, fontsize=9)
 
 
@@ -160,7 +160,7 @@ def page_cover(pdf, total):
     pillars = [
         ("① 감지", "6-Layer 온톨로지\n(GARCH→EVT→Copula→Cholesky→Gate · ML=shadow)",
          C_ACCENT_1),
-        ("② 실행", "키네틱 레이어 (현물)\n→ β헤지 스프레드 전환(R8) · 스트래들 기각",
+        ("② 실행", "키네틱 레이어\n→ β헤지 스프레드(R8) · event_vol 롱 볼(R9)",
          C_ACCENT_2),
         ("③ 학습", "거래 저널 → (룰×전략) 귀인\n→ 사이징 피드백",
          C_ACCENT_3),
@@ -182,8 +182,8 @@ def page_cover(pdf, total):
             "방향 예측 대신 변동성을 베팅 + 같은 시그널을 크기·방향 둘로 직교 채점",
             ha="center", color=C_MUTED, fontsize=11)
 
-    ax.text(0.5, 0.10, "2026-06-12 · CONFIG FREEZE v1 — 룰·게이트·청산·캡 동결. "
-            "이후 페이퍼 표본만이 진짜 OOS 검증",
+    ax.text(0.5, 0.10, "2026-06-16 · CONFIG FREEZE v1 (R9 event_vol 반영) — 룰·게이트·청산·캡 동결. "
+            "OOS 전향 시계 = 이 날짜부터, 페이퍼 표본만이 진짜 검증",
             ha="center", color=C_ACCENT_3, fontsize=10, fontweight="bold")
 
     _footer(fig, 1, total)
@@ -224,7 +224,7 @@ def page_flow(pdf, n, total):
         ("Layer 2", "EVT / GPD",                  "꼬리 ξ · VaR/ES(99%)",      C_ACCENT_5),
         ("Layer 3", "Copula 꼬리 의존성",         "λ_L · λ_U",                  C_ACCENT_5),
         ("Layer 4", "Multivariate MC + Cholesky", "var_attr · CO_MOVES_WITH",  C_ACCENT_2),
-        ("Layer 5", "Ontology Gate",              "8 룰 → SignalNode",         C_ACCENT_1),
+        ("Layer 5", "Ontology Gate",              "9 룰 → SignalNode",         C_ACCENT_1),
         ("Layer 6", "ML (XGBoost + VQC) — 미통합", "룰 입력 없음 (검증 전)",    "#6b7280"),
     ]
     lx, ly0 = 0.05, 0.78
@@ -783,8 +783,8 @@ def page_pcmci(pdf, n, total):
 
 def page_rules(pdf, n, total):
     fig = _new_page(figsize=(12.0, 9.0))
-    _title(fig, "Layer 5 — Ontology Gate (8 추론 룰, 2026-06-10 정리)",
-           "11 → 8 룰. 라운드 5 비평 선반영 — 정합성 의심 3개 제거. thin_tail_greenlight 1개 신설.")
+    _title(fig, "Layer 5 — Ontology Gate (9 추론 룰, 2026-06-16)",
+           "11→8(R5 정합성 의심 3제거)→9. R9: event_vol 신설 — 실현변동성 급등→롱 볼 (VIX 비대칭 보완).")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.80))
 
@@ -796,6 +796,7 @@ def page_rules(pdf, n, total):
         ("rate_beneficiary",       "delta_ctrl > 0.002 & FDR q<0.10",             "OVERWEIGHT", "금리 수혜 — 유효 섹터는 상태표*가 단일 진실원", False, False),
         ("rate_victim",            "delta_ctrl < -0.001 & FDR q<0.10",            "UNDERWEIGHT", "금리 피해 — 유효 섹터는 상태표* 참조", False, False),
         ("vol_overpriced",         "VRP_true > 2% (Alpaca IV)",                   "OVERWEIGHT", "IV>RV — directional 제외 + SHORT 페어", False, False),
+        ("event_vol ★R9",          "realized z ≥ 2.5 & VRP_iv ≤ 0",               "→ 롱 볼",      "VIX 비대칭 보완: 실현변동 급등+싼IV → 롱스트래들", True, False),
         ("fat_tail_alert",         "ξ (GPD) > 0.20",                              "HEDGE/MONI",  "정규 VaR 부적합 ✓ +9.4% 백테스트", False, False),
         ("normal_var_inadequate",  "CF VaR / Normal VaR > 2.5",                   "MONITOR",     "정규 VaR 실제의 절반", False, False),
         ("thin_tail_greenlight 💤", "CI 95%상한: ξ<0.10 & λ_L<0.20 & CF<1.5",      "MONITOR",     "死코드 — 발화 불가 (↓ 하단 주)", True, False),
@@ -835,16 +836,16 @@ def page_rules(pdf, n, total):
             "수학적으로 발화 불가. 횡단면 상대임계 재설계 없이는 死코드(영구 동결) — 흐리지 않고 명시.",
             color="#6ee7b7", fontsize=8.5, linespacing=1.4, va="top")
 
-    # 레짐별 활성 룰 (8개)
-    ax.text(0.02, 0.17, "레짐별 활성 룰 (8개, 2026-06-10)",
+    # 레짐별 활성 룰 (9개)
+    ax.text(0.02, 0.17, "레짐별 활성 룰 (9개, 2026-06-16) — event_vol 은 레짐 독립(전 레짐)",
             color=C_ACCENT_4, fontsize=12, fontweight="bold")
     regimes = [
         ("low_vix (VIX < 15)",
-         "vol_overpriced · rate_beneficiary · thin_tail_greenlight"),
+         "vol_overpriced · rate_beneficiary · thin_tail_greenlight · event_vol"),
         ("mid_vix (15 ≤ VIX < 25)",
-         "rate_* · normal_var_inadequate · vol_overpriced · thin_tail_greenlight"),
+         "rate_* · normal_var_inadequate · vol_overpriced · thin_tail_greenlight · event_vol"),
         ("high_vix (VIX ≥ 25)",
-         "natural_hedge · crash_vulnerable · co_crash_cluster · fat_tail_alert · rate_victim"),
+         "natural_hedge · crash_vulnerable · co_crash_cluster · fat_tail_alert · rate_victim · event_vol"),
     ]
     y = 0.125
     for k, v in regimes:
@@ -1053,8 +1054,8 @@ def page_joint(pdf, n, total, live):
 
 def page_dual(pdf, n, total):
     fig = _new_page(figsize=(12.0, 9.0))
-    _title(fig, "트리플 전략 — 같은 시그널, 세 가지 베팅 (2026-06-10)",
-           "LONG STRADDLE (위기 룰) + DIRECTIONAL (rate beta) + SHORT STRADDLE (그린라이트)")
+    _title(fig, "트리플 전략 — 같은 시그널, 세 가지 베팅 (R9, 2026-06-16)",
+           "LONG STRADDLE (위기 룰 + event_vol) + DIRECTIONAL (rate beta) + SHORT STRADDLE (그린라이트)")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
 
@@ -1069,7 +1070,7 @@ def page_dual(pdf, n, total):
             "온톨로지 SignalNode", ha="center", va="center",
             color=C_TEXT, fontsize=11, fontweight="bold")
     ax.text(sig_x + sig_w / 2, sig_y + sig_h / 2,
-            "8 룰", ha="center", va="center",
+            "9 룰", ha="center", va="center",
             color=C_ACCENT_2, fontsize=10, fontfamily="monospace")
     ax.text(sig_x + sig_w / 2, sig_y + 0.025,
             "rule · signal_type · confidence",
@@ -1089,7 +1090,7 @@ def page_dual(pdf, n, total):
     ax.text(str_x + box_w / 2, box_y + box_h - 0.035, "LONG STRADDLE",
             ha="center", color="#8b5cf6", fontsize=13, fontweight="bold")
     ax.text(str_x + box_w / 2, box_y + box_h - 0.065,
-            "변동 크기 매수 (위기 룰)",
+            "변동 크기 매수 (위기 룰 + event_vol)",
             ha="center", color=C_TEXT, fontsize=9.5)
     ax.text(str_x + 0.02, box_y + box_h - 0.105,
             "베헤이클: 롱 ATM 콜+풋", color=C_MUTED, fontsize=9)
@@ -1097,14 +1098,14 @@ def page_dual(pdf, n, total):
             "예산: 3% × scale × mult", color=C_MUTED, fontsize=9)
     ax.text(str_x + 0.02, box_y + box_h - 0.165,
             "트레일 arm25%/반납40% / DTE≤10", color=C_MUTED, fontsize=9)
-    ax.text(str_x + 0.02, box_y + box_h - 0.205,
-            "트리거: natural_hedge,", color="#a78bfa", fontsize=8.5)
-    ax.text(str_x + 0.02, box_y + box_h - 0.225,
-            "crash_vulnerable,", color="#a78bfa", fontsize=8.5)
+    ax.text(str_x + 0.02, box_y + box_h - 0.200,
+            "트리거: natural_hedge, crash_vulnerable,", color="#a78bfa", fontsize=8.5)
+    ax.text(str_x + 0.02, box_y + box_h - 0.220,
+            "co_crash_cluster, fat_tail_alert (high_vix)", color="#a78bfa", fontsize=8.5)
     ax.text(str_x + 0.02, box_y + box_h - 0.245,
-            "co_crash_cluster,", color="#a78bfa", fontsize=8.5)
+            "+ event_vol ★R9 (전 레짐):", color="#c4b5fd", fontsize=8.5, fontweight="bold")
     ax.text(str_x + 0.02, box_y + box_h - 0.265,
-            "fat_tail_alert (high_vix)", color="#a78bfa", fontsize=8.5)
+            "  realized z≥2.5 & VRP_iv≤0", color="#a78bfa", fontsize=8.5)
     ax.text(str_x + box_w / 2, box_y + 0.020,
             "P&L = 변동 일어났나?", color=C_ACCENT_3,
             fontsize=9.5, fontweight="bold", ha="center")
@@ -1176,18 +1177,18 @@ def page_dual(pdf, n, total):
            color=C_ACCENT_3, lw=2.2)
 
     # Bottom — 시스템 테제 코히어런스 요약
-    ax.text(0.04, 0.215, "시스템 테제 코히어런스 (2026-06-12 현황)",
+    ax.text(0.04, 0.215, "시스템 테제 코히어런스 (2026-06-16 현황)",
             color=C_ACCENT_4, fontsize=12, fontweight="bold")
     ax.text(0.04, 0.175,
-            "현재 mid_vix:  LONG STRADDLE 0건  ·  DIRECTIONAL 5건 (전부 rate_victim 숏)  ·  "
+            "현재 mid_vix:  LONG STRADDLE 1건 (event_vol XLB)  ·  DIRECTIONAL 3건 (rate_victim XLC/XLRE/XLY 숏)  ·  "
             "SHORT STRADDLE 0건",
             color=C_TEXT, fontsize=10, fontweight="bold")
     ax.text(0.04, 0.140,
-            "→ 위기 룰 미발화 = 비싼 IV 매수 X  ·  rate_beneficiary 는 통제 delta 기준 침묵 (교란 차단)  ·  "
-            "그린라이트 미발화 = 숏 볼 X",
+            "→ event_vol 이 VIX 평온(17.7)에도 실현변동 급등(XLB z=3.0)+싼IV 포착 = VIX 비대칭 보완  ·  "
+            "rate_beneficiary KILLED 청산(G1)  ·  그린라이트 死코드",
             color=C_MUTED, fontsize=9.5)
     ax.text(0.04, 0.105,
-            "→ 평상시엔 검증된 directional 만, 위기엔 LONG 자동 발사, 진짜 안전 시 SHORT 발사",
+            "→ 평상시 검증된 directional + 실현변동 이벤트엔 event_vol LONG, 위기엔 위기룰 LONG, 진짜 안전 시 SHORT",
             color=C_ACCENT_3, fontsize=10, fontweight="bold")
     ax.text(0.04, 0.060,
             "feedback (rule × strategy) 키 학습 — 표본 게이트는 cohort(유효표본) 기준: 같은 날 동시진입 = 1 증거 "
@@ -1306,9 +1307,9 @@ def page_backtest(pdf, n, total):
 
     fig = _new_page(figsize=(12.0, 9.0))
     _title(fig, f"백테스트 — {period.get('start','?')} ~ {period.get('end','?')} "
-                f"({period.get('n_days','?')}일 · {trail.get('n_closed','?')} closed, 8룰·FDR 게이트)",
-           f"거래 수 이력: 라운드6 194 closed → 룰 가지치기(11→8)+FDR 게이트로 "
-           f"{trail.get('n_closed','?')} closed(straddle 13 + directional 28) · 감소분 = 쳐낸 룰·게이트 컷. "
+                f"({period.get('n_days','?')}일 · {trail.get('n_closed','?')} closed, 9룰·FDR 게이트)",
+           f"거래 수 이력: 라운드6 194 closed → 룰 가지치기(11→8)+FDR 게이트 → R9 event_vol(+1룰)로 "
+           f"{trail.get('n_closed','?')} closed(straddle 15 + directional 28, event_vol n=2 포함) · "
            "BS+GARCH IV · 슬리피지 5% · ⚠ 라운드6-7 in-sample 재구성 ¤ — 전향 검증 아님(생존편향 상향)")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
@@ -1493,8 +1494,8 @@ def page_round78(pdf, n, total):
         y -= 0.155
 
     ax.text(0.5, 0.005,
-            "★ 다음 국면 = 데이터 대기: freeze 이후 전향 페이퍼 표본이 유일한 진실. "
-            "감사 재호출 타이밍 = 새 아이디어가 아니라 전향 표본 한 분기치가 쌓였을 때.",
+            "★ R9(2026-06-16): event_vol 룰 신설(실현변동성→롱 볼, VIX 비대칭 보완) 후 재freeze. "
+            "이제 데이터 대기 — 전향 페이퍼 표본(event_vol 포함 6주장 PENDING)만이 유일한 진실.",
             ha="center", color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
 
     _footer(fig, n, total)
@@ -1531,10 +1532,10 @@ def page_limitations(pdf, n, total):
          "t 유의성 소멸로 사망(KILLED, ctrl t=-0.1/-1.6 — p.9 표와 동일 사유). verdict 는 BH FDR q<0.10.",
          C_ACCENT_3),
 
-        ("4. (남은 한계) 생존편향 + 열린 루프 + 노출 캡 부재",
+        ("4. (남은 한계) 생존편향 + 열린 루프 + 노출 캡 부재  [R9 일부 완화]",
          "11→8 가지치기 자체가 같은 백테스트의 in-sample 선택 — 생존 룰 수치는 상향 편향 (라운드 6 비평 5번).\n"
-         "수치 검증은 지금부터의 페이퍼 표본(진짜 OOS)으로만. high_vix 룰 표본 누적은 수년 (열린 루프).\n"
-         "룰 패밀리별 합산 노출 캡 미구현.",
+         "수치 검증은 지금부터의 페이퍼 표본(진짜 OOS)으로만. high_vix 룰 표본 누적은 수년 — R9 event_vol 이\n"
+         "레짐 독립 발화라 평상시에도 표본 누적(열린 루프 완화). 단 룰 패밀리별 합산 노출 캡은 여전히 미구현.",
          C_ACCENT_1),
 
         ("5. (남은 한계) look-ahead, n=8 통계, 실체결 낙관 + 베이스라인 패배",
@@ -1559,8 +1560,8 @@ def page_limitations(pdf, n, total):
         y -= 0.155
 
     ax.text(0.5, 0.022,
-            "★ CONFIG FREEZE v1 (2026-06-12): 8룰 + FDR q<0.10 게이트 + 트레일 25/40 (민감도 9칸 전부 + 확인) "
-            "+ β페어 σ임계(2.0/1.5) + rate 캡 15% + 숏볼 휴면. 이 시점부터의 페이퍼 표본 = 유일한 OOS.",
+            "★ CONFIG FREEZE v1 (2026-06-16, R9 갱신): 9룰(+event_vol) + FDR q<0.10 게이트 + 트레일 25/40 "
+            "+ β페어 σ임계(2.0/1.5) + rate 캡 15% + 숏볼 휴면. OOS 전향 시계 = 이 날짜부터 (구조변경 리셋).",
             ha="center", color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
     ax.text(0.5, 0.004,
             "⚠ freeze v1 은 paper-guard 미구현 상태를 동결한다 (TRADE_BASE=env[ALPACA_ENDPOINT], 무가드). "
@@ -1616,6 +1617,8 @@ def page_glossary(pdf, n, total):
         ("트레일링 청산",          "arm(+25%) 후 피크 이익의 40% 반납 시 청산. 고정 TP 의 우측 꼬리 절단 해소 (06-12)."),
         ("BH FDR q값",            "Benjamini-Hochberg 다중비교 보정. 55개 민감도 가설의 verdict 는 q<0.10 기준."),
         ("β 헤지 페어",            "섹터 현물 + 단순 126D β 만큼 SPY 반대 레그. 검증된 시장-대비 효과를 그대로 거래."),
+        ("event_vol (R9)",        "실현변동성 z≥2.5 & VRP_iv≤0 → 롱 스트래들. VIX 가 놓치는 실현 변동을 싼 IV 일 때 포착."),
+        ("rv_zscore",             "실현변동성(10일 RV) 의 1년 기준선 대비 z-score. VIX 와 독립. event_vol 입력."),
     ]
 
     # 2-column layout — 각 컬럼을 별도 axes 로 두어 axes 폭 안에서 줄바꿈 처리
