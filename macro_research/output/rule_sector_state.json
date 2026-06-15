@@ -1,10 +1,10 @@
 {
-  "generated": "2026-06-15T14:18:51",
+  "generated": "2026-06-15T14:37:38",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v1",
-    "date": "2026-06-12",
-    "note": "이후 구조 변경 시 OOS 시계 리셋 — 변경일을 여기 기록"
+    "date": "2026-06-15",
+    "note": "v1 = 6/12 선언 / 6/15 origin 실배포(그 전 CI 옛코드). OOS 전향 시계 = date 부터. 미검증 주장 목록 = pending_forward_validation.json. v2 = 실자본 연결용 예약(여기 미사용)."
   },
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
@@ -378,7 +378,7 @@
       "evidence": {
         "delta_ctrl": -0.004,
         "t": -2.85,
-        "q_fdr": 0.0214
+        "q_fdr": 0.0215
       },
       "judged": "2026-06-15"
     },
@@ -391,7 +391,7 @@
       "evidence": {
         "delta_ctrl": -0.004,
         "t": -2.85,
-        "q_fdr": 0.0214
+        "q_fdr": 0.0215
       },
       "judged": "2026-06-15"
     },
