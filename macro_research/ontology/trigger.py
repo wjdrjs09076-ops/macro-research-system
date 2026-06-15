@@ -375,7 +375,11 @@ RULE_SECTOR_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
 
 AUDIT_VERSION = "2026-06-12-orthogonal-fdr"   # 직교화(lvl+2s10s) + VIF + BH FDR
 FREEZE_VERSION = "v1"
-FREEZE_DATE = "2026-06-12"
+# 2026-06-12 = 문서상 freeze v1 선언일. 그러나 라운드8 코드(P0 fix·β헤지 스프레드 등)는
+# origin(=vol_monitor CI)에 2026-06-15 에야 실제 배포됨(그 전엔 옛 코드 가동) — 따라서
+# 진짜 OOS 전향 표본 시계는 6/15 부터 시작. date 를 실배포일로 정정(G4, 2026-06-15).
+# v2 라벨은 실자본 계좌 연결 시(blast-radius 재검토 트리거)용으로 예약 — 여기 쓰지 말 것.
+FREEZE_DATE = "2026-06-15"
 
 
 def _rate_evidence(G) -> list[dict]:
@@ -440,7 +444,8 @@ def _write_rule_sector_state(G, active_regime: str) -> None:
             "generated": dt.datetime.now().isoformat(timespec="seconds"),
             "audit_version": AUDIT_VERSION,
             "freeze": {"version": FREEZE_VERSION, "date": FREEZE_DATE,
-                       "note": "이후 구조 변경 시 OOS 시계 리셋 — 변경일을 여기 기록"},
+                       "note": "v1 = 6/12 선언 / 6/15 origin 실배포(그 전 CI 옛코드). OOS 전향 시계 = date 부터. "
+                               "미검증 주장 목록 = pending_forward_validation.json. v2 = 실자본 연결용 예약(여기 미사용)."},
             "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
             "valid_pairs": valid,
             "rate_verdicts": _rate_evidence(G),
