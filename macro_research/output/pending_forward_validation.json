@@ -101,7 +101,12 @@
         "contamination": "in-sample n 극소(룰 6/16 신설, 과거 발화 적음); 백테스트 VRP=GARCH proxy(라이브 Alpaca IV와 다름); 진짜 테스트는 전향 표본"
       },
       "start_date": "2026-06-16",
-      "status": "PENDING"
+      "status": "PENDING",
+      "first_sample_caveat": {
+        "trade": "XLB-2026-06-15-72f2df",
+        "issue": "origin-event 오염 — cron 지연 아님(룰배포 15:08:23Z +2.5분 즉시진입)이나, flag_log상 6/13부터 z~2.7/VRP~-0.05 조건 지속 = 룰 배포 2일전부터 켜진 신호에 즉시진입. 룰이 자기 탄생 이벤트(6/15 vol급등)에 진입한 표본.",
+        "action": "닫힐 때 clean 전향 카운트에서 제외 또는 별도표기. 깨끗한 표본 = 룰 가동 후 새로 조건 진입하는 섹터."
+      }
     }
   ]
 }
