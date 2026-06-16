@@ -42,11 +42,11 @@
   "rate_victim|directional": {
     "multiplier": 1.0,
     "killed": false,
-    "trades": 5,
+    "trades": 8,
     "cohorts": 2,
-    "win_rate": 0.4,
-    "avg_pnl_pct": -0.0049,
-    "avg_pnl_pct_eff": -0.0044,
-    "total_pnl": -12.72
+    "win_rate": 0.25,
+    "avg_pnl_pct": -0.0065,
+    "avg_pnl_pct_eff": -0.0066,
+    "total_pnl": -30.95
   }
 }
