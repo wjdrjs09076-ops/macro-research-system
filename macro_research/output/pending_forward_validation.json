@@ -8,7 +8,7 @@
     "n_days": 123
   },
   "oos_forward_start": "2026-06-16",
-  "freeze_ref": "rule_sector_state.json:freeze (v1 / 2026-06-16)",
+  "freeze_ref": "rule_sector_state.json:freeze (v2 / 2026-06-16 — β헤지 페어 시스템 라이브 시작)",
   "claims": [
     {
       "id": "spread_gt_straddle",
@@ -108,6 +108,20 @@
         "issue": "origin-event 오염 — cron 지연 아님(룰배포 15:08:23Z +2.5분 즉시진입)이나, flag_log상 6/13부터 z~2.7/VRP~-0.05 조건 지속 = 룰 배포 2일전부터 켜진 신호에 즉시진입. 룰이 자기 탄생 이벤트(6/15 vol급등)에 진입한 표본.",
         "action": "닫힐 때 clean 전향 카운트에서 제외 또는 별도표기. 깨끗한 표본 = 룰 가동 후 새로 조건 진입하는 섹터."
       }
+    }
+  ],
+  "monitored_controls": [
+    {
+      "id": "budget_guard",
+      "control": "예산 가드 (1계약 비용 > 예산×2 면 진입 스킵)",
+      "framing": "★튜닝 후보(완화 대상) 아님★ — 미검증 롱볼 룰(event_vol)의 추가 손실로부터 방어로 작동 중. 2026-06-16 XLK/XLI event_vol 스킵, XLB(진입된 유일 표본) -55%. 가드가 고가 underlying 롱볼 진입을 막아 손실을 줄임.",
+      "measure_before_relaxing": [
+        "event_vol 발화 빈도",
+        "스킵률(발화 대비 진입)",
+        "진입된 event_vol 표본의 실현 승률·평균 P&L(전향)"
+      ],
+      "risk_if_relaxed": "검증 전 완화 시 미검증 롱볼에 자본 노출 확대 = XLB 같은 vol-crush 손실 증폭. 발화빈도·실패율 전향 데이터 쌓이기 전엔 완화 금지.",
+      "status": "WORKING_AS_DEFENSE — 측정만, 변경 금지"
     }
   ]
 }

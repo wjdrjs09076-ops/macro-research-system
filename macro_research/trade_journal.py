@@ -105,7 +105,7 @@ def log_entry(
     call_sym: str | None = None,
     put_sym: str | None = None,
     hedge_symbol: str | None = None,
-    hedge_qty: int | None = None,
+    hedge_qty: float | None = None,
     hedge_price: float | None = None,
     hedge_beta: float | None = None,
     hedge_resid_vol: float | None = None,
@@ -144,7 +144,7 @@ def log_entry(
     if hedge_qty:
         rec.update({
             "hedge_symbol":    hedge_symbol or "SPY",
-            "hedge_qty":       int(hedge_qty),
+            "hedge_qty":       round(float(hedge_qty), 3),   # 소수주 (int 캐스트 시 0.3→0 = 페어 무력화·churn)
             "hedge_price":     round(float(hedge_price or 0), 2),
             "hedge_beta":      round(float(hedge_beta or 0), 4),
             "hedge_resid_vol": round(float(hedge_resid_vol or 0), 6),

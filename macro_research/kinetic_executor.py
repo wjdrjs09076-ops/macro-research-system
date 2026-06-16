@@ -830,6 +830,7 @@ def run_entry(live: bool, json_path: str, source: str = "ontology",
 
     _run_straddle_entry(straddle_c, equity, multipliers, live, market_open)
     _run_directional_entry(directional_c, equity, multipliers, live, market_open)
+    _reconcile_spy_hedge(live, market_open)   # SPY 풀을 열린 페어 합으로 정합(leak self-heal)
     _run_short_straddle_entry(short_straddle_c, equity, multipliers, live, market_open)
 
 
@@ -975,6 +976,43 @@ def _run_directional_entry(candidates, equity, multipliers, live, market_open) -
         )
         print(f"    [journal] directional entry: {tid}"
               + (f" (β={p.hedge_beta:.2f} 헤지 포함)" if hedged else " (아웃라이트)"))
+
+
+def _spy_position_qty() -> float:
+    """현재 SPY 보유 수량 (롱 +, 숏 -). 없으면 0."""
+    for p in get_positions():
+        if p.get("symbol") == HEDGE_SYMBOL:
+            return float(p.get("qty", 0) or 0)
+    return 0.0
+
+
+def _reconcile_spy_hedge(live: bool, market_open: bool) -> None:
+    """SPY 헤지 풀 정합 — 목표(열린 directional 페어 hedge_qty 합, 방향고려) vs 실제 SPY.
+    per-pair 매수/되감기가 어긋나면(예: 과거 int 캐스트로 hedge_qty=0 → 청산 시 안 팔려 누적)
+    SPY 가 leak 된다. 매 사이클 실제를 목표로 보정해 self-heal (SPY 는 페어 풀이라 합산만 의미)."""
+    open_dir = {tkr: rec for (tkr, strat), rec in trade_journal.open_trades().items()
+                if strat == "directional"}
+    target = 0.0
+    for rec in open_dir.values():
+        hq = float(rec.get("hedge_qty") or 0)
+        if hq:
+            sign = +1 if int(rec.get("direction", 0)) < 0 else -1   # 섹터숏→SPY롱(+)
+            target += sign * hq
+    target = round(target, 3)
+    actual = _spy_position_qty()
+    diff = round(target - actual, 3)
+    spy_spot = get_spot(HEDGE_SYMBOL) or 0.0
+    print(f"\n  [SPY 정합] 목표 {target:+.3f}주 / 실제 {actual:+.3f}주 / 차이 {diff:+.3f}주")
+    if not spy_spot or abs(diff) * spy_spot < 1.0:
+        print("    정합됨 (차이 $1 미만, 보정 불요).")
+        return
+    side = "buy" if diff > 0 else "sell"
+    if not (live and market_open):
+        print(f"    [{'DRY-RUN' if not live else '휴장'}] 보정 미제출: {side} {abs(diff):.3f} SPY")
+        return
+    res = submit_equity_order(HEDGE_SYMBOL, abs(diff), side=side)
+    ok = res["status_code"] in (200, 201)
+    print(f"    {'OK ' if ok else 'ERR'} SPY 보정 {side} {abs(diff):.3f} -> {res['status_code']}")
 
 
 def _run_short_straddle_entry(candidates, equity, multipliers, live, market_open) -> None:

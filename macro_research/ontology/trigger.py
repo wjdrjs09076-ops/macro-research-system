@@ -375,14 +375,15 @@ def _load_regime_state() -> dict | None:
 RULE_SECTOR_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
 
 AUDIT_VERSION = "2026-06-12-orthogonal-fdr"   # 직교화(lvl+2s10s) + VIF + BH FDR
-FREEZE_VERSION = "v1"
+FREEZE_VERSION = "v2"
 # date = 구조 변경(=OOS 전향 시계 리셋) 최신일. 이력:
 #  2026-06-12 문서상 freeze v1 선언 / 2026-06-15 라운드8 코드(P0 fix·β헤지 스프레드) origin 실배포
 #  2026-06-16 라운드9: event_vol 룰 신설(실현변동성 급등→롱 볼, VIX 비대칭 보완) → 시계 재리셋.
-#  2026-06-16 P0: β헤지 소수주 수정 — floor 절단으로 minimal 모드 directional 이 전부 아웃라이트
-#             였던 것(D1/P2-4 라이브 미적용)을 fractional 헤지로 정합화. directional 재페어.
+#  2026-06-16 ★FREEZE v2★: β헤지 소수주 수정으로 directional 이 실제 페어로 작동(D1/P2-4 라이브 정합).
+#             그 전엔 floor 절단으로 전부 아웃라이트 = '페어 시스템' 미작동이었음. v2 = 페어 시스템의
+#             깨끗한 출발점. 스프레드(directional) 전향 시계 = 이 날짜부터(이전 아웃라이트 표본은 무효).
 # 구조 변경 시 이 날짜를 갱신하고 pending_forward_validation 시작일도 맞출 것.
-# v2 라벨은 실자본 계좌 연결 시(blast-radius 재검토 트리거)용으로 예약 — 여기 쓰지 말 것.
+# v3 라벨은 실자본 계좌 연결 시(blast-radius 재검토 트리거)용으로 예약 — 여기 쓰지 말 것.
 FREEZE_DATE = "2026-06-16"
 
 
@@ -448,8 +449,9 @@ def _write_rule_sector_state(G, active_regime: str) -> None:
             "generated": dt.datetime.now().isoformat(timespec="seconds"),
             "audit_version": AUDIT_VERSION,
             "freeze": {"version": FREEZE_VERSION, "date": FREEZE_DATE,
-                       "note": "v1 = 6/12 선언 / 6/15 origin 실배포(그 전 CI 옛코드). OOS 전향 시계 = date 부터. "
-                               "미검증 주장 목록 = pending_forward_validation.json. v2 = 실자본 연결용 예약(여기 미사용)."},
+                       "note": "v2 = β헤지 페어 시스템 라이브 시작(6/16). 그 전엔 floor 절단으로 directional "
+                               "전부 아웃라이트 = 페어 미작동. OOS 전향 시계 = date 부터(이전 아웃라이트 표본 무효). "
+                               "미검증 주장 = pending_forward_validation.json. v3 = 실자본 연결용 예약(여기 미사용)."},
             "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
             "valid_pairs": valid,
             "rate_verdicts": _rate_evidence(G),
