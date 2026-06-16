@@ -541,7 +541,7 @@ class DirectionalPlan:
     qty: int
     budget: float
     hedge_beta: float = 0.0       # 단순 126D β (실행 헤지용)
-    hedge_qty: int = 0            # SPY 반대 레그 수량 (0 = 헤지 없음)
+    hedge_qty: float = 0.0        # SPY 반대 레그 수량 (소수주, 0 = 헤지 없음)
     hedge_price: float = 0.0      # SPY 현물가 (진입 시점)
     hedge_resid_vol: float = 0.0  # 일별 잔차 σ — 페어 TP/SL 의 단위
 
@@ -563,7 +563,7 @@ class DirectionalPlan:
         rules = ", ".join(self.all_rules)
         mult = f"×{self.conf_multiplier:.2f}" if self.conf_multiplier != 1.0 else ""
         hedge_arrow = "LONG" if self.direction < 0 else "SHORT"
-        hedge_txt = (f"\n    헤지: {hedge_arrow} {HEDGE_SYMBOL} {self.hedge_qty}주 "
+        hedge_txt = (f"\n    헤지: {hedge_arrow} {HEDGE_SYMBOL} {self.hedge_qty:.3f}주 "
                      f"(β={self.hedge_beta:.2f}, ${self.hedge_qty * self.hedge_price:,.0f}) "
                      f"— 페어 P&L 로 채점"
                      if self.hedge_qty else
@@ -609,10 +609,16 @@ def build_directional_plan(cand: dict, equity: float, multipliers: dict[str, flo
         spy_spot = get_spot(HEDGE_SYMBOL)
         if spy_spot:
             hedge_notional = beta * qty * spot
-            hedge_qty = math.floor(hedge_notional / spy_spot)
-            if hedge_qty > 0:
+            # 소수주 헤지 (Alpaca fractional 지원). floor 절단 시 minimal($500) 명목에선
+            # beta<~1.5 가 전부 0 으로 잘려 β헤지(R8 D1)가 무력화됐다 → 소수로 정확히.
+            # (섹터숏→SPY롱 매수는 소수 OK. 섹터롱→SPY 소수 공매도는 Alpaca 불가 →
+            #  헤지 주문 실패 시 기존 '아웃라이트 폴백' 경로가 처리 — rate_beneficiary 는 현재 KILLED)
+            hedge_qty = round(hedge_notional / spy_spot, 3)
+            if hedge_qty * spy_spot >= 1.0:   # Alpaca 최소 주문 $1 미만 = dust 스킵
                 hedge_beta, hedge_price = beta, spy_spot
                 hedge_rv = float(hs.get("resid_vol", 0.0) or 0.0)
+            else:
+                hedge_qty = 0.0
 
     return DirectionalPlan(
         ticker=ticker, direction=int(cand.get("direction", 0)), confidence=conf,
@@ -951,7 +957,7 @@ def _run_directional_entry(candidates, equity, multipliers, live, market_open) -
             hres = submit_equity_order(HEDGE_SYMBOL, p.hedge_qty, side=p.hedge_side)
             hedged = hres["status_code"] in (200, 201)
             print(f"    {'OK ' if hedged else 'ERR'} hedge {p.hedge_side} "
-                  f"{p.hedge_qty} {HEDGE_SYMBOL} -> "
+                  f"{p.hedge_qty:.3f} {HEDGE_SYMBOL} -> "
                   f"{hres['body'].get('id', hres['body']) if hedged else hres['body']}")
             if not hedged:
                 print(f"    ⚠ {p.ticker}: 헤지 실패 — 아웃라이트로 저널 기록")
@@ -1311,7 +1317,7 @@ def _pair_pnl_pct(p: dict, entry: dict | None, spy_now: float | None) -> tuple[f
     if not cost:
         return outright, False
     sector_pnl = cost * outright
-    h_qty   = int(entry["hedge_qty"])
+    h_qty   = float(entry["hedge_qty"])
     h_price = float(entry.get("hedge_price") or 0)
     h_dir   = +1 if int(entry.get("direction", 0)) < 0 else -1   # 섹터숏→SPY롱
     hedge_pnl = h_qty * (spy_now - h_price) * h_dir if h_price else 0.0
@@ -1349,6 +1355,7 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
     active = active_rule_names()
     multipliers = load_rule_multipliers()
     valid_pairs = load_valid_signal_pairs()
+    hedge_stats = load_hedge_stats()   # 재페어화 판정용 (β>0 이어야 헤지 붙음)
     today = dt.date.today()
     to_close: list[tuple[dict, str, float, float, dict | None]] = []
 
@@ -1386,6 +1393,13 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
             reason = retired
         elif pnl_pct <= sl:
             reason = "손절"
+        elif (entry and not entry.get("hedge_qty") and not is_pair
+              and valid_pairs is not None
+              and f"{entry.get('rule')}|{tkr}" in valid_pairs
+              and float((hedge_stats.get(tkr) or {}).get("beta") or 0) > 0):
+            # floor 버그로 아웃라이트로 들어간 포지션 — 신호 유효 + 헤지 붙음(β>0)이면
+            # 청산 → 다음 사이클에 소수주 β헤지 페어로 재진입 (R8 D1 정합화, 2026-06-16).
+            reason = "구조전환(페어화)"
         elif held_days is not None and held_days >= DIR_MAX_HOLD_DAYS:
             reason = "보유만료"
 
@@ -1421,12 +1435,12 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
             continue
         # 헤지 되감기 — SPY 전체가 아니라 이 페어의 hedge_qty 만 반대 주문
         if entry and entry.get("hedge_qty"):
-            h_qty = int(entry["hedge_qty"])
+            h_qty = float(entry["hedge_qty"])
             unwind_side = "sell" if int(entry.get("direction", 0)) < 0 else "buy"
             hres = submit_equity_order(HEDGE_SYMBOL, h_qty, side=unwind_side)
             hok = hres["status_code"] in (200, 201)
             print(f"    {'OK ' if hok else 'ERR'} unwind hedge {unwind_side} "
-                  f"{h_qty} {HEDGE_SYMBOL} -> {hres['status_code']}")
+                  f"{h_qty:.3f} {HEDGE_SYMBOL} -> {hres['status_code']}")
         cost = abs(float(p.get("cost_basis", 0) or 0))
         # pnl_pct 는 페어 기준 — exit_value 도 페어 P&L 로 환산
         exit_value = cost * (1 + pnl_pct)
