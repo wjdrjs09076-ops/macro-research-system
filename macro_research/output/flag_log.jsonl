@@ -30,3 +30,4 @@
 {"ts": "2026-06-16T02:11:11", "ticker": "XLI", "level": 3, "z_score": 2.58, "vrp": -0.0502, "reason": "vol z=2.6, VRP=-0.050"}
 {"ts": "2026-06-16T02:11:11", "ticker": "XAR", "level": 2, "z_score": 2.18, "vrp": -0.053, "reason": "vol z=2.2, VRP=-0.053, beta=1.86, 5d consec vol"}
 {"ts": "2026-06-16T02:11:11", "ticker": "^KS11", "level": 2, "z_score": 2.07, "vrp": -0.1527, "reason": "vol z=2.1, VRP=-0.153, beta=1.88, 5d consec vol"}
+{"ts": "2026-06-16T18:45:00", "ticker": "^N225", "level": 2, "z_score": 1.91, "vrp": -0.0793, "reason": "vol z=1.9, VRP=-0.079, beta=0.54, 5d consec vol"}
