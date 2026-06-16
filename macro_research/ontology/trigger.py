@@ -379,6 +379,8 @@ FREEZE_VERSION = "v1"
 # date = 구조 변경(=OOS 전향 시계 리셋) 최신일. 이력:
 #  2026-06-12 문서상 freeze v1 선언 / 2026-06-15 라운드8 코드(P0 fix·β헤지 스프레드) origin 실배포
 #  2026-06-16 라운드9: event_vol 룰 신설(실현변동성 급등→롱 볼, VIX 비대칭 보완) → 시계 재리셋.
+#  2026-06-16 P0: β헤지 소수주 수정 — floor 절단으로 minimal 모드 directional 이 전부 아웃라이트
+#             였던 것(D1/P2-4 라이브 미적용)을 fractional 헤지로 정합화. directional 재페어.
 # 구조 변경 시 이 날짜를 갱신하고 pending_forward_validation 시작일도 맞출 것.
 # v2 라벨은 실자본 계좌 연결 시(blast-radius 재검토 트리거)용으로 예약 — 여기 쓰지 말 것.
 FREEZE_DATE = "2026-06-16"

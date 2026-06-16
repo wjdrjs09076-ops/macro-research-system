@@ -21,7 +21,8 @@
         "contamination": "in-sample; IV 합성가정; 룰 가지치기 생존편향; designer leakage(P1-6)"
       },
       "start_date": "2026-06-16",
-      "status": "PENDING"
+      "status": "PENDING",
+      "live_status": "β헤지 스프레드는 2026-06-16까지 minimal+floor 버그로 라이브 미적용(아웃라이트)였음. 6/16 소수주 수정으로 directional이 실제 페어화(XLRE+SPY0.30/XLY+SPY0.89). 전향 검증은 이 시점부터 유효 — 그 이전 directional 표본은 아웃라이트라 이 주장의 증거 아님."
     },
     {
       "id": "co_crash_cluster_straddle",
