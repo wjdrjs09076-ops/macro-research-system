@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 17.68,
-    "ts": "2026-06-15T17:58:15"
+    "ts": "2026-06-16T13:42:54"
   },
-  "generated": "2026-06-15T17:58:15",
+  "generated": "2026-06-16T13:42:55",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -37,8 +37,8 @@
       ],
       "reasoning": [
         "XLK: 실현변동성 z-score = 4.26 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 4.3σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -5.51pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 32.8% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -6.97pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 31.7% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -55,8 +55,8 @@
       ],
       "reasoning": [
         "XLB: 실현변동성 z-score = 2.96 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 3.0σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -2.90pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 22.0% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -4.06pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 19.2% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -73,8 +73,8 @@
       ],
       "reasoning": [
         "XLI: 실현변동성 z-score = 2.66 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.7σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -2.91pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 19.1% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -2.36pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 19.2% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -91,8 +91,8 @@
       ],
       "reasoning": [
         "XLU: 실현변동성 z-score = 2.51 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.5σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -3.73pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 16.1% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -2.02pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 16.3% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -207,7 +207,7 @@
       "delta_ctrl": -0.0021,
       "t_ctrl": -2.08,
       "q_raw": 0.0,
-      "q_ctrl": 0.1017,
+      "q_ctrl": 0.1011,
       "vif": 5.3,
       "verdict": "killed"
     },
@@ -231,7 +231,7 @@
       "delta_ctrl": -0.0033,
       "t_ctrl": -2.05,
       "q_raw": 0.0003,
-      "q_ctrl": 0.1017,
+      "q_ctrl": 0.1011,
       "vif": 11.0,
       "verdict": "killed"
     },
@@ -335,10 +335,10 @@
       "sector": "XLY",
       "macro": "OIL",
       "delta_raw": -0.0015,
-      "t_raw": -1.84,
+      "t_raw": -1.85,
       "delta_ctrl": -0.0012,
       "t_ctrl": -3.11,
-      "q_raw": 0.1326,
+      "q_raw": 0.1317,
       "q_ctrl": 0.0139,
       "vif": 1.2,
       "verdict": "emerged"
@@ -383,9 +383,9 @@
       "sector": "XLE",
       "macro": "OIL",
       "delta_raw": 0.0088,
-      "t_raw": 12.39,
+      "t_raw": 12.41,
       "delta_ctrl": 0.0087,
-      "t_ctrl": 13.6,
+      "t_ctrl": 13.61,
       "q_raw": 0.0,
       "q_ctrl": 0.0,
       "vif": 1.2,
@@ -745,91 +745,91 @@
     "per_threshold": [
       {
         "threshold": 0.03,
-        "p_any": 0.989,
-        "p_all": 0.0228,
-        "p_half": 0.536,
-        "mean_hit_count": 5.74
+        "p_any": 0.9746,
+        "p_all": 0.0162,
+        "p_half": 0.4434,
+        "mean_hit_count": 5.14
       },
       {
         "threshold": 0.05,
-        "p_any": 0.9368,
-        "p_all": 0.002,
-        "p_half": 0.2418,
-        "mean_hit_count": 3.71
+        "p_any": 0.8568,
+        "p_all": 0.0008,
+        "p_half": 0.1558,
+        "mean_hit_count": 2.86
       },
       {
         "threshold": 0.1,
-        "p_any": 0.5872,
+        "p_any": 0.2526,
         "p_all": 0.0,
-        "p_half": 0.0078,
-        "mean_hit_count": 1.15
+        "p_half": 0.0016,
+        "mean_hit_count": 0.39
       }
     ],
     "pair_threshold": 0.05,
     "top_pair_co_drawdown": [
       {
-        "a": "XLB",
-        "b": "XLK",
-        "p_co": 0.374
-      },
-      {
-        "a": "XLI",
-        "b": "XLK",
-        "p_co": 0.3728
-      },
-      {
         "a": "XLI",
         "b": "XLB",
-        "p_co": 0.3582
+        "p_co": 0.1686
+      },
+      {
+        "a": "XLI",
+        "b": "XLY",
+        "p_co": 0.1558
       },
       {
         "a": "XLY",
         "b": "XLK",
-        "p_co": 0.317
+        "p_co": 0.1522
       },
       {
         "a": "XLI",
-        "b": "XLY",
-        "p_co": 0.2808
+        "b": "XLK",
+        "p_co": 0.1434
       },
       {
         "a": "XLB",
         "b": "XLY",
-        "p_co": 0.2774
-      },
-      {
-        "a": "XLK",
-        "b": "XLE",
-        "p_co": 0.2382
-      },
-      {
-        "a": "XLB",
-        "b": "XLE",
-        "p_co": 0.2232
+        "p_co": 0.142
       },
       {
         "a": "XLI",
-        "b": "XLE",
-        "p_co": 0.1852
+        "b": "XLF",
+        "p_co": 0.141
+      },
+      {
+        "a": "XLY",
+        "b": "XLF",
+        "p_co": 0.1408
       },
       {
         "a": "XLB",
         "b": "XLV",
-        "p_co": 0.185
+        "p_co": 0.1304
+      },
+      {
+        "a": "XLB",
+        "b": "XLF",
+        "p_co": 0.1296
+      },
+      {
+        "a": "XLB",
+        "b": "XLK",
+        "p_co": 0.1244
       }
     ],
     "sigmas_annual": {
-      "XLI": 0.2981,
-      "XLB": 0.3208,
-      "XLY": 0.234,
-      "XLF": 0.1595,
-      "XLRE": 0.1572,
-      "XLC": 0.1457,
-      "XLV": 0.174,
-      "XLK": 0.442,
-      "XLP": 0.1493,
-      "XLU": 0.1628,
-      "XLE": 0.2437
+      "XLI": 0.18,
+      "XLB": 0.18,
+      "XLY": 0.18,
+      "XLF": 0.18,
+      "XLRE": 0.1558,
+      "XLC": 0.139,
+      "XLV": 0.18,
+      "XLK": 0.18,
+      "XLP": 0.18,
+      "XLU": 0.18,
+      "XLE": 0.18
     }
   }
 }
