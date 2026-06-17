@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-17T02:04:50",
+  "scan_date": "2026-06-17T07:36:50",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -87,16 +87,16 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 21.3,
+      "current_rv": 21.2,
       "baseline_rv": 12.1,
-      "z_score": 2.51,
-      "vrp": -0.0526,
-      "beta_30d": 0.955,
+      "z_score": 2.48,
+      "vrp": -0.0551,
+      "beta_30d": 0.99,
       "consec_vol": 5,
-      "excess_10d": 0.96,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=2.5, VRP=-0.053, 5d consec vol",
+      "excess_10d": -0.17,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.5, VRP=-0.055, 5d consec vol",
       "sector": "S&P 500 Futures"
     },
     {
@@ -226,6 +226,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "XLC",
+      "current_rv": 15.3,
+      "baseline_rv": 12.6,
+      "z_score": 0.77,
+      "vrp": 0.0059,
+      "beta_30d": 0.473,
+      "consec_vol": 5,
+      "excess_10d": -2.55,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.47, 5d consec vol",
+      "sector": "Communication"
+    },
+    {
       "ticker": "000001.SS",
       "current_rv": 16.4,
       "baseline_rv": 13.0,
@@ -241,13 +255,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 35.1,
+      "current_rv": 34.7,
       "baseline_rv": 25.7,
-      "z_score": 0.63,
-      "vrp": -0.0772,
-      "beta_30d": 1.245,
+      "z_score": 0.61,
+      "vrp": -0.0774,
+      "beta_30d": 1.266,
       "consec_vol": 5,
-      "excess_10d": -1.56,
+      "excess_10d": -2.22,
       "level": 1,
       "label": "WATCH",
       "reason": "VRP=-0.077, 5d consec vol",
@@ -286,7 +300,7 @@
       "current_rv": 29.6,
       "baseline_rv": 26.7,
       "z_score": 0.31,
-      "vrp": 0.0176,
+      "vrp": 0.0177,
       "beta_30d": 1.096,
       "consec_vol": 4,
       "excess_10d": 4.63,
@@ -296,18 +310,18 @@
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 13.0,
-      "baseline_rv": 12.6,
-      "z_score": 0.13,
-      "vrp": 0.0292,
-      "beta_30d": 0.451,
-      "consec_vol": 5,
-      "excess_10d": 0.06,
+      "ticker": "ZN=F",
+      "current_rv": 4.2,
+      "baseline_rv": 3.9,
+      "z_score": 0.25,
+      "vrp": 0.0081,
+      "beta_30d": 0.225,
+      "consec_vol": 4,
+      "excess_10d": 1.36,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.45, 5d consec vol",
-      "sector": "Communication"
+      "reason": "beta=0.22",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "TLT",
@@ -324,34 +338,6 @@
       "sector": "Long-term Treasury"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.0,
-      "baseline_rv": 3.9,
-      "z_score": 0.05,
-      "vrp": 0.0084,
-      "beta_30d": 0.233,
-      "consec_vol": 4,
-      "excess_10d": 1.09,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.23",
-      "sector": "10Y Treasury Futures"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 46.9,
-      "baseline_rv": 46.2,
-      "z_score": 0.02,
-      "vrp": 0.2819,
-      "beta_30d": -1.281,
-      "consec_vol": 5,
-      "excess_10d": -19.94,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.28, 5d consec vol",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "^FTMC",
       "current_rv": 12.2,
       "baseline_rv": 12.1,
@@ -364,6 +350,20 @@
       "label": "WATCH",
       "reason": "beta=0.42",
       "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 45.0,
+      "baseline_rv": 46.2,
+      "z_score": -0.04,
+      "vrp": 0.2906,
+      "beta_30d": -1.304,
+      "consec_vol": 5,
+      "excess_10d": -19.21,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.30, 5d consec vol",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^STOXX50E",
@@ -485,5 +485,5 @@
   ],
   "flagged_count": 26,
   "alert_count": 10,
-  "high_count": 6
+  "high_count": 5
 }
