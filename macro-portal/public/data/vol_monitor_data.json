@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-17T13:45:40",
+  "scan_date": "2026-06-17T16:25:23",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -226,20 +226,6 @@
       "sector": "Financials / Banking"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 15.3,
-      "baseline_rv": 12.6,
-      "z_score": 0.77,
-      "vrp": 0.0059,
-      "beta_30d": 0.473,
-      "consec_vol": 5,
-      "excess_10d": -2.55,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.47, 5d consec vol",
-      "sector": "Communication"
-    },
-    {
       "ticker": "000001.SS",
       "current_rv": 16.4,
       "baseline_rv": 13.0,
@@ -322,6 +308,20 @@
       "label": "WATCH",
       "reason": "beta=0.22",
       "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 13.0,
+      "baseline_rv": 12.6,
+      "z_score": 0.13,
+      "vrp": 0.0292,
+      "beta_30d": 0.451,
+      "consec_vol": 5,
+      "excess_10d": 0.06,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.45, 5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "TLT",
