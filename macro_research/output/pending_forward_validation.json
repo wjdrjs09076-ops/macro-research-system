@@ -107,6 +107,22 @@
         "trade": "XLB-2026-06-15-72f2df",
         "issue": "origin-event 오염 — cron 지연 아님(룰배포 15:08:23Z +2.5분 즉시진입)이나, flag_log상 6/13부터 z~2.7/VRP~-0.05 조건 지속 = 룰 배포 2일전부터 켜진 신호에 즉시진입. 룰이 자기 탄생 이벤트(6/15 vol급등)에 진입한 표본.",
         "action": "닫힐 때 clean 전향 카운트에서 제외 또는 별도표기. 깨끗한 표본 = 룰 가동 후 새로 조건 진입하는 섹터."
+      },
+      "xlb_failure_baseline": {
+        "as_of": "2026-06-18",
+        "status": "미실현, 닫힐 때 per-leg(콜/풋·IV·spot) 분해로 실패원인 확정 — clean 표본 비교 기준선",
+        "decomposition_2026-06-18": {
+          "total": "cost $322 → value $193, -$129 (-40%)",
+          "per_leg": "콜 $1.77→$0.67 (-$110/-62%), 풋 $1.45→$1.26 (-$19/-13%) — 비대칭=XLB 하락",
+          "factors": {
+            "entry_slippage_bidask": "~-$71 (55%) — 계획 $251(mid) vs 실체결 $322(ask). ★1순위★ PDF 5%가정 vs 실측 ~28%",
+            "iv_drop_vega": "~-$33 (26%) — iv_history IV 22.83%→19.56% (-3.3pt)",
+            "theta": "~-$18 — 25일중 3일",
+            "direction_insufficient": "~-$7 (net) — XLB ~$52.67→$51.75(-1.6%, parity), 문턱 $3.22 미달. 비대칭은 레그간 델타분배지 주동인 아님"
+          },
+          "verdict": "내 초기 'vol crush 단일귀인' 틀림(IV는 26%). 리뷰 '방향성이동' 비대칭진단은 맞으나 net 작음. ★진짜 1순위=진입 슬리피지(스프레드)★ — event_vol 롱2레그가 유동성낮은 섹터ETF옵션에선 방향·변동성 무관 왕복스프레드만으로 구조적 적자 위험.",
+          "caveat": "spot은 parquet stale로 put-call parity 추정. theta/direction 분해는 근사. IV·슬리피지·per-leg는 실데이터."
+        }
       }
     }
   ],
