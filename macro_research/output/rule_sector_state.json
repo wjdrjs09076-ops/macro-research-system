@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-18T13:33:06",
+  "generated": "2026-06-18T16:39:21",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -12,14 +12,14 @@
     "event_vol|XLB",
     "event_vol|XLI",
     "event_vol|XLK",
+    "event_vol|XLRE",
     "fat_tail_alert|XLE",
     "fat_tail_alert|XLI",
     "fat_tail_alert|XLV",
     "rate_victim|XLC",
     "rate_victim|XLRE",
     "rate_victim|XLY",
-    "vol_overpriced|XLC",
-    "vol_overpriced|XLRE"
+    "vol_overpriced|XLC"
   ],
   "rate_verdicts": [
     {
@@ -31,7 +31,7 @@
       "evidence": {
         "delta_ctrl": 0.0024,
         "t": 1.98,
-        "q_fdr": 0.1114
+        "q_fdr": 0.1113
       },
       "judged": "2026-06-18"
     },
@@ -44,7 +44,7 @@
       "evidence": {
         "delta_ctrl": 0.0024,
         "t": 1.98,
-        "q_fdr": 0.1114
+        "q_fdr": 0.1113
       },
       "judged": "2026-06-18"
     },
@@ -382,7 +382,7 @@
       "evidence": {
         "delta_ctrl": -0.004,
         "t": -2.85,
-        "q_fdr": 0.0214
+        "q_fdr": 0.0215
       },
       "judged": "2026-06-18"
     },
@@ -395,7 +395,7 @@
       "evidence": {
         "delta_ctrl": -0.004,
         "t": -2.85,
-        "q_fdr": 0.0214
+        "q_fdr": 0.0215
       },
       "judged": "2026-06-18"
     },
