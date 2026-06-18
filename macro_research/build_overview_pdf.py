@@ -86,7 +86,7 @@ def _title(fig, title, subtitle=None):
 
 def _footer(fig, n, total):
     fig.text(0.96, 0.03, f"{n} / {total}", color=C_MUTED, fontsize=9, ha="right")
-    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-16",
+    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-18",
              color=C_MUTED, fontsize=9)
 
 
@@ -182,7 +182,7 @@ def page_cover(pdf, total):
             "방향 예측 대신 변동성을 베팅 + 같은 시그널을 크기·방향 둘로 직교 채점",
             ha="center", color=C_MUTED, fontsize=11)
 
-    ax.text(0.5, 0.10, "2026-06-16 · CONFIG FREEZE v1 (R9 event_vol 반영) — 룰·게이트·청산·캡 동결. "
+    ax.text(0.5, 0.10, "2026-06-16 · CONFIG FREEZE v2 (β헤지 페어 라이브 시작) — 룰·게이트·청산·캡 동결. "
             "OOS 전향 시계 = 이 날짜부터, 페이퍼 표본만이 진짜 검증",
             ha="center", color=C_ACCENT_3, fontsize=10, fontweight="bold")
 
@@ -1308,9 +1308,8 @@ def page_backtest(pdf, n, total):
     fig = _new_page(figsize=(12.0, 9.0))
     _title(fig, f"백테스트 — {period.get('start','?')} ~ {period.get('end','?')} "
                 f"({period.get('n_days','?')}일 · {trail.get('n_closed','?')} closed, 9룰·FDR 게이트)",
-           f"거래 수 이력: 라운드6 194 closed → 룰 가지치기(11→8)+FDR 게이트 → R9 event_vol(+1룰)로 "
-           f"{trail.get('n_closed','?')} closed(straddle 15 + directional 28, event_vol n=2 포함) · "
-           "BS+GARCH IV · 슬리피지 5% · ⚠ 라운드6-7 in-sample 재구성 ¤ — 전향 검증 아님(생존편향 상향)")
+           f"거래 수 이력: 라운드6 194 → 가지치기(11→8)+FDR+R9 event_vol → "
+           f"{trail.get('n_closed','?')} closed(straddle 15+directional 28) · BS+GARCH IV · in-sample 재구성 ¤(전향 아님)")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
 
@@ -1427,10 +1426,10 @@ def page_backtest(pdf, n, total):
         ax.text(0.02, y, "(스캔 미실행)", color=C_MUTED, fontsize=9)
         y -= 0.03
 
-    ax.text(0.02, 0.025,
-            "⚠ 이 페이지의 모든 수치는 같은 6개월 표본 위의 in-sample 산출 — 룰 가지치기(11→8)가 "
-            "이 표본에서 이뤄졌으므로 생존편향 상향. 검증 가능한 숫자는 config freeze 이후의 페이퍼 표본뿐.",
-            color=C_ACCENT_4, fontsize=9, style="italic")
+    ax.text(0.02, 0.052,
+            "★슬리피지: 백테 5% vs 라이브 실측 ~28%(XLB $251→$322)=4~6배 과소 → 전 straddle 손익 낙관 (롱볼 instrument 적합성 ~6/30 판단).\n"
+            "⚠ 모든 수치는 같은 6개월 in-sample — 가지치기(11→8)도 이 표본 = 생존편향 상향. 검증 가능 숫자는 freeze 이후 페이퍼 표본뿐.",
+            color=C_ACCENT_4, fontsize=9, style="italic", linespacing=1.5, va="top")
 
     _footer(fig, n, total)
     pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
@@ -1504,8 +1503,8 @@ def page_round78(pdf, n, total):
 
 def page_limitations(pdf, n, total):
     fig = _new_page(figsize=(12.0, 9.0))
-    _title(fig, "알려진 구조적 한계 (2026-06-12 라운드 6 반영)",
-           "라운드 4~6 비평 누적 반영. 신규 해결 5 / 남은 구조적 한계 2.")
+    _title(fig, "알려진 구조적 한계 (라운드 6 + P0 감사 6/16~18 반영)",
+           "라운드 4~6 비평 누적 + β헤지 라이브갭·슬리피지 실측 반영.")
 
     ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
 
@@ -1521,10 +1520,11 @@ def page_limitations(pdf, n, total):
          "⚠ 같은 표본 in-sample 비교(레거시 +726/+1,639 는 stale 스냅샷).",
          C_ACCENT_3),
 
-        ("2. ✓ 검증-실행 불일치 해소 → β·SPY 헤지 페어 (라운드 6 비평 2번)",
-         "partial 회귀가 검증한 건 시장-대비 민감도인데 실행은 아웃라이트 숏이었음 (P&L = -β·R_SPY 지배).\n"
-         "진입 시 SPY 반대 레그 (단순 126D β — partial beta 는 VIX 가 흡수해 과소헤지), 페어 P&L 로 채점.",
-         C_ACCENT_3),
+        ("2. β·SPY 헤지 페어 — 설계 해소했으나 라이브는 6/16에야 (★P0 '문서≠라이브')",
+         "partial 검증=시장대비 민감도인데 실행은 아웃라이트 숏(P&L=-β·R_SPY 지배). 진입 시 SPY 반대 레그로 페어화.\n"
+         "★P0(6/16): minimal($500)+math.floor 로 SPY 헤지가 0 주로 잘려 *라이브는 6/16까지 여전히 아웃라이트*.\n"
+         "소수주 헤지로 정합 + hedge_qty int캐스트(churn/leak)도 동반 수정. = 동결 결정도 구현으로 무력화 → 전수조사.",
+         C_ACCENT_1),
 
         ("3. ✓ 추정 노이즈 보수화 + 공선성/FDR (라운드 6 비평 4·7번)",
          "ξ·λ_L·CF 블록 부트스트랩 CI — thin_tail_greenlight(무한손실 게이트)는 95% 상한으로만 발화.\n"
@@ -1538,10 +1538,10 @@ def page_limitations(pdf, n, total):
          "레짐 독립 발화라 평상시에도 표본 누적(열린 루프 완화). 단 룰 패밀리별 합산 노출 캡은 여전히 미구현.",
          C_ACCENT_1),
 
-        ("5. (남은 한계) look-ahead, n=8 통계, 실체결 낙관 + 베이스라인 패배",
-         "tail/co_crash 통계 시점-aware 재적합 미구현 → co_crash 75%/n=8 은 이항 p≈0.15 — 알파 '후보' 일 뿐\n"
-         "주장 불가 (라운드 6 비평 3번). 섹터 ETF 옵션 실스프레드는 5% 가정보다 나쁜 날 많음 (페이퍼 낙관).\n"
-         "VIX>25 SPY 대조군(R8/W3): 시스템 +1,252 < 대조군 +3,409 (USD) — 시스템이 졌다(n=2 caveat·방향 분명).",
+        ("5. (남은 한계) look-ahead, n=8 통계, ★슬리피지 실측 4~6배 + 롱볼 instrument 의문",
+         "tail/co_crash 통계 시점-aware 재적합 미구현 → co_crash 75%/n=8 은 p≈0.15 — 알파 '후보' 주장 불가.\n"
+         "★실스프레드 실측 ~28%(XLB) vs 백테 5% = 4~6배 과소 → 전 straddle in-sample 낙관. 롱볼이 유동성낮은\n"
+         "섹터ETF옵션서 왕복 스프레드만으로 적자일 위험 = instrument 적합성 의문(~6/30 XLB 실현 후 판단).",
          "#a78bfa"),
     ]
 
@@ -1560,12 +1560,12 @@ def page_limitations(pdf, n, total):
         y -= 0.155
 
     ax.text(0.5, 0.022,
-            "★ CONFIG FREEZE v1 (2026-06-16, R9 갱신): 9룰(+event_vol) + FDR q<0.10 게이트 + 트레일 25/40 "
-            "+ β페어 σ임계(2.0/1.5) + rate 캡 15% + 숏볼 휴면. OOS 전향 시계 = 이 날짜부터 (구조변경 리셋).",
+            "★ CONFIG FREEZE v2 (2026-06-16, β헤지 페어 라이브): 9룰 + FDR q<0.10 + 트레일 25/40 + β페어 소수주헤지 "
+            "+ σ임계(2.0/1.5) + rate 캡 15% + 숏볼 휴면. OOS 전향 시계 = 이 날짜부터 (β헤지가 실제 작동한 시점).",
             ha="center", color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
     ax.text(0.5, 0.004,
-            "⚠ freeze v1 은 paper-guard 미구현 상태를 동결한다 (TRADE_BASE=env[ALPACA_ENDPOINT], 무가드). "
-            "실자본 계좌 연결일 = freeze v1 파기 + v2 강제 트리거 — 동결된 채 잊히지 않게 못 박음.",
+            "⚠ freeze 는 paper-guard 미구현 상태를 동결한다 (TRADE_BASE=env[ALPACA_ENDPOINT], 무가드). "
+            "실자본 계좌 연결일 = 현 freeze 파기 + v3 강제 트리거 — 동결된 채 잊히지 않게 못 박음.",
             ha="center", color=C_ACCENT_5, fontsize=9, fontweight="bold")
 
     _footer(fig, n, total)
