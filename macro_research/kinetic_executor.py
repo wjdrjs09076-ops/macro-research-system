@@ -1174,6 +1174,14 @@ def _run_straddle_exit(positions: list[dict], live: bool) -> None:
         print(f"  {under}: {len(legs)}레그  비용 ${cost:,.0f}  평가 ${mv:,.0f}  "
               f"P&L {pnl_pct*100:+.1f}% (피크 {peak*100:+.1f}%, {armed})  "
               f"최소DTE {min_dte}일  {tag}")
+        # per-leg 분해 (진단: vol crush vs 방향성 이동 구분 — 콜/풋 손실 비대칭이 단서)
+        for l in legs:
+            sym = l.get("symbol", "")
+            lt = "CALL" if (len(sym) >= 9 and sym[-9] == "C") else "PUT "
+            lc = abs(float(l.get("cost_basis", 0) or 0))
+            lmv = float(l.get("market_value", 0) or 0)
+            lpnl = (lmv - lc) / lc * 100 if lc else 0.0
+            print(f"      └ {lt} {sym[-9:]}  ${lc:,.0f}→${lmv:,.0f} ({lpnl:+.0f}%)")
         if reason:
             to_close.append((under, legs, reason, mv, pnl_pct, min_dte))
 
