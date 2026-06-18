@@ -139,5 +139,27 @@
       "risk_if_relaxed": "검증 전 완화 시 미검증 롱볼에 자본 노출 확대 = XLB 같은 vol-crush 손실 증폭. 발화빈도·실패율 전향 데이터 쌓이기 전엔 완화 금지.",
       "status": "WORKING_AS_DEFENSE — 측정만, 변경 금지"
     }
+  ],
+  "cross_cutting_caveats": [
+    {
+      "id": "straddle_slippage_optimism",
+      "scope": "전 straddle-트랙 주장 (co_crash_cluster_straddle, fat_tail_alert_straddle, trail_25_40_straddle, event_vol_straddle)",
+      "issue": "in-sample 손익이 슬리피지 과소로 낙관. 백테스트 가정 ~5% vs 라이브 실측 진입 ~28%(XLB: 계획 $251 → 실체결 $322). 약 4~6배 과소. 롱 2레그를 ask로 사고 bid로 파는 왕복 스프레드가 in-sample에 반영 안 됨.",
+      "affects_claims": [
+        "spread_gt_straddle",
+        "co_crash_cluster_straddle",
+        "fat_tail_alert_straddle",
+        "trail_25_40_straddle",
+        "event_vol_straddle"
+      ],
+      "decision_when": "~6/30 XLB 청산 시 실현 왕복 슬리피지 확정 후 판단. 지금은 기록만."
+    },
+    {
+      "id": "longvol_instrument_suitability",
+      "scope": "event_vol + co_crash_cluster + fat_tail_alert (롱볼 straddle 발화 전 룰)",
+      "question": "유동성 낮은 섹터 ETF 옵션에서 롱볼 straddle이 instrument로서 가능한가 — 방향·변동성을 다 맞춰도 왕복 스프레드(~28%+)만으로 구조적 적자일 위험. 문제가 룰 조건(z≥2.5 등)이 아니라 instrument 자체일 수 있음.",
+      "level": "ESCALATED — 라운드10 재검토 항목. 룰 튜닝이 아니라 instrument 적합성 질문.",
+      "decision_when": "~6/30 XLB 실현 후. event_vol 단독 아니라 co_crash/fat_tail 포함 전 롱볼 트랙에 적용."
+    }
   ]
 }
