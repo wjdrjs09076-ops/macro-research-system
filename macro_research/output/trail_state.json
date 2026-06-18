@@ -4,5 +4,11 @@
     "partial_done": false,
     "partial_realized": 0.0,
     "orig_cost": 322.0
+  },
+  "XLRE": {
+    "peak_pnl_pct": -0.5,
+    "partial_done": false,
+    "partial_realized": 0.0,
+    "orig_cost": 200.0
   }
 }
