@@ -167,14 +167,25 @@ function MetricCard({
 
 export default function GatePage() {
   const [data, setData] = useState<GateData | null>(null);
+  const [err, setErr] = useState<string | null>(null);
   const [showComponents, setShowComponents] = useState(true);
 
   useEffect(() => {
     fetch("/data/gate_scores.json")
-      .then((r) => r.json())
-      .then(setData);
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then(setData)
+      .catch((e) => setErr(String(e?.message || e)));
   }, []);
 
+  if (err)
+    return (
+      <div className="text-amber-400 text-sm">
+        데이터 로드 실패 ({err}). 새 배포로 캐시가 어긋났을 수 있어요 — 강력 새로고침(Ctrl+Shift+R / Cmd+Shift+R) 후 다시 시도하세요.
+      </div>
+    );
   if (!data) return <div className="text-gray-500 text-sm">Loading...</div>;
 
   const ts = data.timeseries;
