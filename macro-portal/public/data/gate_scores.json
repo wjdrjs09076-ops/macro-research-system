@@ -5205,7 +5205,7 @@
         },
         "Gate+ML": {
           "oos_cagr": 0.0,
-          "oos_sharpe": NaN,
+          "oos_sharpe": null,
           "oos_mdd": 0.0,
           "oos_active_days": 0,
           "oos_raw_return": 0.0,

@@ -1094,10 +1094,24 @@ if __name__ == "__main__":
             crisis_cards[w["key"]] = r
     gate_payload["crisis_windows"] = crisis_cards
 
+    # ★ NaN/Infinity 정화 — Python json 은 관대하나 브라우저 r.json()/JSON.parse 는
+    #   strict 라 NaN 에서 throw → 포털 페이지 무한 Loading (oos_sharpe=NaN 사례, 2026-06-14~).
+    #   nan or 0 폴백이 nan(truthy)을 못 잡으므로 dump 단계에서 일괄 None 치환 + allow_nan=False.
+    def _clean_nan(o):
+        import math
+        if isinstance(o, dict):
+            return {k: _clean_nan(v) for k, v in o.items()}
+        if isinstance(o, (list, tuple)):
+            return [_clean_nan(v) for v in o]
+        if isinstance(o, float) and not math.isfinite(o):
+            return None
+        return o
+
     json_out = BASE_DIR / "output" / "gate_scores.json"
     json_out.parent.mkdir(parents=True, exist_ok=True)
     with open(json_out, "w", encoding="utf-8") as f:
-        json.dump(gate_payload, f, ensure_ascii=False, indent=2)
+        json.dump(_clean_nan(gate_payload), f, ensure_ascii=False, indent=2,
+                  allow_nan=False)   # NaN/Inf 남아있으면 silent invalid JSON 대신 즉시 에러
     print(f"  JSON 저장: {json_out}")
 
     # ── 7) 핵심 결론 ───────────────────────────────────────────────────
