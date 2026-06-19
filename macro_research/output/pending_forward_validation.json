@@ -152,7 +152,31 @@
         "trail_25_40_straddle",
         "event_vol_straddle"
       ],
-      "decision_when": "~6/30 XLB 청산 시 실현 왕복 슬리피지 확정 후 판단. 지금은 기록만."
+      "decision_when": "~6/30 XLB 청산 시 실현 왕복 슬리피지 확정 후 판단. 지금은 기록만.",
+      "slippage_sensitivity_run_2026-06-18": {
+        "model": "진입 +s%(ask)/청산 -s%(bid) 양쪽. 5%=현행가정, 27%=라이브실측(XLB28%/XLRE27%)",
+        "straddle_total": {
+          "5%": "+$1,368(67%)",
+          "15%": "+$302(57%)",
+          "27%": "-$1,463(43%)"
+        },
+        "co_crash_cluster|straddle": {
+          "5%": "+$1,313(n7,86%)",
+          "15%": "+$1,166(n6)",
+          "27%": "+$426(n6,67%)"
+        },
+        "fat_tail_alert|straddle": {
+          "5%": "+$6",
+          "15%": "-$711",
+          "27%": "-$1,510(33%)"
+        },
+        "event_vol|straddle": {
+          "5%": "+$48",
+          "15%": "-$153",
+          "27%": "-$378(0%)"
+        },
+        "verdict": "★27% 실측서 straddle 트랙 전체 +$1,368→-$1,463 음전. co_crash_cluster만 유일 생존(+$426)이나 edge가 1/3로 붕괴+n<10 주장불가. fat_tail·event_vol 사망. = 검증 알파후보 사실상 co_crash 하나, 그마저 5%가정보다 훨씬 약함. instrument(롱 섹터ETF옵션 straddle)가 스프레드로 구조적 적대."
+      }
     },
     {
       "id": "longvol_instrument_suitability",
@@ -160,6 +184,12 @@
       "question": "유동성 낮은 섹터 ETF 옵션에서 롱볼 straddle이 instrument로서 가능한가 — 방향·변동성을 다 맞춰도 왕복 스프레드(~28%+)만으로 구조적 적자일 위험. 문제가 룰 조건(z≥2.5 등)이 아니라 instrument 자체일 수 있음.",
       "level": "ESCALATED — 라운드10 재검토 항목. 룰 튜닝이 아니라 instrument 적합성 질문.",
       "decision_when": "~6/30 XLB 실현 후. event_vol 단독 아니라 co_crash/fat_tail 포함 전 롱볼 트랙에 적용."
+    },
+    {
+      "id": "xlre_double_position_scoring",
+      "issue": "XLRE에 directional 숏(rate_victim) + event_vol 롱 스트래들 동시 보유. 같은 XLRE 가격경로가 숏(이득)·스트래들 풋(부분상쇄)에 동시 작용.",
+      "scoring_rule": "두 포지션 닫힐 때 독립 증거 2개로 세지 말 것. '같은 XLRE 경로의 두 발현'으로 묶어 1개 underlying-event 로 채점. 전향 표본 독립성 오염 방지.",
+      "decision_when": "기록. 닫힐 때 적용."
     }
   ]
 }
