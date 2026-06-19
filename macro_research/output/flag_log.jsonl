@@ -57,3 +57,4 @@
 {"ts": "2026-06-19T00:11:51", "ticker": "XLB", "level": 3, "z_score": 2.88, "vrp": -0.0773, "reason": "vol z=2.9, VRP=-0.077, 5d consec vol"}
 {"ts": "2026-06-19T00:11:51", "ticker": "^KS11", "level": 2, "z_score": 2.11, "vrp": -0.2027, "reason": "vol z=2.1, VRP=-0.203, beta=1.87, 5d consec vol"}
 {"ts": "2026-06-19T00:11:51", "ticker": "EWJ", "level": 2, "z_score": 1.82, "vrp": -0.0691, "reason": "vol z=1.8, VRP=-0.069, 5d consec vol"}
+{"ts": "2026-06-19T05:35:56", "ticker": "XLI", "level": 2, "z_score": 2.55, "vrp": -0.0315, "reason": "vol z=2.5, 5d consec vol"}
