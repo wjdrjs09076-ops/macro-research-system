@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-20T04:14:26",
+  "scan_date": "2026-06-20T08:04:10",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -185,13 +185,13 @@
     },
     {
       "ticker": "XTN",
-      "current_rv": 34.8,
-      "baseline_rv": 26.6,
-      "z_score": 0.87,
-      "vrp": -0.0094,
-      "beta_30d": 1.189,
+      "current_rv": 35.3,
+      "baseline_rv": 26.5,
+      "z_score": 0.93,
+      "vrp": -0.0351,
+      "beta_30d": 1.111,
       "consec_vol": 5,
-      "excess_10d": 2.56,
+      "excess_10d": 2.39,
       "level": 1,
       "label": "WATCH",
       "reason": "5d consec vol",
