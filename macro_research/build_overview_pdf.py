@@ -86,7 +86,7 @@ def _title(fig, title, subtitle=None):
 
 def _footer(fig, n, total):
     fig.text(0.96, 0.03, f"{n} / {total}", color=C_MUTED, fontsize=9, ha="right")
-    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-18",
+    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-21",
              color=C_MUTED, fontsize=9)
 
 
@@ -1278,9 +1278,8 @@ def page_kinetic_loop(pdf, n, total):
             ".env 자격증명 (코드 하드코딩 금지). 피드백은 사이징 승수만 자동 — 임계값 T 와 청산 룰은 수동.",
             color=C_MUTED, fontsize=9.5)
     ax.text(0.04, 0.030,
-            "수명주기 (2026-06-12): ① 룰은퇴 청산 — 룰셋 제거/stop-rule 포지션은 TP/DTE 대기 없이 즉시 회수  "
-            "② 예산 가드 — 최소 1계약이 예산×2 초과 시 진입 스킵 (사이징 역전 방지)  "
-            "③ cohort 유효표본 — 동시진입 상관 거래를 1 증거로 집계",
+            "수명주기: ① 룰은퇴 청산(stop-rule/룰셋 제거 → 즉시 회수)  "
+            "② 예산 가드(최소 1계약 > 예산×2 면 스킵)  ③ cohort(동시진입 상관 = 1 증거)",
             color=C_ACCENT_3, fontsize=9)
 
     _footer(fig, n, total)
@@ -1529,7 +1528,7 @@ def page_limitations(pdf, n, total):
         ("3. ✓ 추정 노이즈 보수화 + 공선성/FDR (라운드 6 비평 4·7번)",
          "ξ·λ_L·CF 블록 부트스트랩 CI — thin_tail_greenlight(무한손실 게이트)는 95% 상한으로만 발화.\n"
          "금리 직교화(레벨+2s10s)+VIF: XLE 금리수혜 kill 은 교란 확정, XLV/XLP rate_victim 은 직교화 후\n"
-         "t 유의성 소멸로 사망(KILLED, ctrl t=-0.1/-1.6 — p.9 표와 동일 사유). verdict 는 BH FDR q<0.10.",
+         "t 유의성 소멸로 사망(KILLED, ctrl t=-0.1/-1.6 — p.10 표와 동일 사유). verdict 는 BH FDR q<0.10.",
          C_ACCENT_3),
 
         ("4. (남은 한계) 생존편향 + 열린 루프 + 노출 캡 부재  [R9 일부 완화]",
@@ -1560,8 +1559,8 @@ def page_limitations(pdf, n, total):
         y -= 0.155
 
     ax.text(0.5, 0.022,
-            "★ CONFIG FREEZE v2 (2026-06-16, β헤지 페어 라이브): 9룰 + FDR q<0.10 + 트레일 25/40 + β페어 소수주헤지 "
-            "+ σ임계(2.0/1.5) + rate 캡 15% + 숏볼 휴면. OOS 전향 시계 = 이 날짜부터 (β헤지가 실제 작동한 시점).",
+            "★ CONFIG FREEZE v2 (2026-06-16) — β헤지 페어 라이브 = OOS 전향 시계 시작. "
+            "9룰·FDR·트레일25/40·소수주헤지·rate캡·숏볼휴면 동결.",
             ha="center", color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
     ax.text(0.5, 0.004,
             "⚠ freeze 는 paper-guard 미구현 상태를 동결한다 (TRADE_BASE=env[ALPACA_ENDPOINT], 무가드). "
@@ -1647,6 +1646,109 @@ def page_glossary(pdf, n, total):
     pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
 
 
+def page_exec_summary(pdf, n, total):
+    fig = _new_page(figsize=(12.0, 9.0))
+    _title(fig, "Executive Summary",
+           "거시 이벤트를 구조화해 투자 의사결정에 쓰는 자동 트레이딩 시스템 — 정량 연구 프로젝트")
+    ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
+
+    items = [
+        ("프로젝트 목적",
+         "거시 변동성·이벤트를 6-Layer 온톨로지(GARCH→EVT→Copula→Cholesky→Gate)로 구조화 →\n"
+         "방향 예측 없이 '이벤트 발생 시 확률적 수익'을 노리는 자동 트레이딩. 감지→실행→학습 루프 폐쇄.",
+         C_ACCENT_1),
+        ("핵심 역할",
+         "시스템 설계(6-Layer + 트리플 전략)  ·  백테스트 구축(시점-aware, 슬리피지·IV 모델)\n"
+         "룰 개발(9개 온톨로지 룰 + FDR 게이트)  ·  성과 검증(OOS/전향, 생존편향·슬리피지 보정).",
+         C_ACCENT_2),
+        ("배운 점",
+         "• 복잡성 ≠ 성과: 룰 11→8 가지치기, 실측 27% 슬리피지에서 9개 straddle 룰 중 co_crash 하나만 생존.\n"
+         "• OOS·생존편향: in-sample +$1,252 는 designer-leakage/생존편향 — freeze 후 전향 표본만 유효.\n"
+         "• '문서 ≠ 라이브': 동결 결정도 구현 디테일(int 캐스트/floor)로 무력화 → 주기적 전수조사.",
+         C_ACCENT_4),
+        ("현재 상태",
+         "Config Freeze v2(2026-06-16) 완료  ·  Alpaca 페이퍼 트레이딩 진행 중\n"
+         "전향 검증 패널로 첫 정식 표본(~6/30) 대기  ·  실거래 전 검증 단계(paper-guard = 실자본 전 차단).",
+         C_ACCENT_3),
+    ]
+    y = 0.95
+    for title, body, color in items:
+        box = FancyBboxPatch((0.0, y - 0.155), 0.98, 0.175,
+                             boxstyle="round,pad=0.004,rounding_size=0.02",
+                             linewidth=1.4, edgecolor=color, facecolor=C_PANEL)
+        ax.add_patch(box)
+        ax.text(0.015, y - 0.01, title, color=color, fontsize=13, fontweight="bold", va="top")
+        ax.text(0.02, y - 0.06, body, color=C_TEXT, fontsize=9.5, linespacing=1.55, va="top")
+        y -= 0.235
+
+    _footer(fig, n, total)
+    pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
+
+
+def page_cost_forward(pdf, n, total):
+    fig = _new_page(figsize=(12.0, 9.0))
+    _title(fig, "Cost Realism & Forward Validation (2026-06-18~)",
+           "in-sample 낙관을 실측 비용으로 스트레스 + 전향 검증 기준을 표본 보기 전 동결")
+    ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
+
+    # ── 1. Cost Realism — 27% 슬리피지 민감도 ──
+    ax.text(0.01, 0.98, "1. Cost Realism — 실측 슬리피지(왕복 ~27%) 민감도",
+            color=C_ACCENT_4, fontsize=12, fontweight="bold")
+    ax.text(0.01, 0.94, "라이브 실측: XLB 진입 $251→$322(28%) · XLRE $158→$200(27%). "
+            "백테스트 5% 가정을 27%로 올리면 (in-sample, straddle):",
+            color=C_MUTED, fontsize=9)
+    cols = [0.02, 0.27, 0.45, 0.62, 0.79]
+    hdr = ["슬리피지", "straddle 합", "co_crash", "fat_tail", "event_vol"]
+    y = 0.895
+    for h, x in zip(hdr, cols):
+        ax.text(x, y, h, color=C_ACCENT_4, fontsize=10, fontweight="bold", fontfamily="monospace")
+    rows = [
+        ("5% (가정)",  "+$1,368", "+$1,313", "+$6",     "+$48",    C_TEXT),
+        ("15%",        "+$302",   "+$1,166", "-$711",   "-$153",   C_MUTED),
+        ("27% (실측)", "-$1,463", "+$426",   "-$1,510", "-$378",   C_ACCENT_5),
+    ]
+    y -= 0.04
+    for label, st, cc, ft, ev, col in rows:
+        for txt, x in zip((label, st, cc, ft, ev), cols):
+            ax.text(x, y, txt, color=col, fontsize=10, fontfamily="monospace")
+        y -= 0.038
+    ax.text(0.01, y - 0.005,
+            "→ 27% 실측서 straddle 트랙 전체 음전(-$1,463). co_crash 만 유일 생존(+$426)이나 "
+            "edge 1/3 붕괴 + n<10 주장 불가.",
+            color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
+    ax.text(0.01, y - 0.04,
+            "fat_tail·event_vol 사망 = 검증 알파 후보 사실상 co_crash 하나. 롱 섹터ETF옵션 "
+            "instrument 가 왕복 스프레드로 구조적 적대 (~6/30 XLB 실현으로 확정).",
+            color=C_MUTED, fontsize=9)
+
+    # ── 2. Forward Validation ──
+    ax.text(0.01, 0.55, "2. Forward Validation — 전향 검증 패널 (Gate Timeline, 평가기준 사전 동결)",
+            color=C_ACCENT_4, fontsize=12, fontweight="bold")
+    fv = [
+        "• 원칙: 평가 기준을 표본 보기 전에 동결 (stop-rule 을 in-sample 로 안 건드린 원칙의 연장 — 사후 유리한 해석 차단).",
+        "• 데이터: 닫힌 거래만(미실현 제외), freeze v2(6/16) 이후, 마이그레이션·origin-event 오염 제외 = 깨끗한 전향 표본.",
+        "• View 1: 영점 = 0 아니라 왕복 슬리피지 비용대 → '부호만 양수' 함정 차단. 실패 군집 = missing-risk 신호. n<8 보류.",
+        "• View 2: 레짐 분포(co_crash high_vix 한 칸 몰림 = 소수 이벤트 의존 경고) · View 3: 점추정 vs 95% CI 하한 분리.",
+        "• 현재 n_closed=0 — 첫 표본 ~6/30(XLB, origin-event 라 참고용). 첫 정식 표본 = 동결된 잣대로 채점되는 최초 데이터.",
+    ]
+    yy = 0.51
+    for line in fv:
+        ax.text(0.02, yy, line, color=C_TEXT, fontsize=8.8, va="top")
+        yy -= 0.04
+
+    # ── 현재 라이브 + 교훈 ──
+    ax.text(0.01, 0.10,
+            "현재 라이브: XLB 롱 스트래들(event_vol) + β헤지 페어 3종(XLC/XLRE/XLY + SPY 소수주). SPY 풀 정합 · churn 0.",
+            color=C_ACCENT_2, fontsize=9, fontweight="bold")
+    ax.text(0.01, 0.05,
+            "★ 교훈: 동결된 결정도 구현 디테일(minimal+math.floor, hedge_qty int 캐스트)로 라이브에서 무력화될 수 있다 → "
+            "주기적 전수조사 + per-leg 로깅·SPY 자가정합으로 방어.",
+            color=C_ACCENT_5, fontsize=8.8, style="italic")
+
+    _footer(fig, n, total)
+    pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
+
+
 # ──────────────────────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────────────────────
@@ -1667,24 +1769,26 @@ def main():
         live = json.loads(sig_path.read_text(encoding="utf-8"))
 
     print(f"[overview-pdf] PDF 빌드 → {PDF_OUT}")
-    total = 16
+    total = 18
     with PdfPages(PDF_OUT) as pdf:
         page_cover(pdf, total)
-        page_flow(pdf, 2, total)
-        page_garch(pdf, 3, total)
-        page_evt(pdf, 4, total)
-        page_copula(pdf, 5, total)
-        page_cholesky(pdf, 6, total, live)
-        page_pcmci(pdf, 7, total)
-        page_rules(pdf, 8, total)
-        page_sensitivity(pdf, 9, total, live)    # NEW 2026-06-12
-        page_joint(pdf, 10, total, live)
-        page_dual(pdf, 11, total)
-        page_kinetic_loop(pdf, 12, total)
-        page_backtest(pdf, 13, total)            # NEW 2026-06-10
-        page_round78(pdf, 14, total)             # NEW 2026-06-14 (라운드 7-8 결론)
-        page_limitations(pdf, 15, total)
-        page_glossary(pdf, 16, total)
+        page_exec_summary(pdf, 2, total)         # NEW 2026-06-21 (Executive Summary)
+        page_flow(pdf, 3, total)
+        page_garch(pdf, 4, total)
+        page_evt(pdf, 5, total)
+        page_copula(pdf, 6, total)
+        page_cholesky(pdf, 7, total, live)
+        page_pcmci(pdf, 8, total)
+        page_rules(pdf, 9, total)
+        page_sensitivity(pdf, 10, total, live)   # NEW 2026-06-12
+        page_joint(pdf, 11, total, live)
+        page_dual(pdf, 12, total)
+        page_kinetic_loop(pdf, 13, total)
+        page_backtest(pdf, 14, total)            # NEW 2026-06-10
+        page_round78(pdf, 15, total)             # NEW 2026-06-14 (라운드 7-8 결론)
+        page_limitations(pdf, 16, total)
+        page_cost_forward(pdf, 17, total)        # NEW 2026-06-21 (27% 슬리피지 + 전향검증)
+        page_glossary(pdf, 18, total)
         d = pdf.infodict()
         d["Title"]    = "Macro Research System Overview"
         d["Author"]   = "wjdrj"
