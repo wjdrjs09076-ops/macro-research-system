@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-21T07:03:00",
+  "scan_date": "2026-06-21T10:54:07",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -86,20 +86,6 @@
       "sector": "Industrials"
     },
     {
-      "ticker": "^KS11",
-      "current_rv": 82.6,
-      "baseline_rv": 35.7,
-      "z_score": 2.08,
-      "vrp": -0.2027,
-      "beta_30d": 1.871,
-      "consec_vol": 5,
-      "excess_10d": 3.63,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=2.1, VRP=-0.203, beta=1.87, 5d consec vol",
-      "sector": "KOSPI"
-    },
-    {
       "ticker": "XLY",
       "current_rv": 27.1,
       "baseline_rv": 18.2,
@@ -140,6 +126,20 @@
       "label": "ALERT",
       "reason": "vol z=1.8, VRP=-0.070, 5d consec vol",
       "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 75.5,
+      "baseline_rv": 35.9,
+      "z_score": 1.76,
+      "vrp": -0.2212,
+      "beta_30d": 1.947,
+      "consec_vol": 5,
+      "excess_10d": 7.06,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.221, beta=1.95, 5d consec vol",
+      "sector": "KOSPI"
     },
     {
       "ticker": "ES=F",
@@ -484,6 +484,6 @@
     }
   ],
   "flagged_count": 30,
-  "alert_count": 7,
+  "alert_count": 6,
   "high_count": 5
 }
