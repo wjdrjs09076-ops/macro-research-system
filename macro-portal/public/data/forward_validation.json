@@ -1,0 +1,11 @@
+{
+  "generated": "2026-06-21T13:21:05",
+  "oos_forward_start": "2026-06-16",
+  "slippage_zero": {
+    "roundtrip_pct": 0.54,
+    "basis": "27%×2 고정 (n=2 실측 추정: XLB 28%/XLRE 27%). 표본 누적 시 실측 슬리피지 중앙값으로 갱신 예정."
+  },
+  "cluster_min_n": 8,
+  "n_closed": 0,
+  "closed_trades": []
+}

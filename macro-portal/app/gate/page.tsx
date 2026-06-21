@@ -5,6 +5,7 @@ import {
   ComposedChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, ReferenceLine, ReferenceArea, ResponsiveContainer, Legend,
 } from "recharts";
+import ForwardValidation from "./ForwardValidation";
 
 type TimingNull = {
   n_active: number; gross_return: number;
@@ -661,6 +662,8 @@ export default function GatePage() {
           )}
         </div>
       )}
+
+      <ForwardValidation />
     </div>
   );
 }

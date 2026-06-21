@@ -214,6 +214,7 @@ def closed_trades() -> list[dict]:
             out.append({
                 "trade_id":     tid,
                 "entry_ts":     e.get("ts"),
+                "exit_ts":      rec.get("ts"),
                 "strategy":     e.get("strategy", "straddle"),
                 "ticker":       e["ticker"],
                 "rule":         e.get("rule"),

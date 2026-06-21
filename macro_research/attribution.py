@@ -22,6 +22,60 @@ from trade_journal import closed_trades
 
 ATTRIBUTION_JSON = OUTPUT_DIR / "attribution.json"
 
+# 전향 검증 패널(Gate Timeline)용 export — 라이브 코드 불간섭, 거래 저널만 읽음(freeze 무관).
+PORTAL_DATA_DIR = OUTPUT_DIR.parent.parent / "macro-portal" / "public" / "data"
+FWD_JSON = PORTAL_DATA_DIR / "forward_validation.json"
+OOS_FORWARD_START = "2026-06-16"        # freeze v2 = β헤지 페어 라이브 시작
+SLIPPAGE_ROUNDTRIP = 0.54               # 27%×2 (n=2 실측 추정). 표본 누적 시 실측 중앙값으로 갱신.
+CLUSTER_MIN_N = 8                        # 군집 판정 게이트 (이 미만이면 보류)
+
+
+def export_forward_validation() -> dict:
+    """전향 표본(닫힌 거래) → forward_validation.json (포털 패널 소스).
+
+    필터: freeze v2(2026-06-16) 이후 청산 + 마이그레이션('구조전환(페어화)') 제외 =
+    깨끗한 전향 표본만. 미실현/사전 정리 거래는 포함 안 함. 영점=슬리피지 비용대.
+    """
+    import datetime as dt
+    trades = closed_trades()
+    fwd = []
+    for t in trades:
+        ex = (t.get("exit_ts") or "")[:10]
+        if not ex or ex < OOS_FORWARD_START:
+            continue
+        if t.get("exit_reason") == "구조전환(페어화)":   # 인프라 마이그레이션, thesis 청산 아님
+            continue
+        fwd.append({
+            "exit_date":    ex,
+            "rule":         t.get("rule"),
+            "strategy":     t.get("strategy"),
+            "ticker":       t.get("ticker"),
+            "regime":       t.get("regime"),
+            "pnl":          round(float(t.get("pnl") or 0), 2),
+            "entry_cost":   round(float(t.get("entry_cost") or 0), 2),
+            "exit_reason":  t.get("exit_reason"),
+            "holding_days": t.get("holding_days"),
+        })
+    fwd.sort(key=lambda r: r["exit_date"])
+    payload = {
+        "generated":          dt.datetime.now().isoformat(timespec="seconds"),
+        "oos_forward_start":  OOS_FORWARD_START,
+        "slippage_zero": {
+            "roundtrip_pct": SLIPPAGE_ROUNDTRIP,
+            "basis": "27%×2 고정 (n=2 실측 추정: XLB 28%/XLRE 27%). 표본 누적 시 실측 슬리피지 중앙값으로 갱신 예정.",
+        },
+        "cluster_min_n":      CLUSTER_MIN_N,
+        "n_closed":           len(fwd),
+        "closed_trades":      fwd,
+    }
+    try:
+        PORTAL_DATA_DIR.mkdir(parents=True, exist_ok=True)
+        FWD_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2,
+                                       allow_nan=False), encoding="utf-8")
+    except OSError as exc:
+        print(f"  [WARN] forward_validation export 실패: {exc}")
+    return payload
+
 
 def _entry_date(t: dict) -> str:
     """진입 날짜 (cohort 키용). entry_ts 우선, 없으면 trade_id 의 날짜 부분."""

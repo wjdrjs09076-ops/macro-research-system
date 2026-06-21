@@ -70,6 +70,13 @@ def _clip(x: float, lo: float, hi: float) -> float:
 
 def build_feedback(write: bool = True) -> dict:
     report = build_attribution(write=False)
+    # 전향 검증 패널(Gate Timeline) 소스 export — 거래 저널만 읽음(라이브 불간섭).
+    # 파이프라인 보호: 실패해도 피드백/사이징은 계속.
+    try:
+        from attribution import export_forward_validation
+        export_forward_validation()
+    except Exception as exc:
+        print(f"  [WARN] forward_validation export 스킵: {exc}")
     # 합성키 'rule|strategy' 단위로 승수 생성 — kinetic_executor.mult_key 와 일치.
     # 같은 룰이라도 스트래들(크기 베팅)과 방향성(방향 베팅)은 따로 학습된다.
     by_rule_strategy = report.get("by_rule_strategy", {})

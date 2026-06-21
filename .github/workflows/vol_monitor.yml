@@ -97,7 +97,8 @@ jobs:
                   macro_research/output/static_results.csv \
                   macro-portal/public/data/vol_monitor_data.json \
                   macro-portal/public/data/ontology_signals.json \
-                  macro-portal/public/data/iv_history.json 2>/dev/null || true
+                  macro-portal/public/data/iv_history.json \
+                  macro-portal/public/data/forward_validation.json 2>/dev/null || true
           git diff --staged --quiet || git commit -m "data: cycle $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           git pull --rebase origin main || true
           git push || echo "nothing to push or push failed"
