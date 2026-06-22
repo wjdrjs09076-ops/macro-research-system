@@ -1,1 +1,8 @@
-{}
+{
+  "XLB": {
+    "peak_pnl_pct": -0.20408163265306123,
+    "partial_done": false,
+    "partial_realized": 0.0,
+    "orig_cost": 245.0
+  }
+}
