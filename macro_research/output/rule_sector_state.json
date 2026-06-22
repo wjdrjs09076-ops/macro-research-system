@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-22T13:31:48",
+  "generated": "2026-06-22T16:13:53",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -9,6 +9,7 @@
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
     "co_crash_cluster|XLF",
+    "event_vol|XLB",
     "event_vol|XLI",
     "event_vol|XLK",
     "fat_tail_alert|XLE",
@@ -30,7 +31,7 @@
       "evidence": {
         "delta_ctrl": 0.0024,
         "t": 1.92,
-        "q_fdr": 0.1141
+        "q_fdr": 0.1142
       },
       "judged": "2026-06-22"
     },
@@ -43,7 +44,7 @@
       "evidence": {
         "delta_ctrl": 0.0024,
         "t": 1.92,
-        "q_fdr": 0.1141
+        "q_fdr": 0.1142
       },
       "judged": "2026-06-22"
     },

@@ -48,5 +48,15 @@
     "avg_pnl_pct": -0.0042,
     "avg_pnl_pct_eff": -0.0043,
     "total_pnl": -30.12
+  },
+  "event_vol|straddle": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 2,
+    "cohorts": 2,
+    "win_rate": 0.0,
+    "avg_pnl_pct": -0.4298,
+    "avg_pnl_pct_eff": -0.4298,
+    "total_pnl": -115.0
   }
 }

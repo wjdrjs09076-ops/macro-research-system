@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.4,
-    "ts": "2026-06-22T13:31:48"
+    "ts": "2026-06-22T16:13:53"
   },
-  "generated": "2026-06-22T13:31:48",
+  "generated": "2026-06-22T16:13:53",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -37,8 +37,26 @@
       ],
       "reasoning": [
         "XLK: 실현변동성 z-score = 5.11 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 5.1σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -6.99pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 34.4% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -8.01pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 33.4% 연환산 (콜+풋 평균).",
+        "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
+      ],
+      "size_penalty": 1.0,
+      "penalty_reason": null
+    },
+    {
+      "ticker": "XLB",
+      "confidence": 0.6226,
+      "rule": "event_vol",
+      "signal_type": "MONITOR",
+      "regime": "mid_vix",
+      "all_rules": [
+        "event_vol"
+      ],
+      "reasoning": [
+        "XLB: 실현변동성 z-score = 3.10 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 3.1σ 급등 (VIX 와 독립적인 *실현* 변동).",
+        "VRP_iv = ATM_IV - RV_20d = -0.72pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 20.4% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -55,8 +73,8 @@
       ],
       "reasoning": [
         "XLI: 실현변동성 z-score = 2.67 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.7σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -0.17pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 20.4% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -0.09pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 20.5% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -163,7 +181,7 @@
       "delta_ctrl": -0.0004,
       "t_ctrl": -0.58,
       "q_raw": 0.0,
-      "q_ctrl": 0.7231,
+      "q_ctrl": 0.7232,
       "vif": 5.3,
       "verdict": "killed"
     },
@@ -235,7 +253,7 @@
       "delta_ctrl": -0.0008,
       "t_ctrl": -1.46,
       "q_raw": 0.0084,
-      "q_ctrl": 0.2548,
+      "q_ctrl": 0.2549,
       "vif": 1.2,
       "verdict": "killed"
     },
@@ -556,7 +574,7 @@
       },
       {
         "ticker": "XLP",
-        "self_share": 0.7154,
+        "self_share": 0.7155,
         "propagation_score": 0.2436,
         "cholesky_order": 3,
         "top_sources": [
