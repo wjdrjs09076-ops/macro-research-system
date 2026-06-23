@@ -28,6 +28,12 @@ FWD_JSON = PORTAL_DATA_DIR / "forward_validation.json"
 OOS_FORWARD_START = "2026-06-16"        # freeze v2 = β헤지 페어 라이브 시작
 SLIPPAGE_ROUNDTRIP = 0.54               # 27%×2 (n=2 실측 추정). 표본 누적 시 실측 중앙값으로 갱신.
 CLUSTER_MIN_N = 8                        # 군집 판정 게이트 (이 미만이면 보류)
+# event_vol z≥2.5 임계가 2026-06-15 origin-event(이란 휴전) 표본을 보고 선택됨(R9, 2.0/2.5/3.0 중
+# 2.5, 커밋 6/16 = 이벤트 직후) = 임계 튜닝 in-sample. 따라서 그 표본기간의 모든 event_vol 발화
+# (XLB 6/15 진입오염 + XLRE 6/18 임계오염)는 검증 제외. 진짜 clean = freeze 후 임계 고정된 채
+# '완전히 새 이벤트'에서 z 뚫는 표본 — 자동탐지 불가, 그 이벤트 확인 시 아래 날짜로 설정.
+# None = 전 event_vol 표본 검증 제외(clean n=0).
+EVENT_VOL_CLEAN_AFTER = None
 
 
 def export_forward_validation() -> dict:
@@ -45,8 +51,16 @@ def export_forward_validation() -> dict:
             continue
         if t.get("exit_reason") == "구조전환(페어화)":   # 인프라 마이그레이션, thesis 청산 아님
             continue
+        ent = (t.get("entry_ts") or "")[:10]
+        validation, ex_reason = "clean", None
+        if t.get("rule") == "event_vol" and t.get("strategy") == "straddle":
+            if EVENT_VOL_CLEAN_AFTER is None or ent < EVENT_VOL_CLEAN_AFTER:
+                validation = "excluded"
+                ex_reason = ("event_vol 임계(z≥2.5)가 origin-event(6/15) 표본으로 선택됨 = 임계 튜닝 in-sample"
+                             + (" + origin-event 진입 오염" if ent <= "2026-06-16" else ""))
         fwd.append({
             "exit_date":    ex,
+            "entry_date":   ent,
             "rule":         t.get("rule"),
             "strategy":     t.get("strategy"),
             "ticker":       t.get("ticker"),
@@ -55,8 +69,11 @@ def export_forward_validation() -> dict:
             "entry_cost":   round(float(t.get("entry_cost") or 0), 2),
             "exit_reason":  t.get("exit_reason"),
             "holding_days": t.get("holding_days"),
+            "validation":   validation,        # clean | excluded
+            "exclude_reason": ex_reason,
         })
     fwd.sort(key=lambda r: r["exit_date"])
+    clean_n = sum(1 for r in fwd if r["validation"] == "clean")
     payload = {
         "generated":          dt.datetime.now().isoformat(timespec="seconds"),
         "oos_forward_start":  OOS_FORWARD_START,
@@ -66,6 +83,12 @@ def export_forward_validation() -> dict:
         },
         "cluster_min_n":      CLUSTER_MIN_N,
         "n_closed":           len(fwd),
+        "clean_n":            clean_n,
+        "excluded_n":         len(fwd) - clean_n,
+        "boundary_note":      "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 "
+                              "event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
+        "timing_note":        "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 "
+                              "어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
         "closed_trades":      fwd,
     }
     try:

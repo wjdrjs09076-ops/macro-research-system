@@ -7,9 +7,10 @@ import {
 } from "recharts";
 
 type Trade = {
-  exit_date: string; rule: string | null; strategy: string; ticker: string;
+  exit_date: string; entry_date?: string; rule: string | null; strategy: string; ticker: string;
   regime: string | null; pnl: number; entry_cost: number;
   exit_reason: string | null; holding_days: number | null;
+  validation?: string; exclude_reason?: string | null;
 };
 type FwdData = {
   generated: string;
@@ -17,6 +18,10 @@ type FwdData = {
   slippage_zero: { roundtrip_pct: number; basis: string };
   cluster_min_n: number;
   n_closed: number;
+  clean_n?: number;
+  excluded_n?: number;
+  boundary_note?: string;
+  timing_note?: string;
   closed_trades: Trade[];
 };
 
@@ -95,24 +100,32 @@ export default function ForwardValidation() {
   }
 
   // ── View 1 — Excession Timeline ──
+  const cleanN = data.clean_n ?? data.n_closed;
+  const excludedN = data.excluded_n ?? 0;
   const pts = data.closed_trades.map((t, i) => {
     const hurdle = Math.abs(t.entry_cost) * slipPct;
-    const cat = t.pnl <= 0 ? "loss" : t.pnl >= hurdle ? "win" : "gray";
+    const excluded = t.validation === "excluded";
+    const cat = excluded ? "excluded" : t.pnl <= 0 ? "loss" : t.pnl >= hurdle ? "win" : "gray";
     return { ...t, idx: i, hurdle, cat };
   });
-  const colorOf = (c: string) => (c === "win" ? "#34d399" : c === "loss" ? "#f87171" : "#9ca3af");
-  const medHurdle = median(pts.map((p) => p.hurdle));
-  const enoughN = data.n_closed >= data.cluster_min_n;
+  const colorOf = (c: string) =>
+    c === "win" ? "#34d399" : c === "loss" ? "#f87171" : c === "gray" ? "#9ca3af" : "#4b5563";
+  const cleanHurdles = pts.filter((p) => p.cat !== "excluded").map((p) => p.hurdle);
+  const medHurdle = median(cleanHurdles.length ? cleanHurdles : pts.map((p) => p.hurdle));
+  const enoughN = cleanN >= data.cluster_min_n;
 
   return (
     <Section>
       <div className="mt-4">
-        <div className="text-sm text-gray-200 font-semibold">View 1 — Excession Timeline (군집 검사)</div>
+        <div className="text-sm text-gray-200 font-semibold">
+          View 1 — Excession Timeline (군집 검사) · clean n={cleanN} / 제외 {excludedN}
+        </div>
         <div className="text-xs text-gray-500 mb-2">
-          영점 0(실선) / 슬리피지 비용대 ±{(slipPct * 100).toFixed(0)}%(점선, 중앙값 ${medHurdle.toFixed(0)}).
+          영점 0(실선) / 슬리피지 비용대 ±{(slipPct * 100).toFixed(0)}%(점선).
           <span className="text-emerald-400"> 초록</span>=비용 넘김 ·
           <span className="text-gray-300"> 회색</span>=부호만 양수(미달) ·
-          <span className="text-red-400"> 빨강</span>=손실.
+          <span className="text-red-400"> 빨강</span>=손실 ·
+          <span style={{ color: "#4b5563" }}> 흐린회색</span>=검증 제외(오염).
         </div>
         <ResponsiveContainer width="100%" height={300}>
           <ScatterChart margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
@@ -139,14 +152,23 @@ export default function ForwardValidation() {
             </Scatter>
           </ScatterChart>
         </ResponsiveContainer>
-        {!enoughN && (
-          <div className="text-gray-500 text-xs mt-2">
-            표본 부족 (n={data.n_closed} &lt; {data.cluster_min_n}) — 군집 판정 보류. 점만 누적 표시.
+        {cleanN === 0 && data.n_closed > 0 && (
+          <div className="text-amber-400 text-xs mt-2">
+            아직 clean 전향 표본 0 — 닫힌 {data.n_closed}건 전부 임계/origin 오염으로 검증 제외. 진짜 첫 표본 = freeze 후 새 이벤트 발화부터.
           </div>
         )}
-        <div className="text-gray-600 text-[11px] mt-2">
-          영점 기준: {data.slippage_zero.basis}
-        </div>
+        {!enoughN && cleanN > 0 && (
+          <div className="text-gray-500 text-xs mt-2">
+            clean 표본 부족 (n={cleanN} &lt; {data.cluster_min_n}) — 군집 판정 보류.
+          </div>
+        )}
+        {data.boundary_note && (
+          <div className="text-gray-600 text-[11px] mt-2">경계: {data.boundary_note}</div>
+        )}
+        {data.timing_note && (
+          <div className="text-gray-600 text-[11px] mt-1">타이밍: {data.timing_note}</div>
+        )}
+        <div className="text-gray-600 text-[11px] mt-1">영점 기준: {data.slippage_zero.basis}</div>
       </div>
     </Section>
   );
