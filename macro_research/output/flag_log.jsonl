@@ -80,3 +80,6 @@
 {"ts": "2026-06-22T05:05:27", "ticker": "XLB", "level": 3, "z_score": 2.86, "vrp": -0.0763, "reason": "vol z=2.9, VRP=-0.076, 5d consec vol"}
 {"ts": "2026-06-22T05:05:27", "ticker": "ES=F", "level": 3, "z_score": 2.85, "vrp": -0.0695, "reason": "vol z=2.8, VRP=-0.069, 5d consec vol"}
 {"ts": "2026-06-22T05:05:27", "ticker": "EWJ", "level": 2, "z_score": 1.81, "vrp": -0.0703, "reason": "vol z=1.8, VRP=-0.070, 5d consec vol"}
+{"ts": "2026-06-23T00:43:09", "ticker": "SOXX", "level": 3, "z_score": 3.31, "vrp": -0.0964, "reason": "vol z=3.3, VRP=-0.096, beta=3.48, 5d consec vol"}
+{"ts": "2026-06-23T00:43:09", "ticker": "XLK", "level": 2, "z_score": 2.63, "vrp": -0.0346, "reason": "vol z=2.6, beta=2.17, 5d consec vol"}
+{"ts": "2026-06-23T00:43:09", "ticker": "XLB", "level": 2, "z_score": 2.4, "vrp": -0.057, "reason": "vol z=2.4, VRP=-0.057, 5d consec vol"}
