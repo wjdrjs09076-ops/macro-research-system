@@ -22,6 +22,7 @@ type FwdData = {
   excluded_n?: number;
   boundary_note?: string;
   timing_note?: string;
+  churn_diagnostic?: { definition: string; flickers: number; cum_pnl: number; verdict_note: string };
   closed_trades: Trade[];
 };
 
@@ -75,6 +76,20 @@ export default function ForwardValidation() {
 
   const slipPct = data.slippage_zero.roundtrip_pct;
 
+  // churn 분해 기준선 — 검증 보조(전시물 아님). 표본 손익을 채점할 때 깔려 있는
+  // 메커니즘 비용을 보여, clean 표본 패배를 '테제 오류 vs churn 슬리피지'로 가르는 기준.
+  const churn = data.churn_diagnostic;
+  const ChurnBaseline = () =>
+    churn ? (
+      <div className="text-gray-600 text-[11px] mt-3 leading-relaxed">
+        <span className="text-gray-500">churn 분해 기준선:</span> event_vol 임계경계 깜빡임 왕복{" "}
+        {churn.flickers}회 · 누적 슬리피지 {churn.cum_pnl < 0 ? "−" : ""}$
+        {Math.abs(churn.cum_pnl).toFixed(0)}. 표본 손익을 채점할 때 이만큼의 메커니즘 비용이 깔려 있다 —
+        clean 표본이 지면 그 패배를 &quot;테제 오류 vs churn 슬리피지&quot;로 분해하는 기준선이다. (룰 임계
+        z≥2.5는 freeze 불변, 발화 히스테리시스 판정은 ~6/30.)
+      </div>
+    ) : null;
+
   // ── 빈 상태 (전향 표본 누적 전) ──
   if (data.n_closed === 0) {
     return (
@@ -95,6 +110,7 @@ export default function ForwardValidation() {
           View 1 (Excession Timeline) 먼저 배포 — 빈 패널이 매일 &quot;아직 0&quot;을 보여주는 게 &quot;손 떼고 기다리는 중&quot;의
           증언. View 2(레짐 분포)·3(추정/보수 분리)은 표본 쌓인 뒤.
         </div>
+        <ChurnBaseline />
       </Section>
     );
   }
@@ -169,6 +185,7 @@ export default function ForwardValidation() {
           <div className="text-gray-600 text-[11px] mt-1">타이밍: {data.timing_note}</div>
         )}
         <div className="text-gray-600 text-[11px] mt-1">영점 기준: {data.slippage_zero.basis}</div>
+        <ChurnBaseline />
       </div>
     </Section>
   );
