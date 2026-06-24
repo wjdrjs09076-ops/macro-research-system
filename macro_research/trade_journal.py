@@ -83,6 +83,78 @@ def open_trades() -> dict[tuple[str, str], dict]:
     return by_key
 
 
+def open_entries_grouped() -> dict[tuple[str, str], list[dict]]:
+    """미청산 진입을 (ticker, strategy) -> [entry, ...] (진입시각 오름차순) 로 반환.
+
+    open_trades() 는 같은 키의 중복 미청산을 '최신만' 남겨 덮어쓴다(상태 조회용).
+    여기서는 *모든* 미청산 진입을 보존한다 — churn(같은 종목 빠른 재진입)으로 저널에
+    유령(고아 진입)이 누적됐는지 라이브 보유수와 대조하려면 키로 접지 않은 전체가 필요.
+    """
+    open_by_id: dict[str, dict] = {}
+    for rec in load_records():
+        tid = rec.get("trade_id")
+        if rec.get("event") == "entry" and tid:
+            open_by_id[tid] = rec
+        elif rec.get("event") == "exit" and tid:
+            open_by_id.pop(tid, None)
+    grouped: dict[tuple[str, str], list[dict]] = {}
+    for rec in open_by_id.values():
+        key = (rec["ticker"], rec.get("strategy", "straddle"))
+        grouped.setdefault(key, []).append(rec)
+    for recs in grouped.values():
+        recs.sort(key=lambda r: r.get("ts", ""))
+    return grouped
+
+
+# 유령 정리(저널-라이브 정합) 청산 사유. 귀인/전향검증에서 제외(테제 결과 아님).
+PHANTOM_EXIT_REASON = "유령정리(저널-라이브 정합)"
+
+
+def reconcile_phantoms(live_counts: dict[tuple[str, str], int],
+                       positions_ok: bool) -> list[dict]:
+    """저널 미청산 ↔ 라이브(Alpaca) 보유수 대조 → 초과(유령) 진입을 P&L-중립 청산.
+
+    라이브가 정답. 같은 (ticker, strategy)에 저널 미청산이 라이브 보유수보다 많으면,
+    초과분(가장 오래된 것부터)은 churn 중 Alpaca 청산이 저널 exit 를 못 남긴 유령이다
+    → pnl=0, reason=PHANTOM_EXIT_REASON 으로 닫아 저널을 라이브에 맞춘다.
+    실손익은 매칭됐던 (잘못된) exit 에 이미 기록됐으므로 여기선 0 (이중계상 방지).
+
+    ★ 안전장치: positions_ok=False(=Alpaca positions API 실패. get_positions 가 []로
+    위장하는 케이스)면 *아무것도 닫지 않는다*. API 실패를 '전부 청산됨'으로 오인해 정상
+    미청산을 몰살하는 것을 막는다 — 이 수정의 핵심 footgun.
+
+    Returns 정리한 유령 entry 레코드 리스트.
+    """
+    if not positions_ok:
+        return []
+    grouped = open_entries_grouped()
+    cleaned: list[dict] = []
+    for key, recs in grouped.items():
+        live_n = max(0, int(live_counts.get(key, 0)))
+        excess = len(recs) - live_n
+        if excess <= 0:
+            continue
+        # 최신 live_n 건 = 실제 보유로 간주, 나머지(오래된 것부터) = 유령.
+        for rec in recs[:excess]:
+            entry_cost = round(float(rec.get("entry_cost") or 0), 2)
+            _append({
+                "event":        "exit",
+                "trade_id":     rec.get("trade_id"),
+                "ts":           _now(),
+                "strategy":     rec.get("strategy", "straddle"),
+                "ticker":       rec.get("ticker"),
+                "exit_reason":  PHANTOM_EXIT_REASON,
+                "entry_cost":   entry_cost,
+                "exit_value":   entry_cost,   # pnl=0
+                "pnl":          0.0,
+                "pnl_pct":      0.0,
+                "holding_days": None,
+                "min_dte":      0,
+            })
+            cleaned.append(rec)
+    return cleaned
+
+
 def log_entry(
     *,
     strategy: str,
@@ -210,6 +282,9 @@ def closed_trades() -> list[dict]:
         if rec.get("event") == "entry":
             entries[tid] = rec
         elif rec.get("event") == "exit" and tid in entries:
+            if rec.get("exit_reason") == PHANTOM_EXIT_REASON:
+                entries.pop(tid, None)   # 유령 정리분: 회계 정합용 청산 — 귀인/검증 모두 제외
+                continue
             e = entries[tid]
             out.append({
                 "trade_id":     tid,

@@ -832,6 +832,7 @@ def run_entry(live: bool, json_path: str, source: str = "ontology",
     _run_directional_entry(directional_c, equity, multipliers, live, market_open)
     _reconcile_spy_hedge(live, market_open)   # SPY 풀을 열린 페어 합으로 정합(leak self-heal)
     _run_short_straddle_entry(short_straddle_c, equity, multipliers, live, market_open)
+    _reconcile_positions()                    # 저널 미청산 ↔ 라이브 보유 정합(유령 self-heal)
 
 
 def _run_straddle_entry(candidates, equity, multipliers, live, market_open) -> None:
@@ -1013,6 +1014,55 @@ def _reconcile_spy_hedge(live: bool, market_open: bool) -> None:
     res = submit_equity_order(HEDGE_SYMBOL, abs(diff), side=side)
     ok = res["status_code"] in (200, 201)
     print(f"    {'OK ' if ok else 'ERR'} SPY 보정 {side} {abs(diff):.3f} -> {res['status_code']}")
+
+
+def _live_position_counts(positions: list[dict]) -> dict[tuple[str, str], int]:
+    """Alpaca 보유 → (ticker, strategy) 별 보유 '세트' 수 (저널 미청산과 대조용).
+    옵션 롱(qty≥0)=straddle, 옵션 숏(qty<0)=short_straddle (기초자산별 1세트),
+    현물(SPY 헤지 제외)=directional. 스트래들은 콜+풋 2레그라도 1세트로 센다(저널 1진입=1세트)."""
+    opt_long: set[str] = set()
+    opt_short: set[str] = set()
+    eq: set[str] = set()
+    for p in positions:
+        ac = p.get("asset_class")
+        if ac == "us_option":
+            try:
+                u = parse_occ(p["symbol"])[0]
+            except Exception:
+                continue
+            (opt_long if float(p.get("qty", 0) or 0) >= 0 else opt_short).add(u)
+        elif ac == "us_equity" and p.get("symbol") != HEDGE_SYMBOL:
+            eq.add(p["symbol"])
+    counts: dict[tuple[str, str], int] = {}
+    for u in opt_long:
+        counts[(u, "straddle")] = 1
+    for u in opt_short:
+        counts[(u, "short_straddle")] = 1
+    for u in eq:
+        counts[(u, "directional")] = 1
+    return counts
+
+
+def _reconcile_positions() -> None:
+    """저널 미청산 ↔ 라이브 보유 대조 → 유령(고아 진입) 정리. SPY 정합의 '포지션판'.
+    회계 정합성만 — 주문 제출 없음(저널만 보정). 라이브/휴장 무관하게 매 사이클 실행 가능
+    (Alpaca positions 읽기 + 저널 쓰기만). ★ positions API 실패 시 아무것도 닫지 않음."""
+    r = requests.get(f"{TRADE_BASE}/positions", headers=HEADERS, timeout=15)
+    positions_ok = r.status_code == 200
+    positions = r.json() if positions_ok else []
+    if not positions_ok:
+        print(f"\n  [포지션 정합] Alpaca positions 조회 실패(HTTP {r.status_code}) "
+              f"— 유령 정리 건너뜀(몰살 방지).")
+        return
+    counts = _live_position_counts(positions)
+    cleaned = trade_journal.reconcile_phantoms(counts, positions_ok=True)
+    if cleaned:
+        for rec in cleaned:
+            print(f"\n  [포지션 정합] 유령 정리: {rec.get('ticker')} {rec.get('strategy')} "
+                  f"(진입 {str(rec.get('ts',''))[:16]}, cost ${rec.get('entry_cost')}) "
+                  f"→ P&L-중립 청산(검증 제외)")
+    else:
+        print("\n  [포지션 정합] 저널-라이브 정합됨 (유령 없음).")
 
 
 def _run_short_straddle_entry(candidates, equity, multipliers, live, market_open) -> None:
