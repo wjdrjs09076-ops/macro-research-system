@@ -74,6 +74,20 @@ def export_forward_validation() -> dict:
         })
     fwd.sort(key=lambda r: r["exit_date"])
     clean_n = sum(1 for r in fwd if r["validation"] == "clean")
+
+    # ── churn 진단 (~6/30 히스테리시스 판정용 측정) ──────────────────────────
+    # event_vol 임계(z≥2.5)가 경계에서 깜빡이면(2.51↔2.49) 매 사이클 진입↔은퇴 반복 →
+    # 같은 종목 당일 진입+청산(holding_days==0) = 왕복 슬리피지만 까먹는 churn 왕복.
+    # 레짐엔 히스테리시스(2사이클 확인)가 있지만 룰 발화엔 없음 → 이 깜빡임 미차단.
+    # 측정 목적(오너 지시): "기록만" 말고 두 숫자를 누적해 6/30에 히스테리시스 정당성을
+    # 데이터로 판정 — (a) churn 누적 비용, (b) 히스테리시스가 막았을 깜빡임 수.
+    # 조작화: 0일 보유 event_vol 스트래들 왕복 = 깜빡임 1회(프록시). clean 표본 패배 시
+    # "테제 오류 vs churn 슬리피지" 분해에도 이 비용을 빼는 기준선으로 쓴다.
+    churn = [t for t in trades
+             if t.get("rule") == "event_vol" and t.get("strategy") == "straddle"
+             and t.get("holding_days") == 0]
+    churn_pnl = round(sum(float(t.get("pnl") or 0) for t in churn), 2)
+
     payload = {
         "generated":          dt.datetime.now().isoformat(timespec="seconds"),
         "oos_forward_start":  OOS_FORWARD_START,
@@ -89,6 +103,14 @@ def export_forward_validation() -> dict:
                               "event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
         "timing_note":        "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 "
                               "어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
+        "churn_diagnostic": {
+            "definition":   "event_vol 스트래들 당일진입+청산(holding_days=0) = 임계경계 깜빡임 왕복. "
+                            "룰 발화 히스테리시스 부재로 z가 2.5 경계서 깜빡이면 매 사이클 진입↔은퇴.",
+            "flickers":     len(churn),          # (b) 히스테리시스가 막았을 깜빡임 수(프록시)
+            "cum_pnl":      churn_pnl,           # (a) churn 누적 슬리피지 비용(음수=출혈)
+            "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. "
+                            "단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정.",
+        },
         "closed_trades":      fwd,
     }
     try:

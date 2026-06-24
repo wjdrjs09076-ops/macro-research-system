@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-24T12:07:33",
+  "generated": "2026-06-24T12:09:55",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
@@ -11,6 +11,12 @@
   "excluded_n": 4,
   "boundary_note": "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
   "timing_note": "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
+  "churn_diagnostic": {
+    "definition": "event_vol 스트래들 당일진입+청산(holding_days=0) = 임계경계 깜빡임 왕복. 룰 발화 히스테리시스 부재로 z가 2.5 경계서 깜빡이면 매 사이클 진입↔은퇴.",
+    "flickers": 2,
+    "cum_pnl": -25.5,
+    "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. 단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정."
+  },
   "closed_trades": [
     {
       "exit_date": "2026-06-22",
