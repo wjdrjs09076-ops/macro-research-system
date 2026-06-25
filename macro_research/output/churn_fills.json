@@ -1,0 +1,15 @@
+{
+  "generated": "2026-06-25T14:02:32",
+  "basis": "alpaca_fills",
+  "since": "2026-06-16",
+  "flickers": 2,
+  "cum_pnl": -68.0,
+  "by_underlying_day": [
+    {
+      "underlying": "XLB",
+      "day": "2026-06-23",
+      "roundtrips": 2,
+      "realized": -68.0
+    }
+  ]
+}

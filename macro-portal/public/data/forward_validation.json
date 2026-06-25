@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-25T01:33:54",
+  "generated": "2026-06-25T14:02:32",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
@@ -13,9 +13,10 @@
   "timing_note": "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
   "churn_diagnostic": {
     "definition": "event_vol 스트래들 당일진입+청산(holding_days=0) = 임계경계 깜빡임 왕복. 룰 발화 히스테리시스 부재로 z가 2.5 경계서 깜빡이면 매 사이클 진입↔은퇴.",
+    "basis": "alpaca_fills(실거래가)",
     "flickers": 2,
-    "cum_pnl": -25.5,
-    "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. 단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정."
+    "cum_pnl": -68.0,
+    "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. 단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정. 비용은 실거래가 기준(저널 mid-pnl 은 ~2.7배 과소였음)."
   },
   "closed_trades": [
     {

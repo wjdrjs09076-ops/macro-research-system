@@ -1548,6 +1548,116 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
 
 
 # ── 진입점 ─────────────────────────────────────────────────────
+CHURN_FILLS_JSON = OUTPUT_DIR / "churn_fills.json"
+CHURN_SINCE = "2026-06-16"   # freeze v2 = 전향 시작. 이후 체결만 churn 집계.
+OPT_MULTIPLIER = 100         # 옵션 1계약 = 100주
+
+
+def account_activities(activity_type: str, after: str = CHURN_SINCE,
+                       page_size: int = 100) -> list[dict]:
+    """Alpaca account activities (체결=FILL 등). after(YYYY-MM-DD) 이후, page_token 페이지네이션.
+    실패/비200 이면 빈 리스트 (호출측에서 fill 기반 산출 스킵 → 저널 폴백)."""
+    out: list[dict] = []
+    page_token = None
+    for _ in range(50):   # 안전 상한 (5000건)
+        params: dict = {"page_size": page_size, "after": after}
+        if page_token:
+            params["page_token"] = page_token
+        r = requests.get(f"{TRADE_BASE}/account/activities/{activity_type}",
+                         headers=HEADERS, params=params, timeout=20)
+        if r.status_code != 200:
+            break
+        batch = r.json()
+        if not batch:
+            break
+        out.extend(batch)
+        if len(batch) < page_size:
+            break
+        page_token = batch[-1].get("id")
+    return out
+
+
+def compute_churn_from_fills(since: str = CHURN_SINCE) -> dict | None:
+    """Alpaca 체결 이력 → '같은날 옵션 왕복'(=churn 깜빡임)의 실거래가 실현손익.
+
+    저널 mid-pnl 은 (a)mid 추정 (b)키-충돌로 엉뚱한 진입 매칭 → churn 비용 과소(2.7배).
+    여기선 *실체결가*로 심볼별 FIFO 매칭, 같은날 열렸다 닫힌 로트만 churn 으로 집계.
+    옵션만 대상(주식 fill 제외). 실패 시 None → 호출측 저널 폴백.
+    """
+    fills = account_activities("FILL", after=since)
+    if not fills:
+        return None
+    from collections import defaultdict
+    legs: dict[str, list[dict]] = defaultdict(list)
+    for f in fills:
+        sym = f.get("symbol", "")
+        try:
+            parse_occ(sym)   # 옵션만 (실패=주식 → 제외)
+        except Exception:
+            continue
+        legs[sym].append({
+            "t":     str(f.get("transaction_time", "")),
+            "side":  f.get("side", ""),
+            "qty":   abs(float(f.get("qty", 0) or 0)),
+            "price": float(f.get("price", 0) or 0),
+        })
+
+    # 심볼별 FIFO: buy 로트 적재, sell 로 닫음. 같은날 닫힌 로트 = churn 왕복 레그.
+    by_ud: dict[tuple, dict] = defaultdict(lambda: {"realized": 0.0, "legs": 0})
+    for sym, fs in legs.items():
+        under = parse_occ(sym)[0]
+        fs.sort(key=lambda x: x["t"])
+        lots: list[list] = []   # [open_day, price, qty_remaining]
+        for f in fs:
+            if f["side"] == "buy":
+                lots.append([f["t"][:10], f["price"], f["qty"]])
+            elif f["side"] in ("sell", "sell_short"):
+                qrem = f["qty"]
+                while qrem > 1e-9 and lots:
+                    lot = lots[0]
+                    take = min(qrem, lot[2])
+                    if lot[0] == f["t"][:10]:   # 같은날 왕복 = churn
+                        realized = (f["price"] - lot[1]) * take * OPT_MULTIPLIER
+                        k = (under, f["t"][:10])
+                        by_ud[k]["realized"] += realized
+                        by_ud[k]["legs"] += 1
+                    lot[2] -= take
+                    qrem -= take
+                    if lot[2] <= 1e-9:
+                        lots.pop(0)
+
+    cum_pnl = round(sum(v["realized"] for v in by_ud.values()), 2)
+    flickers = sum(v["legs"] // 2 for v in by_ud.values())   # 콜+풋 한쌍 = 1 깜빡임
+    detail = [{"underlying": k[0], "day": k[1],
+               "roundtrips": v["legs"] // 2, "realized": round(v["realized"], 2)}
+              for k, v in sorted(by_ud.items())]
+    return {
+        "generated": dt.datetime.now().isoformat(timespec="seconds"),
+        "basis":     "alpaca_fills",
+        "since":     since,
+        "flickers":  flickers,
+        "cum_pnl":   cum_pnl,
+        "by_underlying_day": detail,
+    }
+
+
+def write_churn_fills() -> None:
+    """churn(fill 기반) 산출 → output/churn_fills.json. attribution 이 읽어 forward_validation 에 반영.
+    읽기 전용(주문 없음)·실패 무해(저널 폴백). 매 사이클(휴장 포함) 호출."""
+    try:
+        res = compute_churn_from_fills()
+        if res is None:
+            print("  [churn-fills] 체결 이력 조회 실패/없음 — 저널 폴백 유지.")
+            return
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        CHURN_FILLS_JSON.write_text(json.dumps(res, ensure_ascii=False, indent=2),
+                                    encoding="utf-8")
+        print(f"  [churn-fills] flickers={res['flickers']} cum_pnl=${res['cum_pnl']} "
+              f"(실거래가 기반) → churn_fills.json")
+    except Exception as exc:
+        print(f"  [churn-fills] 산출 스킵: {exc}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--live", action="store_true", help="진입 실제 발주 (장중)")
@@ -1563,6 +1673,8 @@ def main() -> None:
     ap.add_argument("--minimal", action="store_true",
                     help="최소 사이즈 모드 (0.5%%/시그널, 최대 2건). 첫 실거래 검증용.")
     args = ap.parse_args()
+
+    write_churn_fills()   # churn 비용 fill 기반 산출 (읽기 전용, 휴장 무관·매 사이클)
 
     if args.auto:
         if not get_market_open():

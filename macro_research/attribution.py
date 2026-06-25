@@ -21,6 +21,7 @@ from config import OUTPUT_DIR
 from trade_journal import closed_trades
 
 ATTRIBUTION_JSON = OUTPUT_DIR / "attribution.json"
+CHURN_FILLS_JSON = OUTPUT_DIR / "churn_fills.json"   # kinetic 이 fill 기반 churn 산출 → 여기서 읽음
 
 # 전향 검증 패널(Gate Timeline)용 export — 라이브 코드 불간섭, 거래 저널만 읽음(freeze 무관).
 PORTAL_DATA_DIR = OUTPUT_DIR.parent.parent / "macro-portal" / "public" / "data"
@@ -83,10 +84,28 @@ def export_forward_validation() -> dict:
     # 데이터로 판정 — (a) churn 누적 비용, (b) 히스테리시스가 막았을 깜빡임 수.
     # 조작화: 0일 보유 event_vol 스트래들 왕복 = 깜빡임 1회(프록시). clean 표본 패배 시
     # "테제 오류 vs churn 슬리피지" 분해에도 이 비용을 빼는 기준선으로 쓴다.
-    churn = [t for t in trades
-             if t.get("rule") == "event_vol" and t.get("strategy") == "straddle"
-             and t.get("holding_days") == 0]
-    churn_pnl = round(sum(float(t.get("pnl") or 0) for t in churn), 2)
+    # 우선순위: Alpaca 실거래가(churn_fills.json, kinetic 이 매 사이클 생성) > 저널 폴백.
+    # 저널 pnl 은 mid 추정 + 키-충돌 매칭오차로 churn 비용 과소(실측 대비 ~2.7배 작음).
+    fill_churn = None
+    try:
+        if CHURN_FILLS_JSON.exists():
+            d = json.loads(CHURN_FILLS_JSON.read_text(encoding="utf-8"))
+            if d.get("basis") == "alpaca_fills":
+                fill_churn = d
+    except (OSError, json.JSONDecodeError):
+        fill_churn = None
+
+    if fill_churn:
+        churn_flickers = int(fill_churn.get("flickers", 0))
+        churn_pnl = round(float(fill_churn.get("cum_pnl", 0)), 2)
+        churn_basis = "alpaca_fills(실거래가)"
+    else:
+        churn = [t for t in trades
+                 if t.get("rule") == "event_vol" and t.get("strategy") == "straddle"
+                 and t.get("holding_days") == 0]
+        churn_flickers = len(churn)
+        churn_pnl = round(sum(float(t.get("pnl") or 0) for t in churn), 2)
+        churn_basis = "journal(mid 추정·과소 가능)"
 
     payload = {
         "generated":          dt.datetime.now().isoformat(timespec="seconds"),
@@ -106,10 +125,12 @@ def export_forward_validation() -> dict:
         "churn_diagnostic": {
             "definition":   "event_vol 스트래들 당일진입+청산(holding_days=0) = 임계경계 깜빡임 왕복. "
                             "룰 발화 히스테리시스 부재로 z가 2.5 경계서 깜빡이면 매 사이클 진입↔은퇴.",
-            "flickers":     len(churn),          # (b) 히스테리시스가 막았을 깜빡임 수(프록시)
-            "cum_pnl":      churn_pnl,           # (a) churn 누적 슬리피지 비용(음수=출혈)
+            "basis":        churn_basis,         # alpaca_fills(실거래가) > journal(폴백, 과소)
+            "flickers":     churn_flickers,      # (b) 히스테리시스가 막았을 깜빡임 수(프록시)
+            "cum_pnl":      churn_pnl,           # (a) churn 누적 슬리피지 비용(음수=출혈, 실체결가)
             "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. "
-                            "단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정.",
+                            "단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정. "
+                            "비용은 실거래가 기준(저널 mid-pnl 은 ~2.7배 과소였음).",
         },
         "closed_trades":      fwd,
     }

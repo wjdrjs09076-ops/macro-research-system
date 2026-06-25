@@ -22,7 +22,7 @@ type FwdData = {
   excluded_n?: number;
   boundary_note?: string;
   timing_note?: string;
-  churn_diagnostic?: { definition: string; flickers: number; cum_pnl: number; verdict_note: string };
+  churn_diagnostic?: { definition: string; basis?: string; flickers: number; cum_pnl: number; verdict_note: string };
   closed_trades: Trade[];
 };
 
@@ -84,9 +84,11 @@ export default function ForwardValidation() {
       <div className="text-gray-600 text-[11px] mt-3 leading-relaxed">
         <span className="text-gray-500">churn 분해 기준선:</span> event_vol 임계경계 깜빡임 왕복{" "}
         {churn.flickers}회 · 누적 슬리피지 {churn.cum_pnl < 0 ? "−" : ""}$
-        {Math.abs(churn.cum_pnl).toFixed(0)}. 표본 손익을 채점할 때 이만큼의 메커니즘 비용이 깔려 있다 —
-        clean 표본이 지면 그 패배를 &quot;테제 오류 vs churn 슬리피지&quot;로 분해하는 기준선이다. (룰 임계
-        z≥2.5는 freeze 불변, 발화 히스테리시스 판정은 ~6/30.)
+        {Math.abs(churn.cum_pnl).toFixed(0)}
+        {churn.basis ? ` (${churn.basis.includes("fills") ? "실거래가 기준" : "저널 추정"})` : ""}. 표본 손익을
+        채점할 때 이만큼의 메커니즘 비용이 깔려 있다 — clean 표본이 지면 그 패배를{" "}
+        &quot;테제 오류 vs churn 슬리피지&quot;로 분해하는 기준선이다. (룰 임계 z≥2.5는 freeze 불변, 발화
+        히스테리시스 판정은 ~6/30.)
       </div>
     ) : null;
 
