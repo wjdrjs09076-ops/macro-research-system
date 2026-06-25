@@ -52,11 +52,11 @@
   "event_vol|straddle": {
     "multiplier": 1.0,
     "killed": false,
-    "trades": 4,
+    "trades": 5,
     "cohorts": 3,
     "win_rate": 0.0,
-    "avg_pnl_pct": -0.2781,
-    "avg_pnl_pct_eff": -0.3286,
-    "total_pnl": -140.5
+    "avg_pnl_pct": -0.2961,
+    "avg_pnl_pct_eff": -0.3555,
+    "total_pnl": -219.5
   }
 }
