@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-25T01:33:35",
+  "scan_date": "2026-06-25T06:14:54",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -104,10 +104,10 @@
       "current_rv": 19.4,
       "baseline_rv": 12.1,
       "z_score": 1.95,
-      "vrp": -0.008,
+      "vrp": -0.0079,
       "beta_30d": 0.979,
       "consec_vol": 5,
-      "excess_10d": 1.16,
+      "excess_10d": 0.74,
       "level": 1,
       "label": "WATCH",
       "reason": "vol z=1.9, 5d consec vol",
@@ -126,6 +126,20 @@
       "label": "WATCH",
       "reason": "vol z=1.9, 5d consec vol",
       "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 5.7,
+      "baseline_rv": 3.9,
+      "z_score": 1.77,
+      "vrp": 0.0006,
+      "beta_30d": 0.193,
+      "consec_vol": 5,
+      "excess_10d": 0.67,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.19, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLC",
@@ -154,20 +168,6 @@
       "label": "WATCH",
       "reason": "beta=1.43, 5d consec vol",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 5.6,
-      "baseline_rv": 3.9,
-      "z_score": 1.66,
-      "vrp": 0.0011,
-      "beta_30d": 0.193,
-      "consec_vol": 5,
-      "excess_10d": 0.62,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.19, 5d consec vol",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^KS11",
@@ -226,6 +226,20 @@
       "sector": "Transportation / Shipping"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 37.2,
+      "baseline_rv": 26.0,
+      "z_score": 0.77,
+      "vrp": -0.0498,
+      "beta_30d": 0.887,
+      "consec_vol": 5,
+      "excess_10d": -6.08,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "GLD",
       "current_rv": 36.8,
       "baseline_rv": 25.7,
@@ -252,20 +266,6 @@
       "label": "WATCH",
       "reason": "beta=0.31, 5d consec vol",
       "sector": "Long-term Treasury"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 36.2,
-      "baseline_rv": 26.0,
-      "z_score": 0.7,
-      "vrp": -0.0466,
-      "beta_30d": 0.887,
-      "consec_vol": 5,
-      "excess_10d": -5.56,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "000001.SS",
@@ -367,13 +367,13 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 41.5,
+      "current_rv": 39.8,
       "baseline_rv": 46.9,
-      "z_score": -0.19,
-      "vrp": 0.3026,
-      "beta_30d": -0.857,
+      "z_score": -0.25,
+      "vrp": 0.312,
+      "beta_30d": -0.858,
       "consec_vol": 5,
-      "excess_10d": -23.01,
+      "excess_10d": -21.89,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=-0.86, 5d consec vol",
