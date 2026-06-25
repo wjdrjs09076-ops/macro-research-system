@@ -86,7 +86,7 @@ def _title(fig, title, subtitle=None):
 
 def _footer(fig, n, total):
     fig.text(0.96, 0.03, f"{n} / {total}", color=C_MUTED, fontsize=9, ha="right")
-    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-21",
+    fig.text(0.04, 0.03, "Macro Research System  ·  2026-06-25",
              color=C_MUTED, fontsize=9)
 
 
@@ -1664,7 +1664,7 @@ def page_exec_summary(pdf, n, total):
         ("배운 점",
          "• 복잡성 ≠ 성과: 룰 11→8 가지치기, 실측 27% 슬리피지에서 9개 straddle 룰 중 co_crash 하나만 생존.\n"
          "• OOS·생존편향: in-sample +$1,252 는 designer-leakage/생존편향 — freeze 후 전향 표본만 유효.\n"
-         "• '문서 ≠ 라이브': 동결 결정도 구현 디테일(int 캐스트/floor)로 무력화 → 주기적 전수조사.",
+         "• '문서≠라이브 · 저널≠실거래': 구현 디테일(int/floor)·저널 mid-pnl(키충돌 ~2.7배 과소) → 전수조사+실체결가 측정(p.18).",
          C_ACCENT_4),
         ("현재 상태",
          "Config Freeze v2(2026-06-16) 완료  ·  Alpaca 페이퍼 트레이딩 진행 중\n"
@@ -1713,7 +1713,7 @@ def page_cost_forward(pdf, n, total):
             ax.text(x, y, txt, color=col, fontsize=10, fontfamily="monospace")
         y -= 0.038
     ax.text(0.01, y - 0.005,
-            "→ 27% 실측서 straddle 트랙 전체 음전(-$1,463). co_crash 만 유일 생존(+$426)이나 "
+            "→ 27% 실측서 straddle 트랙 전체 음전(-\\$1,463). co_crash 만 유일 생존(+\\$426)이나 "
             "edge 1/3 붕괴 + n<10 주장 불가.",
             color=C_ACCENT_3, fontsize=9.5, fontweight="bold")
     ax.text(0.01, y - 0.04,
@@ -1738,11 +1738,61 @@ def page_cost_forward(pdf, n, total):
 
     # ── 현재 라이브 + 교훈 ──
     ax.text(0.01, 0.10,
-            "현재 라이브: XLB 롱 스트래들(event_vol) + β헤지 페어 3종(XLC/XLRE/XLY + SPY 소수주). SPY 풀 정합 · churn 0.",
+            "현재 라이브: XLB 롱 스트래들(event_vol) + β헤지 페어 4종(XLC/XLRE/XLU/XLY + SPY 소수주 풀정합). "
+            "임계경계 churn 2회 발생 → 실체결가 −\\$68 측정(상세 p.18).",
             color=C_ACCENT_2, fontsize=9, fontweight="bold")
     ax.text(0.01, 0.05,
             "★ 교훈: 동결된 결정도 구현 디테일(minimal+math.floor, hedge_qty int 캐스트)로 라이브에서 무력화될 수 있다 → "
-            "주기적 전수조사 + per-leg 로깅·SPY 자가정합으로 방어.",
+            "주기적 전수조사 + per-leg 로깅·SPY 자가정합으로 방어 (회계 정합성 후속: p.18).",
+            color=C_ACCENT_5, fontsize=8.8, style="italic")
+
+    _footer(fig, n, total)
+    pdf.savefig(fig, facecolor=C_BG); plt.close(fig)
+
+
+def page_data_integrity(pdf, n, total):
+    fig = _new_page(figsize=(12.0, 9.0))
+    _title(fig, "Data Integrity & Accounting Self-Audit (2026-06-23~25)",
+           "라이브 집행은 정상인데 저널이 어긋난 두 회계 버그 — 전수감사·자가치유 + 비용을 실체결가로")
+    ax = _blank_axes(fig, (0.04, 0.06, 0.92, 0.82))
+
+    # ── 1. 저널 유령 — 키 충돌 → 자가치유 reconcile ──
+    ax.text(0.01, 0.98, "1. 저널 유령 — (ticker,strategy) 키 충돌 → Alpaca 자가치유 reconcile",
+            color=C_ACCENT_4, fontsize=12, fontweight="bold")
+    s1 = [
+        "• 증상: churn(같은 종목 빠른 재진입) 시 log_exit 이 (ticker,strategy) 키로 *최신* 진입만 매칭 → 오래된 진입이",
+        "    영구 고아(유령). 라이브 Alpaca 는 정상(1세트)인데 저널만 부풀려짐. 전수감사 결과 유령 정확히 1건(XLB).",
+        "• 위험: attribution·forward_validation 이 저널의 closed 거래를 읽어 채점 → 부풀린 저널이 전향 검증 신뢰성을",
+        "    직접 위협. 직전 SPY-floor 버그와 동류('라이브 멀쩡·저널만 어긋남' → 무해해 보이나 연쇄로 죽음).",
+        "• 수정: SPY 헤지에 검증된 'Alpaca=정답, 저널 self-heal' 패턴의 포지션판. 저널>라이브 초과분을 P&L-중립 청산.",
+        "• ★ footgun 선제 차단: get_positions 가 API 실패 시 [] 반환 → '보유 없음'과 구분 불가. positions_ok=False 면",
+        "    아무것도 안 닫음 — 회계 버그 수정이 'API 장애날 정상 포지션 몰살'이라는 더 큰 회계 사고를 만들지 않게.",
+    ]
+    yy = 0.93
+    for line in s1:
+        ax.text(0.02, yy, line, color=C_TEXT, fontsize=8.6, va="top")
+        yy -= 0.037
+
+    # ── 2. churn 비용 — 저널 mid-pnl ~2.7배 과소 → 실체결가 ──
+    ax.text(0.01, 0.555, "2. churn 비용 — 저널 mid-pnl ~2.7배 과소 → Alpaca 실체결가로 정정",
+            color=C_ACCENT_4, fontsize=12, fontweight="bold")
+    s2 = [
+        "• 발견: Alpaca fill 로그 대조. 저널 기반 −\\$25.5 vs 실체결가 −\\$68.0 (strike51.5 왕복 −38 + strike51 왕복 −30).",
+        "• 원인: 저널 pnl = mid 가격 추정 + 키-충돌 매칭오차 → 손익 '숫자' 자체가 신뢰불가(포지션 개수뿐 아니라).",
+        "• 수정: 옵션 fill 을 심볼별 FIFO 매칭, *같은날* 닫힌 로트만 churn 실현(×100). churn_fills.json 매 사이클 생성,",
+        "    attribution 이 실체결가 우선·저널 폴백. forward_validation·게이트 패널에 basis='실거래가' 명시.",
+        "• 함의: 비용/손익 측정의 진실원 = Alpaca 실체결가. ~6/30 churn 히스테리시스 판정 기준선 = −\\$68(정직).",
+    ]
+    yy = 0.51
+    for line in s2:
+        ax.text(0.02, yy, line, color=C_TEXT, fontsize=8.6, va="top")
+        yy -= 0.037
+
+    ax.text(0.01, 0.105,
+            "★ 교훈: 회계 버그는 '라이브 멀쩡'이라 미루기 쉽지만 전향 검증 신뢰성을 직접 위협 → clean 표본 쌓이기 전 즉시 수정.",
+            color=C_ACCENT_3, fontsize=9, fontweight="bold")
+    ax.text(0.01, 0.055,
+            "자가치유 로직엔 그 로직 자체의 footgun(API 실패=몰살)을 먼저 막는다. 측정은 추정(mid)이 아니라 실체결가(fill)로.",
             color=C_ACCENT_5, fontsize=8.8, style="italic")
 
     _footer(fig, n, total)
@@ -1769,7 +1819,7 @@ def main():
         live = json.loads(sig_path.read_text(encoding="utf-8"))
 
     print(f"[overview-pdf] PDF 빌드 → {PDF_OUT}")
-    total = 18
+    total = 19
     with PdfPages(PDF_OUT) as pdf:
         page_cover(pdf, total)
         page_exec_summary(pdf, 2, total)         # NEW 2026-06-21 (Executive Summary)
@@ -1788,7 +1838,8 @@ def main():
         page_round78(pdf, 15, total)             # NEW 2026-06-14 (라운드 7-8 결론)
         page_limitations(pdf, 16, total)
         page_cost_forward(pdf, 17, total)        # NEW 2026-06-21 (27% 슬리피지 + 전향검증)
-        page_glossary(pdf, 18, total)
+        page_data_integrity(pdf, 18, total)      # NEW 2026-06-25 (저널 유령·churn 실체결가)
+        page_glossary(pdf, 19, total)
         d = pdf.infodict()
         d["Title"]    = "Macro Research System Overview"
         d["Author"]   = "wjdrj"
