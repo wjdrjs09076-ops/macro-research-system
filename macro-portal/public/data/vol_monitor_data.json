@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-27T12:53:35",
+  "scan_date": "2026-06-27T14:47:27",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -282,6 +282,20 @@
       "sector": "Long-term Treasury"
     },
     {
+      "ticker": "FXI",
+      "current_rv": 19.3,
+      "baseline_rv": 19.9,
+      "z_score": -0.12,
+      "vrp": 0.0379,
+      "beta_30d": 0.522,
+      "consec_vol": 4,
+      "excess_10d": -8.24,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.52",
+      "sector": "China Large-Cap"
+    },
+    {
       "ticker": "CL=F",
       "current_rv": 41.0,
       "baseline_rv": 47.1,
@@ -469,7 +483,7 @@
       "last_date": "2026-06-26"
     }
   ],
-  "flagged_count": 28,
+  "flagged_count": 29,
   "alert_count": 2,
   "high_count": 1
 }
