@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-28T21:10:21",
+  "scan_date": "2026-06-28T22:37:05",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -199,13 +199,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 35.1,
+      "current_rv": 34.7,
       "baseline_rv": 26.1,
-      "z_score": 0.62,
-      "vrp": -0.0348,
-      "beta_30d": 0.815,
+      "z_score": 0.59,
+      "vrp": -0.0342,
+      "beta_30d": 0.826,
       "consec_vol": 5,
-      "excess_10d": 1.26,
+      "excess_10d": 0.82,
       "level": 1,
       "label": "WATCH",
       "reason": "5d consec vol",
