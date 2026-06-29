@@ -1,11 +1,11 @@
 {
-  "scan_date": "2026-06-28T22:37:05",
+  "scan_date": "2026-06-29T00:14:20",
   "etf_signals": [
     {
       "ticker": "SOXX",
       "current_rv": 80.0,
-      "baseline_rv": 36.2,
-      "z_score": 3.3,
+      "baseline_rv": 36.3,
+      "z_score": 3.29,
       "vrp": -0.0786,
       "beta_30d": 3.711,
       "consec_vol": 5,
@@ -18,7 +18,7 @@
     {
       "ticker": "^N225",
       "current_rv": 47.2,
-      "baseline_rv": 26.2,
+      "baseline_rv": 26.3,
       "z_score": 2.46,
       "vrp": -0.0808,
       "beta_30d": 0.951,
@@ -33,7 +33,7 @@
       "ticker": "XLK",
       "current_rv": 38.9,
       "baseline_rv": 22.0,
-      "z_score": 2.23,
+      "z_score": 2.22,
       "vrp": -0.0046,
       "beta_30d": 2.214,
       "consec_vol": 5,
@@ -46,7 +46,7 @@
     {
       "ticker": "EWY",
       "current_rv": 90.4,
-      "baseline_rv": 43.5,
+      "baseline_rv": 43.6,
       "z_score": 2.12,
       "vrp": -0.0248,
       "beta_30d": 4.771,
@@ -82,14 +82,14 @@
       "excess_10d": 5.4,
       "level": 1,
       "label": "WATCH",
-      "reason": "vol z=1.9, beta=-0.07",
+      "reason": "vol z=1.8, beta=-0.07",
       "sector": "Healthcare"
     },
     {
       "ticker": "^KS11",
       "current_rv": 76.9,
-      "baseline_rv": 37.4,
-      "z_score": 1.71,
+      "baseline_rv": 37.5,
+      "z_score": 1.7,
       "vrp": -0.0503,
       "beta_30d": 2.41,
       "consec_vol": 5,
@@ -103,7 +103,7 @@
       "ticker": "000001.SS",
       "current_rv": 20.0,
       "baseline_rv": 12.9,
-      "z_score": 1.56,
+      "z_score": 1.57,
       "vrp": -0.0332,
       "beta_30d": 0.206,
       "consec_vol": 5,
@@ -128,20 +128,6 @@
       "sector": "Communication"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 5.2,
-      "baseline_rv": 3.9,
-      "z_score": 1.28,
-      "vrp": 0.002,
-      "beta_30d": 0.187,
-      "consec_vol": 5,
-      "excess_10d": 1.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.19, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "EWJ",
       "current_rv": 28.3,
       "baseline_rv": 19.0,
@@ -154,6 +140,20 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 5.2,
+      "baseline_rv": 3.9,
+      "z_score": 1.2,
+      "vrp": 0.002,
+      "beta_30d": 0.187,
+      "consec_vol": 5,
+      "excess_10d": 1.2,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.19, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLY",
@@ -187,7 +187,7 @@
       "ticker": "ES=F",
       "current_rv": 15.4,
       "baseline_rv": 12.2,
-      "z_score": 0.87,
+      "z_score": 0.84,
       "vrp": 0.0286,
       "beta_30d": 0.967,
       "consec_vol": 5,
@@ -196,20 +196,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "S&P 500 Futures"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 34.7,
-      "baseline_rv": 26.1,
-      "z_score": 0.59,
-      "vrp": -0.0342,
-      "beta_30d": 0.826,
-      "consec_vol": 5,
-      "excess_10d": 0.82,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "XLE",
@@ -226,10 +212,24 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 30.2,
+      "baseline_rv": 26.2,
+      "z_score": 0.27,
+      "vrp": -0.0342,
+      "beta_30d": 0.826,
+      "consec_vol": 5,
+      "excess_10d": 0.82,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "GLD",
       "current_rv": 27.2,
-      "baseline_rv": 25.9,
-      "z_score": 0.09,
+      "baseline_rv": 26.0,
+      "z_score": 0.08,
       "vrp": 0.0148,
       "beta_30d": 1.372,
       "consec_vol": 5,
@@ -257,7 +257,7 @@
       "ticker": "XLB",
       "current_rv": 17.0,
       "baseline_rv": 16.8,
-      "z_score": 0.04,
+      "z_score": 0.03,
       "vrp": 0.0461,
       "beta_30d": 0.974,
       "consec_vol": 5,
@@ -297,9 +297,9 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 41.0,
-      "baseline_rv": 47.2,
-      "z_score": -0.21,
+      "current_rv": 43.1,
+      "baseline_rv": 47.3,
+      "z_score": -0.15,
       "vrp": 0.2883,
       "beta_30d": -0.739,
       "consec_vol": 5,
@@ -326,7 +326,7 @@
     {
       "ticker": "XLF",
       "current_rv": 12.6,
-      "baseline_rv": 14.5,
+      "baseline_rv": 14.6,
       "z_score": -0.44,
       "vrp": 0.0363,
       "beta_30d": 0.198,
@@ -369,7 +369,7 @@
       "ticker": "MCHI",
       "current_rv": 16.9,
       "baseline_rv": 20.4,
-      "z_score": -0.61,
+      "z_score": -0.6,
       "vrp": 0.0546,
       "beta_30d": 0.621,
       "consec_vol": 0,
@@ -382,7 +382,7 @@
     {
       "ticker": "^STOXX50E",
       "current_rv": 11.2,
-      "baseline_rv": 15.1,
+      "baseline_rv": 15.2,
       "z_score": -0.63,
       "vrp": 0.0729,
       "beta_30d": 0.521,
@@ -397,7 +397,7 @@
       "ticker": "^FTMC",
       "current_rv": 8.1,
       "baseline_rv": 12.1,
-      "z_score": -0.79,
+      "z_score": -0.78,
       "vrp": 0.0789,
       "beta_30d": 0.381,
       "consec_vol": 3,
@@ -410,8 +410,8 @@
     {
       "ticker": "XAR",
       "current_rv": 17.9,
-      "baseline_rv": 28.1,
-      "z_score": -1.25,
+      "baseline_rv": 28.2,
+      "z_score": -1.26,
       "vrp": 0.2197,
       "beta_30d": 1.399,
       "consec_vol": 4,
@@ -437,8 +437,8 @@
         "MCHI"
       ],
       "current": 4962.08,
-      "baseline": 4655.15,
-      "z_score": 2.18,
+      "baseline": 4657.09,
+      "z_score": 2.21,
       "rv_20d": 25.78,
       "last_date": "2026-06-26"
     },
@@ -450,7 +450,7 @@
         "MCHI"
       ],
       "current": 8808.38,
-      "baseline": 7757.19,
+      "baseline": 7762.39,
       "z_score": 1.73,
       "rv_20d": 30.16,
       "last_date": "2026-06-26"
@@ -463,8 +463,8 @@
         "MCHI"
       ],
       "current": 4273.84,
-      "baseline": 3327.86,
-      "z_score": 2.76,
+      "baseline": 3331.5,
+      "z_score": 2.77,
       "rv_20d": 45.02,
       "last_date": "2026-06-26"
     },
@@ -477,8 +477,8 @@
         "MCHI"
       ],
       "current": 4105.54,
-      "baseline": 3995.48,
-      "z_score": 0.95,
+      "baseline": 3996.64,
+      "z_score": 0.94,
       "rv_20d": 16.59,
       "last_date": "2026-06-26"
     }
