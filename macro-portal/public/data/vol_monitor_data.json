@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-29T15:01:44",
+  "scan_date": "2026-06-29T15:31:36",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -240,20 +240,6 @@
       "sector": "Gold"
     },
     {
-      "ticker": "^HSI",
-      "current_rv": 19.5,
-      "baseline_rv": 19.2,
-      "z_score": 0.07,
-      "vrp": -0.0117,
-      "beta_30d": 0.369,
-      "consec_vol": 1,
-      "excess_10d": -5.74,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.37",
-      "sector": "Hang Seng"
-    },
-    {
       "ticker": "XLB",
       "current_rv": 17.0,
       "baseline_rv": 16.8,
@@ -483,7 +469,7 @@
       "last_date": "2026-06-29"
     }
   ],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 2,
   "high_count": 1
 }
