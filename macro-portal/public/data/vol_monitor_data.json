@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-29T00:14:20",
+  "scan_date": "2026-06-29T05:14:57",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -128,6 +128,20 @@
       "sector": "Communication"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 5.2,
+      "baseline_rv": 3.9,
+      "z_score": 1.28,
+      "vrp": 0.002,
+      "beta_30d": 0.187,
+      "consec_vol": 5,
+      "excess_10d": 1.2,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.19, 5d consec vol",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "EWJ",
       "current_rv": 28.3,
       "baseline_rv": 19.0,
@@ -140,20 +154,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Japan (MSCI)"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 5.2,
-      "baseline_rv": 3.9,
-      "z_score": 1.2,
-      "vrp": 0.002,
-      "beta_30d": 0.187,
-      "consec_vol": 5,
-      "excess_10d": 1.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.19, 5d consec vol",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLY",
@@ -187,7 +187,7 @@
       "ticker": "ES=F",
       "current_rv": 15.4,
       "baseline_rv": 12.2,
-      "z_score": 0.84,
+      "z_score": 0.87,
       "vrp": 0.0286,
       "beta_30d": 0.967,
       "consec_vol": 5,
@@ -196,6 +196,20 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 34.7,
+      "baseline_rv": 26.2,
+      "z_score": 0.58,
+      "vrp": -0.0342,
+      "beta_30d": 0.826,
+      "consec_vol": 5,
+      "excess_10d": 0.82,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "XLE",
@@ -210,20 +224,6 @@
       "label": "WATCH",
       "reason": "beta=-0.57, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 30.2,
-      "baseline_rv": 26.2,
-      "z_score": 0.27,
-      "vrp": -0.0342,
-      "beta_30d": 0.826,
-      "consec_vol": 5,
-      "excess_10d": 0.82,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "GLD",
@@ -297,9 +297,9 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 43.1,
+      "current_rv": 41.0,
       "baseline_rv": 47.3,
-      "z_score": -0.15,
+      "z_score": -0.22,
       "vrp": 0.2883,
       "beta_30d": -0.739,
       "consec_vol": 5,
