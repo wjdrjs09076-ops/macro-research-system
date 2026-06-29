@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-29T10:10:33",
+  "scan_date": "2026-06-29T13:01:50",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -75,7 +75,7 @@
       "ticker": "XLV",
       "current_rv": 21.2,
       "baseline_rv": 14.4,
-      "z_score": 1.85,
+      "z_score": 1.84,
       "vrp": 0.0027,
       "beta_30d": -0.075,
       "consec_vol": 4,
@@ -462,11 +462,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 4273.84,
-      "baseline": 3331.5,
-      "z_score": 2.77,
-      "rv_20d": 45.02,
-      "last_date": "2026-06-26"
+      "current": 4245.3,
+      "baseline": 3336.67,
+      "z_score": 2.62,
+      "rv_20d": 44.25,
+      "last_date": "2026-06-29"
     },
     {
       "sym": "sh000001",
