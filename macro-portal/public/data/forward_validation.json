@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-30T10:09:27",
+  "generated": "2026-06-30T19:22:21",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
@@ -16,8 +16,20 @@
     "basis": "alpaca_fills(실거래가)",
     "flickers": 2,
     "cum_pnl": -68.0,
-    "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. 단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정. 비용은 실거래가 기준(저널 mid-pnl 은 ~2.7배 과소였음)."
+    "status": "moot (2026-06-30) — event_vol shadow 격리로 churn 영구 휴면 → 히스테리시스 쟁점 소멸('보류' 아님). 아래 −값은 동결 보존(소급 기준선).",
+    "verdict_note": "결론(6/30): event_vol shadow → churn moot. 비용은 실거래가 기준(저널 mid-pnl 은 ~2.7배 과소였음). instrument 교체 시 소급 재평가용 보존."
   },
+  "clean_samples": [
+    {
+      "n": 1,
+      "ticker": "XLU",
+      "rule": "rate_victim",
+      "exit_date": "2026-06-29",
+      "pnl": -18.46,
+      "direction_note": "역방향(손실)"
+    }
+  ],
+  "clean_note": "clean 표본 n<8 이면 군집 판정 보류 — 개별 표본을 '테제 미스/적중'으로 단정 금지. 방향은 표본별 메모(역방향/순방향) 참조.",
   "closed_trades": [
     {
       "exit_date": "2026-06-22",

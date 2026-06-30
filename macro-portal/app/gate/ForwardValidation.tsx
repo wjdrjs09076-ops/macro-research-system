@@ -22,7 +22,9 @@ type FwdData = {
   excluded_n?: number;
   boundary_note?: string;
   timing_note?: string;
-  churn_diagnostic?: { definition: string; basis?: string; flickers: number; cum_pnl: number; verdict_note: string };
+  churn_diagnostic?: { definition: string; basis?: string; status?: string; flickers: number; cum_pnl: number; verdict_note: string };
+  clean_samples?: { n: number; ticker: string; rule: string | null; exit_date: string; pnl: number; direction_note: string }[];
+  clean_note?: string;
   closed_trades: Trade[];
 };
 
@@ -87,10 +89,39 @@ export default function ForwardValidation() {
         {Math.abs(churn.cum_pnl).toFixed(0)}
         {churn.basis ? ` (${churn.basis.includes("fills") ? "실거래가 기준" : "저널 추정"})` : ""}. 표본 손익을
         채점할 때 이만큼의 메커니즘 비용이 깔려 있다 — clean 표본이 지면 그 패배를{" "}
-        &quot;테제 오류 vs churn 슬리피지&quot;로 분해하는 기준선이다. (룰 임계 z≥2.5는 freeze 불변, 발화
-        히스테리시스 판정은 ~6/30.)
+        &quot;테제 오류 vs churn 슬리피지&quot;로 분해하는 기준선이다.
+        {churn.status ? (
+          <>
+            {" "}
+            <span className="text-gray-500">[{churn.status.split(" — ")[0]}]</span> event_vol shadow 격리로 churn
+            휴면 → 히스테리시스 쟁점 소멸. 위 −값은 동결 보존(소급 기준선).
+          </>
+        ) : (
+          " (룰 임계 z≥2.5는 freeze 불변, 발화 히스테리시스 판정은 ~6/30.)"
+        )}
       </div>
     ) : null;
+
+  // clean 표본 라벨 — '테제 미스/적중' 단정 대신 '표본 N: {ticker} 역방향, n<게이트 판정 보류'.
+  const CleanSamples = () => {
+    const cs = data.clean_samples ?? [];
+    if (!cs.length) return null;
+    const gate = data.cluster_min_n;
+    return (
+      <div className="mt-3 text-[11px] leading-relaxed">
+        <span className="text-gray-400 font-semibold">clean 표본 (동결 잣대 채점):</span>
+        {cs.map((s) => (
+          <div key={s.n} className="text-gray-500 mt-0.5">
+            표본 {s.n}: <span className="text-gray-300">{s.ticker}</span> {s.rule} ·{" "}
+            <span className={s.pnl < 0 ? "text-red-400" : "text-emerald-400"}>{s.direction_note}</span> (
+            {s.pnl < 0 ? "−" : "+"}${Math.abs(s.pnl).toFixed(0)}) ·{" "}
+            {cs.length < gate ? `n=${cs.length}<${gate} → 판정 보류` : ""}
+          </div>
+        ))}
+        {data.clean_note && <div className="text-gray-600 mt-1">{data.clean_note}</div>}
+      </div>
+    );
+  };
 
   // ── 빈 상태 (전향 표본 누적 전) ──
   if (data.n_closed === 0) {
@@ -180,6 +211,7 @@ export default function ForwardValidation() {
             clean 표본 부족 (n={cleanN} &lt; {data.cluster_min_n}) — 군집 판정 보류.
           </div>
         )}
+        <CleanSamples />
         {data.boundary_note && (
           <div className="text-gray-600 text-[11px] mt-2">경계: {data.boundary_note}</div>
         )}

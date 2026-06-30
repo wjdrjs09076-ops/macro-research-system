@@ -107,6 +107,15 @@ def export_forward_validation() -> dict:
         churn_pnl = round(sum(float(t.get("pnl") or 0) for t in churn), 2)
         churn_basis = "journal(mid 추정·과소 가능)"
 
+    # clean 표본 라벨 (데이터 파생 — stale 없음). 패널이 '테제 미스/적중' 단정 대신
+    # '표본 N: {ticker} 역방향/순방향, n<게이트 판정 보류'로 표기하도록.
+    clean_samples = [
+        {"n": i + 1, "ticker": r["ticker"], "rule": r["rule"],
+         "exit_date": r["exit_date"], "pnl": r["pnl"],
+         "direction_note": "역방향(손실)" if (r["pnl"] or 0) < 0 else "순방향(이익)"}
+        for i, r in enumerate(r for r in fwd if r["validation"] == "clean")
+    ]
+
     payload = {
         "generated":          dt.datetime.now().isoformat(timespec="seconds"),
         "oos_forward_start":  OOS_FORWARD_START,
@@ -128,10 +137,16 @@ def export_forward_validation() -> dict:
             "basis":        churn_basis,         # alpaca_fills(실거래가) > journal(폴백, 과소)
             "flickers":     churn_flickers,      # (b) 히스테리시스가 막았을 깜빡임 수(프록시)
             "cum_pnl":      churn_pnl,           # (a) churn 누적 슬리피지 비용(음수=출혈, 실체결가)
-            "verdict_note": "~6/30 판정용. flickers↑·cum_pnl↓ 면 히스테리시스 추가 정당성. "
-                            "단 발화빈도를 바꾸므로 '구현 정합화'인지 '검증 대상 변경'인지는 오너 판정. "
-                            "비용은 실거래가 기준(저널 mid-pnl 은 ~2.7배 과소였음).",
+            "status":       "moot (2026-06-30) — event_vol shadow 격리로 churn 영구 휴면 → "
+                            "히스테리시스 쟁점 소멸('보류' 아님). 아래 −값은 동결 보존(소급 기준선).",
+            "flickers":     churn_flickers,      # 동결: 히스테리시스가 막았을 깜빡임 수
+            "cum_pnl":      churn_pnl,           # 동결: churn 누적 슬리피지(실체결가)
+            "verdict_note": "결론(6/30): event_vol shadow → churn moot. 비용은 실거래가 기준"
+                            "(저널 mid-pnl 은 ~2.7배 과소였음). instrument 교체 시 소급 재평가용 보존.",
         },
+        "clean_samples":      clean_samples,
+        "clean_note":         (f"clean 표본 n<{CLUSTER_MIN_N} 이면 군집 판정 보류 — 개별 표본을 "
+                               "'테제 미스/적중'으로 단정 금지. 방향은 표본별 메모(역방향/순방향) 참조."),
         "closed_trades":      fwd,
     }
     try:

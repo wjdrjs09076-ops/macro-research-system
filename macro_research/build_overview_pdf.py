@@ -158,7 +158,7 @@ def page_cover(pdf, total):
     total_w = box_w * 3 + gap * 2
     x0 = (1 - total_w) / 2
     pillars = [
-        ("① 감지", "6-Layer 온톨로지\n(GARCH→EVT→Copula→Cholesky→Gate · ML=shadow)",
+        ("① 감지", "6-Layer 온톨로지\n(GARCH→EVT→Copula→Cholesky→Gate · ML·event_vol=shadow)",
          C_ACCENT_1),
         ("② 실행", "키네틱 레이어\n→ β헤지 스프레드(R8) · event_vol 롱 볼(R9)",
          C_ACCENT_2),
@@ -1467,9 +1467,9 @@ def page_round78(pdf, n, total):
          "라이브 directional = rate_victim ALIVE 3종(XLRE/XLY/XLC)만. SSOT 자기정합 + 체커 재발방지.",
          C_ACCENT_3),
 
-        ("5. ML shadow 격리 (W1 · 결정 D안)",
-         "ML(LR/RF/GBT·VQC)은 라이브 사이징 경로에 부재 확정 — 평가 전용. 발화만 누적(n_fire=2/30),\n"
-         "사이징 미반영. 제품명 'Ontology-Gated Framework (ML in shadow eval)'. n≥30 도달 시 재결정.",
+        ("5. shadow 격리 — ML(W1) + event_vol(6/30)",
+         "ML(LR/RF/GBT·VQC) 라이브 사이징 부재, 평가 전용(n_fire=2/30). event_vol(6/30): 닫힌 5건 −\\$219.5\n"
+         "구조적 손실 → 발화·기록 유지·라이브 진입만 격리(룰셋 9→8 아님 = OOS 시계 불변). 'ML+event_vol in shadow eval'.",
          C_ACCENT_2),
 
         ("6. 확정 결정 + 라벨 (D1=가 / P2-4=A)",
@@ -1729,17 +1729,17 @@ def page_cost_forward(pdf, n, total):
         "• 데이터: 닫힌 거래만(미실현 제외), freeze v2(6/16) 이후, 마이그레이션·origin-event 오염 제외 = 깨끗한 전향 표본.",
         "• View 1: 영점 = 0 아니라 왕복 슬리피지 비용대 → '부호만 양수' 함정 차단. 실패 군집 = missing-risk 신호. n<8 보류.",
         "• View 2: 레짐 분포(co_crash high_vix 한 칸 몰림 = 소수 이벤트 의존 경고) · View 3: 점추정 vs 95% CI 하한 분리.",
-        "• 현재 n_closed=0 — 첫 표본 ~6/30(XLB, origin-event 라 참고용). 첫 정식 표본 = 동결된 잣대로 채점되는 최초 데이터.",
+        "• 현재 n_closed=6·clean_n=1 — 첫 clean 표본 = XLU rate_victim 역방향(−\\$18.9 fill 검증). n=1<8 → 판정 보류('테제 미스' 단정 금지).",
     ]
     yy = 0.51
     for line in fv:
         ax.text(0.02, yy, line, color=C_TEXT, fontsize=8.8, va="top")
         yy -= 0.04
 
-    # ── 현재 라이브 + 교훈 ──
+    # ── 6/30 판정 + 현재 라이브 ──
     ax.text(0.01, 0.10,
-            "현재 라이브: XLB 롱 스트래들(event_vol) + β헤지 페어 4종(XLC/XLRE/XLU/XLY + SPY 소수주 풀정합). "
-            "임계경계 churn 2회 발생 → 실체결가 −\\$68 측정(상세 p.18).",
+            "★ 6/30 판정: event_vol → shadow 격리(발화 유지·진입만 정지, OOS 불변). "
+            "닫힌 5건 −\\$219.5 구조적 손실 · churn moot. 라이브 = β헤지 directional 3종.",
             color=C_ACCENT_2, fontsize=9, fontweight="bold")
     ax.text(0.01, 0.05,
             "★ 교훈: 동결된 결정도 구현 디테일(minimal+math.floor, hedge_qty int 캐스트)로 라이브에서 무력화될 수 있다 → "

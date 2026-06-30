@@ -1,27 +1,27 @@
 {
-  "n_closed": 25,
+  "n_closed": 27,
   "by_strategy": {
     "straddle": {
-      "trades": 8,
+      "trades": 9,
       "wins": 0,
       "win_rate": 0.0,
-      "avg_pnl_pct": -0.2583,
-      "total_pnl": -608.0,
-      "avg_hold_days": 2.9,
+      "avg_pnl_pct": -0.2705,
+      "total_pnl": -687.0,
+      "avg_hold_days": 2.8,
       "cohorts": 6,
       "win_rate_eff": 0.0,
-      "avg_pnl_pct_eff": -0.2885
+      "avg_pnl_pct_eff": -0.3019
     },
     "directional": {
-      "trades": 17,
+      "trades": 18,
       "wins": 7,
-      "win_rate": 0.4118,
-      "avg_pnl_pct": -0.0044,
-      "total_pnl": -43.09,
-      "avg_hold_days": 2.2,
-      "cohorts": 7,
-      "win_rate_eff": 0.2857,
-      "avg_pnl_pct_eff": -0.0034
+      "win_rate": 0.3889,
+      "avg_pnl_pct": -0.0061,
+      "total_pnl": -61.55,
+      "avg_hold_days": 2.4,
+      "cohorts": 8,
+      "win_rate_eff": 0.25,
+      "avg_pnl_pct_eff": -0.0073
     }
   },
   "by_rule_strategy": {
@@ -70,26 +70,26 @@
       "avg_pnl_pct_eff": -0.005
     },
     "rate_victim|directional": {
-      "trades": 12,
+      "trades": 13,
       "wins": 5,
-      "win_rate": 0.4167,
-      "avg_pnl_pct": -0.0042,
-      "total_pnl": -30.12,
-      "avg_hold_days": 1.8,
-      "cohorts": 3,
-      "win_rate_eff": 0.3333,
-      "avg_pnl_pct_eff": -0.0043
+      "win_rate": 0.3846,
+      "avg_pnl_pct": -0.0066,
+      "total_pnl": -48.58,
+      "avg_hold_days": 2.2,
+      "cohorts": 4,
+      "win_rate_eff": 0.25,
+      "avg_pnl_pct_eff": -0.012
     },
     "event_vol|straddle": {
-      "trades": 4,
+      "trades": 5,
       "wins": 0,
       "win_rate": 0.0,
-      "avg_pnl_pct": -0.2781,
-      "total_pnl": -140.5,
-      "avg_hold_days": 2.8,
+      "avg_pnl_pct": -0.2961,
+      "total_pnl": -219.5,
+      "avg_hold_days": 2.6,
       "cohorts": 3,
       "win_rate_eff": 0.0,
-      "avg_pnl_pct_eff": -0.3286
+      "avg_pnl_pct_eff": -0.3555
     }
   },
   "by_rule": {
@@ -127,39 +127,39 @@
       "avg_pnl_pct_eff": -0.0019
     },
     "rate_victim": {
-      "trades": 12,
+      "trades": 13,
       "wins": 5,
-      "win_rate": 0.4167,
-      "avg_pnl_pct": -0.0042,
-      "total_pnl": -30.12,
-      "avg_hold_days": 1.8,
-      "cohorts": 3,
-      "win_rate_eff": 0.3333,
-      "avg_pnl_pct_eff": -0.0043
+      "win_rate": 0.3846,
+      "avg_pnl_pct": -0.0066,
+      "total_pnl": -48.58,
+      "avg_hold_days": 2.2,
+      "cohorts": 4,
+      "win_rate_eff": 0.25,
+      "avg_pnl_pct_eff": -0.012
     },
     "event_vol": {
-      "trades": 4,
+      "trades": 5,
       "wins": 0,
       "win_rate": 0.0,
-      "avg_pnl_pct": -0.2781,
-      "total_pnl": -140.5,
-      "avg_hold_days": 2.8,
+      "avg_pnl_pct": -0.2961,
+      "total_pnl": -219.5,
+      "avg_hold_days": 2.6,
       "cohorts": 3,
       "win_rate_eff": 0.0,
-      "avg_pnl_pct_eff": -0.3286
+      "avg_pnl_pct_eff": -0.3555
     }
   },
   "by_regime": {
     "mid_vix": {
-      "trades": 23,
+      "trades": 25,
       "wins": 7,
-      "win_rate": 0.3043,
-      "avg_pnl_pct": -0.081,
-      "total_pnl": -576.79,
-      "avg_hold_days": 2.3,
-      "cohorts": 11,
-      "win_rate_eff": 0.1818,
-      "avg_pnl_pct_eff": -0.1341
+      "win_rate": 0.28,
+      "avg_pnl_pct": -0.0906,
+      "total_pnl": -674.25,
+      "avg_hold_days": 2.4,
+      "cohorts": 12,
+      "win_rate_eff": 0.1667,
+      "avg_pnl_pct_eff": -0.1326
     },
     "high_vix": {
       "trades": 2,
@@ -175,15 +175,15 @@
   },
   "by_signal": {
     "MONITOR": {
-      "trades": 7,
+      "trades": 8,
       "wins": 0,
       "win_rate": 0.0,
-      "avg_pnl_pct": -0.256,
-      "total_pnl": -536.5,
-      "avg_hold_days": 2.7,
+      "avg_pnl_pct": -0.2701,
+      "total_pnl": -615.5,
+      "avg_hold_days": 2.6,
       "cohorts": 5,
       "win_rate_eff": 0.0,
-      "avg_pnl_pct_eff": -0.2913
+      "avg_pnl_pct_eff": -0.3074
     },
     "HEDGE": {
       "trades": 2,
@@ -208,15 +208,15 @@
       "avg_pnl_pct_eff": -0.0019
     },
     "UNDERWEIGHT": {
-      "trades": 12,
+      "trades": 13,
       "wins": 5,
-      "win_rate": 0.4167,
-      "avg_pnl_pct": -0.0042,
-      "total_pnl": -30.12,
-      "avg_hold_days": 1.8,
-      "cohorts": 3,
-      "win_rate_eff": 0.3333,
-      "avg_pnl_pct_eff": -0.0043
+      "win_rate": 0.3846,
+      "avg_pnl_pct": -0.0066,
+      "total_pnl": -48.58,
+      "avg_hold_days": 2.2,
+      "cohorts": 4,
+      "win_rate_eff": 0.25,
+      "avg_pnl_pct_eff": -0.012
     }
   }
 }

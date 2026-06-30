@@ -115,6 +115,14 @@ RULE_FAMILY = {"rate_beneficiary": "rate", "rate_victim": "rate"}
 SIGNAL_STATE_JSON = OUTPUT_DIR / "rule_sector_state.json"
 SIGNAL_STATE_MAX_AGE_H = 48
 
+# event_vol = shadow 격리 (2026-06-30 판정). 룰 발화·SignalNode 기록은 유지, *라이브 진입만* 정지.
+# 근거: 닫힌 5건 전부 손실(−$219.5)이 표본 운 아니라 구조적('z 하락=시그널은퇴 청산=vol crush'
+# 결합 + 진입 슬리피지) → 메커니즘 판정이라 오염 표본으로도 유효. 게다가 minimal 예산서 clean
+# 표본화 구조적 불가(오염 아니면 예산 스킵). ★ 룰셋 9→8 아님(룰 살아있고 발화 기록됨) = 실행
+# 격리지 룰 비활성 아님 → OOS 시계 리셋 없음(directional clean_n=1, OOS 6/16 불변).
+SHADOW_ENTRY_RULES = {"event_vol"}
+EVENT_VOL_SHADOW_LOG = OUTPUT_DIR / "event_vol_shadow_log.jsonl"
+
 # ── SHORT STRADDLE(숏 볼) 파라미터 (2026-06-10 신설) ────────────
 # 시스템 테제 코히어런스 — vol_overpriced ∩ thin_tail_greenlight 만 발화.
 # Naked short straddle 무한 손실 위험 → SL +100% (프리미엄 두 배 손실 시 강제 청산).
@@ -835,12 +843,50 @@ def run_entry(live: bool, json_path: str, source: str = "ontology",
     _reconcile_positions()                    # 저널 미청산 ↔ 라이브 보유 정합(유령 self-heal)
 
 
+def _log_event_vol_shadow(cand: dict) -> None:
+    """event_vol 발화를 별도 로그에 누적(라이브 진입 격리, 6/30 판정). 나중에 instrument
+    교체 시 소급 평가용. 사이클당 중복 방지 위해 같은 ticker·같은 날엔 1회만 기록."""
+    ticker = cand.get("ticker")
+    today = dt.date.today().isoformat()
+    if EVENT_VOL_SHADOW_LOG.exists():
+        try:
+            for line in reversed(EVENT_VOL_SHADOW_LOG.read_text(encoding="utf-8").splitlines()):
+                line = line.strip()
+                if not line:
+                    continue
+                r = json.loads(line)
+                if r.get("ticker") == ticker and str(r.get("ts", ""))[:10] == today:
+                    return   # 오늘 이미 기록됨
+        except (OSError, json.JSONDecodeError):
+            pass
+    rec = {
+        "ts":         dt.datetime.now().isoformat(timespec="seconds"),
+        "ticker":     ticker,
+        "rule":       cand.get("rule"),
+        "confidence": cand.get("confidence"),
+        "regime":     cand.get("regime"),
+        "reasoning":  cand.get("reasoning", []),
+        "action":     "shadow_no_entry",
+    }
+    try:
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        with EVENT_VOL_SHADOW_LOG.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+
+
 def _run_straddle_entry(candidates, equity, multipliers, live, market_open) -> None:
     held = held_option_underlyings()
     print(f"\n  ── STRADDLE (롱 볼)  보유중 {sorted(held) or '없음'} ──")
 
     plans: list[StraddlePlan] = []
     for cand in candidates:
+        if cand.get("rule") in SHADOW_ENTRY_RULES:
+            _log_event_vol_shadow(cand)   # 발화 기록 유지, 라이브 진입만 격리(shadow)
+            print(f"  [shadow] {cand['ticker']}: {cand.get('rule')} 발화 기록 — "
+                  f"라이브 진입 격리(6/30 판정, 진입 0). 발화 누적 로그에 기록.")
+            continue
         if cand["ticker"] in held:
             print(f"  [skip] {cand['ticker']}: 이미 옵션 포지션 보유 (중복 진입 방지)")
             continue

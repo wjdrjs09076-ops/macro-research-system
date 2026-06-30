@@ -96,6 +96,7 @@ jobs:
                   macro_research/output/partial_results.csv \
                   macro_research/output/static_results.csv \
                   macro_research/output/churn_fills.json \
+                  macro_research/output/event_vol_shadow_log.jsonl \
                   macro-portal/public/data/vol_monitor_data.json \
                   macro-portal/public/data/ontology_signals.json \
                   macro-portal/public/data/iv_history.json \
