@@ -109,3 +109,4 @@
 {"ts": "2026-06-28T05:05:14", "ticker": "EWY", "level": 2, "z_score": 2.12, "vrp": -0.1415, "reason": "vol z=2.1, VRP=-0.141, beta=4.80, 5d consec vol"}
 {"ts": "2026-06-29T00:14:20", "ticker": "SOXX", "level": 3, "z_score": 3.29, "vrp": -0.0786, "reason": "vol z=3.3, VRP=-0.079, beta=3.71, 5d consec vol"}
 {"ts": "2026-06-29T00:14:20", "ticker": "^N225", "level": 2, "z_score": 2.46, "vrp": -0.0808, "reason": "vol z=2.5, VRP=-0.081, 5d consec vol"}
+{"ts": "2026-06-30T01:32:23", "ticker": "SOXX", "level": 3, "z_score": 3.32, "vrp": -0.1146, "reason": "vol z=3.3, VRP=-0.115, beta=3.65, 5d consec vol"}
