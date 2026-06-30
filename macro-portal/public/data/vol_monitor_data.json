@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-30T10:09:09",
+  "scan_date": "2026-06-30T13:31:38",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -462,11 +462,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 4245.3,
-      "baseline": 3340.41,
-      "z_score": 2.64,
-      "rv_20d": 44.25,
-      "last_date": "2026-06-29"
+      "current": 4275.41,
+      "baseline": 3344.69,
+      "z_score": 2.68,
+      "rv_20d": 44.31,
+      "last_date": "2026-06-30"
     },
     {
       "sym": "sh000001",
