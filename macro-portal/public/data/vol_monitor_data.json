@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-06-30T01:32:23",
+  "scan_date": "2026-06-30T06:19:22",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -145,11 +145,11 @@
       "ticker": "ZN=F",
       "current_rv": 5.2,
       "baseline_rv": 3.9,
-      "z_score": 1.22,
+      "z_score": 1.23,
       "vrp": 0.0028,
-      "beta_30d": 0.167,
+      "beta_30d": 0.166,
       "consec_vol": 5,
-      "excess_10d": 0.17,
+      "excess_10d": 0.16,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.17, 5d consec vol",
@@ -171,13 +171,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 16.4,
+      "current_rv": 16.7,
       "baseline_rv": 12.2,
-      "z_score": 1.1,
-      "vrp": 0.0102,
-      "beta_30d": 0.944,
+      "z_score": 1.17,
+      "vrp": 0.0075,
+      "beta_30d": 0.952,
       "consec_vol": 5,
-      "excess_10d": 0.57,
+      "excess_10d": 0.71,
       "level": 1,
       "label": "WATCH",
       "reason": "5d consec vol",
@@ -198,20 +198,6 @@
       "sector": "Industrials"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 31.7,
-      "baseline_rv": 26.3,
-      "z_score": 0.37,
-      "vrp": 0.0205,
-      "beta_30d": 0.656,
-      "consec_vol": 5,
-      "excess_10d": -5.63,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.66, 5d consec vol",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLE",
       "current_rv": 22.9,
       "baseline_rv": 21.0,
@@ -224,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=-0.57, 5d consec vol",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 30.6,
+      "baseline_rv": 26.3,
+      "z_score": 0.3,
+      "vrp": 0.0215,
+      "beta_30d": 0.709,
+      "consec_vol": 5,
+      "excess_10d": -4.71,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "GLD",
@@ -241,16 +241,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 44.8,
+      "current_rv": 46.3,
       "baseline_rv": 47.4,
-      "z_score": -0.09,
-      "vrp": 0.2458,
-      "beta_30d": -0.565,
+      "z_score": -0.04,
+      "vrp": 0.2374,
+      "beta_30d": -0.524,
       "consec_vol": 5,
-      "excess_10d": -18.56,
+      "excess_10d": -17.87,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.56, 5d consec vol",
+      "reason": "beta=-0.52, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
