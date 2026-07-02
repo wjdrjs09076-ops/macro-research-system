@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.59,
-    "ts": "2026-07-02T19:32:19"
+    "ts": "2026-07-02T19:45:29"
   },
-  "generated": "2026-07-02T19:32:19",
+  "generated": "2026-07-02T19:45:29",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -277,7 +277,7 @@
       "t_raw": 0.41,
       "delta_ctrl": -0.0035,
       "t_ctrl": -3.27,
-      "q_raw": 0.748,
+      "q_raw": 0.7479,
       "q_ctrl": 0.0067,
       "vif": 11.0,
       "verdict": "emerged"
