@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-03T19:31:41",
+  "scan_date": "2026-07-03T19:38:48",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -210,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=0.45",
       "sector": "UK (MSCI)"
+    },
+    {
+      "ticker": "XLB",
+      "current_rv": 18.3,
+      "baseline_rv": 17.1,
+      "z_score": 0.25,
+      "vrp": 0.0509,
+      "beta_30d": 0.667,
+      "consec_vol": 2,
+      "excess_10d": -0.39,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.67",
+      "sector": "Materials"
     },
     {
       "ticker": "GC=F",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-03"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 27,
   "alert_count": 1,
   "high_count": 1
 }
