@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-03T13:01:04",
+  "scan_date": "2026-07-03T13:31:39",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -324,6 +324,20 @@
       "sector": "Hang Seng"
     },
     {
+      "ticker": "^FTSE",
+      "current_rv": 9.9,
+      "baseline_rv": 11.0,
+      "z_score": -0.25,
+      "vrp": 0.0405,
+      "beta_30d": -0.011,
+      "consec_vol": 1,
+      "excess_10d": 0.93,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.01",
+      "sector": "FTSE 100"
+    },
+    {
       "ticker": "CL=F",
       "current_rv": 34.5,
       "baseline_rv": 47.4,
@@ -469,7 +483,7 @@
       "last_date": "2026-07-03"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 27,
   "alert_count": 1,
   "high_count": 1
 }
