@@ -1,10 +1,10 @@
 {
-  "scan_date": "2026-07-04T23:39:04",
+  "scan_date": "2026-07-05T04:01:23",
   "etf_signals": [
     {
       "ticker": "SOXX",
       "current_rv": 86.1,
-      "baseline_rv": 37.6,
+      "baseline_rv": 37.7,
       "z_score": 3.19,
       "vrp": -0.112,
       "beta_30d": 3.782,
@@ -32,7 +32,7 @@
     {
       "ticker": "XLK",
       "current_rv": 40.2,
-      "baseline_rv": 22.7,
+      "baseline_rv": 22.8,
       "z_score": 2.05,
       "vrp": -0.0188,
       "beta_30d": 2.239,
@@ -40,13 +40,13 @@
       "excess_10d": -3.24,
       "level": 1,
       "label": "WATCH",
-      "reason": "vol z=2.1, beta=2.24, 5d consec vol",
+      "reason": "vol z=2.0, beta=2.24, 5d consec vol",
       "sector": "Technology"
     },
     {
       "ticker": "^KS11",
       "current_rv": 86.1,
-      "baseline_rv": 39.1,
+      "baseline_rv": 39.2,
       "z_score": 1.97,
       "vrp": -0.0622,
       "beta_30d": 2.012,
@@ -60,7 +60,7 @@
     {
       "ticker": "EWY",
       "current_rv": 91.7,
-      "baseline_rv": 45.4,
+      "baseline_rv": 45.5,
       "z_score": 1.94,
       "vrp": 0.0001,
       "beta_30d": 4.392,
@@ -74,8 +74,8 @@
     {
       "ticker": "XLV",
       "current_rv": 21.6,
-      "baseline_rv": 14.6,
-      "z_score": 1.9,
+      "baseline_rv": 14.7,
+      "z_score": 1.91,
       "vrp": 0.0014,
       "beta_30d": -0.169,
       "consec_vol": 5,
@@ -102,7 +102,7 @@
     {
       "ticker": "^N225",
       "current_rv": 42.1,
-      "baseline_rv": 26.8,
+      "baseline_rv": 26.9,
       "z_score": 1.76,
       "vrp": -0.0461,
       "beta_30d": 0.858,
@@ -116,7 +116,7 @@
     {
       "ticker": "EEM",
       "current_rv": 39.4,
-      "baseline_rv": 21.3,
+      "baseline_rv": 21.4,
       "z_score": 1.72,
       "vrp": 0.0041,
       "beta_30d": 2.01,
@@ -131,7 +131,7 @@
       "ticker": "ZN=F",
       "current_rv": 5.1,
       "baseline_rv": 3.9,
-      "z_score": 1.1,
+      "z_score": 1.09,
       "vrp": 0.0034,
       "beta_30d": 0.121,
       "consec_vol": 5,
@@ -142,10 +142,24 @@
       "sector": "10Y Treasury Futures"
     },
     {
+      "ticker": "TLT",
+      "current_rv": 11.3,
+      "baseline_rv": 9.0,
+      "z_score": 1.04,
+      "vrp": -0.0054,
+      "beta_30d": 0.177,
+      "consec_vol": 5,
+      "excess_10d": -1.37,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.18, 5d consec vol",
+      "sector": "Long-term Treasury"
+    },
+    {
       "ticker": "XLI",
       "current_rv": 21.6,
       "baseline_rv": 16.5,
-      "z_score": 1.02,
+      "z_score": 1.01,
       "vrp": 0.0086,
       "beta_30d": 0.933,
       "consec_vol": 5,
@@ -154,20 +168,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Industrials"
-    },
-    {
-      "ticker": "TLT",
-      "current_rv": 11.3,
-      "baseline_rv": 9.1,
-      "z_score": 1.02,
-      "vrp": -0.0054,
-      "beta_30d": 0.177,
-      "consec_vol": 4,
-      "excess_10d": -1.37,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.18",
-      "sector": "Long-term Treasury"
     },
     {
       "ticker": "EWJ",
@@ -214,7 +214,7 @@
     {
       "ticker": "EWU",
       "current_rv": 16.4,
-      "baseline_rv": 14.9,
+      "baseline_rv": 15.0,
       "z_score": 0.27,
       "vrp": 0.048,
       "beta_30d": 0.446,
@@ -228,7 +228,7 @@
     {
       "ticker": "XLB",
       "current_rv": 18.3,
-      "baseline_rv": 17.1,
+      "baseline_rv": 17.2,
       "z_score": 0.24,
       "vrp": 0.0509,
       "beta_30d": 0.667,
@@ -256,7 +256,7 @@
     {
       "ticker": "GC=F",
       "current_rv": 25.9,
-      "baseline_rv": 26.6,
+      "baseline_rv": 26.7,
       "z_score": -0.05,
       "vrp": 0.0319,
       "beta_30d": 0.624,
@@ -284,11 +284,11 @@
     {
       "ticker": "GLD",
       "current_rv": 24.3,
-      "baseline_rv": 26.4,
+      "baseline_rv": 26.5,
       "z_score": -0.14,
       "vrp": 0.0601,
       "beta_30d": 1.16,
-      "consec_vol": 4,
+      "consec_vol": 3,
       "excess_10d": -3.43,
       "level": 0,
       "label": "---",
@@ -299,7 +299,7 @@
       "ticker": "^FTMC",
       "current_rv": 11.1,
       "baseline_rv": 12.1,
-      "z_score": -0.19,
+      "z_score": -0.18,
       "vrp": 0.0412,
       "beta_30d": 0.224,
       "consec_vol": 3,
@@ -312,8 +312,8 @@
     {
       "ticker": "ES=F",
       "current_rv": 11.2,
-      "baseline_rv": 12.4,
-      "z_score": -0.3,
+      "baseline_rv": 12.5,
+      "z_score": -0.31,
       "vrp": 0.0349,
       "beta_30d": 0.943,
       "consec_vol": 4,
@@ -327,7 +327,7 @@
       "ticker": "^FTSE",
       "current_rv": 9.3,
       "baseline_rv": 11.1,
-      "z_score": -0.37,
+      "z_score": -0.38,
       "vrp": 0.0405,
       "beta_30d": -0.011,
       "consec_vol": 1,
@@ -340,8 +340,8 @@
     {
       "ticker": "CL=F",
       "current_rv": 34.8,
-      "baseline_rv": 47.5,
-      "z_score": -0.44,
+      "baseline_rv": 47.6,
+      "z_score": -0.45,
       "vrp": 0.3089,
       "beta_30d": -0.299,
       "consec_vol": 2,
@@ -396,8 +396,8 @@
     {
       "ticker": "XAR",
       "current_rv": 20.8,
-      "baseline_rv": 28.7,
-      "z_score": -0.95,
+      "baseline_rv": 28.8,
+      "z_score": -0.97,
       "vrp": 0.1412,
       "beta_30d": 1.239,
       "consec_vol": 0,
@@ -410,8 +410,8 @@
     {
       "ticker": "XTN",
       "current_rv": 10.6,
-      "baseline_rv": 26.4,
-      "z_score": -1.7,
+      "baseline_rv": 26.6,
+      "z_score": -1.73,
       "vrp": 0.1703,
       "beta_30d": 0.929,
       "consec_vol": 0,
@@ -437,7 +437,7 @@
         "MCHI"
       ],
       "current": 4903.96,
-      "baseline": 4668.89,
+      "baseline": 4669.98,
       "z_score": 1.66,
       "rv_20d": 27.73,
       "last_date": "2026-07-03"
@@ -450,7 +450,7 @@
         "MCHI"
       ],
       "current": 8864.17,
-      "baseline": 7802.58,
+      "baseline": 7806.79,
       "z_score": 1.73,
       "rv_20d": 32.96,
       "last_date": "2026-07-03"
@@ -463,7 +463,7 @@
         "MCHI"
       ],
       "current": 4171.47,
-      "baseline": 3364.83,
+      "baseline": 3367.96,
       "z_score": 2.25,
       "rv_20d": 48.72,
       "last_date": "2026-07-03"
@@ -477,7 +477,7 @@
         "MCHI"
       ],
       "current": 4070.66,
-      "baseline": 4001.91,
+      "baseline": 4002.58,
       "z_score": 0.6,
       "rv_20d": 18.46,
       "last_date": "2026-07-03"
