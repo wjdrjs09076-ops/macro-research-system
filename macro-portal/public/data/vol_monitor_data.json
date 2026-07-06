@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-06T00:13:30",
+  "scan_date": "2026-07-06T04:54:27",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -131,7 +131,7 @@
       "ticker": "ZN=F",
       "current_rv": 5.1,
       "baseline_rv": 3.9,
-      "z_score": 1.1,
+      "z_score": 1.13,
       "vrp": 0.0034,
       "beta_30d": 0.121,
       "consec_vol": 5,
@@ -240,6 +240,20 @@
       "sector": "Materials"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 27.6,
+      "baseline_rv": 26.7,
+      "z_score": 0.06,
+      "vrp": 0.0319,
+      "beta_30d": 0.624,
+      "consec_vol": 5,
+      "excess_10d": -6.47,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.62, 5d consec vol",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XLF",
       "current_rv": 14.8,
       "baseline_rv": 14.6,
@@ -254,18 +268,18 @@
       "sector": "Financials / Banking"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 26.0,
-      "baseline_rv": 26.8,
-      "z_score": -0.05,
-      "vrp": 0.0319,
-      "beta_30d": 0.624,
+      "ticker": "ES=F",
+      "current_rv": 12.4,
+      "baseline_rv": 12.4,
+      "z_score": -0.01,
+      "vrp": 0.0349,
+      "beta_30d": 0.943,
       "consec_vol": 5,
-      "excess_10d": -6.47,
+      "excess_10d": 0.61,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.62, 5d consec vol",
-      "sector": "Gold Futures"
+      "reason": "5d consec vol",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "^STOXX50E",
@@ -310,20 +324,6 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 11.3,
-      "baseline_rv": 12.5,
-      "z_score": -0.29,
-      "vrp": 0.0349,
-      "beta_30d": 0.943,
-      "consec_vol": 4,
-      "excess_10d": 0.61,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "^FTSE",
       "current_rv": 9.3,
       "baseline_rv": 11.1,
@@ -339,12 +339,12 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 34.3,
+      "current_rv": 34.5,
       "baseline_rv": 47.7,
-      "z_score": -0.47,
+      "z_score": -0.46,
       "vrp": 0.3089,
       "beta_30d": -0.299,
-      "consec_vol": 2,
+      "consec_vol": 3,
       "excess_10d": -11.68,
       "level": 1,
       "label": "WATCH",
@@ -483,7 +483,7 @@
       "last_date": "2026-07-03"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 27,
   "alert_count": 2,
   "high_count": 1
 }
