@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-07T13:01:57",
+  "scan_date": "2026-07-07T13:31:48",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -366,6 +366,20 @@
       "sector": "FTSE 100"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 34.5,
+      "baseline_rv": 47.8,
+      "z_score": -0.46,
+      "vrp": 0.2898,
+      "beta_30d": -0.001,
+      "consec_vol": 2,
+      "excess_10d": -11.47,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.00",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 20.8,
       "baseline_rv": 29.0,
@@ -469,7 +483,7 @@
       "last_date": "2026-07-07"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 2,
   "high_count": 1
 }
