@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.57,
-    "ts": "2026-07-07T19:02:17"
+    "ts": "2026-07-07T19:07:03"
   },
-  "generated": "2026-07-07T19:02:18",
+  "generated": "2026-07-07T19:07:03",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -94,7 +94,7 @@
     {
       "ticker": "XLK",
       "direction": 1,
-      "confidence": 0.7638,
+      "confidence": 0.7637,
       "rule": "rate_beneficiary",
       "signal_type": "OVERWEIGHT",
       "regime": "mid_vix",
