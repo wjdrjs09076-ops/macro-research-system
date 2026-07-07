@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.57,
-    "ts": "2026-07-07T17:02:28"
+    "ts": "2026-07-07T17:32:04"
   },
-  "generated": "2026-07-07T17:02:28",
+  "generated": "2026-07-07T17:32:04",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -110,7 +110,7 @@
     {
       "ticker": "XLP",
       "direction": -1,
-      "confidence": 0.7547,
+      "confidence": 0.7548,
       "rule": "rate_victim",
       "signal_type": "UNDERWEIGHT",
       "regime": "mid_vix",
