@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.57,
-    "ts": "2026-07-07T13:38:14"
+    "ts": "2026-07-07T14:02:39"
   },
-  "generated": "2026-07-07T13:38:14",
+  "generated": "2026-07-07T14:02:40",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -286,7 +286,7 @@
       "sector": "XLK",
       "macro": "US10Y",
       "delta_raw": 0.0014,
-      "t_raw": 1.59,
+      "t_raw": 1.58,
       "delta_ctrl": 0.0036,
       "t_ctrl": 2.89,
       "q_raw": 0.1989,
