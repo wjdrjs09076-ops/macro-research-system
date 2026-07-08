@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.13,
-    "ts": "2026-07-08T15:32:22"
+    "ts": "2026-07-08T15:52:28"
   },
-  "generated": "2026-07-08T15:32:22",
+  "generated": "2026-07-08T15:52:28",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -110,7 +110,7 @@
     {
       "ticker": "XLP",
       "direction": -1,
-      "confidence": 0.7547,
+      "confidence": 0.7548,
       "rule": "rate_victim",
       "signal_type": "UNDERWEIGHT",
       "regime": "mid_vix",
@@ -146,7 +146,7 @@
       "delta_ctrl": 0.0,
       "t_ctrl": 0.04,
       "q_raw": 0.0,
-      "q_ctrl": 0.9901,
+      "q_ctrl": 0.99,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -158,7 +158,7 @@
       "delta_ctrl": 0.0,
       "t_ctrl": 0.01,
       "q_raw": 0.0,
-      "q_ctrl": 0.9901,
+      "q_ctrl": 0.99,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -170,7 +170,7 @@
       "delta_ctrl": -0.0006,
       "t_ctrl": -0.76,
       "q_raw": 0.0,
-      "q_ctrl": 0.5456,
+      "q_ctrl": 0.5457,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -182,7 +182,7 @@
       "delta_ctrl": 0.0014,
       "t_ctrl": 0.78,
       "q_raw": 0.0,
-      "q_ctrl": 0.5456,
+      "q_ctrl": 0.5457,
       "vif": 10.4,
       "verdict": "killed"
     },
@@ -289,7 +289,7 @@
       "t_raw": -1.61,
       "delta_ctrl": -0.0008,
       "t_ctrl": -2.05,
-      "q_raw": 0.1848,
+      "q_raw": 0.1849,
       "q_ctrl": 0.0853,
       "vif": 1.2,
       "verdict": "emerged"
