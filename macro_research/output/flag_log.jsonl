@@ -122,3 +122,5 @@
 {"ts": "2026-07-06T00:13:30", "ticker": "^KS11", "level": 2, "z_score": 1.97, "vrp": -0.0622, "reason": "vol z=2.0, VRP=-0.062, beta=2.01, 5d consec vol"}
 {"ts": "2026-07-07T03:58:27", "ticker": "SOXX", "level": 3, "z_score": 2.6, "vrp": -0.067, "reason": "vol z=2.6, VRP=-0.067, beta=3.73, 5d consec vol"}
 {"ts": "2026-07-07T03:58:27", "ticker": "^KS11", "level": 2, "z_score": 1.94, "vrp": -0.1631, "reason": "vol z=1.9, VRP=-0.163, beta=1.89, 5d consec vol"}
+{"ts": "2026-07-08T00:03:49", "ticker": "SOXX", "level": 3, "z_score": 2.59, "vrp": -0.0502, "reason": "vol z=2.6, VRP=-0.050, beta=3.80, 5d consec vol"}
+{"ts": "2026-07-08T00:03:49", "ticker": "^KS11", "level": 2, "z_score": 1.94, "vrp": -0.1631, "reason": "vol z=1.9, VRP=-0.163, beta=1.89, 5d consec vol"}
