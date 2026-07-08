@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-08T06:35:36",
+  "scan_date": "2026-07-08T09:29:55",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -140,6 +140,20 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "TLT",
+      "current_rv": 11.4,
+      "baseline_rv": 9.0,
+      "z_score": 1.18,
+      "vrp": -0.0056,
+      "beta_30d": 0.157,
+      "consec_vol": 5,
+      "excess_10d": -1.89,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.16, 5d consec vol",
+      "sector": "Long-term Treasury"
     },
     {
       "ticker": "XLC",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-07"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 1,
   "high_count": 1
 }
