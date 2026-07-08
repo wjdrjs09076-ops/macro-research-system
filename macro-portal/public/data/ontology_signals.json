@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.13,
-    "ts": "2026-07-08T16:02:28"
+    "ts": "2026-07-08T16:32:23"
   },
-  "generated": "2026-07-08T16:02:28",
+  "generated": "2026-07-08T16:32:24",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -230,7 +230,7 @@
       "delta_ctrl": -0.0007,
       "t_ctrl": -1.36,
       "q_raw": 0.0077,
-      "q_ctrl": 0.3209,
+      "q_ctrl": 0.321,
       "vif": 1.1,
       "verdict": "killed"
     },
@@ -289,7 +289,7 @@
       "t_raw": -1.61,
       "delta_ctrl": -0.0008,
       "t_ctrl": -2.05,
-      "q_raw": 0.1848,
+      "q_raw": 0.1849,
       "q_ctrl": 0.0853,
       "vif": 1.2,
       "verdict": "emerged"
