@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-09T08:33:16",
+  "scan_date": "2026-07-09T12:11:46",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -226,20 +226,6 @@
       "sector": "FTSE 100"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 20.6,
-      "baseline_rv": 18.6,
-      "z_score": 0.41,
-      "vrp": 0.0346,
-      "beta_30d": 1.001,
-      "consec_vol": 5,
-      "excess_10d": -0.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "^STOXX50E",
       "current_rv": 17.8,
       "baseline_rv": 15.2,
@@ -436,11 +422,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4808.85,
-      "baseline": 4677.61,
-      "z_score": 0.92,
-      "rv_20d": 25.32,
-      "last_date": "2026-07-08"
+      "current": 4821.66,
+      "baseline": 4678.28,
+      "z_score": 1.01,
+      "rv_20d": 26.55,
+      "last_date": "2026-07-09"
     },
     {
       "sym": "sh000905",
@@ -449,11 +435,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 8597.88,
-      "baseline": 7836.76,
-      "z_score": 1.23,
-      "rv_20d": 29.95,
-      "last_date": "2026-07-08"
+      "current": 8589.6,
+      "baseline": 7841.05,
+      "z_score": 1.21,
+      "rv_20d": 31.16,
+      "last_date": "2026-07-09"
     },
     {
       "sym": "sz399006",
@@ -462,11 +448,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3948.66,
-      "baseline": 3389.96,
-      "z_score": 1.52,
-      "rv_20d": 44.04,
-      "last_date": "2026-07-08"
+      "current": 3948.85,
+      "baseline": 3393.1,
+      "z_score": 1.51,
+      "rv_20d": 45.8,
+      "last_date": "2026-07-09"
     },
     {
       "sym": "sh000001",
@@ -476,14 +462,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4014.98,
-      "baseline": 4006.49,
-      "z_score": 0.08,
-      "rv_20d": 17.24,
-      "last_date": "2026-07-08"
+      "current": 4016.52,
+      "baseline": 4006.61,
+      "z_score": 0.09,
+      "rv_20d": 18.19,
+      "last_date": "2026-07-09"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 1,
   "high_count": 0
 }
