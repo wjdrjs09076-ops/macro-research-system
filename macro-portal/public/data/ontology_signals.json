@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.9,
-    "ts": "2026-07-09T18:32:30"
+    "ts": "2026-07-09T19:02:30"
   },
-  "generated": "2026-07-09T18:32:30",
+  "generated": "2026-07-09T19:02:30",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -37,8 +37,8 @@
       ],
       "reasoning": [
         "XLV: 실현변동성 z-score = 2.61 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.6σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -4.71pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 16.2% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -5.07pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 15.9% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -165,7 +165,7 @@
       "delta_ctrl": 0.0,
       "t_ctrl": 0.03,
       "q_raw": 0.0,
-      "q_ctrl": 0.9975,
+      "q_ctrl": 0.9976,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -177,7 +177,7 @@
       "delta_ctrl": 0.0,
       "t_ctrl": 0.0,
       "q_raw": 0.0,
-      "q_ctrl": 0.9975,
+      "q_ctrl": 0.9976,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -189,7 +189,7 @@
       "delta_ctrl": -0.0006,
       "t_ctrl": -0.77,
       "q_raw": 0.0,
-      "q_ctrl": 0.5518,
+      "q_ctrl": 0.5517,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -201,7 +201,7 @@
       "delta_ctrl": 0.0014,
       "t_ctrl": 0.79,
       "q_raw": 0.0,
-      "q_ctrl": 0.5518,
+      "q_ctrl": 0.5517,
       "vif": 10.4,
       "verdict": "killed"
     },
@@ -792,7 +792,7 @@
         "p_any": 0.5012,
         "p_all": 0.0,
         "p_half": 0.0052,
-        "mean_hit_count": 0.8
+        "mean_hit_count": 0.81
       }
     ],
     "pair_threshold": 0.05,
