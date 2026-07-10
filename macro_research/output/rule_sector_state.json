@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-10T13:32:48",
+  "generated": "2026-07-10T14:02:31",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -8,10 +8,7 @@
   },
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
-    "co_crash_cluster|XLC",
     "co_crash_cluster|XLF",
-    "co_crash_cluster|XLI",
-    "co_crash_cluster|XLY",
     "event_vol|XLV",
     "fat_tail_alert|XLE",
     "fat_tail_alert|XLI",
