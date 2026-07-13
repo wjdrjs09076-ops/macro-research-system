@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.03,
-    "ts": "2026-07-13T19:32:30"
+    "ts": "2026-07-13T19:38:02"
   },
-  "generated": "2026-07-13T19:32:30",
+  "generated": "2026-07-13T19:38:02",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -37,8 +37,8 @@
       ],
       "reasoning": [
         "XLV: 실현변동성 z-score = 2.76 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.8σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -5.84pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 14.6% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -5.34pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 15.1% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
@@ -217,11 +217,11 @@
       "sector": "XLP",
       "macro": "DXY",
       "delta_raw": -0.0015,
-      "t_raw": -3.16,
-      "delta_ctrl": -0.001,
-      "t_ctrl": -1.92,
-      "q_raw": 0.0042,
-      "q_ctrl": 0.1085,
+      "t_raw": -3.02,
+      "delta_ctrl": -0.0009,
+      "t_ctrl": -1.81,
+      "q_raw": 0.0066,
+      "q_ctrl": 0.142,
       "vif": 1.1,
       "verdict": "killed"
     },
@@ -238,6 +238,18 @@
       "verdict": "killed"
     },
     {
+      "sector": "XLP",
+      "macro": "US10Y",
+      "delta_raw": -0.0014,
+      "t_raw": -2.94,
+      "delta_ctrl": -0.0027,
+      "t_ctrl": -1.91,
+      "q_raw": 0.0077,
+      "q_ctrl": 0.1173,
+      "vif": 10.1,
+      "verdict": "killed"
+    },
+    {
       "sector": "XLV",
       "macro": "DXY",
       "delta_raw": -0.0016,
@@ -247,18 +259,6 @@
       "q_raw": 0.0081,
       "q_ctrl": 0.3294,
       "vif": 1.1,
-      "verdict": "killed"
-    },
-    {
-      "sector": "XLP",
-      "macro": "US10Y",
-      "delta_raw": -0.0014,
-      "t_raw": -2.92,
-      "delta_ctrl": -0.0028,
-      "t_ctrl": -1.97,
-      "q_raw": 0.0081,
-      "q_ctrl": 0.1028,
-      "vif": 10.1,
       "verdict": "killed"
     },
     {
@@ -433,9 +433,9 @@
       "sector": "XLP",
       "macro": "VIX",
       "delta_raw": -0.0024,
-      "t_raw": -5.34,
-      "delta_ctrl": -0.0037,
-      "t_ctrl": -3.67,
+      "t_raw": -5.27,
+      "delta_ctrl": -0.0039,
+      "t_ctrl": -3.81,
       "q_raw": 0.0,
       "q_ctrl": 0.0028,
       "vif": 5.1,
