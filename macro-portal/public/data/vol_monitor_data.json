@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-14T22:04:08",
+  "scan_date": "2026-07-14T23:27:08",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -380,20 +380,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "TLT",
-      "current_rv": 7.7,
-      "baseline_rv": 8.9,
-      "z_score": -0.59,
-      "vrp": 0.0253,
-      "beta_30d": 0.151,
-      "consec_vol": 2,
-      "excess_10d": -6.33,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.15",
-      "sector": "Long-term Treasury"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 3.0,
       "baseline_rv": 4.0,
@@ -483,7 +469,7 @@
       "last_date": "2026-07-14"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 21,
   "alert_count": 0,
   "high_count": 0
 }
