@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-14T17:31:55",
+  "scan_date": "2026-07-14T17:42:41",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -406,20 +406,6 @@
       "label": "WATCH",
       "reason": "beta=0.10",
       "sector": "10Y Treasury Futures"
-    },
-    {
-      "ticker": "XTN",
-      "current_rv": 16.9,
-      "baseline_rv": 27.1,
-      "z_score": -1.14,
-      "vrp": 0.0984,
-      "beta_30d": 0.796,
-      "consec_vol": 0,
-      "excess_10d": -3.76,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Transportation / Shipping"
     }
   ],
   "oil": {
