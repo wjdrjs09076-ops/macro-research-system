@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.5,
-    "ts": "2026-07-15T19:32:18"
+    "ts": "2026-07-15T19:47:46"
   },
-  "generated": "2026-07-15T19:32:18",
+  "generated": "2026-07-15T19:47:47",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -154,7 +154,7 @@
       "delta_ctrl": -0.0006,
       "t_ctrl": -0.78,
       "q_raw": 0.0,
-      "q_ctrl": 0.5796,
+      "q_ctrl": 0.5795,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -195,38 +195,38 @@
       "verdict": "killed"
     },
     {
-      "sector": "XLP",
-      "macro": "DXY",
-      "delta_raw": -0.0015,
-      "t_raw": -3.06,
-      "delta_ctrl": -0.0009,
-      "t_ctrl": -1.87,
-      "q_raw": 0.0059,
-      "q_ctrl": 0.1217,
-      "vif": 1.1,
-      "verdict": "killed"
-    },
-    {
       "sector": "XLV",
       "macro": "US10Y",
       "delta_raw": -0.0016,
       "t_raw": -2.92,
       "delta_ctrl": -0.0008,
       "t_ctrl": -0.5,
-      "q_raw": 0.0087,
-      "q_ctrl": 0.7333,
+      "q_raw": 0.0088,
+      "q_ctrl": 0.714,
       "vif": 9.9,
+      "verdict": "killed"
+    },
+    {
+      "sector": "XLP",
+      "macro": "DXY",
+      "delta_raw": -0.0014,
+      "t_raw": -2.92,
+      "delta_ctrl": -0.0009,
+      "t_ctrl": -1.76,
+      "q_raw": 0.0088,
+      "q_ctrl": 0.1578,
+      "vif": 1.1,
       "verdict": "killed"
     },
     {
       "sector": "XLP",
       "macro": "US10Y",
       "delta_raw": -0.0013,
-      "t_raw": -2.85,
-      "delta_ctrl": -0.0024,
-      "t_ctrl": -1.71,
-      "q_raw": 0.0105,
-      "q_ctrl": 0.1678,
+      "t_raw": -2.87,
+      "delta_ctrl": -0.0023,
+      "t_ctrl": -1.65,
+      "q_raw": 0.0098,
+      "q_ctrl": 0.1877,
       "vif": 9.9,
       "verdict": "killed"
     },
@@ -402,9 +402,9 @@
       "sector": "XLP",
       "macro": "VIX",
       "delta_raw": -0.0024,
-      "t_raw": -5.26,
-      "delta_ctrl": -0.0037,
-      "t_ctrl": -3.62,
+      "t_raw": -5.19,
+      "delta_ctrl": -0.0038,
+      "t_ctrl": -3.76,
       "q_raw": 0.0,
       "q_ctrl": 0.0036,
       "vif": 5.1,
