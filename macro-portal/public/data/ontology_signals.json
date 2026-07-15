@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.5,
-    "ts": "2026-07-15T16:41:36"
+    "ts": "2026-07-15T17:02:48"
   },
-  "generated": "2026-07-15T16:41:36",
+  "generated": "2026-07-15T17:02:48",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -30,7 +30,7 @@
     {
       "ticker": "XLRE",
       "direction": -1,
-      "confidence": 0.7969,
+      "confidence": 0.797,
       "rule": "rate_victim",
       "signal_type": "UNDERWEIGHT",
       "regime": "mid_vix",
