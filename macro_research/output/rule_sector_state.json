@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T18:14:07",
+  "generated": "2026-07-15T18:32:33",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -341,7 +341,7 @@
       "evidence": {
         "delta_ctrl": -0.0011,
         "t": -0.78,
-        "q_fdr": 0.5796
+        "q_fdr": 0.5795
       },
       "judged": "2026-07-15"
     },
@@ -354,7 +354,7 @@
       "evidence": {
         "delta_ctrl": -0.0011,
         "t": -0.78,
-        "q_fdr": 0.5796
+        "q_fdr": 0.5795
       },
       "judged": "2026-07-15"
     },
