@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-15T16:31:47",
+  "scan_date": "2026-07-15T16:40:59",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -406,20 +406,6 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
-    },
-    {
-      "ticker": "XTN",
-      "current_rv": 16.9,
-      "baseline_rv": 27.2,
-      "z_score": -1.15,
-      "vrp": 0.0879,
-      "beta_30d": 0.792,
-      "consec_vol": 0,
-      "excess_10d": -2.47,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Transportation / Shipping"
     }
   ],
   "oil": {
