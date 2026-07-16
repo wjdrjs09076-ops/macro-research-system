@@ -129,3 +129,4 @@
 {"ts": "2026-07-11T00:04:22", "ticker": "XLV", "level": 2, "z_score": 2.94, "vrp": -0.0415, "reason": "vol z=2.9, beta=-0.21, 5d consec vol"}
 {"ts": "2026-07-12T01:09:22", "ticker": "XLV", "level": 2, "z_score": 2.93, "vrp": -0.0415, "reason": "vol z=2.9, beta=-0.21, 5d consec vol"}
 {"ts": "2026-07-13T01:12:11", "ticker": "XLV", "level": 2, "z_score": 2.92, "vrp": -0.0415, "reason": "vol z=2.9, beta=-0.21, 5d consec vol"}
+{"ts": "2026-07-16T03:48:40", "ticker": "^KS11", "level": 2, "z_score": 1.83, "vrp": -0.1174, "reason": "vol z=1.8, VRP=-0.117, beta=2.35, 5d consec vol"}
