@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T19:47:46",
+  "generated": "2026-07-16T13:32:50",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -16,7 +16,10 @@
     "rate_victim|XLC",
     "rate_victim|XLRE",
     "rate_victim|XLU",
-    "rate_victim|XLY"
+    "rate_victim|XLY",
+    "vol_overpriced|XLB",
+    "vol_overpriced|XLE",
+    "vol_overpriced|XLI"
   ],
   "rate_verdicts": [
     {
@@ -27,10 +30,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": 0.0025,
-        "t": 2.03,
-        "q_fdr": 0.0939
+        "t": 2.09,
+        "q_fdr": 0.0825
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -40,10 +43,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": 0.0025,
-        "t": 2.03,
-        "q_fdr": 0.0939
+        "t": 2.09,
+        "q_fdr": 0.0825
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -56,7 +59,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -65,11 +68,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0012,
-        "t": -1.04,
-        "q_fdr": 0.4553
+        "delta_ctrl": -0.0013,
+        "t": -1.05,
+        "q_fdr": 0.4435
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -78,11 +81,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0012,
-        "t": -1.04,
-        "q_fdr": 0.4553
+        "delta_ctrl": -0.0013,
+        "t": -1.05,
+        "q_fdr": 0.4435
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -95,7 +98,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -104,11 +107,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": 0.0022,
-        "t": 1.26,
-        "q_fdr": 0.3377
+        "delta_ctrl": 0.0023,
+        "t": 1.29,
+        "q_fdr": 0.332
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -117,11 +120,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": 0.0022,
-        "t": 1.26,
-        "q_fdr": 0.3377
+        "delta_ctrl": 0.0023,
+        "t": 1.29,
+        "q_fdr": 0.332
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -134,7 +137,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -143,11 +146,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0008,
-        "t": -0.5,
-        "q_fdr": 0.714
+        "delta_ctrl": -0.0007,
+        "t": -0.49,
+        "q_fdr": 0.7406
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -156,11 +159,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0008,
-        "t": -0.5,
-        "q_fdr": 0.714
+        "delta_ctrl": -0.0007,
+        "t": -0.49,
+        "q_fdr": 0.7406
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -173,7 +176,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -183,10 +186,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0037,
-        "t": -3.39,
-        "q_fdr": 0.0045
+        "t": -3.41,
+        "q_fdr": 0.0042
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -196,10 +199,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0037,
-        "t": -3.39,
-        "q_fdr": 0.0045
+        "t": -3.41,
+        "q_fdr": 0.0042
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -212,7 +215,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -221,11 +224,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0023,
-        "t": -1.65,
-        "q_fdr": 0.1877
+        "delta_ctrl": -0.0024,
+        "t": -1.7,
+        "q_fdr": 0.1697
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -234,11 +237,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0023,
-        "t": -1.65,
-        "q_fdr": 0.1877
+        "delta_ctrl": -0.0024,
+        "t": -1.7,
+        "q_fdr": 0.1697
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -251,7 +254,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -260,11 +263,11 @@
       "verdict": "ALIVE",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0032,
-        "t": -2.14,
-        "q_fdr": 0.0756
+        "delta_ctrl": -0.0031,
+        "t": -2.08,
+        "q_fdr": 0.0825
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -273,11 +276,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0032,
-        "t": -2.14,
-        "q_fdr": 0.0756
+        "delta_ctrl": -0.0031,
+        "t": -2.08,
+        "q_fdr": 0.0825
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -290,7 +293,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -299,11 +302,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0003,
-        "t": -0.26,
-        "q_fdr": 0.8761
+        "delta_ctrl": -0.0002,
+        "t": -0.23,
+        "q_fdr": 0.9014
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -312,11 +315,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0003,
-        "t": -0.26,
-        "q_fdr": 0.8761
+        "delta_ctrl": -0.0002,
+        "t": -0.23,
+        "q_fdr": 0.9014
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -329,7 +332,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -338,11 +341,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0011,
-        "t": -0.78,
-        "q_fdr": 0.5795
+        "delta_ctrl": -0.001,
+        "t": -0.75,
+        "q_fdr": 0.5957
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -351,11 +354,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0011,
-        "t": -0.78,
-        "q_fdr": 0.5795
+        "delta_ctrl": -0.001,
+        "t": -0.75,
+        "q_fdr": 0.5957
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -368,7 +371,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -378,10 +381,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0041,
-        "t": -3.07,
-        "q_fdr": 0.0104
+        "t": -3.06,
+        "q_fdr": 0.0107
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -391,10 +394,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0041,
-        "t": -3.07,
-        "q_fdr": 0.0104
+        "t": -3.06,
+        "q_fdr": 0.0107
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -407,7 +410,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_victim",
@@ -416,11 +419,11 @@
       "verdict": "ALIVE",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0034,
-        "t": -3.34,
-        "q_fdr": 0.0045
+        "delta_ctrl": -0.0035,
+        "t": -3.4,
+        "q_fdr": 0.0042
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -429,11 +432,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0034,
-        "t": -3.34,
-        "q_fdr": 0.0045
+        "delta_ctrl": -0.0035,
+        "t": -3.4,
+        "q_fdr": 0.0042
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     },
     {
       "rule": "rate_beneficiary",
@@ -446,7 +449,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-07-15"
+      "judged": "2026-07-16"
     }
   ]
 }
