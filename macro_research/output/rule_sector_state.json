@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-16T14:02:52",
+  "generated": "2026-07-16T14:32:23",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -17,7 +17,6 @@
     "rate_victim|XLRE",
     "rate_victim|XLU",
     "rate_victim|XLY",
-    "vol_overpriced|XLB",
     "vol_overpriced|XLE",
     "vol_overpriced|XLI"
   ],
@@ -31,7 +30,7 @@
       "evidence": {
         "delta_ctrl": 0.0025,
         "t": 2.09,
-        "q_fdr": 0.0825
+        "q_fdr": 0.0824
       },
       "judged": "2026-07-16"
     },
@@ -44,7 +43,7 @@
       "evidence": {
         "delta_ctrl": 0.0025,
         "t": 2.09,
-        "q_fdr": 0.0825
+        "q_fdr": 0.0824
       },
       "judged": "2026-07-16"
     },
@@ -265,7 +264,7 @@
       "evidence": {
         "delta_ctrl": -0.0031,
         "t": -2.08,
-        "q_fdr": 0.0825
+        "q_fdr": 0.0824
       },
       "judged": "2026-07-16"
     },
@@ -278,7 +277,7 @@
       "evidence": {
         "delta_ctrl": -0.0031,
         "t": -2.08,
-        "q_fdr": 0.0825
+        "q_fdr": 0.0824
       },
       "judged": "2026-07-16"
     },
@@ -304,7 +303,7 @@
       "evidence": {
         "delta_ctrl": -0.0002,
         "t": -0.23,
-        "q_fdr": 0.9014
+        "q_fdr": 0.9015
       },
       "judged": "2026-07-16"
     },
@@ -317,7 +316,7 @@
       "evidence": {
         "delta_ctrl": -0.0002,
         "t": -0.23,
-        "q_fdr": 0.9014
+        "q_fdr": 0.9015
       },
       "judged": "2026-07-16"
     },
