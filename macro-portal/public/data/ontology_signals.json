@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.67,
-    "ts": "2026-07-16T16:02:48"
+    "ts": "2026-07-16T16:32:42"
   },
-  "generated": "2026-07-16T16:02:48",
+  "generated": "2026-07-16T16:32:43",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -286,7 +286,7 @@
       "delta_ctrl": 0.0025,
       "t_ctrl": 2.09,
       "q_raw": 0.2552,
-      "q_ctrl": 0.0824,
+      "q_ctrl": 0.0825,
       "vif": 9.9,
       "verdict": "emerged"
     },
@@ -297,7 +297,7 @@
       "t_raw": -0.68,
       "delta_ctrl": 0.0009,
       "t_ctrl": 2.23,
-      "q_raw": 0.6097,
+      "q_raw": 0.6098,
       "q_ctrl": 0.0658,
       "vif": 1.2,
       "verdict": "emerged"
@@ -442,7 +442,7 @@
       "delta_ctrl": -0.0031,
       "t_ctrl": -2.08,
       "q_raw": 0.0002,
-      "q_ctrl": 0.0824,
+      "q_ctrl": 0.0825,
       "vif": 9.9,
       "verdict": "confirmed"
     },
@@ -573,7 +573,7 @@
           },
           {
             "src": "XLV",
-            "share": 0.0538
+            "share": 0.0537
           }
         ]
       },
@@ -713,7 +713,7 @@
           },
           {
             "src": "XLY",
-            "share": 0.0798
+            "share": 0.0799
           }
         ]
       }
