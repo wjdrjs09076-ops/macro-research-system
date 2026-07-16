@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-16T15:02:30",
+  "generated": "2026-07-16T15:19:18",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -31,7 +31,7 @@
       "evidence": {
         "delta_ctrl": 0.0025,
         "t": 2.09,
-        "q_fdr": 0.0824
+        "q_fdr": 0.0825
       },
       "judged": "2026-07-16"
     },
@@ -44,7 +44,7 @@
       "evidence": {
         "delta_ctrl": 0.0025,
         "t": 2.09,
-        "q_fdr": 0.0824
+        "q_fdr": 0.0825
       },
       "judged": "2026-07-16"
     },
@@ -265,7 +265,7 @@
       "evidence": {
         "delta_ctrl": -0.0031,
         "t": -2.08,
-        "q_fdr": 0.0824
+        "q_fdr": 0.0825
       },
       "judged": "2026-07-16"
     },
@@ -278,7 +278,7 @@
       "evidence": {
         "delta_ctrl": -0.0031,
         "t": -2.08,
-        "q_fdr": 0.0824
+        "q_fdr": 0.0825
       },
       "judged": "2026-07-16"
     },
@@ -304,7 +304,7 @@
       "evidence": {
         "delta_ctrl": -0.0002,
         "t": -0.23,
-        "q_fdr": 0.9014
+        "q_fdr": 0.9015
       },
       "judged": "2026-07-16"
     },
@@ -317,7 +317,7 @@
       "evidence": {
         "delta_ctrl": -0.0002,
         "t": -0.23,
-        "q_fdr": 0.9014
+        "q_fdr": 0.9015
       },
       "judged": "2026-07-16"
     },
