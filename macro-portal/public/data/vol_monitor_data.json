@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-16T08:42:43",
+  "scan_date": "2026-07-16T11:05:21",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -436,11 +436,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4787.15,
-      "baseline": 4686.38,
-      "z_score": 0.72,
-      "rv_20d": 27.67,
-      "last_date": "2026-07-15"
+      "current": 4751.58,
+      "baseline": 4687.33,
+      "z_score": 0.46,
+      "rv_20d": 28.05,
+      "last_date": "2026-07-16"
     },
     {
       "sym": "sh000905",
@@ -449,11 +449,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 8343.68,
-      "baseline": 7879.16,
-      "z_score": 0.76,
-      "rv_20d": 33.74,
-      "last_date": "2026-07-15"
+      "current": 8204.26,
+      "baseline": 7883.02,
+      "z_score": 0.53,
+      "rv_20d": 34.02,
+      "last_date": "2026-07-16"
     },
     {
       "sym": "sz399006",
@@ -462,11 +462,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3848.05,
-      "baseline": 3416.5,
-      "z_score": 1.17,
-      "rv_20d": 46.98,
-      "last_date": "2026-07-15"
+      "current": 3782.91,
+      "baseline": 3419.51,
+      "z_score": 0.98,
+      "rv_20d": 47.3,
+      "last_date": "2026-07-16"
     },
     {
       "sym": "sh000001",
@@ -476,11 +476,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3973.85,
-      "baseline": 4011.26,
-      "z_score": -0.34,
-      "rv_20d": 19.2,
-      "last_date": "2026-07-15"
+      "current": 3943.01,
+      "baseline": 4011.39,
+      "z_score": -0.63,
+      "rv_20d": 19.98,
+      "last_date": "2026-07-16"
     }
   ],
   "flagged_count": 21,
