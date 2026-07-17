@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-17T03:48:51",
+  "scan_date": "2026-07-17T06:22:41",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -174,13 +174,13 @@
       "current_rv": 53.4,
       "baseline_rv": 48.1,
       "z_score": 0.19,
-      "vrp": 0.0824,
-      "beta_30d": -0.446,
+      "vrp": 0.082,
+      "beta_30d": -0.445,
       "consec_vol": 5,
-      "excess_10d": 14.03,
+      "excess_10d": 13.99,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.45, 5d consec vol",
+      "reason": "beta=-0.44, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
@@ -241,13 +241,13 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 3.8,
+      "current_rv": 3.9,
       "baseline_rv": 4.0,
-      "z_score": -0.17,
-      "vrp": 0.0133,
-      "beta_30d": 0.111,
+      "z_score": -0.13,
+      "vrp": 0.0129,
+      "beta_30d": 0.114,
       "consec_vol": 2,
-      "excess_10d": -0.96,
+      "excess_10d": -1.08,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.11",
@@ -282,6 +282,20 @@
       "sector": "Gold"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 23.3,
+      "baseline_rv": 27.5,
+      "z_score": -0.3,
+      "vrp": 0.05,
+      "beta_30d": 0.748,
+      "consec_vol": 0,
+      "excess_10d": -2.63,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 26.7,
       "baseline_rv": 29.4,
@@ -294,20 +308,6 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 22.7,
-      "baseline_rv": 27.5,
-      "z_score": -0.34,
-      "vrp": 0.0542,
-      "beta_30d": 0.739,
-      "consec_vol": 0,
-      "excess_10d": -2.18,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "^FTSE",
@@ -366,20 +366,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 10.4,
-      "baseline_rv": 12.8,
-      "z_score": -0.63,
-      "vrp": 0.0616,
-      "beta_30d": 0.956,
-      "consec_vol": 0,
-      "excess_10d": -0.78,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "XLY",
       "current_rv": 15.5,
       "baseline_rv": 18.9,
@@ -406,6 +392,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 9.1,
+      "baseline_rv": 12.8,
+      "z_score": -0.96,
+      "vrp": 0.0716,
+      "beta_30d": 0.946,
+      "consec_vol": 0,
+      "excess_10d": -0.21,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "TLT",
