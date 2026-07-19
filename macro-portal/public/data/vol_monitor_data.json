@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-19T07:07:11",
+  "scan_date": "2026-07-19T09:29:21",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -84,6 +84,20 @@
       "label": "WATCH",
       "reason": "beta=4.26, 5d consec vol",
       "sector": "Korea (MSCI)"
+    },
+    {
+      "ticker": "EWJ",
+      "current_rv": 25.5,
+      "baseline_rv": 20.0,
+      "z_score": 0.69,
+      "vrp": 0.0339,
+      "beta_30d": 1.384,
+      "consec_vol": 5,
+      "excess_10d": -2.59,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.38, 5d consec vol",
+      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "SOXX",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-17"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 22,
   "alert_count": 0,
   "high_count": 0
 }
