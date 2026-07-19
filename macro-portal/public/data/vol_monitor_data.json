@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-19T22:01:30",
+  "scan_date": "2026-07-19T23:32:21",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -185,16 +185,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 53.8,
+      "current_rv": 54.9,
       "baseline_rv": 48.3,
-      "z_score": 0.2,
-      "vrp": 0.0852,
-      "beta_30d": -0.506,
+      "z_score": 0.23,
+      "vrp": 0.0818,
+      "beta_30d": -0.535,
       "consec_vol": 5,
-      "excess_10d": 18.27,
+      "excess_10d": 19.17,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.51, 5d consec vol",
+      "reason": "beta=-0.54, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
@@ -283,13 +283,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 22.9,
+      "current_rv": 22.7,
       "baseline_rv": 27.6,
-      "z_score": -0.33,
-      "vrp": 0.0653,
-      "beta_30d": 0.677,
+      "z_score": -0.35,
+      "vrp": 0.066,
+      "beta_30d": 0.682,
       "consec_vol": 0,
-      "excess_10d": -2.03,
+      "excess_10d": -2.19,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.68",
