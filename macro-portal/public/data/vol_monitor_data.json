@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-20T22:05:55",
+  "scan_date": "2026-07-20T23:33:19",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -126,20 +126,6 @@
       "label": "---",
       "reason": "",
       "sector": "China Broad (MSCI)"
-    },
-    {
-      "ticker": "XLK",
-      "current_rv": 28.5,
-      "baseline_rv": 24.3,
-      "z_score": 0.46,
-      "vrp": 0.1605,
-      "beta_30d": 2.146,
-      "consec_vol": 5,
-      "excess_10d": -2.48,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.15, 5d consec vol",
-      "sector": "Technology"
     },
     {
       "ticker": "^HSI",
@@ -483,7 +469,7 @@
       "last_date": "2026-07-20"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 21,
   "alert_count": 0,
   "high_count": 0
 }
