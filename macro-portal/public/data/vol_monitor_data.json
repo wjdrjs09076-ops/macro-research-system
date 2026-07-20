@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-20T03:41:41",
+  "scan_date": "2026-07-20T06:54:10",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -185,9 +185,9 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 53.7,
+      "current_rv": 54.9,
       "baseline_rv": 48.4,
-      "z_score": 0.19,
+      "z_score": 0.23,
       "vrp": 0.0818,
       "beta_30d": -0.535,
       "consec_vol": 5,
@@ -212,20 +212,6 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.0,
-      "baseline_rv": 4.0,
-      "z_score": -0.03,
-      "vrp": 0.0143,
-      "beta_30d": 0.103,
-      "consec_vol": 4,
-      "excess_10d": -0.1,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.10",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "XLF",
       "current_rv": 14.4,
       "baseline_rv": 14.6,
@@ -238,6 +224,20 @@
       "label": "WATCH",
       "reason": "beta=0.16, 5d consec vol",
       "sector": "Financials / Banking"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 3.9,
+      "baseline_rv": 4.0,
+      "z_score": -0.08,
+      "vrp": 0.0143,
+      "beta_30d": 0.103,
+      "consec_vol": 3,
+      "excess_10d": -0.1,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.10",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLB",
@@ -282,6 +282,20 @@
       "sector": "Euro Stoxx 50"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 22.7,
+      "baseline_rv": 27.7,
+      "z_score": -0.35,
+      "vrp": 0.066,
+      "beta_30d": 0.682,
+      "consec_vol": 0,
+      "excess_10d": -2.19,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.68",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "^FTSE",
       "current_rv": 9.6,
       "baseline_rv": 11.3,
@@ -324,20 +338,6 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 21.9,
-      "baseline_rv": 27.7,
-      "z_score": -0.41,
-      "vrp": 0.066,
-      "beta_30d": 0.682,
-      "consec_vol": 0,
-      "excess_10d": -2.19,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.68",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XTN",
       "current_rv": 23.0,
       "baseline_rv": 27.2,
@@ -367,9 +367,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 9.5,
+      "current_rv": 10.6,
       "baseline_rv": 12.9,
-      "z_score": -0.87,
+      "z_score": -0.59,
       "vrp": 0.0761,
       "beta_30d": 0.95,
       "consec_vol": 0,
