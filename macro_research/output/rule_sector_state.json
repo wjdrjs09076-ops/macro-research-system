@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-20T17:32:18",
+  "generated": "2026-07-20T18:02:38",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -71,9 +71,9 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0012,
-        "t": -1.02,
-        "q_fdr": 0.4532
+        "delta_ctrl": -0.001,
+        "t": -0.81,
+        "q_fdr": 0.5735
       },
       "judged": "2026-07-20"
     },
@@ -84,9 +84,9 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0012,
-        "t": -1.02,
-        "q_fdr": 0.4532
+        "delta_ctrl": -0.001,
+        "t": -0.81,
+        "q_fdr": 0.5735
       },
       "judged": "2026-07-20"
     },
@@ -97,7 +97,7 @@
       "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": 0.0008,
+        "delta_ctrl": 0.0013,
         "t": null,
         "q_fdr": null
       },
@@ -112,7 +112,7 @@
       "evidence": {
         "delta_ctrl": 0.0024,
         "t": 1.35,
-        "q_fdr": 0.3261
+        "q_fdr": 0.3131
       },
       "judged": "2026-07-20"
     },
@@ -125,7 +125,7 @@
       "evidence": {
         "delta_ctrl": 0.0024,
         "t": 1.35,
-        "q_fdr": 0.3261
+        "q_fdr": 0.3131
       },
       "judged": "2026-07-20"
     },
@@ -151,7 +151,7 @@
       "evidence": {
         "delta_ctrl": -0.0006,
         "t": -0.39,
-        "q_fdr": 0.8253
+        "q_fdr": 0.8482
       },
       "judged": "2026-07-20"
     },
@@ -164,7 +164,7 @@
       "evidence": {
         "delta_ctrl": -0.0006,
         "t": -0.39,
-        "q_fdr": 0.8253
+        "q_fdr": 0.8482
       },
       "judged": "2026-07-20"
     },
@@ -229,7 +229,7 @@
       "evidence": {
         "delta_ctrl": -0.0022,
         "t": -1.58,
-        "q_fdr": 0.217
+        "q_fdr": 0.208
       },
       "judged": "2026-07-20"
     },
@@ -242,7 +242,7 @@
       "evidence": {
         "delta_ctrl": -0.0022,
         "t": -1.58,
-        "q_fdr": 0.217
+        "q_fdr": 0.208
       },
       "judged": "2026-07-20"
     },
@@ -346,7 +346,7 @@
       "evidence": {
         "delta_ctrl": -0.0009,
         "t": -0.7,
-        "q_fdr": 0.6207
+        "q_fdr": 0.639
       },
       "judged": "2026-07-20"
     },
@@ -359,7 +359,7 @@
       "evidence": {
         "delta_ctrl": -0.0009,
         "t": -0.7,
-        "q_fdr": 0.6207
+        "q_fdr": 0.639
       },
       "judged": "2026-07-20"
     },
