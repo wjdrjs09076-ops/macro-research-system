@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 18.77,
-    "ts": "2026-07-20T17:02:25"
+    "ts": "2026-07-20T17:32:18"
   },
-  "generated": "2026-07-20T17:02:25",
+  "generated": "2026-07-20T17:32:18",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -37,8 +37,8 @@
       ],
       "reasoning": [
         "XLP: 실현변동성 z-score = 2.68 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.7σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -4.03pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 15.3% 연환산 (콜+풋 평균).",
+        "VRP_iv = ATM_IV - RV_20d = -3.61pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
+        "ATM_IV = 15.8% 연환산 (콜+풋 평균).",
         "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
       ],
       "size_penalty": 1.0,
