@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-20T18:01:59",
+  "scan_date": "2026-07-20T18:31:35",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -210,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=0.19, 5d consec vol",
       "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "XLF",
+      "current_rv": 14.4,
+      "baseline_rv": 14.6,
+      "z_score": -0.05,
+      "vrp": 0.0038,
+      "beta_30d": 0.16,
+      "consec_vol": 5,
+      "excess_10d": 1.36,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.16, 5d consec vol",
+      "sector": "Financials / Banking"
     },
     {
       "ticker": "ZN=F",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-20"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 22,
   "alert_count": 0,
   "high_count": 0
 }
