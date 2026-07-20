@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-20T20:31:33",
+  "scan_date": "2026-07-20T20:49:48",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -224,6 +224,20 @@
       "label": "WATCH",
       "reason": "beta=0.16, 5d consec vol",
       "sector": "Financials / Banking"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 3.9,
+      "baseline_rv": 4.0,
+      "z_score": -0.08,
+      "vrp": 0.0143,
+      "beta_30d": 0.103,
+      "consec_vol": 3,
+      "excess_10d": -0.1,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.10",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLB",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-20"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 22,
   "alert_count": 0,
   "high_count": 0
 }
