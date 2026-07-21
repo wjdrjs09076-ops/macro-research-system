@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-21T03:21:37",
+  "scan_date": "2026-07-21T06:12:59",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -42,6 +42,20 @@
       "label": "WATCH",
       "reason": "beta=2.41, 5d consec vol",
       "sector": "KOSPI"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 17.6,
+      "baseline_rv": 13.3,
+      "z_score": 1.09,
+      "vrp": 0.01,
+      "beta_30d": 0.542,
+      "consec_vol": 5,
+      "excess_10d": 1.8,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.54, 5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "^HSI",
@@ -142,18 +156,18 @@
       "sector": "Technology"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 54.8,
-      "baseline_rv": 48.5,
-      "z_score": 0.22,
-      "vrp": 0.0447,
-      "beta_30d": -0.5,
-      "consec_vol": 5,
-      "excess_10d": 20.23,
+      "ticker": "ZN=F",
+      "current_rv": 4.3,
+      "baseline_rv": 4.0,
+      "z_score": 0.21,
+      "vrp": 0.0108,
+      "beta_30d": 0.103,
+      "consec_vol": 4,
+      "excess_10d": 0.5,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.50, 5d consec vol",
-      "sector": "WTI Crude Futures"
+      "reason": "beta=0.10",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLE",
@@ -170,6 +184,20 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 53.9,
+      "baseline_rv": 48.5,
+      "z_score": 0.19,
+      "vrp": 0.0534,
+      "beta_30d": -0.504,
+      "consec_vol": 5,
+      "excess_10d": 21.31,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.50, 5d consec vol",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "EWJ",
       "current_rv": 21.3,
       "baseline_rv": 20.2,
@@ -182,20 +210,6 @@
       "label": "WATCH",
       "reason": "beta=1.39, 5d consec vol",
       "sector": "Japan (MSCI)"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.2,
-      "baseline_rv": 4.0,
-      "z_score": 0.13,
-      "vrp": 0.0113,
-      "beta_30d": 0.103,
-      "consec_vol": 4,
-      "excess_10d": 0.55,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.10",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "FXI",
@@ -283,16 +297,16 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 22.4,
+      "current_rv": 21.7,
       "baseline_rv": 27.7,
-      "z_score": -0.38,
-      "vrp": 0.0633,
-      "beta_30d": 0.664,
+      "z_score": -0.43,
+      "vrp": 0.068,
+      "beta_30d": 0.667,
       "consec_vol": 0,
-      "excess_10d": -1.36,
+      "excess_10d": -2.24,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.66",
+      "reason": "beta=0.67",
       "sector": "Gold Futures"
     },
     {
@@ -381,13 +395,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 9.5,
+      "current_rv": 9.4,
       "baseline_rv": 12.9,
-      "z_score": -0.88,
-      "vrp": 0.086,
-      "beta_30d": 0.948,
+      "z_score": -0.9,
+      "vrp": 0.0867,
+      "beta_30d": 0.949,
       "consec_vol": 0,
-      "excess_10d": 0.07,
+      "excess_10d": -0.19,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-20"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 0,
   "high_count": 0
 }
