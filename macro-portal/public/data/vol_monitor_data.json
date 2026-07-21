@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-07-21T14:01:47",
+  "scan_date": "2026-07-21T14:31:46",
   "etf_signals": [
+    {
+      "ticker": "000001.SS",
+      "current_rv": 24.5,
+      "baseline_rv": 13.2,
+      "z_score": 2.4,
+      "vrp": -0.0368,
+      "beta_30d": 0.586,
+      "consec_vol": 5,
+      "excess_10d": -4.91,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.4, beta=0.59, 5d consec vol",
+      "sector": "Shanghai Composite"
+    },
     {
       "ticker": "XLV",
       "current_rv": 20.3,
@@ -469,7 +483,7 @@
       "last_date": "2026-07-21"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 0,
   "high_count": 0
 }
