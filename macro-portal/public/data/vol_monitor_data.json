@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-22T15:01:44",
+  "scan_date": "2026-07-22T15:31:31",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -336,6 +336,20 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "XTN",
+      "current_rv": 22.6,
+      "baseline_rv": 27.2,
+      "z_score": -0.52,
+      "vrp": 0.027,
+      "beta_30d": 0.924,
+      "consec_vol": 0,
+      "excess_10d": 1.65,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Transportation / Shipping"
     },
     {
       "ticker": "EWU",

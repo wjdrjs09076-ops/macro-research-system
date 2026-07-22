@@ -3863,3 +3863,14 @@
 {"ts": "2026-07-22T15:02:20", "ticker": "XLB", "iv_atm": 0.2051, "iv_call": 0.2054, "iv_put": 0.2049, "strike": 50.5, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.176, "vrp_iv": 0.0291}
 {"ts": "2026-07-22T15:02:20", "ticker": "XLRE", "iv_atm": 0.1421, "iv_call": 0.1426, "iv_put": 0.1417, "strike": 45.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1633, "vrp_iv": -0.0212}
 {"ts": "2026-07-22T15:02:20", "ticker": "XLC", "iv_atm": 0.1834, "iv_call": 0.1866, "iv_put": 0.1802, "strike": 110.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.171, "vrp_iv": 0.0124}
+{"ts": "2026-07-22T15:32:03", "ticker": "XLK", "iv_atm": 0.3487, "iv_call": 0.3398, "iv_put": 0.3575, "strike": 181.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.3377, "vrp_iv": 0.011}
+{"ts": "2026-07-22T15:32:03", "ticker": "XLF", "iv_atm": 0.1523, "iv_call": 0.1548, "iv_put": 0.1498, "strike": 56.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1383, "vrp_iv": 0.014}
+{"ts": "2026-07-22T15:32:03", "ticker": "XLE", "iv_atm": 0.2787, "iv_call": 0.2823, "iv_put": 0.2752, "strike": 59.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1969, "vrp_iv": 0.0818}
+{"ts": "2026-07-22T15:32:03", "ticker": "XLV", "iv_atm": 0.1454, "iv_call": 0.1489, "iv_put": 0.142, "strike": 160.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.221, "vrp_iv": -0.0756}
+{"ts": "2026-07-22T15:32:04", "ticker": "XLY", "iv_atm": 0.2098, "iv_call": 0.2059, "iv_put": 0.2138, "strike": 114.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1766, "vrp_iv": 0.0332}
+{"ts": "2026-07-22T15:32:04", "ticker": "XLP", "iv_atm": 0.1557, "iv_call": 0.1545, "iv_put": 0.1568, "strike": 84.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1952, "vrp_iv": -0.0395}
+{"ts": "2026-07-22T15:32:04", "ticker": "XLU", "iv_atm": 0.1725, "iv_call": 0.1772, "iv_put": 0.1679, "strike": 45.5, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1502, "vrp_iv": 0.0223}
+{"ts": "2026-07-22T15:32:04", "ticker": "XLI", "iv_atm": 0.2061, "iv_call": 0.2096, "iv_put": 0.2027, "strike": 179.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1745, "vrp_iv": 0.0316}
+{"ts": "2026-07-22T15:32:04", "ticker": "XLB", "iv_atm": 0.202, "iv_call": 0.1983, "iv_put": 0.2056, "strike": 50.5, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.176, "vrp_iv": 0.026}
+{"ts": "2026-07-22T15:32:05", "ticker": "XLRE", "iv_atm": 0.1476, "iv_call": 0.1509, "iv_put": 0.1442, "strike": 45.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.1633, "vrp_iv": -0.0157}
+{"ts": "2026-07-22T15:32:05", "ticker": "XLC", "iv_atm": 0.1881, "iv_call": 0.1883, "iv_put": 0.188, "strike": 110.0, "expiry": "2026-08-21", "dte": 30, "source": "snapshot", "rv_20d": 0.171, "vrp_iv": 0.0171}
