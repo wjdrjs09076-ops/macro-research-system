@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-23T19:28:03",
+  "generated": "2026-07-23T19:32:05",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -16,8 +16,8 @@
     "rate_victim|XLC",
     "rate_victim|XLRE",
     "rate_victim|XLY",
+    "vol_overpriced|XLB",
     "vol_overpriced|XLE",
-    "vol_overpriced|XLF",
     "vol_overpriced|XLI",
     "vol_overpriced|XLK",
     "vol_overpriced|XLY"
@@ -32,7 +32,7 @@
       "evidence": {
         "delta_ctrl": 0.0026,
         "t": 2.17,
-        "q_fdr": 0.0697
+        "q_fdr": 0.0698
       },
       "judged": "2026-07-23"
     },
@@ -45,7 +45,7 @@
       "evidence": {
         "delta_ctrl": 0.0026,
         "t": 2.17,
-        "q_fdr": 0.0697
+        "q_fdr": 0.0698
       },
       "judged": "2026-07-23"
     },
