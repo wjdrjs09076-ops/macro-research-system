@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 16.64,
-    "ts": "2026-07-23T17:02:18"
+    "ts": "2026-07-23T17:32:38"
   },
-  "generated": "2026-07-23T17:02:18",
+  "generated": "2026-07-23T17:32:38",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -114,7 +114,7 @@
       "delta_ctrl": 0.0,
       "t_ctrl": 0.06,
       "q_raw": 0.0,
-      "q_ctrl": 0.9768,
+      "q_ctrl": 0.9769,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -126,7 +126,7 @@
       "delta_ctrl": 0.0001,
       "t_ctrl": 0.09,
       "q_raw": 0.0,
-      "q_ctrl": 0.9768,
+      "q_ctrl": 0.9769,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -138,7 +138,7 @@
       "delta_ctrl": -0.0006,
       "t_ctrl": -0.77,
       "q_raw": 0.0,
-      "q_ctrl": 0.6066,
+      "q_ctrl": 0.6065,
       "vif": 5.1,
       "verdict": "killed"
     },
@@ -270,7 +270,7 @@
       "delta_ctrl": -0.0008,
       "t_ctrl": -2.19,
       "q_raw": 0.1151,
-      "q_ctrl": 0.0697,
+      "q_ctrl": 0.0698,
       "vif": 1.2,
       "verdict": "emerged"
     },
@@ -282,7 +282,7 @@
       "delta_ctrl": 0.0026,
       "t_ctrl": 2.17,
       "q_raw": 0.2502,
-      "q_ctrl": 0.0697,
+      "q_ctrl": 0.0698,
       "vif": 9.9,
       "verdict": "emerged"
     },
@@ -450,7 +450,7 @@
       "delta_ctrl": -0.001,
       "t_ctrl": -2.18,
       "q_raw": 0.0003,
-      "q_ctrl": 0.0697,
+      "q_ctrl": 0.0698,
       "vif": 1.2,
       "verdict": "confirmed"
     },
