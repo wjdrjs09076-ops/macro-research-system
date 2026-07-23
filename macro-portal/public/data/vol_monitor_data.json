@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-23T17:31:49",
+  "scan_date": "2026-07-23T17:36:47",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -252,6 +252,20 @@
       "label": "WATCH",
       "reason": "beta=-0.88",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "XTN",
+      "current_rv": 22.8,
+      "baseline_rv": 27.1,
+      "z_score": -0.49,
+      "vrp": 0.0238,
+      "beta_30d": 0.921,
+      "consec_vol": 0,
+      "excess_10d": 1.33,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Transportation / Shipping"
     },
     {
       "ticker": "^FTSE",
