@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-24T20:31:37",
+  "scan_date": "2026-07-24T21:11:22",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -70,6 +70,20 @@
       "label": "WATCH",
       "reason": "beta=-0.28, 5d consec vol",
       "sector": "Healthcare"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 35.4,
+      "baseline_rv": 28.8,
+      "z_score": 0.8,
+      "vrp": -0.0029,
+      "beta_30d": 1.494,
+      "consec_vol": 4,
+      "excess_10d": 0.42,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.49",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "EWY",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-24"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
