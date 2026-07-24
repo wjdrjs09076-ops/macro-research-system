@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-24T10:25:22",
+  "scan_date": "2026-07-24T12:03:38",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -462,11 +462,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3539.99,
-      "baseline": 3440.18,
-      "z_score": 0.27,
-      "rv_20d": 55.64,
-      "last_date": "2026-07-23"
+      "current": 3550.44,
+      "baseline": 3440.13,
+      "z_score": 0.3,
+      "rv_20d": 54.8,
+      "last_date": "2026-07-24"
     },
     {
       "sym": "sh000001",
