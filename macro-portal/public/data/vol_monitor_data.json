@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-25T08:32:24",
+  "scan_date": "2026-07-25T10:38:50",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -185,16 +185,16 @@
     },
     {
       "ticker": "XLK",
-      "current_rv": 25.4,
+      "current_rv": 25.7,
       "baseline_rv": 24.7,
-      "z_score": 0.08,
-      "vrp": 0.1917,
-      "beta_30d": 1.997,
+      "z_score": 0.1,
+      "vrp": 0.1873,
+      "beta_30d": 2.064,
       "consec_vol": 5,
-      "excess_10d": -1.88,
+      "excess_10d": -3.22,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=2.00, 5d consec vol",
+      "reason": "beta=2.06, 5d consec vol",
       "sector": "Technology"
     },
     {
@@ -238,6 +238,20 @@
       "label": "WATCH",
       "reason": "beta=0.24",
       "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "FXI",
+      "current_rv": 19.1,
+      "baseline_rv": 19.9,
+      "z_score": -0.15,
+      "vrp": 0.0383,
+      "beta_30d": 0.398,
+      "consec_vol": 5,
+      "excess_10d": 5.43,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.40, 5d consec vol",
+      "sector": "China Large-Cap"
     },
     {
       "ticker": "GLD",
@@ -310,6 +324,20 @@
       "sector": "Defense / Aerospace"
     },
     {
+      "ticker": "^STOXX50E",
+      "current_rv": 13.1,
+      "baseline_rv": 15.4,
+      "z_score": -0.37,
+      "vrp": 0.0382,
+      "beta_30d": 0.553,
+      "consec_vol": 2,
+      "excess_10d": 2.33,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.55",
+      "sector": "Euro Stoxx 50"
+    },
+    {
       "ticker": "ES=F",
       "current_rv": 10.5,
       "baseline_rv": 12.9,
@@ -322,20 +350,6 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
-    },
-    {
-      "ticker": "^STOXX50E",
-      "current_rv": 11.6,
-      "baseline_rv": 15.4,
-      "z_score": -0.62,
-      "vrp": 0.0528,
-      "beta_30d": 0.542,
-      "consec_vol": 3,
-      "excess_10d": 0.63,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.54",
-      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "XTN",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-24"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 1,
   "high_count": 0
 }
