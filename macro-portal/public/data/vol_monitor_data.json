@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-25T12:05:55",
+  "scan_date": "2026-07-25T14:11:49",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -196,20 +196,6 @@
       "label": "WATCH",
       "reason": "beta=2.06, 5d consec vol",
       "sector": "Technology"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.1,
-      "baseline_rv": 4.0,
-      "z_score": 0.05,
-      "vrp": 0.0106,
-      "beta_30d": 0.097,
-      "consec_vol": 5,
-      "excess_10d": 1.48,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "GC=F",
@@ -483,7 +469,7 @@
       "last_date": "2026-07-24"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 1,
   "high_count": 0
 }
