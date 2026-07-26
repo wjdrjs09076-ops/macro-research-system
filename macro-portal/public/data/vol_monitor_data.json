@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-26T12:40:29",
+  "scan_date": "2026-07-26T14:40:54",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -383,11 +383,11 @@
       "ticker": "XLI",
       "current_rv": 11.5,
       "baseline_rv": 17.4,
-      "z_score": -1.17,
-      "vrp": 0.1155,
-      "beta_30d": 0.924,
+      "z_score": -1.19,
+      "vrp": 0.1149,
+      "beta_30d": 0.768,
       "consec_vol": 0,
-      "excess_10d": 2.27,
+      "excess_10d": 2.55,
       "level": 0,
       "label": "---",
       "reason": "",
