@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-27T03:41:13",
+  "scan_date": "2026-07-27T07:39:00",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -128,6 +128,20 @@
       "sector": "Semiconductors"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 57.0,
+      "baseline_rv": 48.8,
+      "z_score": 0.29,
+      "vrp": 0.0165,
+      "beta_30d": -1.174,
+      "consec_vol": 5,
+      "excess_10d": 25.3,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.17, 5d consec vol",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "^HSI",
       "current_rv": 20.6,
       "baseline_rv": 19.5,
@@ -184,24 +198,10 @@
       "sector": "Technology"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 51.0,
-      "baseline_rv": 48.9,
-      "z_score": 0.08,
-      "vrp": 0.0165,
-      "beta_30d": -1.174,
-      "consec_vol": 5,
-      "excess_10d": 25.3,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.17, 5d consec vol",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 4.1,
-      "baseline_rv": 4.0,
-      "z_score": 0.06,
+      "baseline_rv": 4.1,
+      "z_score": 0.04,
       "vrp": 0.0106,
       "beta_30d": 0.097,
       "consec_vol": 4,
@@ -210,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=0.10",
       "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 25.9,
+      "baseline_rv": 27.8,
+      "z_score": -0.14,
+      "vrp": 0.0233,
+      "beta_30d": 0.451,
+      "consec_vol": 2,
+      "excess_10d": 1.35,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.45",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "^FTMC",
@@ -324,24 +338,10 @@
       "sector": "Euro Stoxx 50"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 21.7,
-      "baseline_rv": 27.8,
-      "z_score": -0.43,
-      "vrp": 0.0233,
-      "beta_30d": 0.451,
-      "consec_vol": 2,
-      "excess_10d": 1.35,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.45",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "ES=F",
-      "current_rv": 11.0,
+      "current_rv": 10.5,
       "baseline_rv": 12.9,
-      "z_score": -0.5,
+      "z_score": -0.62,
       "vrp": 0.0749,
       "beta_30d": 0.928,
       "consec_vol": 0,
