@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-27T14:49:21",
+  "scan_date": "2026-07-27T15:01:53",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -84,20 +84,6 @@
       "label": "WATCH",
       "reason": "beta=-0.41, 5d consec vol",
       "sector": "Healthcare"
-    },
-    {
-      "ticker": "^N225",
-      "current_rv": 36.7,
-      "baseline_rv": 29.0,
-      "z_score": 0.96,
-      "vrp": -0.0104,
-      "beta_30d": 1.519,
-      "consec_vol": 5,
-      "excess_10d": -2.95,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.52, 5d consec vol",
-      "sector": "Nikkei 225"
     },
     {
       "ticker": "EEM",
@@ -483,7 +469,7 @@
       "last_date": "2026-07-27"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 1,
   "high_count": 0
 }
