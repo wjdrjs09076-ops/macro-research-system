@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-27T22:12:34",
+  "scan_date": "2026-07-27T23:36:31",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -84,20 +84,6 @@
       "label": "WATCH",
       "reason": "beta=1.49",
       "sector": "Nikkei 225"
-    },
-    {
-      "ticker": "EWY",
-      "current_rv": 69.9,
-      "baseline_rv": 50.9,
-      "z_score": 0.75,
-      "vrp": 0.3047,
-      "beta_30d": 3.725,
-      "consec_vol": 5,
-      "excess_10d": -3.38,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=3.72, 5d consec vol",
-      "sector": "Korea (MSCI)"
     },
     {
       "ticker": "EEM",
@@ -483,7 +469,7 @@
       "last_date": "2026-07-27"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
