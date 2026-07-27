@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-27T13:01:51",
+  "scan_date": "2026-07-27T13:31:33",
   "etf_signals": [
     {
       "ticker": "000001.SS",
@@ -226,20 +226,6 @@
       "sector": "Gold Futures"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 11.4,
-      "baseline_rv": 12.2,
-      "z_score": -0.15,
-      "vrp": 0.0215,
-      "beta_30d": 0.239,
-      "consec_vol": 4,
-      "excess_10d": 3.97,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.24",
-      "sector": "FTSE 250 (UK 내수)"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 19.1,
       "baseline_rv": 19.9,
@@ -266,6 +252,20 @@
       "label": "---",
       "reason": "",
       "sector": "Gold"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 11.2,
+      "baseline_rv": 12.2,
+      "z_score": -0.19,
+      "vrp": 0.0238,
+      "beta_30d": 0.187,
+      "consec_vol": 4,
+      "excess_10d": 3.47,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.19",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "^FTSE",
@@ -296,28 +296,14 @@
       "sector": "UK (MSCI)"
     },
     {
-      "ticker": "XLB",
-      "current_rv": 16.2,
-      "baseline_rv": 17.7,
-      "z_score": -0.33,
-      "vrp": 0.0718,
-      "beta_30d": 0.559,
-      "consec_vol": 0,
-      "excess_10d": 2.89,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.56",
-      "sector": "Materials"
-    },
-    {
       "ticker": "XAR",
-      "current_rv": 27.0,
-      "baseline_rv": 29.8,
-      "z_score": -0.36,
-      "vrp": 0.1002,
-      "beta_30d": 0.961,
+      "current_rv": 27.3,
+      "baseline_rv": 29.9,
+      "z_score": -0.34,
+      "vrp": 0.1048,
+      "beta_30d": 1.022,
       "consec_vol": 0,
-      "excess_10d": 1.35,
+      "excess_10d": 0.7,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -350,6 +336,20 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "XLB",
+      "current_rv": 14.3,
+      "baseline_rv": 17.7,
+      "z_score": -0.73,
+      "vrp": 0.0834,
+      "beta_30d": 0.652,
+      "consec_vol": 0,
+      "excess_10d": 1.89,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.65",
+      "sector": "Materials"
     },
     {
       "ticker": "XTN",
@@ -394,20 +394,6 @@
       "sector": "Industrials"
     },
     {
-      "ticker": "XLF",
-      "current_rv": 8.7,
-      "baseline_rv": 14.8,
-      "z_score": -1.45,
-      "vrp": 0.0452,
-      "beta_30d": 0.171,
-      "consec_vol": 0,
-      "excess_10d": 3.21,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.17",
-      "sector": "Financials / Banking"
-    },
-    {
       "ticker": "TLT",
       "current_rv": 5.7,
       "baseline_rv": 9.0,
@@ -420,6 +406,20 @@
       "label": "WATCH",
       "reason": "beta=0.12",
       "sector": "Long-term Treasury"
+    },
+    {
+      "ticker": "XLF",
+      "current_rv": 7.8,
+      "baseline_rv": 14.8,
+      "z_score": -1.66,
+      "vrp": 0.0561,
+      "beta_30d": 0.197,
+      "consec_vol": 1,
+      "excess_10d": 2.33,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.20",
+      "sector": "Financials / Banking"
     }
   ],
   "oil": {
