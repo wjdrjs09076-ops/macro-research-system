@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-28T19:31:44",
+  "scan_date": "2026-07-28T19:41:06",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -112,20 +112,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "China Broad (MSCI)"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 61.1,
-      "baseline_rv": 49.0,
-      "z_score": 0.44,
-      "vrp": 0.0402,
-      "beta_30d": -1.114,
-      "consec_vol": 5,
-      "excess_10d": 7.59,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.11, 5d consec vol",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "SOXX",
@@ -483,7 +469,7 @@
       "last_date": "2026-07-28"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 1,
   "high_count": 0
 }
