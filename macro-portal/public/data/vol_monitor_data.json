@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-28T05:55:00",
+  "scan_date": "2026-07-28T08:45:05",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -216,8 +216,8 @@
       "current_rv": 23.6,
       "baseline_rv": 25.0,
       "z_score": -0.14,
-      "vrp": 0.2054,
-      "beta_30d": 2.032,
+      "vrp": 0.2055,
+      "beta_30d": 2.034,
       "consec_vol": 5,
       "excess_10d": -2.48,
       "level": 1,
@@ -353,16 +353,16 @@
     },
     {
       "ticker": "XTN",
-      "current_rv": 19.4,
-      "baseline_rv": 27.3,
-      "z_score": -0.91,
-      "vrp": 0.0786,
-      "beta_30d": 0.645,
+      "current_rv": 19.2,
+      "baseline_rv": 27.4,
+      "z_score": -0.93,
+      "vrp": 0.08,
+      "beta_30d": 0.857,
       "consec_vol": 0,
-      "excess_10d": -0.13,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.65",
+      "excess_10d": 0.25,
+      "level": 0,
+      "label": "---",
+      "reason": "",
       "sector": "Transportation / Shipping"
     },
     {
@@ -483,7 +483,7 @@
       "last_date": "2026-07-27"
     }
   ],
-  "flagged_count": 27,
+  "flagged_count": 26,
   "alert_count": 1,
   "high_count": 0
 }
