@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-28T02:57:24",
+  "scan_date": "2026-07-28T05:55:00",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -86,20 +86,6 @@
       "sector": "Nikkei 225"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 68.2,
-      "baseline_rv": 49.0,
-      "z_score": 0.69,
-      "vrp": 0.006,
-      "beta_30d": -1.114,
-      "consec_vol": 5,
-      "excess_10d": 5.78,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.11, 5d consec vol",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "EWY",
       "current_rv": 63.6,
       "baseline_rv": 51.2,
@@ -112,6 +98,20 @@
       "label": "WATCH",
       "reason": "beta=3.48, 5d consec vol",
       "sector": "Korea (MSCI)"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 61.1,
+      "baseline_rv": 49.0,
+      "z_score": 0.44,
+      "vrp": 0.0402,
+      "beta_30d": -1.114,
+      "consec_vol": 5,
+      "excess_10d": 7.59,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.11, 5d consec vol",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^HSI",
@@ -156,20 +156,6 @@
       "sector": "China Broad (MSCI)"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.2,
-      "baseline_rv": 4.1,
-      "z_score": 0.12,
-      "vrp": 0.0102,
-      "beta_30d": 0.065,
-      "consec_vol": 4,
-      "excess_10d": 1.27,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.06",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 20.6,
       "baseline_rv": 19.9,
@@ -196,6 +182,20 @@
       "label": "WATCH",
       "reason": "beta=1.85, 5d consec vol",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.1,
+      "baseline_rv": 4.1,
+      "z_score": 0.05,
+      "vrp": 0.0106,
+      "beta_30d": 0.065,
+      "consec_vol": 4,
+      "excess_10d": 1.22,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.06",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EWJ",
@@ -282,20 +282,6 @@
       "sector": "Euro Stoxx 50"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 22.0,
-      "baseline_rv": 27.9,
-      "z_score": -0.42,
-      "vrp": 0.0578,
-      "beta_30d": 0.553,
-      "consec_vol": 2,
-      "excess_10d": 2.61,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.55",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLB",
       "current_rv": 15.7,
       "baseline_rv": 17.8,
@@ -308,6 +294,20 @@
       "label": "WATCH",
       "reason": "beta=0.36",
       "sector": "Materials"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 21.7,
+      "baseline_rv": 27.9,
+      "z_score": -0.44,
+      "vrp": 0.0605,
+      "beta_30d": 0.553,
+      "consec_vol": 2,
+      "excess_10d": 3.34,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.55",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "GLD",
@@ -327,11 +327,11 @@
       "ticker": "ES=F",
       "current_rv": 10.1,
       "baseline_rv": 12.9,
-      "z_score": -0.73,
-      "vrp": 0.0802,
+      "z_score": -0.72,
+      "vrp": 0.0796,
       "beta_30d": 0.925,
       "consec_vol": 0,
-      "excess_10d": -0.45,
+      "excess_10d": -0.17,
       "level": 0,
       "label": "---",
       "reason": "",
