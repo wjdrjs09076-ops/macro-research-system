@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-28T16:01:54",
+  "scan_date": "2026-07-28T16:31:36",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -45,16 +45,16 @@
     },
     {
       "ticker": "^KS11",
-      "current_rv": 81.6,
-      "baseline_rv": 44.1,
+      "current_rv": 81.7,
+      "baseline_rv": 44.2,
       "z_score": 1.55,
-      "vrp": -0.0308,
-      "beta_30d": 2.45,
+      "vrp": -0.0379,
+      "beta_30d": 2.439,
       "consec_vol": 5,
-      "excess_10d": -5.62,
+      "excess_10d": -7.75,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=2.45, 5d consec vol",
+      "reason": "beta=2.44, 5d consec vol",
       "sector": "KOSPI"
     },
     {
