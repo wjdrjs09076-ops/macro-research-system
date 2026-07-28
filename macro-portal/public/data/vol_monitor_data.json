@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-28T20:01:47",
+  "scan_date": "2026-07-28T20:31:49",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -394,6 +394,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "TLT",
+      "current_rv": 6.2,
+      "baseline_rv": 9.0,
+      "z_score": -1.35,
+      "vrp": 0.0312,
+      "beta_30d": 0.016,
+      "consec_vol": 0,
+      "excess_10d": 1.08,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.02",
+      "sector": "Long-term Treasury"
+    },
+    {
       "ticker": "XLI",
       "current_rv": 10.3,
       "baseline_rv": 17.5,
@@ -469,7 +483,7 @@
       "last_date": "2026-07-28"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 26,
   "alert_count": 1,
   "high_count": 0
 }
