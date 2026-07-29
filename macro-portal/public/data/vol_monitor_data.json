@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-29T03:51:22",
+  "scan_date": "2026-07-29T06:37:13",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -87,16 +87,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 61.0,
+      "current_rv": 65.1,
       "baseline_rv": 49.1,
-      "z_score": 0.43,
-      "vrp": 0.0224,
-      "beta_30d": -1.039,
+      "z_score": 0.57,
+      "vrp": -0.0001,
+      "beta_30d": -1.088,
       "consec_vol": 5,
-      "excess_10d": 6.06,
+      "excess_10d": 2.11,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-1.04, 5d consec vol",
+      "reason": "beta=-1.09, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
@@ -170,6 +170,20 @@
       "sector": "China Broad (MSCI)"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.1,
+      "baseline_rv": 4.1,
+      "z_score": 0.07,
+      "vrp": 0.0097,
+      "beta_30d": 0.072,
+      "consec_vol": 4,
+      "excess_10d": 1.35,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.07",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "XLB",
       "current_rv": 17.9,
       "baseline_rv": 17.8,
@@ -210,20 +224,6 @@
       "label": "WATCH",
       "reason": "beta=1.83, 5d consec vol",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.0,
-      "baseline_rv": 4.1,
-      "z_score": -0.05,
-      "vrp": 0.0104,
-      "beta_30d": 0.071,
-      "consec_vol": 4,
-      "excess_10d": 1.25,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.07",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^FTMC",
@@ -311,13 +311,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 21.2,
+      "current_rv": 20.8,
       "baseline_rv": 27.9,
-      "z_score": -0.48,
-      "vrp": 0.0625,
-      "beta_30d": 0.458,
+      "z_score": -0.51,
+      "vrp": 0.0645,
+      "beta_30d": 0.461,
       "consec_vol": 2,
-      "excess_10d": 0.64,
+      "excess_10d": 0.92,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.46",
@@ -339,13 +339,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 9.8,
+      "current_rv": 9.9,
       "baseline_rv": 12.9,
-      "z_score": -0.81,
-      "vrp": 0.0784,
-      "beta_30d": 0.923,
+      "z_score": -0.77,
+      "vrp": 0.077,
+      "beta_30d": 0.925,
       "consec_vol": 0,
-      "excess_10d": -0.37,
+      "excess_10d": -0.2,
       "level": 0,
       "label": "---",
       "reason": "",
