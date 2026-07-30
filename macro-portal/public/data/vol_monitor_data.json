@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-30T16:01:44",
+  "scan_date": "2026-07-30T16:31:34",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -28,6 +28,20 @@
       "label": "WATCH",
       "reason": "vol z=2.3, beta=0.66, 5d consec vol",
       "sector": "Shanghai Composite"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 89.8,
+      "baseline_rv": 44.6,
+      "z_score": 1.86,
+      "vrp": -0.0153,
+      "beta_30d": 2.553,
+      "consec_vol": 5,
+      "excess_10d": -15.47,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=1.9, beta=2.55, 5d consec vol",
+      "sector": "KOSPI"
     },
     {
       "ticker": "XLY",
@@ -469,7 +483,7 @@
       "last_date": "2026-07-30"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 26,
   "alert_count": 1,
   "high_count": 0
 }
