@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-30T02:49:15",
+  "scan_date": "2026-07-30T05:48:00",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -86,6 +86,20 @@
       "sector": "Healthcare"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 72.9,
+      "baseline_rv": 49.1,
+      "z_score": 0.85,
+      "vrp": -0.048,
+      "beta_30d": -1.203,
+      "consec_vol": 5,
+      "excess_10d": 10.28,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.20, 5d consec vol",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "TLT",
       "current_rv": 10.7,
       "baseline_rv": 9.0,
@@ -112,20 +126,6 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 70.3,
-      "baseline_rv": 49.1,
-      "z_score": 0.76,
-      "vrp": -0.0359,
-      "beta_30d": -1.1,
-      "consec_vol": 5,
-      "excess_10d": 9.02,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.10, 5d consec vol",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^HSI",
@@ -240,20 +240,6 @@
       "sector": "Japan (MSCI)"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.0,
-      "baseline_rv": 4.1,
-      "z_score": -0.02,
-      "vrp": 0.0131,
-      "beta_30d": 0.091,
-      "consec_vol": 4,
-      "excess_10d": 2.54,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.09",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "MCHI",
       "current_rv": 20.1,
       "baseline_rv": 20.3,
@@ -310,20 +296,6 @@
       "sector": "Financials / Banking"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 24.1,
-      "baseline_rv": 27.9,
-      "z_score": -0.28,
-      "vrp": 0.057,
-      "beta_30d": -0.017,
-      "consec_vol": 2,
-      "excess_10d": 5.69,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.02",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "^FTSE",
       "current_rv": 10.2,
       "baseline_rv": 11.5,
@@ -336,6 +308,20 @@
       "label": "WATCH",
       "reason": "beta=-0.04",
       "sector": "FTSE 100"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 11.6,
+      "baseline_rv": 12.9,
+      "z_score": -0.33,
+      "vrp": 0.0839,
+      "beta_30d": 0.928,
+      "consec_vol": 0,
+      "excess_10d": -0.11,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "^STOXX50E",
@@ -364,6 +350,20 @@
       "label": "WATCH",
       "reason": "beta=-0.67",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 3.6,
+      "baseline_rv": 4.1,
+      "z_score": -0.41,
+      "vrp": 0.016,
+      "beta_30d": 0.061,
+      "consec_vol": 3,
+      "excess_10d": 2.92,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.06",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "GLD",
@@ -398,28 +398,28 @@
       "current_rv": 23.1,
       "baseline_rv": 27.3,
       "z_score": -0.48,
-      "vrp": 0.0584,
+      "vrp": 0.0585,
       "beta_30d": 0.891,
       "consec_vol": 0,
-      "excess_10d": -0.71,
+      "excess_10d": -0.7,
       "level": 0,
       "label": "---",
       "reason": "",
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 10.6,
-      "baseline_rv": 12.9,
-      "z_score": -0.6,
-      "vrp": 0.0917,
-      "beta_30d": 0.894,
-      "consec_vol": 0,
-      "excess_10d": 0.31,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
+      "ticker": "GC=F",
+      "current_rv": 20.7,
+      "baseline_rv": 27.9,
+      "z_score": -0.51,
+      "vrp": 0.0704,
+      "beta_30d": 0.183,
+      "consec_vol": 2,
+      "excess_10d": 3.23,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.18",
+      "sector": "Gold Futures"
     }
   ],
   "oil": {
