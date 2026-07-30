@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-30T20:31:41",
+  "scan_date": "2026-07-30T21:17:07",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -296,20 +296,6 @@
       "sector": "Financials / Banking"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 10.2,
-      "baseline_rv": 11.5,
-      "z_score": -0.28,
-      "vrp": 0.0154,
-      "beta_30d": -0.038,
-      "consec_vol": 4,
-      "excess_10d": 7.08,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.04",
-      "sector": "FTSE 100"
-    },
-    {
       "ticker": "ES=F",
       "current_rv": 11.6,
       "baseline_rv": 12.9,
@@ -483,7 +469,7 @@
       "last_date": "2026-07-30"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 1,
   "high_count": 0
 }
