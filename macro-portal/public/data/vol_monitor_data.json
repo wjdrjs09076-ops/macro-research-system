@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-31T20:01:48",
+  "scan_date": "2026-07-31T20:23:24",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -352,6 +352,20 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 3.7,
+      "baseline_rv": 4.1,
+      "z_score": -0.34,
+      "vrp": 0.0123,
+      "beta_30d": 0.046,
+      "consec_vol": 3,
+      "excess_10d": 0.62,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.05",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "XLE",
       "current_rv": 19.1,
       "baseline_rv": 21.5,
@@ -469,7 +483,7 @@
       "last_date": "2026-07-31"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 26,
   "alert_count": 1,
   "high_count": 0
 }
