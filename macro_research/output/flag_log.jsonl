@@ -141,3 +141,4 @@
 {"ts": "2026-07-28T02:57:24", "ticker": "XLC", "level": 2, "z_score": 2.72, "vrp": -0.0255, "reason": "vol z=2.7, 5d consec vol"}
 {"ts": "2026-07-29T00:03:20", "ticker": "XLC", "level": 2, "z_score": 3.33, "vrp": -0.0441, "reason": "vol z=3.3, 5d consec vol"}
 {"ts": "2026-07-30T02:49:15", "ticker": "XLC", "level": 2, "z_score": 2.79, "vrp": -0.0208, "reason": "vol z=2.8, 5d consec vol"}
+{"ts": "2026-07-31T00:08:46", "ticker": "XLC", "level": 2, "z_score": 3.47, "vrp": -0.0318, "reason": "vol z=3.5, beta=0.48, 5d consec vol"}
