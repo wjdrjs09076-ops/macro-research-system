@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-07-31T10:07:43",
+  "scan_date": "2026-07-31T12:29:54",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -462,11 +462,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3404.4,
-      "baseline": 3451.25,
-      "z_score": -0.13,
-      "rv_20d": 58.54,
-      "last_date": "2026-07-30"
+      "current": 3377.02,
+      "baseline": 3451.39,
+      "z_score": -0.21,
+      "rv_20d": 60.21,
+      "last_date": "2026-07-31"
     },
     {
       "sym": "sh000001",
