@@ -146,3 +146,7 @@
 {"ts": "2026-08-01T01:05:44", "ticker": "XLY", "level": 3, "z_score": 2.78, "vrp": -0.0638, "reason": "vol z=2.8, VRP=-0.064, 5d consec vol"}
 {"ts": "2026-08-01T04:56:26", "ticker": "^KS11", "level": 3, "z_score": 3.28, "vrp": -0.1941, "reason": "vol z=3.3, VRP=-0.194, beta=2.78, 5d consec vol"}
 {"ts": "2026-08-01T04:56:26", "ticker": "^N225", "level": 2, "z_score": 1.84, "vrp": -0.0623, "reason": "vol z=1.8, VRP=-0.062, beta=1.38, 5d consec vol"}
+{"ts": "2026-08-02T00:02:25", "ticker": "XLC", "level": 2, "z_score": 3.68, "vrp": -0.0428, "reason": "vol z=3.7, beta=0.39, 5d consec vol"}
+{"ts": "2026-08-02T00:02:25", "ticker": "^KS11", "level": 3, "z_score": 3.27, "vrp": -0.1941, "reason": "vol z=3.3, VRP=-0.194, beta=2.78, 5d consec vol"}
+{"ts": "2026-08-02T00:02:25", "ticker": "XLY", "level": 3, "z_score": 2.77, "vrp": -0.0638, "reason": "vol z=2.8, VRP=-0.064, 5d consec vol"}
+{"ts": "2026-08-02T00:02:25", "ticker": "^N225", "level": 2, "z_score": 1.84, "vrp": -0.0623, "reason": "vol z=1.8, VRP=-0.062, beta=1.38, 5d consec vol"}

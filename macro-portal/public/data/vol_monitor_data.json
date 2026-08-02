@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-01T22:32:35",
+  "scan_date": "2026-08-02T00:02:25",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -18,8 +18,8 @@
     {
       "ticker": "^KS11",
       "current_rv": 125.4,
-      "baseline_rv": 45.2,
-      "z_score": 3.28,
+      "baseline_rv": 45.3,
+      "z_score": 3.27,
       "vrp": -0.1941,
       "beta_30d": 2.784,
       "consec_vol": 5,
@@ -33,7 +33,7 @@
       "ticker": "XLY",
       "current_rv": 32.8,
       "baseline_rv": 19.2,
-      "z_score": 2.78,
+      "z_score": 2.77,
       "vrp": -0.0638,
       "beta_30d": 1.203,
       "consec_vol": 5,
@@ -60,8 +60,8 @@
     {
       "ticker": "SOXX",
       "current_rv": 70.6,
-      "baseline_rv": 43.5,
-      "z_score": 1.52,
+      "baseline_rv": 43.6,
+      "z_score": 1.51,
       "vrp": 0.05,
       "beta_30d": 3.924,
       "consec_vol": 5,
@@ -74,7 +74,7 @@
     {
       "ticker": "EWY",
       "current_rv": 90.0,
-      "baseline_rv": 52.0,
+      "baseline_rv": 52.2,
       "z_score": 1.51,
       "vrp": 0.053,
       "beta_30d": 3.934,
@@ -88,8 +88,8 @@
     {
       "ticker": "XLK",
       "current_rv": 38.5,
-      "baseline_rv": 25.2,
-      "z_score": 1.45,
+      "baseline_rv": 25.3,
+      "z_score": 1.44,
       "vrp": 0.0236,
       "beta_30d": 2.175,
       "consec_vol": 4,
@@ -117,7 +117,7 @@
       "ticker": "XLB",
       "current_rv": 22.6,
       "baseline_rv": 17.8,
-      "z_score": 1.03,
+      "z_score": 1.02,
       "vrp": 0.011,
       "beta_30d": 0.187,
       "consec_vol": 4,
@@ -130,8 +130,8 @@
     {
       "ticker": "XLV",
       "current_rv": 19.2,
-      "baseline_rv": 15.3,
-      "z_score": 0.99,
+      "baseline_rv": 15.2,
+      "z_score": 1.0,
       "vrp": 0.0098,
       "beta_30d": -0.641,
       "consec_vol": 5,
@@ -158,8 +158,8 @@
     {
       "ticker": "CL=F",
       "current_rv": 70.0,
-      "baseline_rv": 49.3,
-      "z_score": 0.75,
+      "baseline_rv": 49.4,
+      "z_score": 0.74,
       "vrp": -0.0824,
       "beta_30d": -1.314,
       "consec_vol": 5,
@@ -173,7 +173,7 @@
       "ticker": "TLT",
       "current_rv": 10.5,
       "baseline_rv": 9.0,
-      "z_score": 0.74,
+      "z_score": 0.73,
       "vrp": -0.0039,
       "beta_30d": 0.171,
       "consec_vol": 3,
@@ -186,8 +186,8 @@
     {
       "ticker": "XLI",
       "current_rv": 21.0,
-      "baseline_rv": 17.5,
-      "z_score": 0.72,
+      "baseline_rv": 17.6,
+      "z_score": 0.71,
       "vrp": 0.0029,
       "beta_30d": 0.835,
       "consec_vol": 3,
@@ -202,7 +202,7 @@
       "current_rv": 16.8,
       "baseline_rv": 13.6,
       "z_score": 0.65,
-      "vrp": 0.0303,
+      "vrp": 0.0304,
       "beta_30d": 0.65,
       "consec_vol": 5,
       "excess_10d": 1.3,
@@ -215,7 +215,7 @@
       "ticker": "XAR",
       "current_rv": 34.4,
       "baseline_rv": 30.0,
-      "z_score": 0.59,
+      "z_score": 0.58,
       "vrp": 0.0026,
       "beta_30d": 1.131,
       "consec_vol": 3,
@@ -228,8 +228,8 @@
     {
       "ticker": "ES=F",
       "current_rv": 14.8,
-      "baseline_rv": 12.9,
-      "z_score": 0.48,
+      "baseline_rv": 13.0,
+      "z_score": 0.47,
       "vrp": 0.0072,
       "beta_30d": 0.927,
       "consec_vol": 2,
@@ -298,8 +298,8 @@
     {
       "ticker": "FXI",
       "current_rv": 18.7,
-      "baseline_rv": 19.9,
-      "z_score": -0.22,
+      "baseline_rv": 20.0,
+      "z_score": -0.23,
       "vrp": 0.0262,
       "beta_30d": 0.124,
       "consec_vol": 4,
@@ -312,7 +312,7 @@
     {
       "ticker": "^FTMC",
       "current_rv": 10.5,
-      "baseline_rv": 12.2,
+      "baseline_rv": 12.3,
       "z_score": -0.35,
       "vrp": 0.0146,
       "beta_30d": 0.24,
@@ -322,20 +322,6 @@
       "label": "WATCH",
       "reason": "beta=0.24",
       "sector": "FTSE 250 (UK 내수)"
-    },
-    {
-      "ticker": "XLF",
-      "current_rv": 13.4,
-      "baseline_rv": 15.0,
-      "z_score": -0.38,
-      "vrp": 0.0032,
-      "beta_30d": 0.269,
-      "consec_vol": 0,
-      "excess_10d": 0.69,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.27",
-      "sector": "Financials / Banking"
     },
     {
       "ticker": "^HSI",
@@ -352,10 +338,24 @@
       "sector": "Hang Seng"
     },
     {
+      "ticker": "XLF",
+      "current_rv": 13.4,
+      "baseline_rv": 15.0,
+      "z_score": -0.39,
+      "vrp": 0.0032,
+      "beta_30d": 0.269,
+      "consec_vol": 0,
+      "excess_10d": 0.69,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.27",
+      "sector": "Financials / Banking"
+    },
+    {
       "ticker": "GLD",
       "current_rv": 21.7,
-      "baseline_rv": 27.7,
-      "z_score": -0.42,
+      "baseline_rv": 27.8,
+      "z_score": -0.43,
       "vrp": 0.0637,
       "beta_30d": 0.484,
       "consec_vol": 0,
@@ -368,7 +368,7 @@
     {
       "ticker": "GC=F",
       "current_rv": 21.7,
-      "baseline_rv": 27.9,
+      "baseline_rv": 28.0,
       "z_score": -0.45,
       "vrp": 0.0335,
       "beta_30d": 0.355,
@@ -410,8 +410,8 @@
     {
       "ticker": "XTN",
       "current_rv": 15.4,
-      "baseline_rv": 27.3,
-      "z_score": -1.38,
+      "baseline_rv": 27.4,
+      "z_score": -1.39,
       "vrp": 0.0927,
       "beta_30d": 0.535,
       "consec_vol": 0,
@@ -437,8 +437,8 @@
         "MCHI"
       ],
       "current": 4602.03,
-      "baseline": 4698.18,
-      "z_score": -0.72,
+      "baseline": 4699.07,
+      "z_score": -0.73,
       "rv_20d": 28.53,
       "last_date": "2026-07-31"
     },
@@ -450,7 +450,7 @@
         "MCHI"
       ],
       "current": 7498.42,
-      "baseline": 7925.32,
+      "baseline": 7929.06,
       "z_score": -0.73,
       "rv_20d": 43.01,
       "last_date": "2026-07-31"
@@ -463,7 +463,7 @@
         "MCHI"
       ],
       "current": 3377.02,
-      "baseline": 3453.11,
+      "baseline": 3454.81,
       "z_score": -0.21,
       "rv_20d": 60.21,
       "last_date": "2026-07-31"
@@ -477,8 +477,8 @@
         "MCHI"
       ],
       "current": 3827.4,
-      "baseline": 4013.52,
-      "z_score": -1.74,
+      "baseline": 4014.49,
+      "z_score": -1.76,
       "rv_20d": 21.08,
       "last_date": "2026-07-31"
     }
