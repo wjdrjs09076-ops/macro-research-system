@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-02T21:29:44",
+  "scan_date": "2026-08-02T22:32:26",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -366,6 +366,20 @@
       "sector": "Gold"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 21.7,
+      "baseline_rv": 28.0,
+      "z_score": -0.45,
+      "vrp": 0.0335,
+      "beta_30d": 0.355,
+      "consec_vol": 0,
+      "excess_10d": 0.45,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.36",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XLE",
       "current_rv": 19.0,
       "baseline_rv": 21.5,
@@ -378,20 +392,6 @@
       "label": "WATCH",
       "reason": "beta=-0.68",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 20.4,
-      "baseline_rv": 28.0,
-      "z_score": -0.55,
-      "vrp": 0.0392,
-      "beta_30d": 0.405,
-      "consec_vol": 0,
-      "excess_10d": 1.86,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.41",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "MCHI",
