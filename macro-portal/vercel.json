@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/classify.py": {
-      "maxDuration": 30
+      "maxDuration": 45
     },
     "api/quantify.py": {
       "maxDuration": 120

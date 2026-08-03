@@ -169,13 +169,19 @@ def _wiki_intro(title: str, lang: str = "en", timeout: int = 6) -> str:
 
 # ─── Web context search (runs BEFORE LLM) ────────────────────────────────────
 
-def search_context(event_name: str, year: int = None) -> tuple:
-    """반환: (context 텍스트, news 리스트, 컨텍스트 추정 연도, 영문 해석 제목)."""
+def search_context(event_name: str, year: int = None, en_hint: str = None) -> tuple:
+    """반환: (context 텍스트, news 리스트, 컨텍스트 추정 연도, 영문 해석 제목).
+
+    en_hint: LLM 정규화가 만든 영문 검색어(있으면 우선). ko→en 위키 해석보다
+    우선하며, 구어 쿼리에서도 Guardian/en-wiki 가 제대로 걸리게 한다.
+    """
     context, news = "", []
 
-    # 한글 전용 쿼리 → ko-wiki langlinks 로 영문 제목 해석 (en-wiki/Guardian 용)
-    en_title = _ko_to_en_title(event_name) if _is_korean_query(event_name) else None
-    en_query = en_title or event_name
+    # 영문 쿼리 결정: LLM 정규화(en_hint) > ko-wiki langlink 해석 > 원문
+    en_title = None
+    if en_hint is None and _is_korean_query(event_name):
+        en_title = _ko_to_en_title(event_name)
+    en_query = en_hint or en_title or event_name
     query    = f"{en_query} {year}" if year else en_query
 
     # ── DuckDuckGo Instant Answer ──
@@ -265,7 +271,7 @@ def search_context(event_name: str, year: int = None) -> tuple:
             pass
 
     context = context[:5000].strip()
-    return context, news, _extract_context_year(context), en_title
+    return context, news, _extract_context_year(context), (en_hint or en_title)
 
 
 # ─── Groq LLM call ───────────────────────────────────────────────────────────
@@ -308,6 +314,69 @@ def call_groq(event_name: str, context: str, api_key: str) -> dict:
     return json.loads(content)
 
 
+# ─── Query normalization (runs BEFORE context search) ────────────────────────
+
+NORMALIZE_SYSTEM = """You turn a market-event name (any language, possibly colloquial \
+or slang) into an English web-search query for news/Wikipedia retrieval.
+
+Return ONLY a JSON object:
+{
+  "english_query":  "concise English search keywords: the event, key entities, and place (NOT a sentence)",
+  "canonical_name": "the widely-used English name of the event if you know it, else \"\"",
+  "year":           4-digit year the event occurred, or null if unsure
+}
+
+Rules:
+- Expand local jargon to its real meaning. e.g. Korean '소부장' = semiconductor
+  materials/parts/equipment; '소부장 사태' = the 2019 Japan-South Korea export-
+  restriction dispute over semiconductor materials (canonical_name
+  'Japan-South Korea trade dispute', year 2019).
+- english_query = keywords a news search engine would match, not prose.
+- Set year only when confident; otherwise null.
+- JSON object only — no markdown, no explanation."""
+
+
+def _normalize_query(event_name: str, api_key: str, timeout: int = 12) -> dict | None:
+    """구어/타언어 이벤트명 → 영문 검색어 + 연도. 컨텍스트 수집 전 1회 호출.
+    한국식 구어('소부장 사태')가 ko→en 위키 해석에 실패해 Guardian/en-wiki 가
+    통째 스킵되던 문제 해결 (2026-08-03). 실패 시 None → 기존 경로로 폴백."""
+    payload = json.dumps({
+        "model":   GROQ_MODEL,
+        "messages": [
+            {"role": "system", "content": NORMALIZE_SYSTEM},
+            {"role": "user",   "content": f"Event: {event_name}"},
+        ],
+        "response_format": {"type": "json_object"},
+        "temperature": 0.0,
+        "max_tokens":  200,
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        GROQ_URL, data=payload,
+        headers={"Authorization": f"Bearer {api_key}",
+                 "Content-Type": "application/json",
+                 "User-Agent":   "groq-python/0.11.0",
+                 "Accept":       "application/json"},
+        method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            content = json.loads(r.read().decode("utf-8-sig"))["choices"][0]["message"]["content"]
+        d = json.loads(content.strip().lstrip("﻿"))
+    except Exception:
+        return None
+
+    # 연도 정합성
+    y = d.get("year")
+    if isinstance(y, str) and re.match(r"^\d{4}$", y.strip()):
+        y = int(y)
+    d["year"] = y if (isinstance(y, int) and 1900 <= y <= 2030) else None
+    # 검색 폭 확보: canonical_name + keywords 결합
+    eq = (d.get("english_query") or "").strip()
+    cn = (d.get("canonical_name") or "").strip()
+    combined = f"{cn} {eq}".strip() if cn else eq
+    d["english_query"] = combined or None
+    return d
+
+
 # ─── Main classify ────────────────────────────────────────────────────────────
 
 _REQUIRED_FIELDS = ("ticker", "direction", "event_type", "start", "oos_start", "can_proceed")
@@ -327,9 +396,20 @@ def _check_fields(result: dict) -> None:
 
 def classify(event_name: str) -> dict:
     year = next((int(m) for m in re.findall(r"(?:19|20)\d{2}", event_name)), None)
-    context, news, ctx_year, en_title = search_context(event_name, year)
     raw_key = os.environ.get("GROQ_API_KEY", "")
     api_key = raw_key.encode("utf-8").lstrip(b"\xef\xbb\xbf").decode("utf-8").strip()
+
+    # ── LLM 쿼리 정규화 (컨텍스트 수집 전) — 구어/타언어 → 영문 검색어 + 연도 ──
+    en_hint = None
+    norm_query = None
+    if api_key:
+        norm = _normalize_query(event_name, api_key)
+        if norm:
+            en_hint    = norm.get("english_query")
+            norm_query = en_hint
+            year       = year or norm.get("year")   # 이벤트명 명시 연도 우선
+
+    context, news, ctx_year, en_title = search_context(event_name, year, en_hint=en_hint)
 
     if not api_key:
         return _err("GROQ_API_KEY environment variable not set", news)
@@ -385,7 +465,8 @@ def classify(event_name: str) -> dict:
         result["name_score"]    = 2 if year else 1
         result["context_score"] = 2 if len(news) >= 2 else (1 if context else 0)
         result["context_year"]  = ctx_year
-        result["resolved_title"] = en_title   # ko→en 위키 해석 결과 (디버그/표시용)
+        result["resolved_title"] = en_title   # 사용된 영문 쿼리 (정규화 or ko→en 위키)
+        result["normalized_query"] = norm_query   # LLM 정규화 검색어 (디버그/표시용)
         result["warnings"]      = warnings
         return result
 
