@@ -11,6 +11,10 @@ import json, re, os, urllib.request, urllib.parse, urllib.error
 GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
+# Guardian: 정식 무료 키가 있으면 사용, 없으면 데모('test') 폴백 (무중단).
+# 발급: https://open-platform.theguardian.com/access/  →  Vercel env GUARDIAN_API_KEY
+GUARDIAN_KEY = os.environ.get("GUARDIAN_API_KEY", "test")
+
 ETFS = (
     # US Sectors
     "SOXX (Semiconductors), XLE (Energy/Oil), XLF (Financials/Banking), "
@@ -143,6 +147,26 @@ def _extract_context_year(context: str) -> int | None:
     return Counter(yrs).most_common(1)[0][0]
 
 
+def _wiki_intro(title: str, lang: str = "en", timeout: int = 6) -> str:
+    """위키 문서 도입부 본문(extract). search snippet(HTML 조각 ~250자) 보다
+    훨씬 풍부하고 발생 날짜를 그대로 담고 있어 LLM 의 연도 앵커링에 결정적
+    (2026-08-03: DuckDuckGo IA 가 이벤트에 빈 응답이라 위키 본문으로 보강)."""
+    if not title:
+        return ""
+    try:
+        t = urllib.parse.quote(title)
+        d = _get_json(f"https://{lang}.wikipedia.org/w/api.php?action=query"
+                      f"&prop=extracts&exintro&explaintext&redirects=1"
+                      f"&titles={t}&format=json&utf8=1", timeout=timeout)
+        for page in d.get("query", {}).get("pages", {}).values():
+            ex = page.get("extract", "")
+            if ex:
+                return ex.strip()
+    except Exception:
+        pass
+    return ""
+
+
 # ─── Web context search (runs BEFORE LLM) ────────────────────────────────────
 
 def search_context(event_name: str, year: int = None) -> tuple:
@@ -174,10 +198,17 @@ def search_context(event_name: str, year: int = None) -> tuple:
         q = urllib.parse.quote(query)
         d = _get_json(f"https://en.wikipedia.org/w/api.php?action=query&list=search"
                       f"&srsearch={q}&format=json&srlimit=3&utf8=1")
-        for item in d.get("query", {}).get("search", [])[:2]:
+        hits = d.get("query", {}).get("search", [])
+        # 1위 문서는 도입부 본문까지 (snippet 보다 날짜·맥락이 풍부)
+        intro = _wiki_intro(hits[0].get("title", ""), "en") if hits else ""
+        if intro:
+            context += "[WIKIPEDIA] " + intro[:1500] + " "
+        for i, item in enumerate(hits[:2]):
             snip  = re.sub(r"<[^>]+>", "", item.get("snippet", ""))
             title = item.get("title", "")
-            context += snip + " "
+            # 1위는 본문을 이미 넣었으니 snippet 중복 회피 (news 링크는 유지)
+            if not (i == 0 and intro):
+                context += snip + " "
             news.append({"title": title, "snippet": snip[:250],
                          "url": f"https://en.wikipedia.org/wiki/{urllib.parse.quote(title)}"})
     except Exception:
@@ -188,10 +219,15 @@ def search_context(event_name: str, year: int = None) -> tuple:
         q = urllib.parse.quote(event_name)
         d = _get_json(f"https://ko.wikipedia.org/w/api.php?action=query&list=search"
                       f"&srsearch={q}&format=json&srlimit=2&utf8=1")
-        for item in d.get("query", {}).get("search", [])[:1]:
+        ko_hits = d.get("query", {}).get("search", [])
+        ko_intro = _wiki_intro(ko_hits[0].get("title", ""), "ko") if ko_hits else ""
+        if ko_intro:
+            context += "[한국어 위키] " + ko_intro[:1200] + " "
+        for i, item in enumerate(ko_hits[:1]):
             snip  = re.sub(r"<[^>]+>", "", item.get("snippet", ""))
             title = item.get("title", "")
-            context += snip + " "
+            if not (i == 0 and ko_intro):   # 1위 본문 중복 회피
+                context += snip + " "
             if title:
                 # 기존엔 context 에만 들어가 UI 에 '뉴스 없음' 으로 표시되던 것 수정
                 news.append({"title": f"{title} (한국어 위키)", "snippet": snip[:250],
@@ -209,7 +245,7 @@ def search_context(event_name: str, year: int = None) -> tuple:
             q = urllib.parse.quote(guardian_q)
             d = _get_json(f"https://content.guardianapis.com/search"
                           f"?q={q}{date_filter}"
-                          f"&api-key=test&page-size=6&order-by=relevance&show-fields=trailText",
+                          f"&api-key={GUARDIAN_KEY}&page-size=6&order-by=relevance&show-fields=trailText",
                           timeout=8)
             for item in d.get("response", {}).get("results", [])[:5]:
                 title = item.get("webTitle", "")
@@ -218,7 +254,7 @@ def search_context(event_name: str, year: int = None) -> tuple:
                 date  = item.get("webPublicationDate", "")[:10]
                 if title:
                     # Both fed to LLM (context) and shown to user (news)
-                    context += title + f" ({date}). " + re.sub(r"<[^>]+>", "", snip)[:200] + " "
+                    context += f"[GUARDIAN {date}] " + title + ". " + re.sub(r"<[^>]+>", "", snip)[:200] + " "
                     news.append({
                         "title":   title,
                         "snippet": f"The Guardian · {date}" + (
@@ -228,7 +264,7 @@ def search_context(event_name: str, year: int = None) -> tuple:
         except Exception:
             pass
 
-    context = context[:4000].strip()
+    context = context[:5000].strip()
     return context, news, _extract_context_year(context), en_title
 
 
