@@ -63,15 +63,26 @@ Decision rules — US sectors:
 - Financial contagion / banking collapse       → XLF SHORT
 - Pandemic affecting broad healthcare          → XLV ambiguous → SUBSECTOR_SPECIFIC
 - Defense conflicts / geopolitical tension     → XAR LONG
+- War / military invasion involving a major energy producer (e.g. Russia-Ukraine 2022)
+  → trade the TRANSMISSION CHANNEL, not a belligerent's country ETF: oil/gas spike →
+  XLE LONG (primary), defense buildup → XAR LONG. Never map such a war to an unrelated
+  region's ETF (e.g. NOT EWU/UK).
+
+Ticker precedence (CRITICAL — pick the transmission channel, not just a place):
+- First identify the DOMINANT channel. If a commodity or sector clearly carries the
+  shock (energy, defense, semiconductors, banking), pick that SECTOR ETF.
+- Use a country/regional ETF ONLY when the shock is contained to one market with no
+  dominant sector channel (e.g. a domestic political, election, or currency shock).
 
 Decision rules — International:
 - Korea geopolitical tension (North Korea, KOSPI shock)  → EWY SHORT
 - Japan market crash / BOJ policy shock / Nikkei crisis  → EWJ SHORT
 - China regulatory crackdown / tech ban / Alibaba-style  → KWEB SHORT
 - China broad macro slowdown / property crisis           → FXI SHORT
-- Germany manufacturing recession / energy crisis        → EWG SHORT
+- Germany-SPECIFIC shock (German auto / manufacturing / energy only) → EWG SHORT
 - UK political shock / Brexit uncertainty                → EWU SHORT
-- Eurozone sovereign debt / ECB policy shock             → EZU SHORT
+- Any single Eurozone member's sovereign-debt crisis (Greece, Italy, Spain, Portugal)
+  → EZU (Eurozone broad) SHORT — NOT the strongest economy's ETF (not EWG)
 - India election shock / RBI surprise                    → INDA SHORT or LONG
 - Broad emerging market stress / capital outflows        → EEM SHORT
 - Global developed market contagion                      → EFA SHORT
