@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-03T19:02:16",
+  "scan_date": "2026-08-03T19:08:00",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -224,20 +224,6 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 14.8,
-      "baseline_rv": 13.0,
-      "z_score": 0.47,
-      "vrp": 0.0072,
-      "beta_30d": 0.927,
-      "consec_vol": 2,
-      "excess_10d": -0.22,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "ZN=F",
