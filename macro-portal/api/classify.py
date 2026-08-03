@@ -47,6 +47,7 @@ Given a market event name (any language) and optional news context, return ONLY 
   "oos_start":  "YYYY-MM-DD — date the crisis actually began impacting markets",
   "end":        "YYYY-MM-DD — 12-18 months after the main crisis peak",
   "mechanism":  "one sentence causal chain in English",
+  "date_evidence": "verbatim sentence from the provided context stating WHEN this event began (with its date/year); empty string if the context gives no explicit date",
   "confidence": "high | medium | low",
   "can_proceed": true | false
 }}
@@ -89,6 +90,11 @@ Disambiguation rules (CRITICAL):
 General:
 - can_proceed = false ONLY if the event has zero connection to financial markets
 - Dates must reflect historical reality when the event is a known historical event
+- GROUND THE DATE: oos_start must be supported by a dated sentence in the provided
+  context — quote that sentence verbatim in date_evidence. If the context states a
+  year/date for THIS event, oos_start MUST match it; the context OVERRIDES your prior
+  knowledge. If no dated sentence exists in the context, set date_evidence to "" and
+  make confidence at most "medium".
 - Respond with the JSON object only — no markdown, no explanation"""
 
 
@@ -388,6 +394,17 @@ def _year_of(date_str) -> int | None:
     return int(m.group(1)) if m else None
 
 
+def _wiki_year(context: str) -> int | None:
+    """[WIKIPEDIA] 구간 내 최빈 연도. 뉴스 노이즈를 배제한 권위 있는 기준연도로,
+    빈도기반 context_year(전체 컨텍스트)보다 자기교정 기준으로 신뢰도가 높다."""
+    from collections import Counter
+    m = re.search(r"\[WIKIPEDIA\](.*?)(?:\[한국어 위키\]|\[GUARDIAN|$)", context, re.S)
+    if not m:
+        return None
+    yrs = [int(y) for y in re.findall(r"(?:19|20)\d{2}", m.group(1)) if 1900 <= int(y) <= 2030]
+    return Counter(yrs).most_common(1)[0][0] if yrs else None
+
+
 def _check_fields(result: dict) -> None:
     for f in _REQUIRED_FIELDS:
         if f not in result:
@@ -395,19 +412,21 @@ def _check_fields(result: dict) -> None:
 
 
 def classify(event_name: str) -> dict:
-    year = next((int(m) for m in re.findall(r"(?:19|20)\d{2}", event_name)), None)
+    name_year = next((int(m) for m in re.findall(r"(?:19|20)\d{2}", event_name)), None)
     raw_key = os.environ.get("GROQ_API_KEY", "")
     api_key = raw_key.encode("utf-8").lstrip(b"\xef\xbb\xbf").decode("utf-8").strip()
 
     # ── LLM 쿼리 정규화 (컨텍스트 수집 전) — 구어/타언어 → 영문 검색어 + 연도 ──
     en_hint = None
     norm_query = None
+    norm_year = None
     if api_key:
         norm = _normalize_query(event_name, api_key)
         if norm:
             en_hint    = norm.get("english_query")
             norm_query = en_hint
-            year       = year or norm.get("year")   # 이벤트명 명시 연도 우선
+            norm_year  = norm.get("year")
+    year = name_year or norm_year   # 검색·필터용 연도 (이벤트명 명시 연도 우선)
 
     context, news, ctx_year, en_title = search_context(event_name, year, en_hint=en_hint)
 
@@ -419,27 +438,40 @@ def classify(event_name: str) -> dict:
         _check_fields(result)
 
         warnings: list[str] = []
-        # 사건 연도 힌트: 이벤트명 연도 > 컨텍스트 최빈 연도
-        hint_year = year or ctx_year
-        oos_year  = _year_of(result.get("oos_start"))
+        oos_year = _year_of(result.get("oos_start"))
 
-        # ── 연도 불일치 → 1회 재질의 (동명 사건 혼동 보정, 2026-06-12) ──
-        # 예: '수에즈 운하 에버기븐호'(2021) 를 1956 수에즈 위기로 오인하는 케이스
-        if hint_year and oos_year and abs(oos_year - hint_year) > 2:
+        # ── (c) 자기일관성 기준연도: 신뢰순 = 이벤트명 > 정규화(LLM) > 위키본문 ──
+        #    뉴스빈도 ctx_year 는 노이즈에 취약해 '강한 기준'에서 제외
+        wiki_year  = _wiki_year(context)
+        ref_year   = name_year or norm_year or wiki_year
+        ref_strong = ref_year is not None
+
+        # ── (c) 자기교정 트리거: 강한 기준과 ≥1년, 또는 (강한 기준 없을 때) ──
+        #    노이즈 기준 ctx_year 와 >2년 차이. 소부장(2020 vs 2019, 1년)도 잡힘.
+        mismatch = False
+        if ref_strong and oos_year and abs(oos_year - ref_year) >= 1:
+            mismatch = True
+        elif not ref_strong and oos_year and ctx_year and abs(oos_year - ctx_year) > 2:
+            ref_year, mismatch = ctx_year, True
+
+        # ── (c) 근거기반 자기교정 재질의 — 하드코딩 정답이 아니라 '컨텍스트 재독' 요구 ──
+        if mismatch:
             first_year = oos_year
-            hint = (f"\n\nIMPORTANT CORRECTION HINT: reliable context indicates this event "
-                    f"occurred in {hint_year}. Your previous answer dated it {first_year}, "
-                    f"which likely confuses a DIFFERENT historical event at the same "
-                    f"location. Re-classify anchored to {hint_year}.")
+            hint = (f"\n\nSELF-CHECK: your oos_start ({first_year}) disagrees with this "
+                    f"event's established year ({ref_year}). Re-read the context above, "
+                    f"find the sentence that states WHEN this event began, quote it in "
+                    f"date_evidence, and set oos_start to the date that sentence gives. "
+                    f"Trust the dated sentence in the context over any prior association.")
             try:
                 retry = call_groq(event_name, (context or "") + hint, api_key)
                 _check_fields(retry)
                 retry_year = _year_of(retry.get("oos_start"))
-                if retry_year and abs(retry_year - hint_year) <= 2:
+                # 재질의가 기준연도에 '더 가까워졌을 때만' 채택 (과교정 방지)
+                if retry_year and abs(retry_year - ref_year) < abs((first_year or 9999) - ref_year):
                     result, oos_year = retry, retry_year
                     warnings.append(
-                        f"1차 분류가 {first_year}년 사건으로 오인 → "
-                        f"컨텍스트 연도({hint_year}) 기준 재질의로 보정됨")
+                        f"자기교정: 1차 {first_year} → 컨텍스트 근거 기준연도({ref_year})에 "
+                        f"맞춰 {retry_year}로 재수렴")
             except Exception:
                 pass   # 재질의 실패 시 1차 결과 유지 (아래 가드가 경고)
 
@@ -447,24 +479,37 @@ def classify(event_name: str) -> dict:
         result.setdefault("sector", "")
         result.setdefault("mechanism", "")
         result.setdefault("end", "")
+        result.setdefault("date_evidence", "")
 
-        # ── 날짜 sanity 가드 ──
+        # ── 날짜 sanity 가드 (자기교정 후 잔여 불일치 → confidence 정직화) ──
         if oos_year and oos_year < MIN_ETF_YEAR:
             result["confidence"] = "low"
             warnings.append(
                 f"oos_start {result.get('oos_start')} — {MIN_ETF_YEAR}년 이전은 "
                 f"미국 섹터 ETF 데이터가 없어 분석 불가. 날짜를 직접 확인하세요.")
-        if hint_year and oos_year and abs(oos_year - hint_year) > 2:
+        elif ref_strong and oos_year and abs(oos_year - ref_year) > 2:
             result["confidence"] = "low"
             warnings.append(
-                f"LLM 연도({oos_year})가 컨텍스트 연도({hint_year})와 불일치 — "
-                f"같은 장소의 다른 역사적 사건과 혼동했을 가능성. 날짜를 직접 확인하세요.")
+                f"LLM 연도({oos_year})가 기준연도({ref_year})와 2년 초과 불일치 — "
+                f"동명 사건 혼동 가능. 날짜를 직접 확인하세요.")
+        elif ref_strong and oos_year and abs(oos_year - ref_year) >= 1:
+            if result.get("confidence") == "high":
+                result["confidence"] = "medium"
+            warnings.append(
+                f"LLM 연도({oos_year})가 기준연도({ref_year})와 {abs(oos_year - ref_year)}년 차 — "
+                f"날짜를 확인하세요.")
+
+        # ── (a) 근거 인용 없으면 정직성 다운그레이드 ──
+        if not (result.get("date_evidence") or "").strip() and result.get("confidence") == "high":
+            result["confidence"] = "medium"
+            warnings.append("oos_start를 뒷받침하는 컨텍스트 인용이 없음 — 날짜 신뢰도 제한.")
 
         # ── 정직한 스코어 (기존: name_score=2 하드코딩, context_score=존재 여부) ──
         result["news"]          = news
-        result["name_score"]    = 2 if year else 1
+        result["name_score"]    = 2 if name_year else 1
         result["context_score"] = 2 if len(news) >= 2 else (1 if context else 0)
         result["context_year"]  = ctx_year
+        result["ref_year"]      = ref_year   # 자기교정 기준연도 (디버그/표시용)
         result["resolved_title"] = en_title   # 사용된 영문 쿼리 (정규화 or ko→en 위키)
         result["normalized_query"] = norm_query   # LLM 정규화 검색어 (디버그/표시용)
         result["warnings"]      = warnings
