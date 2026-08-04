@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-04T16:31:45",
+  "scan_date": "2026-08-04T17:02:34",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -436,11 +436,6 @@
       "baseline": 83.32,
       "z_score": 0.34,
       "bw_spread": -0.77
-    },
-    "inv": {
-      "latest_mbbl": 712158.0,
-      "wow_chg_pct": -1.52,
-      "surprise": -0.06
     },
     "level": 0,
     "reasons": []
