@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-04T09:22:56",
+  "scan_date": "2026-08-04T11:41:08",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -142,6 +142,34 @@
       "sector": "Materials"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 75.0,
+      "baseline_rv": 49.7,
+      "z_score": 0.91,
+      "vrp": -0.0824,
+      "beta_30d": -1.314,
+      "consec_vol": 5,
+      "excess_10d": 2.95,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.082, beta=-1.31, 5d consec vol",
+      "sector": "WTI Crude Futures"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 16.3,
+      "baseline_rv": 13.0,
+      "z_score": 0.87,
+      "vrp": 0.0072,
+      "beta_30d": 0.927,
+      "consec_vol": 3,
+      "excess_10d": -0.22,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "EEM",
       "current_rv": 32.8,
       "baseline_rv": 24.5,
@@ -154,20 +182,6 @@
       "label": "WATCH",
       "reason": "beta=1.98, 5d consec vol",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 70.0,
-      "baseline_rv": 49.6,
-      "z_score": 0.73,
-      "vrp": -0.0824,
-      "beta_30d": -1.314,
-      "consec_vol": 5,
-      "excess_10d": 2.95,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.082, beta=-1.31, 5d consec vol",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "TLT",
@@ -226,24 +240,10 @@
       "sector": "Defense / Aerospace"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 14.8,
-      "baseline_rv": 13.0,
-      "z_score": 0.46,
-      "vrp": 0.0072,
-      "beta_30d": 0.927,
-      "consec_vol": 2,
-      "excess_10d": -0.22,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "ZN=F",
-      "current_rv": 4.2,
+      "current_rv": 4.6,
       "baseline_rv": 4.1,
-      "z_score": 0.11,
+      "z_score": 0.52,
       "vrp": 0.0097,
       "beta_30d": 0.013,
       "consec_vol": 3,
@@ -367,9 +367,9 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 21.7,
+      "current_rv": 21.9,
       "baseline_rv": 28.1,
-      "z_score": -0.46,
+      "z_score": -0.45,
       "vrp": 0.0335,
       "beta_30d": 0.355,
       "consec_vol": 0,
@@ -493,11 +493,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4570.18,
-      "baseline": 4700.3,
-      "z_score": -0.98,
-      "rv_20d": 28.62,
-      "last_date": "2026-08-03"
+      "current": 4576.46,
+      "baseline": 4699.64,
+      "z_score": -0.93,
+      "rv_20d": 29.01,
+      "last_date": "2026-08-04"
     },
     {
       "sym": "sh000905",
@@ -506,11 +506,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7437.2,
-      "baseline": 7934.03,
-      "z_score": -0.85,
-      "rv_20d": 43.01,
-      "last_date": "2026-08-03"
+      "current": 7470.02,
+      "baseline": 7931.56,
+      "z_score": -0.79,
+      "rv_20d": 44.44,
+      "last_date": "2026-08-04"
     },
     {
       "sym": "sz399006",
@@ -519,11 +519,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3319.37,
-      "baseline": 3457.97,
-      "z_score": -0.38,
-      "rv_20d": 60.13,
-      "last_date": "2026-08-03"
+      "current": 3351.76,
+      "baseline": 3457.31,
+      "z_score": -0.29,
+      "rv_20d": 64.35,
+      "last_date": "2026-08-04"
     },
     {
       "sym": "sh000001",
@@ -533,11 +533,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3817.68,
-      "baseline": 4015.32,
-      "z_score": -1.87,
-      "rv_20d": 21.09,
-      "last_date": "2026-08-03"
+      "current": 3819.47,
+      "baseline": 4014.31,
+      "z_score": -1.83,
+      "rv_20d": 20.87,
+      "last_date": "2026-08-04"
     }
   ],
   "flagged_count": 27,
