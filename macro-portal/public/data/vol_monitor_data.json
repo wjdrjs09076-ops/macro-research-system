@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-04T18:32:17",
+  "scan_date": "2026-08-04T19:02:24",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -423,6 +423,25 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 85.18,
+      "baseline": 77.34,
+      "z_score": 0.43,
+      "bw_spread": -4.72
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 90.54,
+      "baseline": 83.32,
+      "z_score": 0.34,
+      "bw_spread": -0.77
+    },
+    "inv": {
+      "latest_mbbl": 712158.0,
+      "wow_chg_pct": -1.52,
+      "surprise": -0.06
+    },
     "level": 0,
     "reasons": []
   },
