@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-04T20:32:43",
+  "scan_date": "2026-08-04T21:50:59",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -478,10 +478,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.434,
-      "baseline": 0.5361,
-      "z_score": -0.97,
-      "last_date": "2026-08-03"
+      "current": 0.45,
+      "baseline": 0.5353,
+      "z_score": -0.81,
+      "last_date": "2026-08-04"
     }
   ],
   "china": [
