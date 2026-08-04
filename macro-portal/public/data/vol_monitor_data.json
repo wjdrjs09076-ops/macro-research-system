@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-04T17:02:34",
+  "scan_date": "2026-08-04T17:32:59",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -423,20 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 85.18,
-      "baseline": 77.34,
-      "z_score": 0.43,
-      "bw_spread": -4.72
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 90.54,
-      "baseline": 83.32,
-      "z_score": 0.34,
-      "bw_spread": -0.77
-    },
     "level": 0,
     "reasons": []
   },
