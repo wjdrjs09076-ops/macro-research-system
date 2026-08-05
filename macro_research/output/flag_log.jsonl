@@ -158,3 +158,6 @@
 {"ts": "2026-08-04T03:16:04", "ticker": "^KS11", "level": 3, "z_score": 3.26, "vrp": -0.1941, "reason": "vol z=3.3, VRP=-0.194, beta=2.78, 5d consec vol"}
 {"ts": "2026-08-04T03:16:04", "ticker": "XLY", "level": 3, "z_score": 2.92, "vrp": -0.0756, "reason": "vol z=2.9, VRP=-0.076, 5d consec vol"}
 {"ts": "2026-08-04T03:16:04", "ticker": "^N225", "level": 2, "z_score": 1.83, "vrp": -0.0623, "reason": "vol z=1.8, VRP=-0.062, beta=1.38, 5d consec vol"}
+{"ts": "2026-08-05T00:57:07", "ticker": "XLC", "level": 3, "z_score": 4.6, "vrp": -0.0751, "reason": "vol z=4.6, VRP=-0.075, beta=0.48, 5d consec vol"}
+{"ts": "2026-08-05T00:57:07", "ticker": "^KS11", "level": 3, "z_score": 3.27, "vrp": -0.2016, "reason": "vol z=3.3, VRP=-0.202, beta=2.67, 5d consec vol"}
+{"ts": "2026-08-05T00:57:07", "ticker": "XLY", "level": 3, "z_score": 2.92, "vrp": -0.0721, "reason": "vol z=2.9, VRP=-0.072, 5d consec vol"}
