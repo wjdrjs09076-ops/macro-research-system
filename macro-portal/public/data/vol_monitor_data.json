@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-05T07:17:37",
+  "scan_date": "2026-08-05T10:10:06",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -493,11 +493,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4576.46,
-      "baseline": 4700.39,
-      "z_score": -0.93,
-      "rv_20d": 29.01,
-      "last_date": "2026-08-04"
+      "current": 4588.04,
+      "baseline": 4699.89,
+      "z_score": -0.84,
+      "rv_20d": 29.36,
+      "last_date": "2026-08-05"
     },
     {
       "sym": "sh000905",
@@ -506,11 +506,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7470.02,
-      "baseline": 7935.05,
-      "z_score": -0.8,
-      "rv_20d": 44.44,
-      "last_date": "2026-08-04"
+      "current": 7526.96,
+      "baseline": 7932.99,
+      "z_score": -0.7,
+      "rv_20d": 45.68,
+      "last_date": "2026-08-05"
     },
     {
       "sym": "sz399006",
@@ -533,11 +533,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3819.47,
-      "baseline": 4015.25,
-      "z_score": -1.85,
-      "rv_20d": 20.87,
-      "last_date": "2026-08-04"
+      "current": 3829.47,
+      "baseline": 4014.31,
+      "z_score": -1.74,
+      "rv_20d": 21.66,
+      "last_date": "2026-08-05"
     }
   ],
   "flagged_count": 27,
