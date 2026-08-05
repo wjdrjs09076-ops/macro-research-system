@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-05T04:17:06",
+  "scan_date": "2026-08-05T07:17:37",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -100,6 +100,20 @@
       "sector": "Materials"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 18.0,
+      "baseline_rv": 13.0,
+      "z_score": 1.32,
+      "vrp": -0.0196,
+      "beta_30d": 0.95,
+      "consec_vol": 4,
+      "excess_10d": -0.16,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "XLI",
       "current_rv": 23.6,
       "baseline_rv": 17.6,
@@ -157,31 +171,31 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 75.0,
+      "current_rv": 78.4,
       "baseline_rv": 49.8,
-      "z_score": 0.91,
-      "vrp": -0.1312,
-      "beta_30d": -1.598,
+      "z_score": 1.03,
+      "vrp": -0.162,
+      "beta_30d": -1.885,
       "consec_vol": 5,
-      "excess_10d": -4.65,
+      "excess_10d": -13.32,
       "level": 1,
       "label": "WATCH",
-      "reason": "VRP=-0.131, beta=-1.60, 5d consec vol",
+      "reason": "VRP=-0.162, beta=-1.88, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 16.3,
-      "baseline_rv": 13.0,
-      "z_score": 0.87,
-      "vrp": -0.0089,
-      "beta_30d": 0.927,
+      "ticker": "ZN=F",
+      "current_rv": 5.0,
+      "baseline_rv": 4.1,
+      "z_score": 0.86,
+      "vrp": 0.0017,
+      "beta_30d": 0.051,
       "consec_vol": 3,
-      "excess_10d": -0.17,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
+      "excess_10d": -2.91,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.05",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EEM",
@@ -224,20 +238,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Nikkei 225"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.6,
-      "baseline_rv": 4.1,
-      "z_score": 0.52,
-      "vrp": 0.0055,
-      "beta_30d": 0.035,
-      "consec_vol": 3,
-      "excess_10d": -2.53,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.03",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "000001.SS",
@@ -342,13 +342,13 @@
       "current_rv": 21.9,
       "baseline_rv": 28.1,
       "z_score": -0.45,
-      "vrp": 0.0286,
-      "beta_30d": 0.469,
+      "vrp": 0.0252,
+      "beta_30d": 0.518,
       "consec_vol": 0,
-      "excess_10d": -1.46,
+      "excess_10d": -2.42,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.47",
+      "reason": "beta=0.52",
       "sector": "Gold Futures"
     },
     {
