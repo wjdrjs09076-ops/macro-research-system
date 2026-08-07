@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-07T12:11:27",
+  "scan_date": "2026-08-07T13:02:22",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -446,18 +446,6 @@
     "reasons": []
   },
   "fred": [
-    {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 320.772,
-      "baseline": 350.5615,
-      "z_score": -0.22,
-      "last_date": "2026-08-05"
-    },
     {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
