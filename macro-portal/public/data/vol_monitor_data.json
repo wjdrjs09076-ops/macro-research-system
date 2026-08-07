@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-07T15:01:59",
+  "scan_date": "2026-08-07T15:31:55",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -112,6 +112,20 @@
       "label": "WATCH",
       "reason": "beta=0.32, 5d consec vol",
       "sector": "Materials"
+    },
+    {
+      "ticker": "XLI",
+      "current_rv": 23.2,
+      "baseline_rv": 17.5,
+      "z_score": 1.15,
+      "vrp": -0.036,
+      "beta_30d": 0.886,
+      "consec_vol": 5,
+      "excess_10d": -2.45,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Industrials"
     },
     {
       "ticker": "XAR",
@@ -526,7 +540,7 @@
       "last_date": "2026-08-07"
     }
   ],
-  "flagged_count": 27,
+  "flagged_count": 28,
   "alert_count": 3,
   "high_count": 1
 }
