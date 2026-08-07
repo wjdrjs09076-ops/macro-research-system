@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-07T20:49:03",
+  "scan_date": "2026-08-07T21:45:30",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -478,10 +478,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.448,
-      "baseline": 0.5333,
-      "z_score": -0.81,
-      "last_date": "2026-08-06"
+      "current": 0.446,
+      "baseline": 0.5331,
+      "z_score": -0.83,
+      "last_date": "2026-08-07"
     }
   ],
   "china": [
