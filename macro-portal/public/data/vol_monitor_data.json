@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-07T10:05:37",
+  "scan_date": "2026-08-07T11:24:26",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -519,11 +519,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3437.24,
-      "baseline": 3457.38,
-      "z_score": -0.06,
-      "rv_20d": 61.91,
-      "last_date": "2026-08-06"
+      "current": 3481.07,
+      "baseline": 3456.82,
+      "z_score": 0.07,
+      "rv_20d": 60.6,
+      "last_date": "2026-08-07"
     },
     {
       "sym": "sh000001",
