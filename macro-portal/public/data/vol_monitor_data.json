@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-08T09:44:07",
+  "scan_date": "2026-08-08T10:39:30",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -140,20 +140,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Nikkei 225"
-    },
-    {
-      "ticker": "EWJ",
-      "current_rv": 27.8,
-      "baseline_rv": 20.8,
-      "z_score": 0.95,
-      "vrp": -0.0226,
-      "beta_30d": 1.214,
-      "consec_vol": 5,
-      "excess_10d": 1.61,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "ES=F",
@@ -540,7 +526,7 @@
       "last_date": "2026-08-07"
     }
   ],
-  "flagged_count": 28,
+  "flagged_count": 27,
   "alert_count": 3,
   "high_count": 1
 }
