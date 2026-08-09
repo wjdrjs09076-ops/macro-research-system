@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-09T16:00:04",
+  "scan_date": "2026-08-09T16:48:53",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -423,13 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 86.3,
-      "baseline": 77.82,
-      "z_score": 0.47,
-      "bw_spread": -1.48
-    },
     "brent": {
       "label": "Brent",
       "current": 94.06,
