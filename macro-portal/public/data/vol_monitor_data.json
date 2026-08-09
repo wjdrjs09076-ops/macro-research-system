@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-09T21:39:03",
+  "scan_date": "2026-08-09T22:37:35",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -240,20 +240,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 28.2,
-      "baseline_rv": 28.1,
-      "z_score": 0.01,
-      "vrp": 0.0082,
-      "beta_30d": 0.458,
-      "consec_vol": 2,
-      "excess_10d": 3.42,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.46",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLY",
       "current_rv": 19.2,
       "baseline_rv": 19.2,
@@ -308,6 +294,20 @@
       "label": "---",
       "reason": "",
       "sector": "Transportation / Shipping"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 24.9,
+      "baseline_rv": 28.1,
+      "z_score": -0.23,
+      "vrp": 0.0225,
+      "beta_30d": 0.429,
+      "consec_vol": 2,
+      "excess_10d": 2.03,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.43",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "XLF",
