@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-09T02:08:08",
+  "scan_date": "2026-08-09T04:01:20",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -240,6 +240,20 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 28.2,
+      "baseline_rv": 28.1,
+      "z_score": 0.01,
+      "vrp": 0.0082,
+      "beta_30d": 0.458,
+      "consec_vol": 2,
+      "excess_10d": 3.42,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.46",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XLY",
       "current_rv": 19.2,
       "baseline_rv": 19.2,
@@ -294,20 +308,6 @@
       "label": "---",
       "reason": "",
       "sector": "Transportation / Shipping"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 24.9,
-      "baseline_rv": 28.1,
-      "z_score": -0.23,
-      "vrp": 0.0225,
-      "beta_30d": 0.429,
-      "consec_vol": 2,
-      "excess_10d": 2.03,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.43",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "XLF",
@@ -423,25 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 86.3,
-      "baseline": 77.82,
-      "z_score": 0.47,
-      "bw_spread": -1.48
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 94.06,
-      "baseline": 83.75,
-      "z_score": 0.49,
-      "bw_spread": 4.75
-    },
-    "inv": {
-      "latest_mbbl": 711796.0,
-      "wow_chg_pct": -0.05,
-      "surprise": 1.29
-    },
     "level": 0,
     "reasons": []
   },
