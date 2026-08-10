@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-10T02:12:46",
+  "scan_date": "2026-08-10T04:14:38",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -159,7 +159,7 @@
       "ticker": "ES=F",
       "current_rv": 16.1,
       "baseline_rv": 12.9,
-      "z_score": 0.87,
+      "z_score": 0.86,
       "vrp": -0.0167,
       "beta_30d": 0.951,
       "consec_vol": 5,
@@ -171,9 +171,9 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 4.7,
+      "current_rv": 4.9,
       "baseline_rv": 4.1,
-      "z_score": 0.64,
+      "z_score": 0.76,
       "vrp": -0.0008,
       "beta_30d": 0.082,
       "consec_vol": 5,
@@ -182,6 +182,20 @@
       "label": "WATCH",
       "reason": "beta=0.08, 5d consec vol",
       "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 69.2,
+      "baseline_rv": 50.2,
+      "z_score": 0.69,
+      "vrp": -0.1221,
+      "beta_30d": -2.304,
+      "consec_vol": 5,
+      "excess_10d": -16.96,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.122, beta=-2.30, 5d consec vol",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLV",
@@ -210,20 +224,6 @@
       "label": "WATCH",
       "reason": "beta=1.58, 5d consec vol",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 60.2,
-      "baseline_rv": 50.2,
-      "z_score": 0.36,
-      "vrp": -0.1221,
-      "beta_30d": -2.304,
-      "consec_vol": 5,
-      "excess_10d": -16.96,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.122, beta=-2.30, 5d consec vol",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLE",
@@ -297,12 +297,12 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 24.7,
+      "current_rv": 24.9,
       "baseline_rv": 28.1,
-      "z_score": -0.24,
+      "z_score": -0.23,
       "vrp": 0.0225,
       "beta_30d": 0.429,
-      "consec_vol": 3,
+      "consec_vol": 2,
       "excess_10d": 2.03,
       "level": 1,
       "label": "WATCH",
