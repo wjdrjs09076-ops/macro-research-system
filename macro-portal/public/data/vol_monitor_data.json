@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-10T17:31:45",
+  "scan_date": "2026-08-10T18:02:41",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -446,30 +446,6 @@
     "reasons": []
   },
   "fred": [
-    {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 255.064,
-      "baseline": 350.917,
-      "z_score": -0.72,
-      "last_date": "2026-08-09"
-    },
-    {
-      "sid": "BAMLH0A0HYM2",
-      "label": "HY Spd",
-      "desc": "HY Credit Spread",
-      "etfs": [
-        "XLF"
-      ],
-      "current": 2.734,
-      "baseline": 2.8813,
-      "z_score": 0.9,
-      "last_date": "2026-08-07"
-    },
     {
       "sid": "T10Y2Y",
       "label": "Yld Crv",
