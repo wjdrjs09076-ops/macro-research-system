@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-11T13:32:07",
+  "scan_date": "2026-08-11T13:56:52",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -465,10 +465,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 2.734,
-      "baseline": 2.8811,
-      "z_score": 0.9,
-      "last_date": "2026-08-07"
+      "current": 2.718,
+      "baseline": 2.8807,
+      "z_score": 0.99,
+      "last_date": "2026-08-10"
     },
     {
       "sid": "T10Y2Y",
