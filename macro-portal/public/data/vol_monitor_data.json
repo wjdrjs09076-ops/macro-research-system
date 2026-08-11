@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-11T02:07:31",
+  "scan_date": "2026-08-11T04:02:34",
   "etf_signals": [
     {
       "ticker": "^KS11",
@@ -184,32 +184,32 @@
       "sector": "Defense / Aerospace"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 5.0,
-      "baseline_rv": 4.1,
-      "z_score": 0.88,
-      "vrp": -0.0019,
-      "beta_30d": 0.097,
-      "consec_vol": 5,
-      "excess_10d": -4.79,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "ES=F",
-      "current_rv": 16.1,
+      "current_rv": 16.2,
       "baseline_rv": 12.8,
-      "z_score": 0.87,
-      "vrp": -0.011,
-      "beta_30d": 0.969,
+      "z_score": 0.88,
+      "vrp": -0.0117,
+      "beta_30d": 0.97,
       "consec_vol": 5,
-      "excess_10d": -0.08,
+      "excess_10d": -0.17,
       "level": 1,
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.9,
+      "baseline_rv": 4.1,
+      "z_score": 0.8,
+      "vrp": -0.0015,
+      "beta_30d": 0.096,
+      "consec_vol": 5,
+      "excess_10d": -4.73,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EEM",
@@ -227,16 +227,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 66.9,
+      "current_rv": 66.0,
       "baseline_rv": 50.3,
-      "z_score": 0.6,
-      "vrp": -0.074,
-      "beta_30d": -2.64,
+      "z_score": 0.57,
+      "vrp": -0.0703,
+      "beta_30d": -2.636,
       "consec_vol": 5,
-      "excess_10d": -3.96,
+      "excess_10d": -4.35,
       "level": 1,
       "label": "WATCH",
-      "reason": "VRP=-0.074, beta=-2.64, 5d consec vol",
+      "reason": "VRP=-0.070, beta=-2.64, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
@@ -252,20 +252,6 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 28.3,
-      "baseline_rv": 28.1,
-      "z_score": 0.01,
-      "vrp": 0.0117,
-      "beta_30d": 0.452,
-      "consec_vol": 3,
-      "excess_10d": 5.37,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.45",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "XTN",
@@ -308,6 +294,20 @@
       "label": "WATCH",
       "reason": "beta=0.50",
       "sector": "Shanghai Composite"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 24.7,
+      "baseline_rv": 28.1,
+      "z_score": -0.24,
+      "vrp": 0.0187,
+      "beta_30d": 0.486,
+      "consec_vol": 2,
+      "excess_10d": 2.4,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.49",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "XLF",
