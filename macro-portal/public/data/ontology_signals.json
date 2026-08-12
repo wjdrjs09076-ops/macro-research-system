@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.28,
-    "ts": "2026-08-12T15:02:56"
+    "ts": "2026-08-12T15:32:19"
   },
-  "generated": "2026-08-12T15:02:56",
+  "generated": "2026-08-12T15:32:19",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -32,8 +32,8 @@
     {
       "sector": "XLY",
       "macro": "VIX",
-      "delta_raw": -0.0108,
-      "t_raw": -24.13,
+      "delta_raw": -0.0109,
+      "t_raw": -24.12,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -45,7 +45,7 @@
       "sector": "XLK",
       "macro": "VIX",
       "delta_raw": -0.0137,
-      "t_raw": -23.93,
+      "t_raw": -23.84,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -68,8 +68,8 @@
     {
       "sector": "XLF",
       "macro": "VIX",
-      "delta_raw": -0.0081,
-      "t_raw": -20.72,
+      "delta_raw": -0.0082,
+      "t_raw": -20.67,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -81,7 +81,7 @@
       "sector": "XLC",
       "macro": "VIX",
       "delta_raw": -0.0079,
-      "t_raw": -20.14,
+      "t_raw": -20.25,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -93,7 +93,7 @@
       "sector": "XLB",
       "macro": "VIX",
       "delta_raw": -0.0084,
-      "t_raw": -18.13,
+      "t_raw": -18.07,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -116,7 +116,7 @@
     {
       "sector": "XLRE",
       "macro": "VIX",
-      "delta_raw": -0.0051,
+      "delta_raw": -0.0052,
       "t_raw": -11.39,
       "delta_ctrl": null,
       "t_ctrl": null,
@@ -128,8 +128,8 @@
     {
       "sector": "XLV",
       "macro": "VIX",
-      "delta_raw": -0.0048,
-      "t_raw": -9.92,
+      "delta_raw": -0.0049,
+      "t_raw": -10.01,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -140,8 +140,8 @@
     {
       "sector": "XLE",
       "macro": "VIX",
-      "delta_raw": -0.0061,
-      "t_raw": -8.57,
+      "delta_raw": -0.0062,
+      "t_raw": -8.52,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -152,8 +152,8 @@
     {
       "sector": "XLU",
       "macro": "VIX",
-      "delta_raw": -0.0038,
-      "t_raw": -7.98,
+      "delta_raw": -0.0039,
+      "t_raw": -8.05,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -177,7 +177,7 @@
       "sector": "XLP",
       "macro": "VIX",
       "delta_raw": -0.0022,
-      "t_raw": -4.89,
+      "t_raw": -4.87,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -189,7 +189,7 @@
       "sector": "XLRE",
       "macro": "US10Y",
       "delta_raw": -0.0024,
-      "t_raw": -4.7,
+      "t_raw": -4.73,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -213,7 +213,7 @@
       "sector": "XLB",
       "macro": "DXY",
       "delta_raw": -0.0025,
-      "t_raw": -3.94,
+      "t_raw": -3.99,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0002,
@@ -224,8 +224,8 @@
     {
       "sector": "XLRE",
       "macro": "DXY",
-      "delta_raw": -0.002,
-      "t_raw": -3.79,
+      "delta_raw": -0.0019,
+      "t_raw": -3.81,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0004,
@@ -258,13 +258,25 @@
       "verdict": "killed"
     },
     {
+      "sector": "XLY",
+      "macro": "OIL",
+      "delta_raw": -0.0022,
+      "t_raw": -3.0,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0058,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
       "sector": "XLV",
       "macro": "US10Y",
       "delta_raw": -0.0016,
       "t_raw": -2.99,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0061,
+      "q_raw": 0.0058,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -272,11 +284,11 @@
     {
       "sector": "XLP",
       "macro": "DXY",
-      "delta_raw": -0.0013,
-      "t_raw": -2.82,
+      "delta_raw": -0.0014,
+      "t_raw": -2.89,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0102,
+      "q_raw": 0.0078,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -284,23 +296,11 @@
     {
       "sector": "XLV",
       "macro": "DXY",
-      "delta_raw": -0.0015,
-      "t_raw": -2.64,
-      "delta_ctrl": null,
-      "t_ctrl": null,
-      "q_raw": 0.0164,
-      "q_ctrl": null,
-      "vif": null,
-      "verdict": "killed"
-    },
-    {
-      "sector": "XLY",
-      "macro": "OIL",
-      "delta_raw": -0.0019,
+      "delta_raw": -0.0014,
       "t_raw": -2.59,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0182,
+      "q_raw": 0.0184,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -309,10 +309,10 @@
       "sector": "XLU",
       "macro": "DXY",
       "delta_raw": -0.0013,
-      "t_raw": -2.55,
+      "t_raw": -2.54,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0195,
+      "q_raw": 0.0202,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -587,28 +587,33 @@
     "per_threshold": [
       {
         "threshold": 0.03,
-        "p_any": 0.991,
-        "p_all": 0.017,
-        "p_half": 0.4566,
-        "mean_hit_count": 5.3
+        "p_any": 0.9912,
+        "p_all": 0.0172,
+        "p_half": 0.472,
+        "mean_hit_count": 5.38
       },
       {
         "threshold": 0.05,
-        "p_any": 0.9352,
-        "p_all": 0.0012,
-        "p_half": 0.1512,
-        "mean_hit_count": 3.13
+        "p_any": 0.9362,
+        "p_all": 0.0016,
+        "p_half": 0.163,
+        "mean_hit_count": 3.22
       },
       {
         "threshold": 0.1,
-        "p_any": 0.506,
+        "p_any": 0.5174,
         "p_all": 0.0,
-        "p_half": 0.0018,
-        "mean_hit_count": 0.7
+        "p_half": 0.0022,
+        "mean_hit_count": 0.75
       }
     ],
     "pair_threshold": 0.05,
     "top_pair_co_drawdown": [
+      {
+        "a": "XLY",
+        "b": "XLK",
+        "p_co": 0.2782
+      },
       {
         "a": "XLK",
         "b": "XLE",
@@ -621,52 +626,47 @@
       },
       {
         "a": "XLY",
-        "b": "XLK",
-        "p_co": 0.1966
-      },
-      {
-        "a": "XLC",
-        "b": "XLK",
-        "p_co": 0.1888
-      },
-      {
-        "a": "XLB",
-        "b": "XLK",
-        "p_co": 0.1746
-      },
-      {
-        "a": "XLB",
-        "b": "XLI",
-        "p_co": 0.1526
-      },
-      {
-        "a": "XLY",
         "b": "XLC",
-        "p_co": 0.149
+        "p_co": 0.1886
       },
       {
         "a": "XLC",
-        "b": "XLE",
-        "p_co": 0.1332
+        "b": "XLK",
+        "p_co": 0.174
+      },
+      {
+        "a": "XLB",
+        "b": "XLK",
+        "p_co": 0.1718
       },
       {
         "a": "XLI",
         "b": "XLY",
-        "p_co": 0.1314
+        "p_co": 0.1706
+      },
+      {
+        "a": "XLY",
+        "b": "XLE",
+        "p_co": 0.1532
       },
       {
         "a": "XLB",
-        "b": "XLE",
-        "p_co": 0.126
+        "b": "XLY",
+        "p_co": 0.1518
+      },
+      {
+        "a": "XLB",
+        "b": "XLI",
+        "p_co": 0.1514
       }
     ],
     "sigmas_annual": {
-      "XLB": 0.1713,
+      "XLB": 0.1697,
       "XLI": 0.1751,
-      "XLY": 0.1669,
+      "XLY": 0.2242,
       "XLRE": 0.1535,
       "XLF": 0.1367,
-      "XLC": 0.1923,
+      "XLC": 0.1804,
       "XLV": 0.1693,
       "XLK": 0.3373,
       "XLP": 0.1534,
