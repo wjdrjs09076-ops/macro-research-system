@@ -1,20 +1,6 @@
 {
-  "scan_date": "2026-08-12T09:17:19",
+  "scan_date": "2026-08-12T10:36:48",
   "etf_signals": [
-    {
-      "ticker": "XLC",
-      "current_rv": 24.6,
-      "baseline_rv": 13.9,
-      "z_score": 2.58,
-      "vrp": -0.024,
-      "beta_30d": 0.595,
-      "consec_vol": 5,
-      "excess_10d": -0.63,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=2.6, beta=0.60, 5d consec vol",
-      "sector": "Communication"
-    },
     {
       "ticker": "^KS11",
       "current_rv": 108.2,
@@ -28,6 +14,20 @@
       "label": "ALERT",
       "reason": "vol z=2.4, VRP=-0.158, beta=1.93, 5d consec vol",
       "sector": "KOSPI"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 23.5,
+      "baseline_rv": 13.9,
+      "z_score": 2.24,
+      "vrp": -0.0182,
+      "beta_30d": 0.558,
+      "consec_vol": 5,
+      "excess_10d": -2.44,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.2, beta=0.56, 5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "XLE",
@@ -493,11 +493,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4673.94,
-      "baseline": 4698.01,
-      "z_score": -0.18,
-      "rv_20d": 25.3,
-      "last_date": "2026-08-11"
+      "current": 4680.5,
+      "baseline": 4697.81,
+      "z_score": -0.13,
+      "rv_20d": 25.42,
+      "last_date": "2026-08-12"
     },
     {
       "sym": "sh000905",
@@ -506,11 +506,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7923.44,
-      "baseline": 7928.99,
-      "z_score": -0.01,
-      "rv_20d": 41.45,
-      "last_date": "2026-08-11"
+      "current": 7970.66,
+      "baseline": 7928.4,
+      "z_score": 0.07,
+      "rv_20d": 41.3,
+      "last_date": "2026-08-12"
     },
     {
       "sym": "sz399006",
@@ -519,11 +519,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3540.04,
-      "baseline": 3458.39,
-      "z_score": 0.23,
-      "rv_20d": 58.24,
-      "last_date": "2026-08-11"
+      "current": 3553.43,
+      "baseline": 3458.77,
+      "z_score": 0.26,
+      "rv_20d": 58.49,
+      "last_date": "2026-08-12"
     },
     {
       "sym": "sh000001",
@@ -533,14 +533,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3923.9,
-      "baseline": 4011.8,
-      "z_score": -0.81,
-      "rv_20d": 19.35,
-      "last_date": "2026-08-11"
+      "current": 3937.55,
+      "baseline": 4011.14,
+      "z_score": -0.68,
+      "rv_20d": 19.37,
+      "last_date": "2026-08-12"
     }
   ],
   "flagged_count": 27,
-  "alert_count": 2,
+  "alert_count": 1,
   "high_count": 0
 }
