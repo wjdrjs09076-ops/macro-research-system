@@ -1,32 +1,32 @@
 {
-  "scan_date": "2026-08-12T05:59:30",
+  "scan_date": "2026-08-12T07:46:41",
   "etf_signals": [
     {
       "ticker": "XLC",
-      "current_rv": 23.5,
+      "current_rv": 24.6,
       "baseline_rv": 13.9,
-      "z_score": 2.24,
-      "vrp": -0.0182,
-      "beta_30d": 0.558,
+      "z_score": 2.58,
+      "vrp": -0.024,
+      "beta_30d": 0.595,
       "consec_vol": 5,
-      "excess_10d": -2.44,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "vol z=2.2, beta=0.56, 5d consec vol",
+      "excess_10d": -0.63,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.6, beta=0.60, 5d consec vol",
       "sector": "Communication"
     },
     {
       "ticker": "^KS11",
-      "current_rv": 96.5,
-      "baseline_rv": 47.1,
-      "z_score": 1.97,
-      "vrp": -0.1208,
-      "beta_30d": 2.206,
+      "current_rv": 108.2,
+      "baseline_rv": 47.4,
+      "z_score": 2.43,
+      "vrp": -0.1577,
+      "beta_30d": 1.933,
       "consec_vol": 5,
-      "excess_10d": -8.09,
+      "excess_10d": 3.18,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=2.0, VRP=-0.121, beta=2.21, 5d consec vol",
+      "reason": "vol z=2.4, VRP=-0.158, beta=1.93, 5d consec vol",
       "sector": "KOSPI"
     },
     {
@@ -58,20 +58,6 @@
       "sector": "Technology"
     },
     {
-      "ticker": "XLI",
-      "current_rv": 25.2,
-      "baseline_rv": 17.6,
-      "z_score": 1.54,
-      "vrp": -0.0464,
-      "beta_30d": 0.897,
-      "consec_vol": 5,
-      "excess_10d": -2.04,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Industrials"
-    },
-    {
       "ticker": "SOXX",
       "current_rv": 66.0,
       "baseline_rv": 43.8,
@@ -98,6 +84,20 @@
       "label": "WATCH",
       "reason": "beta=0.29, 5d consec vol",
       "sector": "Long-term Treasury"
+    },
+    {
+      "ticker": "XLI",
+      "current_rv": 23.2,
+      "baseline_rv": 17.4,
+      "z_score": 1.16,
+      "vrp": -0.0405,
+      "beta_30d": 0.861,
+      "consec_vol": 5,
+      "excess_10d": -2.15,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Industrials"
     },
     {
       "ticker": "^N225",
@@ -255,13 +255,13 @@
     },
     {
       "ticker": "XTN",
-      "current_rv": 26.5,
-      "baseline_rv": 27.3,
-      "z_score": -0.1,
-      "vrp": -0.0302,
-      "beta_30d": 0.834,
+      "current_rv": 27.1,
+      "baseline_rv": 27.2,
+      "z_score": -0.01,
+      "vrp": -0.0398,
+      "beta_30d": 1.0,
       "consec_vol": 0,
-      "excess_10d": -6.29,
+      "excess_10d": -6.79,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -541,6 +541,6 @@
     }
   ],
   "flagged_count": 27,
-  "alert_count": 1,
+  "alert_count": 2,
   "high_count": 0
 }
