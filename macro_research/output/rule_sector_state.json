@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-12T18:32:25",
+  "generated": "2026-08-12T19:02:40",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -9,10 +9,16 @@
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
     "co_crash_cluster|XLF",
+    "event_vol|XLC",
     "fat_tail_alert|XLE",
     "fat_tail_alert|XLI",
     "fat_tail_alert|XLV",
-    "vol_overpriced|XLF"
+    "rate_beneficiary|XLK",
+    "rate_victim|XLC",
+    "rate_victim|XLP",
+    "rate_victim|XLRE",
+    "rate_victim|XLY",
+    "vol_overpriced|XLU"
   ],
   "rate_verdicts": [
     {
@@ -20,11 +26,11 @@
       "sector": "XLK",
       "macro": "US10Y",
       "verdict": "KILLED",
-      "controlled": false,
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": 0.0011,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": 0.0034,
+        "t": 2.93,
+        "q_fdr": 0.0136
       },
       "judged": "2026-08-12"
     },
@@ -32,10 +38,23 @@
       "rule": "rate_beneficiary",
       "sector": "XLK",
       "macro": "US10Y",
+      "verdict": "ALIVE",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": 0.0034,
+        "t": 2.93,
+        "q_fdr": 0.0136
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLK",
+      "macro": "US2Y",
       "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": 0.0011,
+        "delta_ctrl": 0.0037,
         "t": null,
         "q_fdr": null
       },
@@ -46,11 +65,11 @@
       "sector": "XLF",
       "macro": "US10Y",
       "verdict": "KILLED",
-      "controlled": false,
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": 0.0003,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": -0.001,
+        "t": -0.92,
+        "q_fdr": 0.4608
       },
       "judged": "2026-08-12"
     },
@@ -59,6 +78,136 @@
       "sector": "XLF",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.001,
+        "t": -0.92,
+        "q_fdr": 0.4608
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLF",
+      "macro": "US2Y",
+      "verdict": "KILLED",
+      "controlled": false,
+      "evidence": {
+        "delta_ctrl": 0.0009,
+        "t": null,
+        "q_fdr": null
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLE",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": 0.002,
+        "t": 1.25,
+        "q_fdr": 0.357
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLE",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": 0.002,
+        "t": 1.25,
+        "q_fdr": 0.357
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLE",
+      "macro": "US2Y",
+      "verdict": "KILLED",
+      "controlled": false,
+      "evidence": {
+        "delta_ctrl": 0.0027,
+        "t": null,
+        "q_fdr": null
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLV",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0014,
+        "t": -1.0,
+        "q_fdr": 0.4352
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLV",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0014,
+        "t": -1.0,
+        "q_fdr": 0.4352
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLV",
+      "macro": "US2Y",
+      "verdict": "KILLED",
+      "controlled": false,
+      "evidence": {
+        "delta_ctrl": 0.0004,
+        "t": null,
+        "q_fdr": null
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_victim",
+      "sector": "XLY",
+      "macro": "US10Y",
+      "verdict": "ALIVE",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0048,
+        "t": -4.54,
+        "q_fdr": 0.0001
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLY",
+      "macro": "US10Y",
+      "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0048,
+        "t": -4.54,
+        "q_fdr": 0.0001
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLY",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
         "delta_ctrl": 0.0003,
@@ -69,92 +218,14 @@
     },
     {
       "rule": "rate_victim",
-      "sector": "XLE",
-      "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
-      "evidence": {
-        "delta_ctrl": 0.0044,
-        "t": null,
-        "q_fdr": null
-      },
-      "judged": "2026-08-12"
-    },
-    {
-      "rule": "rate_beneficiary",
-      "sector": "XLE",
-      "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
-      "evidence": {
-        "delta_ctrl": 0.0044,
-        "t": null,
-        "q_fdr": null
-      },
-      "judged": "2026-08-12"
-    },
-    {
-      "rule": "rate_victim",
-      "sector": "XLV",
-      "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
-      "evidence": {
-        "delta_ctrl": -0.0016,
-        "t": null,
-        "q_fdr": null
-      },
-      "judged": "2026-08-12"
-    },
-    {
-      "rule": "rate_beneficiary",
-      "sector": "XLV",
-      "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
-      "evidence": {
-        "delta_ctrl": -0.0016,
-        "t": null,
-        "q_fdr": null
-      },
-      "judged": "2026-08-12"
-    },
-    {
-      "rule": "rate_victim",
-      "sector": "XLY",
-      "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
-      "evidence": {
-        "delta_ctrl": -0.0004,
-        "t": null,
-        "q_fdr": null
-      },
-      "judged": "2026-08-12"
-    },
-    {
-      "rule": "rate_beneficiary",
-      "sector": "XLY",
-      "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
-      "evidence": {
-        "delta_ctrl": -0.0004,
-        "t": null,
-        "q_fdr": null
-      },
-      "judged": "2026-08-12"
-    },
-    {
-      "rule": "rate_victim",
       "sector": "XLP",
       "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
+      "verdict": "ALIVE",
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0014,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": -0.0031,
+        "t": -2.39,
+        "q_fdr": 0.0466
       },
       "judged": "2026-08-12"
     },
@@ -163,9 +234,22 @@
       "sector": "XLP",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0031,
+        "t": -2.39,
+        "q_fdr": 0.0466
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLP",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": -0.0014,
+        "delta_ctrl": -0.0009,
         "t": null,
         "q_fdr": null
       },
@@ -176,11 +260,11 @@
       "sector": "XLU",
       "macro": "US10Y",
       "verdict": "KILLED",
-      "controlled": false,
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.002,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": -0.0026,
+        "t": -1.86,
+        "q_fdr": 0.1312
       },
       "judged": "2026-08-12"
     },
@@ -189,9 +273,22 @@
       "sector": "XLU",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0026,
+        "t": -1.86,
+        "q_fdr": 0.1312
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLU",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": -0.002,
+        "delta_ctrl": -0.0003,
         "t": null,
         "q_fdr": null
       },
@@ -202,11 +299,11 @@
       "sector": "XLI",
       "macro": "US10Y",
       "verdict": "KILLED",
-      "controlled": false,
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0002,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": 0.0012,
+        "t": 1.18,
+        "q_fdr": 0.3861
       },
       "judged": "2026-08-12"
     },
@@ -215,9 +312,22 @@
       "sector": "XLI",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": 0.0012,
+        "t": 1.18,
+        "q_fdr": 0.3861
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLI",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": -0.0002,
+        "delta_ctrl": 0.0019,
         "t": null,
         "q_fdr": null
       },
@@ -228,11 +338,11 @@
       "sector": "XLB",
       "macro": "US10Y",
       "verdict": "KILLED",
-      "controlled": false,
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0013,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": -0.0014,
+        "t": -1.09,
+        "q_fdr": 0.4057
       },
       "judged": "2026-08-12"
     },
@@ -241,9 +351,22 @@
       "sector": "XLB",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0014,
+        "t": -1.09,
+        "q_fdr": 0.4057
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLB",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": -0.0013,
+        "delta_ctrl": 0.0008,
         "t": null,
         "q_fdr": null
       },
@@ -253,12 +376,12 @@
       "rule": "rate_victim",
       "sector": "XLRE",
       "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
+      "verdict": "ALIVE",
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0024,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": -0.0043,
+        "t": -3.47,
+        "q_fdr": 0.0039
       },
       "judged": "2026-08-12"
     },
@@ -267,9 +390,22 @@
       "sector": "XLRE",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0043,
+        "t": -3.47,
+        "q_fdr": 0.0039
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLRE",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": -0.0024,
+        "delta_ctrl": -0.0006,
         "t": null,
         "q_fdr": null
       },
@@ -279,12 +415,12 @@
       "rule": "rate_victim",
       "sector": "XLC",
       "macro": "US10Y",
-      "verdict": "KILLED",
-      "controlled": false,
+      "verdict": "ALIVE",
+      "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0,
-        "t": null,
-        "q_fdr": null
+        "delta_ctrl": -0.0046,
+        "t": -4.48,
+        "q_fdr": 0.0001
       },
       "judged": "2026-08-12"
     },
@@ -293,9 +429,22 @@
       "sector": "XLC",
       "macro": "US10Y",
       "verdict": "KILLED",
+      "controlled": true,
+      "evidence": {
+        "delta_ctrl": -0.0046,
+        "t": -4.48,
+        "q_fdr": 0.0001
+      },
+      "judged": "2026-08-12"
+    },
+    {
+      "rule": "rate_beneficiary",
+      "sector": "XLC",
+      "macro": "US2Y",
+      "verdict": "KILLED",
       "controlled": false,
       "evidence": {
-        "delta_ctrl": -0.0,
+        "delta_ctrl": -0.0003,
         "t": null,
         "q_fdr": null
       },
