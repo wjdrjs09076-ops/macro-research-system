@@ -1,19 +1,33 @@
 {
-  "scan_date": "2026-08-13T11:22:47",
+  "scan_date": "2026-08-13T12:12:19",
   "etf_signals": [
     {
       "ticker": "XLC",
-      "current_rv": 24.0,
-      "baseline_rv": 14.0,
-      "z_score": 2.33,
-      "vrp": -0.0275,
-      "beta_30d": 0.594,
+      "current_rv": 24.6,
+      "baseline_rv": 13.9,
+      "z_score": 2.5,
+      "vrp": -0.0235,
+      "beta_30d": 0.54,
       "consec_vol": 5,
-      "excess_10d": -4.98,
+      "excess_10d": -3.9,
       "level": 1,
       "label": "WATCH",
-      "reason": "vol z=2.3, beta=0.59, 5d consec vol",
+      "reason": "vol z=2.5, beta=0.54, 5d consec vol",
       "sector": "Communication"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 102.2,
+      "baseline_rv": 47.7,
+      "z_score": 2.17,
+      "vrp": -0.1137,
+      "beta_30d": 2.127,
+      "consec_vol": 5,
+      "excess_10d": 11.05,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.2, VRP=-0.114, beta=2.13, 5d consec vol",
+      "sector": "KOSPI"
     },
     {
       "ticker": "XLE",
@@ -28,20 +42,6 @@
       "label": "WATCH",
       "reason": "beta=-0.79, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "^KS11",
-      "current_rv": 78.6,
-      "baseline_rv": 47.4,
-      "z_score": 1.23,
-      "vrp": 0.0467,
-      "beta_30d": 2.277,
-      "consec_vol": 5,
-      "excess_10d": 6.41,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.28, 5d consec vol",
-      "sector": "KOSPI"
     },
     {
       "ticker": "XLK",
@@ -174,13 +174,13 @@
       "current_rv": 25.1,
       "baseline_rv": 24.6,
       "z_score": 0.05,
-      "vrp": 0.0907,
-      "beta_30d": 1.775,
+      "vrp": 0.0878,
+      "beta_30d": 1.721,
       "consec_vol": 5,
       "excess_10d": 2.83,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.78, 5d consec vol",
+      "reason": "beta=1.72, 5d consec vol",
       "sector": "Emerging Markets"
     },
     {
@@ -282,20 +282,6 @@
       "sector": "Gold Futures"
     },
     {
-      "ticker": "MCHI",
-      "current_rv": 17.3,
-      "baseline_rv": 19.9,
-      "z_score": -0.53,
-      "vrp": 0.0332,
-      "beta_30d": 0.531,
-      "consec_vol": 0,
-      "excess_10d": -2.24,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.53",
-      "sector": "China Broad (MSCI)"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 13.8,
       "baseline_rv": 17.4,
@@ -314,14 +300,28 @@
       "current_rv": 16.0,
       "baseline_rv": 19.6,
       "z_score": -0.74,
-      "vrp": 0.0477,
-      "beta_30d": -0.007,
+      "vrp": 0.0453,
+      "beta_30d": -0.012,
       "consec_vol": 0,
       "excess_10d": -8.22,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=-0.01",
       "sector": "China Large-Cap"
+    },
+    {
+      "ticker": "MCHI",
+      "current_rv": 16.0,
+      "baseline_rv": 19.9,
+      "z_score": -0.79,
+      "vrp": 0.038,
+      "beta_30d": 0.424,
+      "consec_vol": 0,
+      "excess_10d": -5.71,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.42",
+      "sector": "China Broad (MSCI)"
     },
     {
       "ticker": "^FTMC",
@@ -541,6 +541,6 @@
     }
   ],
   "flagged_count": 27,
-  "alert_count": 0,
+  "alert_count": 1,
   "high_count": 0
 }
