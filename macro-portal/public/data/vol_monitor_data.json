@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-13T06:58:53",
+  "scan_date": "2026-08-13T08:39:23",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -210,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=-0.40",
       "sector": "Healthcare"
+    },
+    {
+      "ticker": "GLD",
+      "current_rv": 24.7,
+      "baseline_rv": 27.9,
+      "z_score": -0.23,
+      "vrp": 0.0348,
+      "beta_30d": 0.591,
+      "consec_vol": 5,
+      "excess_10d": 3.1,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.59, 5d consec vol",
+      "sector": "Gold"
     },
     {
       "ticker": "TLT",
@@ -526,7 +540,7 @@
       "last_date": "2026-08-12"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 27,
   "alert_count": 1,
   "high_count": 0
 }
