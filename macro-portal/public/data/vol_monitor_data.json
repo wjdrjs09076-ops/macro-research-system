@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-08-13T15:08:22",
+  "scan_date": "2026-08-13T15:31:47",
   "etf_signals": [
     {
       "ticker": "XLC",
-      "current_rv": 24.0,
-      "baseline_rv": 14.0,
-      "z_score": 2.33,
-      "vrp": -0.0275,
-      "beta_30d": 0.594,
+      "current_rv": 24.6,
+      "baseline_rv": 13.9,
+      "z_score": 2.5,
+      "vrp": -0.0235,
+      "beta_30d": 0.54,
       "consec_vol": 5,
-      "excess_10d": -4.98,
+      "excess_10d": -3.9,
       "level": 1,
       "label": "WATCH",
-      "reason": "vol z=2.3, beta=0.59, 5d consec vol",
+      "reason": "vol z=2.5, beta=0.54, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -28,20 +28,6 @@
       "label": "ALERT",
       "reason": "vol z=2.2, VRP=-0.114, beta=2.13, 5d consec vol",
       "sector": "KOSPI"
-    },
-    {
-      "ticker": "XLY",
-      "current_rv": 28.7,
-      "baseline_rv": 19.3,
-      "z_score": 1.82,
-      "vrp": -0.0208,
-      "beta_30d": 1.341,
-      "consec_vol": 5,
-      "excess_10d": 1.33,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "vol z=1.8, beta=1.34, 5d consec vol",
-      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLE",
@@ -84,20 +70,6 @@
       "label": "WATCH",
       "reason": "beta=3.58, 5d consec vol",
       "sector": "Korea (MSCI)"
-    },
-    {
-      "ticker": "^N225",
-      "current_rv": 35.6,
-      "baseline_rv": 29.1,
-      "z_score": 0.8,
-      "vrp": 0.0004,
-      "beta_30d": 0.947,
-      "consec_vol": 5,
-      "excess_10d": 0.07,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Nikkei 225"
     },
     {
       "ticker": "XLB",
@@ -156,6 +128,34 @@
       "sector": "Japan (MSCI)"
     },
     {
+      "ticker": "XLY",
+      "current_rv": 20.8,
+      "baseline_rv": 19.3,
+      "z_score": 0.31,
+      "vrp": 0.0277,
+      "beta_30d": 1.13,
+      "consec_vol": 3,
+      "excess_10d": -0.21,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 30.2,
+      "baseline_rv": 29.2,
+      "z_score": 0.13,
+      "vrp": 0.0538,
+      "beta_30d": 0.961,
+      "consec_vol": 5,
+      "excess_10d": 3.58,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Nikkei 225"
+    },
+    {
       "ticker": "CL=F",
       "current_rv": 52.3,
       "baseline_rv": 50.7,
@@ -174,13 +174,13 @@
       "current_rv": 25.1,
       "baseline_rv": 24.6,
       "z_score": 0.05,
-      "vrp": 0.0907,
-      "beta_30d": 1.775,
+      "vrp": 0.0878,
+      "beta_30d": 1.721,
       "consec_vol": 5,
       "excess_10d": 2.83,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.78, 5d consec vol",
+      "reason": "beta=1.72, 5d consec vol",
       "sector": "Emerging Markets"
     },
     {
@@ -282,34 +282,6 @@
       "sector": "Gold Futures"
     },
     {
-      "ticker": "MCHI",
-      "current_rv": 17.3,
-      "baseline_rv": 19.9,
-      "z_score": -0.53,
-      "vrp": 0.0332,
-      "beta_30d": 0.531,
-      "consec_vol": 0,
-      "excess_10d": -2.24,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.53",
-      "sector": "China Broad (MSCI)"
-    },
-    {
-      "ticker": "^HSI",
-      "current_rv": 16.8,
-      "baseline_rv": 19.4,
-      "z_score": -0.6,
-      "vrp": 0.0185,
-      "beta_30d": 0.035,
-      "consec_vol": 0,
-      "excess_10d": -2.96,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.04",
-      "sector": "Hang Seng"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 13.8,
       "baseline_rv": 17.4,
@@ -328,14 +300,28 @@
       "current_rv": 16.0,
       "baseline_rv": 19.6,
       "z_score": -0.74,
-      "vrp": 0.0477,
-      "beta_30d": -0.007,
+      "vrp": 0.0453,
+      "beta_30d": -0.012,
       "consec_vol": 0,
       "excess_10d": -8.22,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=-0.01",
       "sector": "China Large-Cap"
+    },
+    {
+      "ticker": "MCHI",
+      "current_rv": 16.0,
+      "baseline_rv": 19.9,
+      "z_score": -0.79,
+      "vrp": 0.038,
+      "beta_30d": 0.424,
+      "consec_vol": 0,
+      "excess_10d": -5.71,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.42",
+      "sector": "China Broad (MSCI)"
     },
     {
       "ticker": "^FTMC",
@@ -353,16 +339,16 @@
     },
     {
       "ticker": "EWU",
-      "current_rv": 10.9,
+      "current_rv": 10.4,
       "baseline_rv": 15.5,
-      "z_score": -0.88,
-      "vrp": 0.0329,
-      "beta_30d": 0.185,
+      "z_score": -0.99,
+      "vrp": 0.0313,
+      "beta_30d": 0.309,
       "consec_vol": 0,
-      "excess_10d": -2.35,
+      "excess_10d": -4.78,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.18",
+      "reason": "beta=0.31",
       "sector": "UK (MSCI)"
     },
     {
@@ -380,6 +366,20 @@
       "sector": "Euro Stoxx 50"
     },
     {
+      "ticker": "^HSI",
+      "current_rv": 13.0,
+      "baseline_rv": 19.5,
+      "z_score": -1.51,
+      "vrp": 0.052,
+      "beta_30d": -0.25,
+      "consec_vol": 0,
+      "excess_10d": -7.18,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.25",
+      "sector": "Hang Seng"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 18.4,
       "baseline_rv": 30.1,
@@ -395,16 +395,16 @@
     },
     {
       "ticker": "^FTSE",
-      "current_rv": 4.1,
+      "current_rv": 3.3,
       "baseline_rv": 11.6,
-      "z_score": -1.71,
-      "vrp": 0.0526,
-      "beta_30d": -0.124,
+      "z_score": -1.9,
+      "vrp": 0.0572,
+      "beta_30d": 0.021,
       "consec_vol": 0,
-      "excess_10d": -3.86,
+      "excess_10d": -6.47,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.12",
+      "reason": "beta=0.02",
       "sector": "FTSE 100"
     },
     {
@@ -540,7 +540,7 @@
       "last_date": "2026-08-13"
     }
   ],
-  "flagged_count": 28,
+  "flagged_count": 27,
   "alert_count": 1,
   "high_count": 0
 }
