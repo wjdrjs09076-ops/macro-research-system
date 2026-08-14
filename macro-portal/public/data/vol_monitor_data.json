@@ -1,6 +1,34 @@
 {
-  "scan_date": "2026-08-14T09:37:32",
+  "scan_date": "2026-08-14T11:02:10",
   "etf_signals": [
+    {
+      "ticker": "XLC",
+      "current_rv": 26.5,
+      "baseline_rv": 14.0,
+      "z_score": 2.9,
+      "vrp": -0.0367,
+      "beta_30d": 0.631,
+      "consec_vol": 5,
+      "excess_10d": -3.93,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.9, beta=0.63, 5d consec vol",
+      "sector": "Communication"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 101.2,
+      "baseline_rv": 47.8,
+      "z_score": 2.12,
+      "vrp": -0.1213,
+      "beta_30d": 2.211,
+      "consec_vol": 5,
+      "excess_10d": 16.82,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.1, VRP=-0.121, beta=2.21, 5d consec vol",
+      "sector": "KOSPI"
+    },
     {
       "ticker": "XLE",
       "current_rv": 30.2,
@@ -16,20 +44,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 20.3,
-      "baseline_rv": 14.1,
-      "z_score": 1.42,
-      "vrp": 0.0158,
-      "beta_30d": 0.682,
-      "consec_vol": 5,
-      "excess_10d": 0.74,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.68, 5d consec vol",
-      "sector": "Communication"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 5.0,
       "baseline_rv": 4.1,
@@ -42,20 +56,6 @@
       "label": "WATCH",
       "reason": "beta=0.12, 5d consec vol",
       "sector": "10Y Treasury Futures"
-    },
-    {
-      "ticker": "^KS11",
-      "current_rv": 68.9,
-      "baseline_rv": 47.7,
-      "z_score": 0.83,
-      "vrp": 0.1246,
-      "beta_30d": 2.376,
-      "consec_vol": 5,
-      "excess_10d": 13.72,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.38, 5d consec vol",
-      "sector": "KOSPI"
     },
     {
       "ticker": "XLB",
@@ -324,20 +324,6 @@
       "sector": "Healthcare"
     },
     {
-      "ticker": "XAR",
-      "current_rv": 22.8,
-      "baseline_rv": 30.3,
-      "z_score": -1.01,
-      "vrp": 0.0993,
-      "beta_30d": 1.305,
-      "consec_vol": 4,
-      "excess_10d": 6.78,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.31",
-      "sector": "Defense / Aerospace"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 14.5,
       "baseline_rv": 19.6,
@@ -350,6 +336,20 @@
       "label": "WATCH",
       "reason": "beta=-0.04",
       "sector": "China Large-Cap"
+    },
+    {
+      "ticker": "XAR",
+      "current_rv": 20.0,
+      "baseline_rv": 30.1,
+      "z_score": -1.37,
+      "vrp": 0.1013,
+      "beta_30d": 1.488,
+      "consec_vol": 3,
+      "excess_10d": 5.89,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.49",
+      "sector": "Defense / Aerospace"
     },
     {
       "ticker": "^STOXX50E",
@@ -519,11 +519,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3567.52,
-      "baseline": 3459.05,
-      "z_score": 0.3,
-      "rv_20d": 57.6,
-      "last_date": "2026-08-13"
+      "current": 3580.16,
+      "baseline": 3459.56,
+      "z_score": 0.34,
+      "rv_20d": 51.29,
+      "last_date": "2026-08-14"
     },
     {
       "sym": "sh000001",
@@ -541,6 +541,6 @@
     }
   ],
   "flagged_count": 25,
-  "alert_count": 0,
+  "alert_count": 2,
   "high_count": 0
 }
