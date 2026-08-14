@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-14T08:21:02",
+  "scan_date": "2026-08-14T09:37:32",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -324,6 +324,20 @@
       "sector": "Healthcare"
     },
     {
+      "ticker": "XAR",
+      "current_rv": 22.8,
+      "baseline_rv": 30.3,
+      "z_score": -1.01,
+      "vrp": 0.0993,
+      "beta_30d": 1.305,
+      "consec_vol": 4,
+      "excess_10d": 6.78,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.31",
+      "sector": "Defense / Aerospace"
+    },
+    {
       "ticker": "FXI",
       "current_rv": 14.5,
       "baseline_rv": 19.6,
@@ -336,20 +350,6 @@
       "label": "WATCH",
       "reason": "beta=-0.04",
       "sector": "China Large-Cap"
-    },
-    {
-      "ticker": "XAR",
-      "current_rv": 20.0,
-      "baseline_rv": 30.1,
-      "z_score": -1.37,
-      "vrp": 0.1013,
-      "beta_30d": 1.488,
-      "consec_vol": 3,
-      "excess_10d": 5.89,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.49",
-      "sector": "Defense / Aerospace"
     },
     {
       "ticker": "^STOXX50E",
@@ -378,6 +378,20 @@
       "label": "WATCH",
       "reason": "beta=-0.23",
       "sector": "Hang Seng"
+    },
+    {
+      "ticker": "^FTSE",
+      "current_rv": 4.1,
+      "baseline_rv": 11.5,
+      "z_score": -1.71,
+      "vrp": 0.0495,
+      "beta_30d": -0.004,
+      "consec_vol": 0,
+      "excess_10d": -5.94,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.00",
+      "sector": "FTSE 100"
     },
     {
       "ticker": "EWU",
@@ -479,11 +493,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4683.02,
-      "baseline": 4697.58,
-      "z_score": -0.11,
-      "rv_20d": 24.64,
-      "last_date": "2026-08-13"
+      "current": 4677.31,
+      "baseline": 4697.57,
+      "z_score": -0.15,
+      "rv_20d": 20.7,
+      "last_date": "2026-08-14"
     },
     {
       "sym": "sh000905",
@@ -492,11 +506,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7998.46,
-      "baseline": 7927.91,
-      "z_score": 0.12,
-      "rv_20d": 40.54,
-      "last_date": "2026-08-13"
+      "current": 8000.5,
+      "baseline": 7928.17,
+      "z_score": 0.13,
+      "rv_20d": 34.74,
+      "last_date": "2026-08-14"
     },
     {
       "sym": "sz399006",
@@ -519,14 +533,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3942.87,
-      "baseline": 4010.59,
-      "z_score": -0.62,
-      "rv_20d": 18.22,
-      "last_date": "2026-08-13"
+      "current": 3940.3,
+      "baseline": 4010.25,
+      "z_score": -0.64,
+      "rv_20d": 14.05,
+      "last_date": "2026-08-14"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
