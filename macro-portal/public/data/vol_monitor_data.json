@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-08-14T15:02:10",
+  "scan_date": "2026-08-14T15:32:17",
   "etf_signals": [
     {
       "ticker": "XLC",
-      "current_rv": 30.6,
+      "current_rv": 26.5,
       "baseline_rv": 14.0,
-      "z_score": 3.76,
-      "vrp": -0.0637,
-      "beta_30d": 0.743,
+      "z_score": 2.9,
+      "vrp": -0.0367,
+      "beta_30d": 0.631,
       "consec_vol": 5,
-      "excess_10d": -2.85,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.8, VRP=-0.064, 5d consec vol",
+      "excess_10d": -3.93,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.9, beta=0.63, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -199,13 +199,13 @@
     },
     {
       "ticker": "XTN",
-      "current_rv": 24.3,
-      "baseline_rv": 27.3,
-      "z_score": -0.35,
-      "vrp": -0.0116,
-      "beta_30d": 0.923,
-      "consec_vol": 0,
-      "excess_10d": -3.54,
+      "current_rv": 24.6,
+      "baseline_rv": 27.1,
+      "z_score": -0.29,
+      "vrp": -0.02,
+      "beta_30d": 1.073,
+      "consec_vol": 2,
+      "excess_10d": -2.03,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -296,6 +296,20 @@
       "sector": "Industrials"
     },
     {
+      "ticker": "^FTMC",
+      "current_rv": 8.3,
+      "baseline_rv": 12.3,
+      "z_score": -0.82,
+      "vrp": 0.0178,
+      "beta_30d": 0.385,
+      "consec_vol": 0,
+      "excess_10d": -1.68,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.39",
+      "sector": "FTSE 250 (UK 내수)"
+    },
+    {
       "ticker": "XLV",
       "current_rv": 11.4,
       "baseline_rv": 15.3,
@@ -322,20 +336,6 @@
       "label": "WATCH",
       "reason": "beta=-0.04",
       "sector": "China Large-Cap"
-    },
-    {
-      "ticker": "^FTMC",
-      "current_rv": 6.4,
-      "baseline_rv": 12.3,
-      "z_score": -1.18,
-      "vrp": 0.031,
-      "beta_30d": 0.127,
-      "consec_vol": 0,
-      "excess_10d": -2.3,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.13",
-      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "XAR",
@@ -423,25 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.06,
-      "baseline": 78.41,
-      "z_score": 0.2,
-      "bw_spread": -3.9
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 90.61,
-      "baseline": 84.42,
-      "z_score": 0.3,
-      "bw_spread": 3.45
-    },
-    "inv": {
-      "latest_mbbl": 723104.0,
-      "wow_chg_pct": 1.59,
-      "surprise": 2.62
-    },
     "level": 0,
     "reasons": []
   },
@@ -542,5 +523,5 @@
   ],
   "flagged_count": 25,
   "alert_count": 2,
-  "high_count": 1
+  "high_count": 0
 }
