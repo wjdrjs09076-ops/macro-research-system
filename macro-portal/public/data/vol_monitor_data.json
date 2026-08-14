@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-08-14T15:32:17",
+  "scan_date": "2026-08-14T15:59:51",
   "etf_signals": [
     {
       "ticker": "XLC",
-      "current_rv": 26.5,
+      "current_rv": 30.6,
       "baseline_rv": 14.0,
-      "z_score": 2.9,
-      "vrp": -0.0367,
-      "beta_30d": 0.631,
+      "z_score": 3.76,
+      "vrp": -0.0637,
+      "beta_30d": 0.743,
       "consec_vol": 5,
-      "excess_10d": -3.93,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=2.9, beta=0.63, 5d consec vol",
+      "excess_10d": -2.85,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=3.8, VRP=-0.064, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -199,13 +199,13 @@
     },
     {
       "ticker": "XTN",
-      "current_rv": 24.6,
-      "baseline_rv": 27.1,
-      "z_score": -0.29,
-      "vrp": -0.02,
-      "beta_30d": 1.073,
-      "consec_vol": 2,
-      "excess_10d": -2.03,
+      "current_rv": 24.3,
+      "baseline_rv": 27.3,
+      "z_score": -0.35,
+      "vrp": -0.0116,
+      "beta_30d": 0.923,
+      "consec_vol": 0,
+      "excess_10d": -3.54,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -523,5 +523,5 @@
   ],
   "flagged_count": 25,
   "alert_count": 2,
-  "high_count": 0
+  "high_count": 1
 }
