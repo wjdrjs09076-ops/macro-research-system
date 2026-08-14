@@ -1,20 +1,6 @@
 {
-  "scan_date": "2026-08-14T22:54:47",
+  "scan_date": "2026-08-14T23:27:23",
   "etf_signals": [
-    {
-      "ticker": "XLC",
-      "current_rv": 30.6,
-      "baseline_rv": 14.0,
-      "z_score": 3.76,
-      "vrp": -0.0637,
-      "beta_30d": 0.743,
-      "consec_vol": 5,
-      "excess_10d": -2.85,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.8, VRP=-0.064, 5d consec vol",
-      "sector": "Communication"
-    },
     {
       "ticker": "^KS11",
       "current_rv": 101.2,
@@ -58,6 +44,20 @@
       "sector": "Consumer Discretionary"
     },
     {
+      "ticker": "XLC",
+      "current_rv": 20.3,
+      "baseline_rv": 14.1,
+      "z_score": 1.42,
+      "vrp": 0.0158,
+      "beta_30d": 0.682,
+      "consec_vol": 5,
+      "excess_10d": 0.74,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.68, 5d consec vol",
+      "sector": "Communication"
+    },
+    {
       "ticker": "ZN=F",
       "current_rv": 5.0,
       "baseline_rv": 4.1,
@@ -70,6 +70,20 @@
       "label": "WATCH",
       "reason": "beta=0.12, 5d consec vol",
       "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "XLB",
+      "current_rv": 21.6,
+      "baseline_rv": 17.8,
+      "z_score": 0.81,
+      "vrp": -0.0073,
+      "beta_30d": 0.494,
+      "consec_vol": 5,
+      "excess_10d": -3.42,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.49, 5d consec vol",
+      "sector": "Materials"
     },
     {
       "ticker": "XLK",
@@ -98,20 +112,6 @@
       "label": "WATCH",
       "reason": "beta=-3.14, 5d consec vol",
       "sector": "WTI Crude Futures"
-    },
-    {
-      "ticker": "XLB",
-      "current_rv": 17.9,
-      "baseline_rv": 17.9,
-      "z_score": -0.0,
-      "vrp": 0.0262,
-      "beta_30d": 0.412,
-      "consec_vol": 5,
-      "excess_10d": -4.6,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.41, 5d consec vol",
-      "sector": "Materials"
     },
     {
       "ticker": "GLD",
@@ -227,17 +227,31 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 11.8,
-      "baseline_rv": 14.1,
+      "current_rv": 11.6,
+      "baseline_rv": 14.0,
       "z_score": -0.43,
-      "vrp": 0.0559,
-      "beta_30d": 0.449,
-      "consec_vol": 0,
-      "excess_10d": -1.61,
+      "vrp": 0.0663,
+      "beta_30d": 0.342,
+      "consec_vol": 1,
+      "excess_10d": -3.19,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.45",
+      "reason": "beta=0.34",
       "sector": "Shanghai Composite"
+    },
+    {
+      "ticker": "MCHI",
+      "current_rv": 17.3,
+      "baseline_rv": 20.0,
+      "z_score": -0.54,
+      "vrp": 0.0371,
+      "beta_30d": 0.465,
+      "consec_vol": 0,
+      "excess_10d": -6.89,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.46",
+      "sector": "China Broad (MSCI)"
     },
     {
       "ticker": "EWJ",
@@ -268,20 +282,6 @@
       "sector": "Emerging Markets"
     },
     {
-      "ticker": "MCHI",
-      "current_rv": 16.4,
-      "baseline_rv": 19.9,
-      "z_score": -0.71,
-      "vrp": 0.0355,
-      "beta_30d": 0.384,
-      "consec_vol": 0,
-      "excess_10d": -6.71,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.38",
-      "sector": "China Broad (MSCI)"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 13.8,
       "baseline_rv": 17.4,
@@ -296,20 +296,6 @@
       "sector": "Industrials"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 8.3,
-      "baseline_rv": 12.3,
-      "z_score": -0.82,
-      "vrp": 0.0178,
-      "beta_30d": 0.385,
-      "consec_vol": 0,
-      "excess_10d": -1.68,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.39",
-      "sector": "FTSE 250 (UK 내수)"
-    },
-    {
       "ticker": "EWU",
       "current_rv": 11.0,
       "baseline_rv": 15.5,
@@ -322,20 +308,6 @@
       "label": "WATCH",
       "reason": "beta=0.16",
       "sector": "UK (MSCI)"
-    },
-    {
-      "ticker": "^STOXX50E",
-      "current_rv": 9.5,
-      "baseline_rv": 15.6,
-      "z_score": -0.99,
-      "vrp": 0.0213,
-      "beta_30d": 0.553,
-      "consec_vol": 0,
-      "excess_10d": -1.09,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.55",
-      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "XLV",
@@ -356,14 +328,28 @@
       "current_rv": 14.5,
       "baseline_rv": 19.6,
       "z_score": -1.05,
-      "vrp": 0.0588,
-      "beta_30d": -0.043,
+      "vrp": 0.0621,
+      "beta_30d": -0.025,
       "consec_vol": 0,
       "excess_10d": -9.4,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.04",
+      "reason": "beta=-0.02",
       "sector": "China Large-Cap"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 6.4,
+      "baseline_rv": 12.3,
+      "z_score": -1.18,
+      "vrp": 0.031,
+      "beta_30d": 0.127,
+      "consec_vol": 0,
+      "excess_10d": -2.3,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.13",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "XAR",
@@ -381,30 +367,44 @@
     },
     {
       "ticker": "^HSI",
-      "current_rv": 12.8,
-      "baseline_rv": 19.5,
-      "z_score": -1.55,
-      "vrp": 0.0484,
-      "beta_30d": -0.233,
+      "current_rv": 13.0,
+      "baseline_rv": 19.4,
+      "z_score": -1.48,
+      "vrp": 0.0517,
+      "beta_30d": 0.023,
       "consec_vol": 0,
-      "excess_10d": -6.57,
+      "excess_10d": -7.33,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.23",
+      "reason": "beta=0.02",
       "sector": "Hang Seng"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 4.1,
-      "baseline_rv": 11.5,
-      "z_score": -1.71,
-      "vrp": 0.0495,
-      "beta_30d": -0.004,
+      "ticker": "^STOXX50E",
+      "current_rv": 6.6,
+      "baseline_rv": 15.6,
+      "z_score": -1.48,
+      "vrp": 0.0527,
+      "beta_30d": 0.666,
       "consec_vol": 0,
-      "excess_10d": -5.94,
+      "excess_10d": -1.67,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.00",
+      "reason": "beta=0.67",
+      "sector": "Euro Stoxx 50"
+    },
+    {
+      "ticker": "^FTSE",
+      "current_rv": 4.2,
+      "baseline_rv": 11.5,
+      "z_score": -1.67,
+      "vrp": 0.0513,
+      "beta_30d": -0.157,
+      "consec_vol": 0,
+      "excess_10d": -7.0,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.16",
       "sector": "FTSE 100"
     },
     {
@@ -541,6 +541,6 @@
     }
   ],
   "flagged_count": 26,
-  "alert_count": 2,
-  "high_count": 1
+  "alert_count": 1,
+  "high_count": 0
 }
