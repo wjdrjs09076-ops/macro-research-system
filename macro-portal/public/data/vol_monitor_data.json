@@ -1,20 +1,6 @@
 {
-  "scan_date": "2026-08-14T21:54:11",
+  "scan_date": "2026-08-14T22:30:37",
   "etf_signals": [
-    {
-      "ticker": "XLC",
-      "current_rv": 26.5,
-      "baseline_rv": 14.0,
-      "z_score": 2.9,
-      "vrp": -0.0367,
-      "beta_30d": 0.631,
-      "consec_vol": 5,
-      "excess_10d": -3.93,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=2.9, beta=0.63, 5d consec vol",
-      "sector": "Communication"
-    },
     {
       "ticker": "^KS11",
       "current_rv": 101.2,
@@ -42,6 +28,20 @@
       "label": "WATCH",
       "reason": "beta=-0.80, 5d consec vol",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 20.3,
+      "baseline_rv": 14.1,
+      "z_score": 1.42,
+      "vrp": 0.0158,
+      "beta_30d": 0.682,
+      "consec_vol": 5,
+      "excess_10d": 0.74,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.68, 5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "ZN=F",
@@ -328,13 +328,13 @@
       "current_rv": 14.5,
       "baseline_rv": 19.6,
       "z_score": -1.05,
-      "vrp": 0.0588,
-      "beta_30d": -0.043,
+      "vrp": 0.0621,
+      "beta_30d": -0.025,
       "consec_vol": 0,
       "excess_10d": -9.4,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.04",
+      "reason": "beta=-0.02",
       "sector": "China Large-Cap"
     },
     {
@@ -381,16 +381,16 @@
     },
     {
       "ticker": "^FTSE",
-      "current_rv": 4.1,
+      "current_rv": 4.2,
       "baseline_rv": 11.5,
-      "z_score": -1.71,
-      "vrp": 0.0495,
-      "beta_30d": -0.004,
+      "z_score": -1.67,
+      "vrp": 0.0513,
+      "beta_30d": -0.157,
       "consec_vol": 0,
-      "excess_10d": -5.94,
+      "excess_10d": -7.0,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.00",
+      "reason": "beta=-0.16",
       "sector": "FTSE 100"
     },
     {
@@ -541,6 +541,6 @@
     }
   ],
   "flagged_count": 25,
-  "alert_count": 2,
+  "alert_count": 1,
   "high_count": 0
 }
