@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-14T13:56:36",
+  "generated": "2026-08-14T14:03:01",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -12,7 +12,9 @@
     "fat_tail_alert|XLE",
     "fat_tail_alert|XLI",
     "fat_tail_alert|XLV",
+    "vol_overpriced|XLB",
     "vol_overpriced|XLF",
+    "vol_overpriced|XLU",
     "vol_overpriced|XLY"
   ],
   "rate_verdicts": []
