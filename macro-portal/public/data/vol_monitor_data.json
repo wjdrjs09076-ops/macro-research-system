@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-14T17:02:26",
+  "scan_date": "2026-08-14T17:32:08",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -16,6 +16,20 @@
       "sector": "Communication"
     },
     {
+      "ticker": "^KS11",
+      "current_rv": 101.2,
+      "baseline_rv": 47.8,
+      "z_score": 2.12,
+      "vrp": -0.1213,
+      "beta_30d": 2.211,
+      "consec_vol": 5,
+      "excess_10d": 16.82,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.1, VRP=-0.121, beta=2.21, 5d consec vol",
+      "sector": "KOSPI"
+    },
+    {
       "ticker": "XLE",
       "current_rv": 30.2,
       "baseline_rv": 21.5,
@@ -28,20 +42,6 @@
       "label": "WATCH",
       "reason": "beta=-0.80, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "XLY",
-      "current_rv": 27.9,
-      "baseline_rv": 19.4,
-      "z_score": 1.62,
-      "vrp": -0.0163,
-      "beta_30d": 1.304,
-      "consec_vol": 5,
-      "excess_10d": 0.35,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.30, 5d consec vol",
-      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "ZN=F",
@@ -58,18 +58,18 @@
       "sector": "10Y Treasury Futures"
     },
     {
-      "ticker": "^KS11",
-      "current_rv": 68.9,
-      "baseline_rv": 47.7,
-      "z_score": 0.83,
-      "vrp": 0.1246,
-      "beta_30d": 2.376,
-      "consec_vol": 5,
-      "excess_10d": 13.72,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.38, 5d consec vol",
-      "sector": "KOSPI"
+      "ticker": "XLY",
+      "current_rv": 20.8,
+      "baseline_rv": 19.3,
+      "z_score": 0.3,
+      "vrp": 0.0244,
+      "beta_30d": 1.139,
+      "consec_vol": 4,
+      "excess_10d": 0.54,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLK",
@@ -170,18 +170,18 @@
       "sector": "Semiconductors"
     },
     {
-      "ticker": "XLI",
-      "current_rv": 16.6,
-      "baseline_rv": 17.6,
-      "z_score": -0.19,
-      "vrp": 0.0301,
-      "beta_30d": 0.839,
+      "ticker": "^N225",
+      "current_rv": 27.4,
+      "baseline_rv": 29.2,
+      "z_score": -0.23,
+      "vrp": 0.0744,
+      "beta_30d": 1.074,
       "consec_vol": 4,
-      "excess_10d": -0.65,
+      "excess_10d": 4.0,
       "level": 0,
       "label": "---",
       "reason": "",
-      "sector": "Industrials"
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "GC=F",
@@ -199,13 +199,13 @@
     },
     {
       "ticker": "XTN",
-      "current_rv": 24.3,
-      "baseline_rv": 27.3,
-      "z_score": -0.35,
-      "vrp": -0.0116,
-      "beta_30d": 0.923,
-      "consec_vol": 0,
-      "excess_10d": -3.54,
+      "current_rv": 24.6,
+      "baseline_rv": 27.1,
+      "z_score": -0.29,
+      "vrp": -0.02,
+      "beta_30d": 1.073,
+      "consec_vol": 2,
+      "excess_10d": -2.03,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -226,46 +226,18 @@
       "sector": "S&P 500 Futures"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 26.0,
-      "baseline_rv": 29.2,
-      "z_score": -0.38,
-      "vrp": 0.0878,
-      "beta_30d": 0.961,
-      "consec_vol": 4,
-      "excess_10d": 4.73,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "000001.SS",
-      "current_rv": 11.6,
-      "baseline_rv": 14.0,
+      "current_rv": 11.8,
+      "baseline_rv": 14.1,
       "z_score": -0.43,
-      "vrp": 0.0663,
-      "beta_30d": 0.342,
-      "consec_vol": 1,
-      "excess_10d": -3.19,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.34",
-      "sector": "Shanghai Composite"
-    },
-    {
-      "ticker": "MCHI",
-      "current_rv": 17.3,
-      "baseline_rv": 20.0,
-      "z_score": -0.54,
-      "vrp": 0.0371,
-      "beta_30d": 0.465,
+      "vrp": 0.0559,
+      "beta_30d": 0.449,
       "consec_vol": 0,
-      "excess_10d": -6.89,
+      "excess_10d": -1.61,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.46",
-      "sector": "China Broad (MSCI)"
+      "reason": "beta=0.45",
+      "sector": "Shanghai Composite"
     },
     {
       "ticker": "EWJ",
@@ -286,14 +258,56 @@
       "current_rv": 17.3,
       "baseline_rv": 24.6,
       "z_score": -0.68,
-      "vrp": 0.1649,
-      "beta_30d": 1.743,
+      "vrp": 0.1622,
+      "beta_30d": 1.667,
       "consec_vol": 4,
       "excess_10d": 0.01,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.74",
+      "reason": "beta=1.67",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "MCHI",
+      "current_rv": 16.4,
+      "baseline_rv": 19.9,
+      "z_score": -0.71,
+      "vrp": 0.0355,
+      "beta_30d": 0.384,
+      "consec_vol": 0,
+      "excess_10d": -6.71,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.38",
+      "sector": "China Broad (MSCI)"
+    },
+    {
+      "ticker": "XLI",
+      "current_rv": 13.8,
+      "baseline_rv": 17.4,
+      "z_score": -0.73,
+      "vrp": 0.046,
+      "beta_30d": 0.803,
+      "consec_vol": 3,
+      "excess_10d": -0.69,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Industrials"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 8.3,
+      "baseline_rv": 12.3,
+      "z_score": -0.82,
+      "vrp": 0.0178,
+      "beta_30d": 0.385,
+      "consec_vol": 0,
+      "excess_10d": -1.68,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.39",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "EWU",
@@ -338,46 +352,32 @@
       "sector": "Healthcare"
     },
     {
-      "ticker": "XAR",
-      "current_rv": 22.8,
-      "baseline_rv": 30.3,
-      "z_score": -1.01,
-      "vrp": 0.0993,
-      "beta_30d": 1.305,
-      "consec_vol": 4,
-      "excess_10d": 6.78,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.31",
-      "sector": "Defense / Aerospace"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 14.5,
       "baseline_rv": 19.6,
       "z_score": -1.05,
-      "vrp": 0.0621,
-      "beta_30d": -0.025,
+      "vrp": 0.0588,
+      "beta_30d": -0.043,
       "consec_vol": 0,
       "excess_10d": -9.4,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.02",
+      "reason": "beta=-0.04",
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 6.4,
-      "baseline_rv": 12.3,
-      "z_score": -1.18,
-      "vrp": 0.031,
-      "beta_30d": 0.127,
-      "consec_vol": 0,
-      "excess_10d": -2.3,
+      "ticker": "XAR",
+      "current_rv": 20.0,
+      "baseline_rv": 30.1,
+      "z_score": -1.37,
+      "vrp": 0.1013,
+      "beta_30d": 1.488,
+      "consec_vol": 3,
+      "excess_10d": 5.89,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.13",
-      "sector": "FTSE 250 (UK 내수)"
+      "reason": "beta=1.49",
+      "sector": "Defense / Aerospace"
     },
     {
       "ticker": "^HSI",
@@ -395,16 +395,16 @@
     },
     {
       "ticker": "^FTSE",
-      "current_rv": 4.2,
+      "current_rv": 4.1,
       "baseline_rv": 11.5,
-      "z_score": -1.67,
-      "vrp": 0.0513,
-      "beta_30d": -0.157,
+      "z_score": -1.71,
+      "vrp": 0.0495,
+      "beta_30d": -0.004,
       "consec_vol": 0,
-      "excess_10d": -7.0,
+      "excess_10d": -5.94,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.16",
+      "reason": "beta=-0.00",
       "sector": "FTSE 100"
     },
     {
@@ -429,6 +429,18 @@
       "baseline": 78.41,
       "z_score": 0.2,
       "bw_spread": -3.9
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.42,
+      "z_score": 0.3,
+      "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
     },
     "level": 0,
     "reasons": []
@@ -528,7 +540,7 @@
       "last_date": "2026-08-14"
     }
   ],
-  "flagged_count": 26,
-  "alert_count": 1,
+  "flagged_count": 25,
+  "alert_count": 2,
   "high_count": 1
 }
