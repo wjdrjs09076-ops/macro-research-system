@@ -5,10 +5,10 @@
     "pending": null,
     "pending_count": 0,
     "confirm_cycles": 2,
-    "vix": 14.55,
-    "ts": "2026-08-13T19:32:09"
+    "vix": 14.63,
+    "ts": "2026-08-14T13:32:43"
   },
-  "generated": "2026-08-13T19:32:10",
+  "generated": "2026-08-14T13:32:43",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -25,34 +25,15 @@
       "MONITOR": 0
     }
   },
-  "straddle_candidates": [
-    {
-      "ticker": "XLC",
-      "confidence": 0.5585,
-      "rule": "event_vol",
-      "signal_type": "MONITOR",
-      "regime": "mid_vix",
-      "all_rules": [
-        "event_vol"
-      ],
-      "reasoning": [
-        "XLC: 실현변동성 z-score = 2.57 >= 2.5 -- 최근 10일 RV 가 1년 기준선 대비 2.6σ 급등 (VIX 와 독립적인 *실현* 변동).",
-        "VRP_iv = ATM_IV - RV_20d = -7.27pp <= 0pp -- 옵션 IV 가 실현 변동성을 못 따라옴 = 옵셔널리티가 싸거나 공정 (롱 볼 EV 양호).",
-        "ATM_IV = 16.7% 연환산 (콜+풋 평균).",
-        "Rule: event_vol. VIX(공포 게이지)가 놓치는 큰 실현 변동 — 특히 상방 이벤트 — 을 IV 가 쌀 때 롱 스트래들로 포착 (vol_overpriced 의 대칭). 레짐 독립(low/mid/high 전부)으로 발화해 VIX 비대칭을 보완. 방향 무관 볼 베팅이라 DIRECTIONAL 라우팅 제외."
-      ],
-      "size_penalty": 1.0,
-      "penalty_reason": null
-    }
-  ],
+  "straddle_candidates": [],
   "directional_candidates": [],
   "short_straddle_candidates": [],
   "sensitivity_audit": [
     {
-      "sector": "XLK",
+      "sector": "XLY",
       "macro": "VIX",
-      "delta_raw": -0.0137,
-      "t_raw": -23.96,
+      "delta_raw": -0.0108,
+      "t_raw": -24.06,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -61,10 +42,10 @@
       "verdict": "killed"
     },
     {
-      "sector": "XLY",
+      "sector": "XLK",
       "macro": "VIX",
-      "delta_raw": -0.0109,
-      "t_raw": -23.6,
+      "delta_raw": -0.0137,
+      "t_raw": -23.88,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -75,8 +56,8 @@
     {
       "sector": "XLI",
       "macro": "VIX",
-      "delta_raw": -0.0088,
-      "t_raw": -21.51,
+      "delta_raw": -0.0089,
+      "t_raw": -21.91,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -87,8 +68,8 @@
     {
       "sector": "XLF",
       "macro": "VIX",
-      "delta_raw": -0.0081,
-      "t_raw": -20.75,
+      "delta_raw": -0.0082,
+      "t_raw": -20.71,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -99,8 +80,8 @@
     {
       "sector": "XLC",
       "macro": "VIX",
-      "delta_raw": -0.0079,
-      "t_raw": -20.08,
+      "delta_raw": -0.0078,
+      "t_raw": -20.03,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -111,8 +92,8 @@
     {
       "sector": "XLB",
       "macro": "VIX",
-      "delta_raw": -0.0083,
-      "t_raw": -17.78,
+      "delta_raw": -0.0084,
+      "t_raw": -18.01,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -136,7 +117,7 @@
       "sector": "XLRE",
       "macro": "VIX",
       "delta_raw": -0.0051,
-      "t_raw": -11.42,
+      "t_raw": -11.39,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -147,8 +128,8 @@
     {
       "sector": "XLV",
       "macro": "VIX",
-      "delta_raw": -0.0048,
-      "t_raw": -9.94,
+      "delta_raw": -0.0049,
+      "t_raw": -10.03,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -160,7 +141,7 @@
       "sector": "XLE",
       "macro": "VIX",
       "delta_raw": -0.0061,
-      "t_raw": -8.58,
+      "t_raw": -8.54,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -171,8 +152,8 @@
     {
       "sector": "XLU",
       "macro": "VIX",
-      "delta_raw": -0.0038,
-      "t_raw": -8.0,
+      "delta_raw": -0.0039,
+      "t_raw": -8.08,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -184,7 +165,7 @@
       "sector": "XLP",
       "macro": "VIX",
       "delta_raw": -0.0022,
-      "t_raw": -4.9,
+      "t_raw": -4.88,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -196,7 +177,7 @@
       "sector": "XLB",
       "macro": "DXY",
       "delta_raw": -0.0025,
-      "t_raw": -3.93,
+      "t_raw": -3.96,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0002,
@@ -207,7 +188,7 @@
     {
       "sector": "XLRE",
       "macro": "DXY",
-      "delta_raw": -0.0019,
+      "delta_raw": -0.002,
       "t_raw": -3.8,
       "delta_ctrl": null,
       "t_ctrl": null,
@@ -223,19 +204,7 @@
       "t_raw": -3.21,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0029,
-      "q_ctrl": null,
-      "vif": null,
-      "verdict": "killed"
-    },
-    {
-      "sector": "XLY",
-      "macro": "OIL",
-      "delta_raw": -0.0022,
-      "t_raw": -3.0,
-      "delta_ctrl": null,
-      "t_ctrl": null,
-      "q_raw": 0.0056,
+      "q_raw": 0.003,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -243,11 +212,11 @@
     {
       "sector": "XLP",
       "macro": "DXY",
-      "delta_raw": -0.0014,
-      "t_raw": -2.88,
+      "delta_raw": -0.0013,
+      "t_raw": -2.82,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0076,
+      "q_raw": 0.0098,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -255,11 +224,23 @@
     {
       "sector": "XLV",
       "macro": "DXY",
-      "delta_raw": -0.0014,
-      "t_raw": -2.59,
+      "delta_raw": -0.0015,
+      "t_raw": -2.65,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0174,
+      "q_raw": 0.0157,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
+      "sector": "XLY",
+      "macro": "OIL",
+      "delta_raw": -0.0019,
+      "t_raw": -2.61,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0167,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -268,10 +249,10 @@
       "sector": "XLU",
       "macro": "DXY",
       "delta_raw": -0.0013,
-      "t_raw": -2.54,
+      "t_raw": -2.56,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0192,
+      "q_raw": 0.0183,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -279,11 +260,11 @@
     {
       "sector": "XLI",
       "macro": "OIL",
-      "delta_raw": -0.0014,
-      "t_raw": -2.32,
+      "delta_raw": -0.0015,
+      "t_raw": -2.4,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0335,
+      "q_raw": 0.0269,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -293,221 +274,221 @@
     "by_sector": [
       {
         "ticker": "XLE",
-        "self_share": 0.9469,
-        "propagation_score": 0.0398,
+        "self_share": 0.9413,
+        "propagation_score": 0.0423,
         "cholesky_order": 0,
         "top_sources": [
           {
             "src": "XLY",
-            "share": 0.0193
+            "share": 0.024
           },
           {
             "src": "XLK",
             "share": 0.008
           },
           {
-            "src": "XLI",
-            "share": 0.0054
+            "src": "XLB",
+            "share": 0.0055
           }
         ]
       },
       {
         "ticker": "XLU",
-        "self_share": 0.7804,
-        "propagation_score": 0.2388,
+        "self_share": 0.7751,
+        "propagation_score": 0.244,
         "cholesky_order": 1,
         "top_sources": [
           {
             "src": "XLRE",
-            "share": 0.0973
+            "share": 0.1034
           },
           {
             "src": "XLI",
-            "share": 0.0345
+            "share": 0.0348
           },
           {
             "src": "XLP",
-            "share": 0.0311
+            "share": 0.0308
           }
         ]
       },
       {
         "ticker": "XLV",
-        "self_share": 0.7475,
-        "propagation_score": 0.2799,
+        "self_share": 0.744,
+        "propagation_score": 0.2867,
         "cholesky_order": 2,
         "top_sources": [
           {
             "src": "XLP",
-            "share": 0.0576
+            "share": 0.0539
           },
           {
             "src": "XLRE",
-            "share": 0.056
+            "share": 0.0523
           },
           {
             "src": "XLB",
-            "share": 0.0323
-          }
-        ]
-      },
-      {
-        "ticker": "XLF",
-        "self_share": 0.6819,
-        "propagation_score": 0.2969,
-        "cholesky_order": 3,
-        "top_sources": [
-          {
-            "src": "XLY",
-            "share": 0.0626
-          },
-          {
-            "src": "XLI",
-            "share": 0.0576
-          },
-          {
-            "src": "XLC",
-            "share": 0.0552
+            "share": 0.0349
           }
         ]
       },
       {
         "ticker": "XLP",
-        "self_share": 0.6746,
-        "propagation_score": 0.2976,
-        "cholesky_order": 4,
+        "self_share": 0.6885,
+        "propagation_score": 0.2799,
+        "cholesky_order": 3,
         "top_sources": [
           {
-            "src": "XLK",
-            "share": 0.0782
+            "src": "XLRE",
+            "share": 0.076
           },
           {
-            "src": "XLRE",
-            "share": 0.0775
+            "src": "XLK",
+            "share": 0.0757
           },
           {
             "src": "XLV",
-            "share": 0.0642
+            "share": 0.0612
+          }
+        ]
+      },
+      {
+        "ticker": "XLF",
+        "self_share": 0.6788,
+        "propagation_score": 0.3,
+        "cholesky_order": 4,
+        "top_sources": [
+          {
+            "src": "XLY",
+            "share": 0.0673
+          },
+          {
+            "src": "XLC",
+            "share": 0.0586
+          },
+          {
+            "src": "XLI",
+            "share": 0.0573
           }
         ]
       },
       {
         "ticker": "XLC",
-        "self_share": 0.6533,
-        "propagation_score": 0.2876,
+        "self_share": 0.666,
+        "propagation_score": 0.2781,
         "cholesky_order": 5,
         "top_sources": [
           {
             "src": "XLY",
-            "share": 0.1724
+            "share": 0.1461
           },
           {
             "src": "XLF",
-            "share": 0.0606
+            "share": 0.0644
           },
           {
             "src": "XLRE",
-            "share": 0.031
+            "share": 0.0344
           }
         ]
       },
       {
         "ticker": "XLK",
-        "self_share": 0.6444,
-        "propagation_score": 0.364,
+        "self_share": 0.6393,
+        "propagation_score": 0.3685,
         "cholesky_order": 6,
         "top_sources": [
           {
             "src": "XLI",
-            "share": 0.0995
+            "share": 0.1025
           },
           {
             "src": "XLY",
-            "share": 0.0916
+            "share": 0.0973
           },
           {
             "src": "XLP",
-            "share": 0.074
+            "share": 0.0698
           }
         ]
       },
       {
         "ticker": "XLB",
-        "self_share": 0.5991,
-        "propagation_score": 0.3807,
+        "self_share": 0.588,
+        "propagation_score": 0.3868,
         "cholesky_order": 7,
         "top_sources": [
           {
             "src": "XLI",
-            "share": 0.1241
+            "share": 0.135
           },
           {
             "src": "XLY",
-            "share": 0.053
+            "share": 0.0603
           },
           {
             "src": "XLRE",
-            "share": 0.0418
+            "share": 0.0413
           }
         ]
       },
       {
         "ticker": "XLRE",
-        "self_share": 0.5867,
-        "propagation_score": 0.4017,
+        "self_share": 0.5842,
+        "propagation_score": 0.4026,
         "cholesky_order": 8,
         "top_sources": [
           {
             "src": "XLU",
-            "share": 0.1095
+            "share": 0.1165
           },
           {
             "src": "XLP",
-            "share": 0.0769
+            "share": 0.0746
           },
           {
             "src": "XLV",
-            "share": 0.0642
+            "share": 0.0609
           }
         ]
       },
       {
         "ticker": "XLY",
-        "self_share": 0.5865,
-        "propagation_score": 0.5083,
+        "self_share": 0.5798,
+        "propagation_score": 0.5198,
         "cholesky_order": 9,
         "top_sources": [
           {
             "src": "XLC",
-            "share": 0.1327
+            "share": 0.1115
           },
           {
             "src": "XLK",
-            "share": 0.0803
+            "share": 0.0846
           },
           {
-            "src": "XLF",
-            "share": 0.0547
+            "src": "XLI",
+            "share": 0.059
           }
         ]
       },
       {
         "ticker": "XLI",
-        "self_share": 0.5516,
-        "propagation_score": 0.4517,
+        "self_share": 0.5322,
+        "propagation_score": 0.474,
         "cholesky_order": 10,
         "top_sources": [
           {
             "src": "XLB",
-            "share": 0.1153
+            "share": 0.1236
           },
           {
             "src": "XLK",
-            "share": 0.1046
+            "share": 0.1064
           },
           {
             "src": "XLY",
-            "share": 0.0659
+            "share": 0.0764
           }
         ]
       }
@@ -534,24 +515,24 @@
     "per_threshold": [
       {
         "threshold": 0.03,
-        "p_any": 0.9894,
-        "p_all": 0.014,
-        "p_half": 0.4474,
-        "mean_hit_count": 5.24
+        "p_any": 0.9868,
+        "p_all": 0.0128,
+        "p_half": 0.4224,
+        "mean_hit_count": 5.08
       },
       {
         "threshold": 0.05,
-        "p_any": 0.9262,
-        "p_all": 0.0012,
-        "p_half": 0.1416,
-        "mean_hit_count": 3.05
+        "p_any": 0.9104,
+        "p_all": 0.0008,
+        "p_half": 0.1278,
+        "mean_hit_count": 2.87
       },
       {
         "threshold": 0.1,
-        "p_any": 0.4536,
+        "p_any": 0.3948,
         "p_all": 0.0,
-        "p_half": 0.002,
-        "mean_hit_count": 0.63
+        "p_half": 0.001,
+        "mean_hit_count": 0.52
       }
     ],
     "pair_threshold": 0.05,
@@ -559,66 +540,66 @@
       {
         "a": "XLY",
         "b": "XLK",
-        "p_co": 0.257
+        "p_co": 0.1862
+      },
+      {
+        "a": "XLI",
+        "b": "XLK",
+        "p_co": 0.1784
       },
       {
         "a": "XLK",
         "b": "XLE",
-        "p_co": 0.2034
-      },
-      {
-        "a": "XLI",
-        "b": "XLK",
-        "p_co": 0.1944
-      },
-      {
-        "a": "XLY",
-        "b": "XLC",
-        "p_co": 0.1894
-      },
-      {
-        "a": "XLC",
-        "b": "XLK",
-        "p_co": 0.1638
-      },
-      {
-        "a": "XLI",
-        "b": "XLY",
-        "p_co": 0.1522
+        "p_co": 0.1764
       },
       {
         "a": "XLB",
         "b": "XLK",
-        "p_co": 0.1442
-      },
-      {
-        "a": "XLY",
-        "b": "XLE",
-        "p_co": 0.1356
-      },
-      {
-        "a": "XLB",
-        "b": "XLY",
-        "p_co": 0.1312
+        "p_co": 0.1748
       },
       {
         "a": "XLB",
         "b": "XLI",
-        "p_co": 0.128
+        "p_co": 0.1464
+      },
+      {
+        "a": "XLC",
+        "b": "XLK",
+        "p_co": 0.146
+      },
+      {
+        "a": "XLY",
+        "b": "XLC",
+        "p_co": 0.1348
+      },
+      {
+        "a": "XLB",
+        "b": "XLY",
+        "p_co": 0.1272
+      },
+      {
+        "a": "XLI",
+        "b": "XLY",
+        "p_co": 0.118
+      },
+      {
+        "a": "XLB",
+        "b": "XLE",
+        "p_co": 0.117
       }
     ],
     "sigmas_annual": {
-      "XLB": 0.1587,
-      "XLI": 0.1662,
-      "XLY": 0.2157,
-      "XLRE": 0.1503,
-      "XLF": 0.1331,
-      "XLC": 0.1805,
-      "XLV": 0.1623,
-      "XLK": 0.315,
-      "XLP": 0.1496,
-      "XLU": 0.1535,
-      "XLE": 0.2805
+      "XLB": 0.1814,
+      "XLI": 0.1587,
+      "XLY": 0.1674,
+      "XLRE": 0.1513,
+      "XLF": 0.1306,
+      "XLC": 0.1702,
+      "XLV": 0.1558,
+      "XLK": 0.3032,
+      "XLP": 0.1473,
+      "XLU": 0.1503,
+      "XLE": 0.252
     }
   }
 }
