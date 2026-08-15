@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T10:29:08",
+  "scan_date": "2026-08-15T10:52:59",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -142,20 +142,6 @@
       "sector": "Semiconductors"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 27.4,
-      "baseline_rv": 29.3,
-      "z_score": -0.23,
-      "vrp": 0.0646,
-      "beta_30d": 1.043,
-      "consec_vol": 3,
-      "excess_10d": 5.76,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 16.4,
       "baseline_rv": 17.6,
@@ -241,16 +227,16 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 11.6,
-      "baseline_rv": 14.1,
-      "z_score": -0.46,
-      "vrp": 0.0531,
-      "beta_30d": 0.416,
+      "current_rv": 10.7,
+      "baseline_rv": 14.0,
+      "z_score": -0.61,
+      "vrp": 0.07,
+      "beta_30d": 0.274,
       "consec_vol": 0,
-      "excess_10d": -1.41,
+      "excess_10d": -0.69,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.42",
+      "reason": "beta=0.27",
       "sector": "Shanghai Composite"
     },
     {
@@ -282,6 +268,20 @@
       "sector": "Emerging Markets"
     },
     {
+      "ticker": "^N225",
+      "current_rv": 22.5,
+      "baseline_rv": 29.2,
+      "z_score": -0.82,
+      "vrp": 0.116,
+      "beta_30d": 0.946,
+      "consec_vol": 3,
+      "excess_10d": 5.47,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
+    },
+    {
       "ticker": "EWJ",
       "current_rv": 14.4,
       "baseline_rv": 20.7,
@@ -308,20 +308,6 @@
       "label": "WATCH",
       "reason": "beta=-0.34",
       "sector": "Healthcare"
-    },
-    {
-      "ticker": "^FTMC",
-      "current_rv": 7.4,
-      "baseline_rv": 12.3,
-      "z_score": -1.02,
-      "vrp": 0.0236,
-      "beta_30d": 0.389,
-      "consec_vol": 0,
-      "excess_10d": -0.21,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.39",
-      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "XAR",
@@ -352,6 +338,34 @@
       "sector": "China Large-Cap"
     },
     {
+      "ticker": "^FTMC",
+      "current_rv": 6.5,
+      "baseline_rv": 12.3,
+      "z_score": -1.16,
+      "vrp": 0.0272,
+      "beta_30d": 0.213,
+      "consec_vol": 0,
+      "excess_10d": -0.65,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.21",
+      "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "^STOXX50E",
+      "current_rv": 7.7,
+      "baseline_rv": 15.5,
+      "z_score": -1.28,
+      "vrp": 0.038,
+      "beta_30d": 0.624,
+      "consec_vol": 0,
+      "excess_10d": -0.83,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.62",
+      "sector": "Euro Stoxx 50"
+    },
+    {
       "ticker": "^HSI",
       "current_rv": 13.7,
       "baseline_rv": 19.4,
@@ -364,20 +378,6 @@
       "label": "WATCH",
       "reason": "beta=-0.04",
       "sector": "Hang Seng"
-    },
-    {
-      "ticker": "^STOXX50E",
-      "current_rv": 6.9,
-      "baseline_rv": 15.6,
-      "z_score": -1.43,
-      "vrp": 0.046,
-      "beta_30d": 0.686,
-      "consec_vol": 0,
-      "excess_10d": -1.05,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.69",
-      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "EWU",
