@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T22:53:13",
+  "scan_date": "2026-08-15T23:26:46",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -423,6 +423,13 @@
     }
   ],
   "oil": {
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.54,
+      "z_score": 0.29,
+      "bw_spread": 3.45
+    },
     "level": 0,
     "reasons": []
   },
