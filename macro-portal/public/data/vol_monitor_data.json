@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T13:35:37",
+  "scan_date": "2026-08-15T14:29:56",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -30,20 +30,6 @@
       "sector": "Communication"
     },
     {
-      "ticker": "^KS11",
-      "current_rv": 66.6,
-      "baseline_rv": 47.9,
-      "z_score": 0.72,
-      "vrp": 0.1328,
-      "beta_30d": 2.15,
-      "consec_vol": 5,
-      "excess_10d": 19.24,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.15, 5d consec vol",
-      "sector": "KOSPI"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 4.5,
       "baseline_rv": 4.1,
@@ -70,6 +56,20 @@
       "label": "WATCH",
       "reason": "beta=2.07, 5d consec vol",
       "sector": "Technology"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 51.2,
+      "baseline_rv": 48.2,
+      "z_score": 0.12,
+      "vrp": 0.3586,
+      "beta_30d": 2.113,
+      "consec_vol": 5,
+      "excess_10d": 2.25,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=2.11, 5d consec vol",
+      "sector": "KOSPI"
     },
     {
       "ticker": "CL=F",
@@ -338,20 +338,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "^HSI",
-      "current_rv": 13.7,
-      "baseline_rv": 19.4,
-      "z_score": -1.33,
-      "vrp": 0.0452,
-      "beta_30d": -0.042,
-      "consec_vol": 0,
-      "excess_10d": -6.75,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.04",
-      "sector": "Hang Seng"
-    },
-    {
       "ticker": "XAR",
       "current_rv": 20.0,
       "baseline_rv": 30.1,
@@ -364,6 +350,20 @@
       "label": "WATCH",
       "reason": "beta=1.47",
       "sector": "Defense / Aerospace"
+    },
+    {
+      "ticker": "^HSI",
+      "current_rv": 13.5,
+      "baseline_rv": 19.4,
+      "z_score": -1.39,
+      "vrp": 0.0412,
+      "beta_30d": -0.199,
+      "consec_vol": 0,
+      "excess_10d": -6.85,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.20",
+      "sector": "Hang Seng"
     },
     {
       "ticker": "^STOXX50E",
@@ -423,6 +423,13 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.51,
+      "z_score": 0.2,
+      "bw_spread": -3.9
+    },
     "level": 0,
     "reasons": []
   },
