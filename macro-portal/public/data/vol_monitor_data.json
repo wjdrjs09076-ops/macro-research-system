@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T04:38:09",
+  "scan_date": "2026-08-15T05:31:27",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 20.7,
+      "current_rv": 19.5,
       "baseline_rv": 14.1,
-      "z_score": 1.51,
-      "vrp": 0.0141,
-      "beta_30d": 0.662,
+      "z_score": 1.2,
+      "vrp": 0.0176,
+      "beta_30d": 0.672,
       "consec_vol": 5,
-      "excess_10d": 0.98,
+      "excess_10d": 0.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.66, 5d consec vol",
+      "reason": "beta=0.67, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -213,16 +213,16 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 11.6,
-      "baseline_rv": 14.1,
-      "z_score": -0.46,
-      "vrp": 0.0531,
-      "beta_30d": 0.416,
+      "current_rv": 10.7,
+      "baseline_rv": 14.0,
+      "z_score": -0.61,
+      "vrp": 0.07,
+      "beta_30d": 0.274,
       "consec_vol": 0,
-      "excess_10d": -1.41,
+      "excess_10d": -0.69,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.42",
+      "reason": "beta=0.27",
       "sector": "Shanghai Composite"
     },
     {
