@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T15:27:30",
+  "scan_date": "2026-08-15T15:49:48",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -423,6 +423,11 @@
     }
   ],
   "oil": {
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
+    },
     "level": 0,
     "reasons": []
   },
