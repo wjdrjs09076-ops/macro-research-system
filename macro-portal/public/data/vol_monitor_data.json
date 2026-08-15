@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T12:49:45",
+  "scan_date": "2026-08-15T13:35:37",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,17 +17,31 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 20.7,
+      "current_rv": 19.5,
       "baseline_rv": 14.1,
-      "z_score": 1.51,
-      "vrp": 0.0141,
-      "beta_30d": 0.662,
+      "z_score": 1.2,
+      "vrp": 0.0176,
+      "beta_30d": 0.672,
       "consec_vol": 5,
-      "excess_10d": 0.98,
+      "excess_10d": 0.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.66, 5d consec vol",
+      "reason": "beta=0.67, 5d consec vol",
       "sector": "Communication"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 66.6,
+      "baseline_rv": 47.9,
+      "z_score": 0.72,
+      "vrp": 0.1328,
+      "beta_30d": 2.15,
+      "consec_vol": 5,
+      "excess_10d": 19.24,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=2.15, 5d consec vol",
+      "sector": "KOSPI"
     },
     {
       "ticker": "ZN=F",
@@ -56,20 +70,6 @@
       "label": "WATCH",
       "reason": "beta=2.07, 5d consec vol",
       "sector": "Technology"
-    },
-    {
-      "ticker": "^KS11",
-      "current_rv": 51.2,
-      "baseline_rv": 48.2,
-      "z_score": 0.12,
-      "vrp": 0.3586,
-      "beta_30d": 2.113,
-      "consec_vol": 5,
-      "excess_10d": 2.25,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.11, 5d consec vol",
-      "sector": "KOSPI"
     },
     {
       "ticker": "CL=F",
@@ -338,6 +338,20 @@
       "sector": "China Large-Cap"
     },
     {
+      "ticker": "^HSI",
+      "current_rv": 13.7,
+      "baseline_rv": 19.4,
+      "z_score": -1.33,
+      "vrp": 0.0452,
+      "beta_30d": -0.042,
+      "consec_vol": 0,
+      "excess_10d": -6.75,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.04",
+      "sector": "Hang Seng"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 20.0,
       "baseline_rv": 30.1,
@@ -350,20 +364,6 @@
       "label": "WATCH",
       "reason": "beta=1.47",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "^HSI",
-      "current_rv": 13.5,
-      "baseline_rv": 19.4,
-      "z_score": -1.39,
-      "vrp": 0.0412,
-      "beta_30d": -0.199,
-      "consec_vol": 0,
-      "excess_10d": -6.85,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.20",
-      "sector": "Hang Seng"
     },
     {
       "ticker": "^STOXX50E",
@@ -381,16 +381,16 @@
     },
     {
       "ticker": "^FTSE",
-      "current_rv": 4.0,
+      "current_rv": 4.2,
       "baseline_rv": 11.6,
-      "z_score": -1.73,
-      "vrp": 0.0475,
-      "beta_30d": 0.026,
+      "z_score": -1.66,
+      "vrp": 0.0487,
+      "beta_30d": -0.145,
       "consec_vol": 0,
-      "excess_10d": -4.97,
+      "excess_10d": -5.24,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.03",
+      "reason": "beta=-0.15",
       "sector": "FTSE 100"
     },
     {
