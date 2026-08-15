@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-15T17:49:38",
+  "scan_date": "2026-08-15T18:37:59",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -16,46 +16,18 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 28.2,
-      "baseline_rv": 19.5,
-      "z_score": 1.64,
-      "vrp": -0.0271,
-      "beta_30d": 1.329,
-      "consec_vol": 5,
-      "excess_10d": 1.31,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.33, 5d consec vol",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "XLC",
-      "current_rv": 19.5,
+      "current_rv": 20.7,
       "baseline_rv": 14.1,
-      "z_score": 1.2,
-      "vrp": 0.0176,
-      "beta_30d": 0.672,
+      "z_score": 1.51,
+      "vrp": 0.0141,
+      "beta_30d": 0.662,
       "consec_vol": 5,
-      "excess_10d": 0.46,
+      "excess_10d": 0.98,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.67, 5d consec vol",
+      "reason": "beta=0.66, 5d consec vol",
       "sector": "Communication"
-    },
-    {
-      "ticker": "^KS11",
-      "current_rv": 66.6,
-      "baseline_rv": 47.9,
-      "z_score": 0.72,
-      "vrp": 0.1328,
-      "beta_30d": 2.15,
-      "consec_vol": 5,
-      "excess_10d": 19.24,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.15, 5d consec vol",
-      "sector": "KOSPI"
     },
     {
       "ticker": "ZN=F",
@@ -84,6 +56,20 @@
       "label": "WATCH",
       "reason": "beta=2.07, 5d consec vol",
       "sector": "Technology"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 51.2,
+      "baseline_rv": 48.2,
+      "z_score": 0.12,
+      "vrp": 0.3586,
+      "beta_30d": 2.113,
+      "consec_vol": 5,
+      "excess_10d": 2.25,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=2.11, 5d consec vol",
+      "sector": "KOSPI"
     },
     {
       "ticker": "CL=F",
@@ -154,20 +140,6 @@
       "label": "---",
       "reason": "",
       "sector": "Transportation / Shipping"
-    },
-    {
-      "ticker": "XLI",
-      "current_rv": 16.4,
-      "baseline_rv": 17.6,
-      "z_score": -0.24,
-      "vrp": 0.0273,
-      "beta_30d": 0.869,
-      "consec_vol": 3,
-      "excess_10d": 0.63,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Industrials"
     },
     {
       "ticker": "ES=F",
@@ -282,6 +254,20 @@
       "sector": "China Broad (MSCI)"
     },
     {
+      "ticker": "XLI",
+      "current_rv": 13.6,
+      "baseline_rv": 17.4,
+      "z_score": -0.77,
+      "vrp": 0.0444,
+      "beta_30d": 0.798,
+      "consec_vol": 2,
+      "excess_10d": -0.2,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Industrials"
+    },
+    {
       "ticker": "EWJ",
       "current_rv": 14.4,
       "baseline_rv": 20.7,
@@ -294,6 +280,20 @@
       "label": "WATCH",
       "reason": "beta=1.38",
       "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "XLY",
+      "current_rv": 14.2,
+      "baseline_rv": 19.4,
+      "z_score": -1.0,
+      "vrp": 0.0851,
+      "beta_30d": 1.128,
+      "consec_vol": 4,
+      "excess_10d": -2.04,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLV",
@@ -380,20 +380,6 @@
       "sector": "Euro Stoxx 50"
     },
     {
-      "ticker": "EWU",
-      "current_rv": 6.8,
-      "baseline_rv": 15.5,
-      "z_score": -1.66,
-      "vrp": 0.0665,
-      "beta_30d": 0.122,
-      "consec_vol": 0,
-      "excess_10d": -4.74,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.12",
-      "sector": "UK (MSCI)"
-    },
-    {
       "ticker": "^FTSE",
       "current_rv": 4.0,
       "baseline_rv": 11.6,
@@ -420,6 +406,20 @@
       "label": "WATCH",
       "reason": "beta=0.54",
       "sector": "Financials / Banking"
+    },
+    {
+      "ticker": "EWU",
+      "current_rv": 5.4,
+      "baseline_rv": 15.5,
+      "z_score": -1.97,
+      "vrp": 0.0766,
+      "beta_30d": 0.324,
+      "consec_vol": 0,
+      "excess_10d": -4.19,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.32",
+      "sector": "UK (MSCI)"
     }
   ],
   "oil": {
@@ -521,7 +521,7 @@
       "last_date": "2026-08-14"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
