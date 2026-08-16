@@ -1,11 +1,11 @@
 {
-  "scan_date": "2026-08-15T23:48:42",
+  "scan_date": "2026-08-16T01:44:03",
   "etf_signals": [
     {
       "ticker": "XLE",
       "current_rv": 30.5,
       "baseline_rv": 21.5,
-      "z_score": 1.73,
+      "z_score": 1.72,
       "vrp": -0.0538,
       "beta_30d": -0.815,
       "consec_vol": 5,
@@ -74,7 +74,7 @@
     {
       "ticker": "CL=F",
       "current_rv": 53.6,
-      "baseline_rv": 51.0,
+      "baseline_rv": 51.1,
       "z_score": 0.09,
       "vrp": -0.0041,
       "beta_30d": -3.153,
@@ -114,6 +114,20 @@
       "sector": "Semiconductors"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 11.9,
+      "baseline_rv": 12.8,
+      "z_score": -0.23,
+      "vrp": 0.0192,
+      "beta_30d": 0.996,
+      "consec_vol": 3,
+      "excess_10d": -0.12,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "^N225",
       "current_rv": 27.4,
       "baseline_rv": 29.3,
@@ -142,24 +156,10 @@
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 11.9,
-      "baseline_rv": 12.8,
-      "z_score": -0.24,
-      "vrp": 0.0192,
-      "beta_30d": 0.996,
-      "consec_vol": 3,
-      "excess_10d": -0.12,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "GLD",
       "current_rv": 24.3,
-      "baseline_rv": 27.9,
-      "z_score": -0.25,
+      "baseline_rv": 27.8,
+      "z_score": -0.24,
       "vrp": 0.0396,
       "beta_30d": 0.55,
       "consec_vol": 5,
@@ -172,8 +172,8 @@
     {
       "ticker": "EWY",
       "current_rv": 47.8,
-      "baseline_rv": 54.1,
-      "z_score": -0.25,
+      "baseline_rv": 54.2,
+      "z_score": -0.26,
       "vrp": 0.32,
       "beta_30d": 3.406,
       "consec_vol": 4,
@@ -200,8 +200,8 @@
     {
       "ticker": "GC=F",
       "current_rv": 21.9,
-      "baseline_rv": 27.9,
-      "z_score": -0.44,
+      "baseline_rv": 27.8,
+      "z_score": -0.43,
       "vrp": 0.0271,
       "beta_30d": 0.666,
       "consec_vol": 1,
@@ -242,7 +242,7 @@
     {
       "ticker": "MCHI",
       "current_rv": 16.2,
-      "baseline_rv": 19.8,
+      "baseline_rv": 19.7,
       "z_score": -0.75,
       "vrp": 0.0355,
       "beta_30d": 0.358,
@@ -270,8 +270,8 @@
     {
       "ticker": "EWJ",
       "current_rv": 14.4,
-      "baseline_rv": 20.7,
-      "z_score": -0.84,
+      "baseline_rv": 20.6,
+      "z_score": -0.83,
       "vrp": 0.0984,
       "beta_30d": 1.382,
       "consec_vol": 3,
@@ -285,7 +285,7 @@
       "ticker": "XLY",
       "current_rv": 14.2,
       "baseline_rv": 19.4,
-      "z_score": -1.0,
+      "z_score": -0.99,
       "vrp": 0.0851,
       "beta_30d": 1.128,
       "consec_vol": 4,
@@ -294,20 +294,6 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
-    },
-    {
-      "ticker": "XLV",
-      "current_rv": 11.4,
-      "baseline_rv": 15.4,
-      "z_score": -1.02,
-      "vrp": 0.0529,
-      "beta_30d": -0.345,
-      "consec_vol": 2,
-      "excess_10d": -0.93,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.34",
-      "sector": "Healthcare"
     },
     {
       "ticker": "^FTMC",
@@ -324,10 +310,24 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
+      "ticker": "XLV",
+      "current_rv": 11.4,
+      "baseline_rv": 15.4,
+      "z_score": -1.03,
+      "vrp": 0.0529,
+      "beta_30d": -0.345,
+      "consec_vol": 2,
+      "excess_10d": -0.93,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.34",
+      "sector": "Healthcare"
+    },
+    {
       "ticker": "FXI",
       "current_rv": 14.6,
-      "baseline_rv": 19.5,
-      "z_score": -1.04,
+      "baseline_rv": 19.4,
+      "z_score": -1.05,
       "vrp": 0.0531,
       "beta_30d": -0.046,
       "consec_vol": 0,
@@ -411,7 +411,7 @@
       "ticker": "EWU",
       "current_rv": 5.4,
       "baseline_rv": 15.5,
-      "z_score": -1.97,
+      "z_score": -1.98,
       "vrp": 0.0766,
       "beta_30d": 0.324,
       "consec_vol": 0,
