@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-16T20:29:38",
+  "scan_date": "2026-08-16T20:53:06",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -128,20 +128,6 @@
       "sector": "S&P 500 Futures"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 27.4,
-      "baseline_rv": 29.3,
-      "z_score": -0.23,
-      "vrp": 0.0646,
-      "beta_30d": 1.043,
-      "consec_vol": 3,
-      "excess_10d": 5.76,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "XTN",
       "current_rv": 25.0,
       "baseline_rv": 27.0,
@@ -230,13 +216,13 @@
       "current_rv": 17.5,
       "baseline_rv": 24.6,
       "z_score": -0.67,
-      "vrp": 0.1532,
-      "beta_30d": 1.698,
+      "vrp": 0.1538,
+      "beta_30d": 1.648,
       "consec_vol": 3,
       "excess_10d": 0.04,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.70",
+      "reason": "beta=1.65",
       "sector": "Emerging Markets"
     },
     {
@@ -266,6 +252,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 22.5,
+      "baseline_rv": 29.2,
+      "z_score": -0.82,
+      "vrp": 0.116,
+      "beta_30d": 0.946,
+      "consec_vol": 3,
+      "excess_10d": 5.47,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "EWJ",
