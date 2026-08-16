@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-16T11:48:50",
+  "scan_date": "2026-08-16T12:50:56",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -128,34 +128,6 @@
       "sector": "S&P 500 Futures"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 27.4,
-      "baseline_rv": 29.3,
-      "z_score": -0.23,
-      "vrp": 0.0646,
-      "beta_30d": 1.043,
-      "consec_vol": 3,
-      "excess_10d": 5.76,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
-    },
-    {
-      "ticker": "XTN",
-      "current_rv": 25.0,
-      "baseline_rv": 27.0,
-      "z_score": -0.24,
-      "vrp": -0.0303,
-      "beta_30d": 1.083,
-      "consec_vol": 2,
-      "excess_10d": -1.5,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Transportation / Shipping"
-    },
-    {
       "ticker": "GLD",
       "current_rv": 24.3,
       "baseline_rv": 27.8,
@@ -198,6 +170,20 @@
       "sector": "Materials"
     },
     {
+      "ticker": "XTN",
+      "current_rv": 24.4,
+      "baseline_rv": 27.2,
+      "z_score": -0.32,
+      "vrp": -0.0188,
+      "beta_30d": 1.045,
+      "consec_vol": 1,
+      "excess_10d": -1.86,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Transportation / Shipping"
+    },
+    {
       "ticker": "GC=F",
       "current_rv": 22.1,
       "baseline_rv": 27.8,
@@ -226,6 +212,20 @@
       "sector": "Shanghai Composite"
     },
     {
+      "ticker": "MCHI",
+      "current_rv": 16.8,
+      "baseline_rv": 19.8,
+      "z_score": -0.63,
+      "vrp": 0.0365,
+      "beta_30d": 0.488,
+      "consec_vol": 0,
+      "excess_10d": -5.41,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.49",
+      "sector": "China Broad (MSCI)"
+    },
+    {
       "ticker": "EEM",
       "current_rv": 17.5,
       "baseline_rv": 24.6,
@@ -240,20 +240,6 @@
       "sector": "Emerging Markets"
     },
     {
-      "ticker": "MCHI",
-      "current_rv": 16.2,
-      "baseline_rv": 19.7,
-      "z_score": -0.75,
-      "vrp": 0.0355,
-      "beta_30d": 0.358,
-      "consec_vol": 0,
-      "excess_10d": -5.95,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.36",
-      "sector": "China Broad (MSCI)"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 13.6,
       "baseline_rv": 17.4,
@@ -266,6 +252,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 22.5,
+      "baseline_rv": 29.2,
+      "z_score": -0.82,
+      "vrp": 0.116,
+      "beta_30d": 0.946,
+      "consec_vol": 3,
+      "excess_10d": 5.47,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "EWJ",
@@ -296,20 +296,6 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 7.4,
-      "baseline_rv": 12.3,
-      "z_score": -1.02,
-      "vrp": 0.0236,
-      "beta_30d": 0.389,
-      "consec_vol": 0,
-      "excess_10d": -0.21,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.39",
-      "sector": "FTSE 250 (UK 내수)"
-    },
-    {
       "ticker": "XLV",
       "current_rv": 11.4,
       "baseline_rv": 15.4,
@@ -324,32 +310,46 @@
       "sector": "Healthcare"
     },
     {
-      "ticker": "XAR",
-      "current_rv": 22.7,
-      "baseline_rv": 30.4,
-      "z_score": -1.03,
-      "vrp": 0.0969,
-      "beta_30d": 1.37,
-      "consec_vol": 3,
-      "excess_10d": 8.42,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.37",
-      "sector": "Defense / Aerospace"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 14.6,
       "baseline_rv": 19.4,
       "z_score": -1.05,
-      "vrp": 0.0539,
-      "beta_30d": -0.007,
+      "vrp": 0.0531,
+      "beta_30d": -0.046,
       "consec_vol": 0,
       "excess_10d": -8.34,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.01",
+      "reason": "beta=-0.05",
       "sector": "China Large-Cap"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 6.5,
+      "baseline_rv": 12.3,
+      "z_score": -1.15,
+      "vrp": 0.0272,
+      "beta_30d": 0.213,
+      "consec_vol": 0,
+      "excess_10d": -0.65,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.21",
+      "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "XAR",
+      "current_rv": 20.0,
+      "baseline_rv": 30.1,
+      "z_score": -1.36,
+      "vrp": 0.0999,
+      "beta_30d": 1.468,
+      "consec_vol": 2,
+      "excess_10d": 7.62,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.47",
+      "sector": "Defense / Aerospace"
     },
     {
       "ticker": "^HSI",
@@ -423,18 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.06,
-      "baseline": 78.61,
-      "z_score": 0.19,
-      "bw_spread": -3.9
-    },
-    "inv": {
-      "latest_mbbl": 723104.0,
-      "wow_chg_pct": 1.59,
-      "surprise": 2.62
-    },
     "level": 0,
     "reasons": []
   },
