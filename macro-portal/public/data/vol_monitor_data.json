@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-16T14:53:57",
+  "scan_date": "2026-08-16T15:27:52",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -16,31 +16,17 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 28.2,
-      "baseline_rv": 19.4,
-      "z_score": 1.64,
-      "vrp": -0.0271,
-      "beta_30d": 1.329,
-      "consec_vol": 5,
-      "excess_10d": 1.31,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.33, 5d consec vol",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "XLC",
-      "current_rv": 19.5,
+      "current_rv": 20.7,
       "baseline_rv": 14.1,
-      "z_score": 1.19,
-      "vrp": 0.0176,
-      "beta_30d": 0.672,
+      "z_score": 1.51,
+      "vrp": 0.0141,
+      "beta_30d": 0.662,
       "consec_vol": 5,
-      "excess_10d": 0.46,
+      "excess_10d": 0.98,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.67, 5d consec vol",
+      "reason": "beta=0.66, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -140,6 +126,20 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 27.4,
+      "baseline_rv": 29.3,
+      "z_score": -0.23,
+      "vrp": 0.0646,
+      "beta_30d": 1.043,
+      "consec_vol": 3,
+      "excess_10d": 5.76,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "XTN",
@@ -282,6 +282,34 @@
       "sector": "Japan (MSCI)"
     },
     {
+      "ticker": "XLY",
+      "current_rv": 14.2,
+      "baseline_rv": 19.4,
+      "z_score": -0.99,
+      "vrp": 0.0851,
+      "beta_30d": 1.128,
+      "consec_vol": 4,
+      "excess_10d": -2.04,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 7.4,
+      "baseline_rv": 12.3,
+      "z_score": -1.02,
+      "vrp": 0.0236,
+      "beta_30d": 0.389,
+      "consec_vol": 0,
+      "excess_10d": -0.21,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.39",
+      "sector": "FTSE 250 (UK 내수)"
+    },
+    {
       "ticker": "XLV",
       "current_rv": 11.4,
       "baseline_rv": 15.4,
@@ -308,20 +336,6 @@
       "label": "WATCH",
       "reason": "beta=-0.05",
       "sector": "China Large-Cap"
-    },
-    {
-      "ticker": "^FTMC",
-      "current_rv": 6.5,
-      "baseline_rv": 12.3,
-      "z_score": -1.15,
-      "vrp": 0.0272,
-      "beta_30d": 0.213,
-      "consec_vol": 0,
-      "excess_10d": -0.65,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.21",
-      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "XAR",
@@ -507,7 +521,7 @@
       "last_date": "2026-08-14"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
