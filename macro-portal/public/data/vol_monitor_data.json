@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-16T19:47:39",
+  "scan_date": "2026-08-16T20:29:38",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 20.7,
+      "current_rv": 19.5,
       "baseline_rv": 14.1,
-      "z_score": 1.51,
-      "vrp": 0.0141,
-      "beta_30d": 0.662,
+      "z_score": 1.19,
+      "vrp": 0.0176,
+      "beta_30d": 0.672,
       "consec_vol": 5,
-      "excess_10d": 0.98,
+      "excess_10d": 0.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.66, 5d consec vol",
+      "reason": "beta=0.67, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -213,16 +213,16 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 11.6,
-      "baseline_rv": 14.1,
-      "z_score": -0.46,
-      "vrp": 0.0531,
-      "beta_30d": 0.416,
+      "current_rv": 10.7,
+      "baseline_rv": 14.0,
+      "z_score": -0.61,
+      "vrp": 0.07,
+      "beta_30d": 0.274,
       "consec_vol": 0,
-      "excess_10d": -1.41,
+      "excess_10d": -0.69,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.42",
+      "reason": "beta=0.27",
       "sector": "Shanghai Composite"
     },
     {
@@ -230,13 +230,13 @@
       "current_rv": 17.5,
       "baseline_rv": 24.6,
       "z_score": -0.67,
-      "vrp": 0.1538,
-      "beta_30d": 1.648,
+      "vrp": 0.1532,
+      "beta_30d": 1.698,
       "consec_vol": 3,
       "excess_10d": 0.04,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.65",
+      "reason": "beta=1.70",
       "sector": "Emerging Markets"
     },
     {
@@ -423,12 +423,24 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.61,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
     "brent": {
       "label": "Brent",
       "current": 90.61,
       "baseline": 84.66,
       "z_score": 0.29,
       "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
     },
     "level": 0,
     "reasons": []
