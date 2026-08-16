@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-16T20:53:06",
+  "scan_date": "2026-08-16T21:26:11",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 19.5,
+      "current_rv": 20.7,
       "baseline_rv": 14.1,
-      "z_score": 1.19,
-      "vrp": 0.0176,
-      "beta_30d": 0.672,
+      "z_score": 1.51,
+      "vrp": 0.0141,
+      "beta_30d": 0.662,
       "consec_vol": 5,
-      "excess_10d": 0.46,
+      "excess_10d": 0.98,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.67, 5d consec vol",
+      "reason": "beta=0.66, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -128,6 +128,20 @@
       "sector": "S&P 500 Futures"
     },
     {
+      "ticker": "^N225",
+      "current_rv": 27.4,
+      "baseline_rv": 29.3,
+      "z_score": -0.23,
+      "vrp": 0.0646,
+      "beta_30d": 1.043,
+      "consec_vol": 3,
+      "excess_10d": 5.76,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
+    },
+    {
       "ticker": "XTN",
       "current_rv": 25.0,
       "baseline_rv": 27.0,
@@ -199,16 +213,16 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 10.7,
-      "baseline_rv": 14.0,
-      "z_score": -0.61,
-      "vrp": 0.07,
-      "beta_30d": 0.274,
+      "current_rv": 11.6,
+      "baseline_rv": 14.1,
+      "z_score": -0.46,
+      "vrp": 0.0531,
+      "beta_30d": 0.416,
       "consec_vol": 0,
-      "excess_10d": -0.69,
+      "excess_10d": -1.41,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.27",
+      "reason": "beta=0.42",
       "sector": "Shanghai Composite"
     },
     {
@@ -252,20 +266,6 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
-    },
-    {
-      "ticker": "^N225",
-      "current_rv": 22.5,
-      "baseline_rv": 29.2,
-      "z_score": -0.82,
-      "vrp": 0.116,
-      "beta_30d": 0.946,
-      "consec_vol": 3,
-      "excess_10d": 5.47,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
     },
     {
       "ticker": "EWJ",
