@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-16T10:53:46",
+  "scan_date": "2026-08-16T11:26:06",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -338,20 +338,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "XAR",
-      "current_rv": 20.0,
-      "baseline_rv": 30.1,
-      "z_score": -1.36,
-      "vrp": 0.0999,
-      "beta_30d": 1.468,
-      "consec_vol": 2,
-      "excess_10d": 7.62,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.47",
-      "sector": "Defense / Aerospace"
-    },
-    {
       "ticker": "^HSI",
       "current_rv": 13.5,
       "baseline_rv": 19.4,
@@ -540,7 +526,7 @@
       "last_date": "2026-08-14"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
