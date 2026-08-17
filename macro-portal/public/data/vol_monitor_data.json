@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T15:31:26",
+  "scan_date": "2026-08-17T15:55:05",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 20.7,
-      "baseline_rv": 14.0,
-      "z_score": 1.51,
-      "vrp": 0.0141,
-      "beta_30d": 0.662,
+      "current_rv": 19.5,
+      "baseline_rv": 14.1,
+      "z_score": 1.19,
+      "vrp": 0.0176,
+      "beta_30d": 0.672,
       "consec_vol": 5,
-      "excess_10d": 0.98,
+      "excess_10d": 0.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.66, 5d consec vol",
+      "reason": "beta=0.67, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -423,6 +423,13 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.71,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
     "brent": {
       "label": "Brent",
       "current": 90.61,
