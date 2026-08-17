@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T22:55:50",
+  "scan_date": "2026-08-17T23:28:58",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -423,20 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.06,
-      "baseline": 78.71,
-      "z_score": 0.19,
-      "bw_spread": -3.9
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 90.61,
-      "baseline": 84.77,
-      "z_score": 0.28,
-      "bw_spread": 3.45
-    },
     "level": 0,
     "reasons": []
   },
