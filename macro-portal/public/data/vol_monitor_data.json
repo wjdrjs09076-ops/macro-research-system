@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T16:02:20",
+  "scan_date": "2026-08-17T16:32:11",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -423,13 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.06,
-      "baseline": 78.71,
-      "z_score": 0.19,
-      "bw_spread": -3.9
-    },
     "brent": {
       "label": "Brent",
       "current": 90.61,
@@ -446,6 +439,18 @@
     "reasons": []
   },
   "fred": [
+    {
+      "sid": "USEPUINDXD",
+      "label": "EPU",
+      "desc": "Econ Policy Uncertainty",
+      "etfs": [
+        "ALL"
+      ],
+      "current": 257.022,
+      "baseline": 350.6777,
+      "z_score": -0.7,
+      "last_date": "2026-08-16"
+    },
     {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
