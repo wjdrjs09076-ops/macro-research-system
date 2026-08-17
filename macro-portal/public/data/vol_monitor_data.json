@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T05:11:18",
+  "scan_date": "2026-08-17T06:02:50",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 20.7,
-      "baseline_rv": 14.0,
-      "z_score": 1.51,
-      "vrp": 0.0141,
-      "beta_30d": 0.662,
+      "current_rv": 19.5,
+      "baseline_rv": 14.1,
+      "z_score": 1.19,
+      "vrp": 0.0176,
+      "beta_30d": 0.672,
       "consec_vol": 5,
-      "excess_10d": 0.98,
+      "excess_10d": 0.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.66, 5d consec vol",
+      "reason": "beta=0.67, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -128,18 +128,18 @@
       "sector": "S&P 500 Futures"
     },
     {
-      "ticker": "XTN",
-      "current_rv": 25.0,
-      "baseline_rv": 27.0,
+      "ticker": "XLI",
+      "current_rv": 16.4,
+      "baseline_rv": 17.6,
       "z_score": -0.23,
-      "vrp": -0.0303,
-      "beta_30d": 1.083,
-      "consec_vol": 2,
-      "excess_10d": -1.5,
+      "vrp": 0.0273,
+      "beta_30d": 0.869,
+      "consec_vol": 3,
+      "excess_10d": 0.63,
       "level": 0,
       "label": "---",
       "reason": "",
-      "sector": "Transportation / Shipping"
+      "sector": "Industrials"
     },
     {
       "ticker": "^N225",
@@ -198,6 +198,20 @@
       "sector": "Materials"
     },
     {
+      "ticker": "XTN",
+      "current_rv": 24.4,
+      "baseline_rv": 27.2,
+      "z_score": -0.32,
+      "vrp": -0.0188,
+      "beta_30d": 1.045,
+      "consec_vol": 1,
+      "excess_10d": -1.86,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Transportation / Shipping"
+    },
+    {
       "ticker": "GC=F",
       "current_rv": 21.9,
       "baseline_rv": 27.7,
@@ -238,20 +252,6 @@
       "label": "WATCH",
       "reason": "beta=1.65",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "XLI",
-      "current_rv": 13.6,
-      "baseline_rv": 17.4,
-      "z_score": -0.76,
-      "vrp": 0.0444,
-      "beta_30d": 0.798,
-      "consec_vol": 2,
-      "excess_10d": -0.2,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Industrials"
     },
     {
       "ticker": "MCHI",
