@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T13:02:22",
+  "scan_date": "2026-08-17T13:32:03",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -16,31 +16,17 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 28.2,
-      "baseline_rv": 19.4,
-      "z_score": 1.64,
-      "vrp": -0.0271,
-      "beta_30d": 1.329,
-      "consec_vol": 5,
-      "excess_10d": 1.31,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.33, 5d consec vol",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "XLC",
-      "current_rv": 19.5,
-      "baseline_rv": 14.1,
-      "z_score": 1.19,
-      "vrp": 0.0176,
-      "beta_30d": 0.672,
+      "current_rv": 20.7,
+      "baseline_rv": 14.0,
+      "z_score": 1.51,
+      "vrp": 0.0141,
+      "beta_30d": 0.662,
       "consec_vol": 5,
-      "excess_10d": 0.46,
+      "excess_10d": 0.98,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.67, 5d consec vol",
+      "reason": "beta=0.66, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -142,6 +128,34 @@
       "sector": "S&P 500 Futures"
     },
     {
+      "ticker": "XTN",
+      "current_rv": 25.0,
+      "baseline_rv": 27.0,
+      "z_score": -0.23,
+      "vrp": -0.0303,
+      "beta_30d": 1.083,
+      "consec_vol": 2,
+      "excess_10d": -1.5,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Transportation / Shipping"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 27.4,
+      "baseline_rv": 29.3,
+      "z_score": -0.23,
+      "vrp": 0.0646,
+      "beta_30d": 1.043,
+      "consec_vol": 3,
+      "excess_10d": 5.76,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
+    },
+    {
       "ticker": "GLD",
       "current_rv": 24.3,
       "baseline_rv": 27.7,
@@ -182,20 +196,6 @@
       "label": "WATCH",
       "reason": "beta=0.51",
       "sector": "Materials"
-    },
-    {
-      "ticker": "XTN",
-      "current_rv": 24.4,
-      "baseline_rv": 27.2,
-      "z_score": -0.32,
-      "vrp": -0.0188,
-      "beta_30d": 1.045,
-      "consec_vol": 1,
-      "excess_10d": -1.86,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Transportation / Shipping"
     },
     {
       "ticker": "GC=F",
@@ -268,20 +268,6 @@
       "sector": "China Broad (MSCI)"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 22.5,
-      "baseline_rv": 29.2,
-      "z_score": -0.82,
-      "vrp": 0.116,
-      "beta_30d": 0.946,
-      "consec_vol": 3,
-      "excess_10d": 5.47,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "EWJ",
       "current_rv": 14.4,
       "baseline_rv": 20.6,
@@ -296,6 +282,20 @@
       "sector": "Japan (MSCI)"
     },
     {
+      "ticker": "XLY",
+      "current_rv": 14.2,
+      "baseline_rv": 19.4,
+      "z_score": -0.99,
+      "vrp": 0.0851,
+      "beta_30d": 1.128,
+      "consec_vol": 4,
+      "excess_10d": -2.04,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
+    },
+    {
       "ticker": "^FTMC",
       "current_rv": 7.4,
       "baseline_rv": 12.3,
@@ -308,20 +308,6 @@
       "label": "WATCH",
       "reason": "beta=0.39",
       "sector": "FTSE 250 (UK 내수)"
-    },
-    {
-      "ticker": "XAR",
-      "current_rv": 22.7,
-      "baseline_rv": 30.4,
-      "z_score": -1.03,
-      "vrp": 0.0969,
-      "beta_30d": 1.37,
-      "consec_vol": 3,
-      "excess_10d": 8.42,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.37",
-      "sector": "Defense / Aerospace"
     },
     {
       "ticker": "XLV",
@@ -352,17 +338,31 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "^HSI",
-      "current_rv": 13.7,
-      "baseline_rv": 19.4,
-      "z_score": -1.33,
-      "vrp": 0.0452,
-      "beta_30d": -0.042,
-      "consec_vol": 0,
-      "excess_10d": -6.75,
+      "ticker": "XAR",
+      "current_rv": 20.0,
+      "baseline_rv": 30.1,
+      "z_score": -1.35,
+      "vrp": 0.0999,
+      "beta_30d": 1.468,
+      "consec_vol": 2,
+      "excess_10d": 7.62,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.04",
+      "reason": "beta=1.47",
+      "sector": "Defense / Aerospace"
+    },
+    {
+      "ticker": "^HSI",
+      "current_rv": 13.5,
+      "baseline_rv": 19.4,
+      "z_score": -1.38,
+      "vrp": 0.0412,
+      "beta_30d": -0.199,
+      "consec_vol": 0,
+      "excess_10d": -6.85,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.20",
       "sector": "Hang Seng"
     },
     {
@@ -381,16 +381,16 @@
     },
     {
       "ticker": "^FTSE",
-      "current_rv": 4.2,
+      "current_rv": 4.0,
       "baseline_rv": 11.6,
-      "z_score": -1.66,
-      "vrp": 0.0487,
-      "beta_30d": -0.145,
+      "z_score": -1.73,
+      "vrp": 0.0475,
+      "beta_30d": 0.026,
       "consec_vol": 0,
-      "excess_10d": -5.24,
+      "excess_10d": -4.97,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.15",
+      "reason": "beta=0.03",
       "sector": "FTSE 100"
     },
     {
@@ -453,10 +453,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 271.926,
-      "baseline": 350.8279,
-      "z_score": -0.59,
-      "last_date": "2026-08-13"
+      "current": 257.022,
+      "baseline": 350.6777,
+      "z_score": -0.7,
+      "last_date": "2026-08-16"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -540,7 +540,7 @@
       "last_date": "2026-08-17"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
