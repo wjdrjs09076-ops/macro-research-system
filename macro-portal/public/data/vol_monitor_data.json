@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T15:55:05",
+  "scan_date": "2026-08-17T16:02:20",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "XLC",
-      "current_rv": 19.5,
-      "baseline_rv": 14.1,
-      "z_score": 1.19,
-      "vrp": 0.0176,
-      "beta_30d": 0.672,
+      "current_rv": 20.7,
+      "baseline_rv": 14.0,
+      "z_score": 1.51,
+      "vrp": 0.0141,
+      "beta_30d": 0.662,
       "consec_vol": 5,
-      "excess_10d": 0.46,
+      "excess_10d": 0.98,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.67, 5d consec vol",
+      "reason": "beta=0.66, 5d consec vol",
       "sector": "Communication"
     },
     {
@@ -446,18 +446,6 @@
     "reasons": []
   },
   "fred": [
-    {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 257.022,
-      "baseline": 350.6777,
-      "z_score": -0.7,
-      "last_date": "2026-08-16"
-    },
     {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
