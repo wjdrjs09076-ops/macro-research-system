@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-17T14:32:59",
+  "generated": "2026-08-17T14:34:45",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -418,8 +418,8 @@
       "verdict": "ALIVE",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0046,
-        "t": -4.48,
+        "delta_ctrl": -0.0044,
+        "t": -4.35,
         "q_fdr": 0.0002
       },
       "judged": "2026-08-17"
@@ -431,8 +431,8 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": -0.0046,
-        "t": -4.48,
+        "delta_ctrl": -0.0044,
+        "t": -4.35,
         "q_fdr": 0.0002
       },
       "judged": "2026-08-17"
