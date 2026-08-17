@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-17T21:31:29",
+  "scan_date": "2026-08-17T21:55:27",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -436,6 +436,11 @@
       "baseline": 84.77,
       "z_score": 0.28,
       "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
     },
     "level": 0,
     "reasons": []
