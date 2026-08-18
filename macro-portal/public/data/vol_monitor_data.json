@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-08-18T20:02:31",
+  "scan_date": "2026-08-18T20:31:35",
   "etf_signals": [
+    {
+      "ticker": "XLC",
+      "current_rv": 23.3,
+      "baseline_rv": 14.1,
+      "z_score": 2.02,
+      "vrp": -0.0051,
+      "beta_30d": 0.715,
+      "consec_vol": 5,
+      "excess_10d": -1.27,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.0, 5d consec vol",
+      "sector": "Communication"
+    },
     {
       "ticker": "XLE",
       "current_rv": 29.1,
@@ -14,20 +28,6 @@
       "label": "WATCH",
       "reason": "beta=-0.81, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "XLC",
-      "current_rv": 17.4,
-      "baseline_rv": 14.2,
-      "z_score": 0.68,
-      "vrp": 0.0457,
-      "beta_30d": 0.725,
-      "consec_vol": 5,
-      "excess_10d": -2.4,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Communication"
     },
     {
       "ticker": "TLT",
@@ -229,14 +229,14 @@
       "ticker": "EEM",
       "current_rv": 17.8,
       "baseline_rv": 24.6,
-      "z_score": -0.64,
-      "vrp": 0.1708,
-      "beta_30d": 1.619,
+      "z_score": -0.63,
+      "vrp": 0.1652,
+      "beta_30d": 1.514,
       "consec_vol": 2,
       "excess_10d": 2.64,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.62",
+      "reason": "beta=1.51",
       "sector": "Emerging Markets"
     },
     {
@@ -254,32 +254,32 @@
       "sector": "Japan (MSCI)"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 7.9,
-      "baseline_rv": 12.2,
-      "z_score": -0.86,
-      "vrp": 0.016,
-      "beta_30d": 0.253,
-      "consec_vol": 0,
-      "excess_10d": -0.01,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.25",
-      "sector": "FTSE 250 (UK 내수)"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 15.5,
       "baseline_rv": 19.3,
-      "z_score": -0.88,
-      "vrp": 0.0446,
-      "beta_30d": -0.024,
+      "z_score": -0.87,
+      "vrp": 0.0395,
+      "beta_30d": -0.122,
       "consec_vol": 0,
       "excess_10d": -5.73,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.02",
+      "reason": "beta=-0.12",
       "sector": "China Large-Cap"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 7.9,
+      "baseline_rv": 12.3,
+      "z_score": -0.9,
+      "vrp": 0.0194,
+      "beta_30d": 0.435,
+      "consec_vol": 0,
+      "excess_10d": -0.01,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.44",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "^N225",
@@ -324,32 +324,32 @@
       "sector": "Healthcare"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 12.5,
-      "baseline_rv": 19.5,
-      "z_score": -1.26,
-      "vrp": 0.1343,
-      "beta_30d": 1.357,
-      "consec_vol": 4,
-      "excess_10d": -3.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.36",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 10.9,
-      "baseline_rv": 17.6,
-      "z_score": -1.35,
-      "vrp": 0.0855,
-      "beta_30d": 0.83,
-      "consec_vol": 2,
+      "baseline_rv": 17.4,
+      "z_score": -1.29,
+      "vrp": 0.0725,
+      "beta_30d": 0.776,
+      "consec_vol": 1,
       "excess_10d": -0.25,
       "level": 0,
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "XLY",
+      "current_rv": 12.5,
+      "baseline_rv": 19.4,
+      "z_score": -1.31,
+      "vrp": 0.1066,
+      "beta_30d": 1.151,
+      "consec_vol": 3,
+      "excess_10d": -3.2,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLF",
@@ -364,20 +364,6 @@
       "label": "WATCH",
       "reason": "beta=0.55",
       "sector": "Financials / Banking"
-    },
-    {
-      "ticker": "^STOXX50E",
-      "current_rv": 5.6,
-      "baseline_rv": 15.6,
-      "z_score": -1.65,
-      "vrp": 0.061,
-      "beta_30d": 0.714,
-      "consec_vol": 0,
-      "excess_10d": -0.37,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "XAR",
@@ -397,32 +383,44 @@
       "ticker": "^FTSE",
       "current_rv": 4.1,
       "baseline_rv": 11.6,
-      "z_score": -1.69,
-      "vrp": 0.0477,
-      "beta_30d": -0.137,
+      "z_score": -1.71,
+      "vrp": 0.0444,
+      "beta_30d": 0.048,
       "consec_vol": 0,
       "excess_10d": -3.25,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.14",
+      "reason": "beta=0.05",
       "sector": "FTSE 100"
     },
     {
       "ticker": "EWU",
       "current_rv": 5.1,
       "baseline_rv": 15.6,
-      "z_score": -2.01,
-      "vrp": 0.0819,
-      "beta_30d": 0.142,
+      "z_score": -2.04,
+      "vrp": 0.0743,
+      "beta_30d": 0.335,
       "consec_vol": 0,
       "excess_10d": -2.12,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.14",
+      "reason": "beta=0.34",
       "sector": "UK (MSCI)"
     }
   ],
   "oil": {
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.77,
+      "z_score": 0.28,
+      "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
+    },
     "level": 0,
     "reasons": []
   },
@@ -521,7 +519,7 @@
       "last_date": "2026-08-18"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
