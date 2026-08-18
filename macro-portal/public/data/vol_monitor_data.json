@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-18T15:32:26",
+  "scan_date": "2026-08-18T15:37:18",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -212,31 +212,17 @@
       "sector": "Gold Futures"
     },
     {
-      "ticker": "MCHI",
-      "current_rv": 16.8,
-      "baseline_rv": 19.6,
-      "z_score": -0.64,
-      "vrp": 0.0365,
-      "beta_30d": 0.488,
-      "consec_vol": 0,
-      "excess_10d": -5.41,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.49",
-      "sector": "China Broad (MSCI)"
-    },
-    {
       "ticker": "EEM",
       "current_rv": 17.5,
-      "baseline_rv": 24.6,
+      "baseline_rv": 24.5,
       "z_score": -0.66,
-      "vrp": 0.1532,
-      "beta_30d": 1.698,
+      "vrp": 0.1538,
+      "beta_30d": 1.648,
       "consec_vol": 3,
       "excess_10d": 0.04,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.70",
+      "reason": "beta=1.65",
       "sector": "Emerging Markets"
     },
     {
@@ -252,6 +238,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "MCHI",
+      "current_rv": 16.2,
+      "baseline_rv": 19.5,
+      "z_score": -0.77,
+      "vrp": 0.0355,
+      "beta_30d": 0.358,
+      "consec_vol": 0,
+      "excess_10d": -5.95,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.36",
+      "sector": "China Broad (MSCI)"
     },
     {
       "ticker": "EWJ",
@@ -296,18 +296,18 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "ticker": "XAR",
-      "current_rv": 22.7,
-      "baseline_rv": 30.3,
-      "z_score": -1.02,
-      "vrp": 0.0969,
-      "beta_30d": 1.37,
-      "consec_vol": 3,
-      "excess_10d": 8.42,
+      "ticker": "^FTMC",
+      "current_rv": 7.4,
+      "baseline_rv": 12.3,
+      "z_score": -1.01,
+      "vrp": 0.0236,
+      "beta_30d": 0.389,
+      "consec_vol": 0,
+      "excess_10d": -0.21,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.37",
-      "sector": "Defense / Aerospace"
+      "reason": "beta=0.39",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "XLV",
@@ -338,20 +338,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 6.5,
-      "baseline_rv": 12.3,
-      "z_score": -1.15,
-      "vrp": 0.0272,
-      "beta_30d": 0.213,
-      "consec_vol": 0,
-      "excess_10d": -0.65,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.21",
-      "sector": "FTSE 250 (UK 내수)"
-    },
-    {
       "ticker": "^STOXX50E",
       "current_rv": 7.7,
       "baseline_rv": 15.6,
@@ -380,6 +366,20 @@
       "sector": "Hang Seng"
     },
     {
+      "ticker": "XAR",
+      "current_rv": 20.0,
+      "baseline_rv": 30.1,
+      "z_score": -1.35,
+      "vrp": 0.0999,
+      "beta_30d": 1.468,
+      "consec_vol": 2,
+      "excess_10d": 7.62,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.47",
+      "sector": "Defense / Aerospace"
+    },
+    {
       "ticker": "^FTSE",
       "current_rv": 4.2,
       "baseline_rv": 11.6,
@@ -394,6 +394,20 @@
       "sector": "FTSE 100"
     },
     {
+      "ticker": "EWU",
+      "current_rv": 6.8,
+      "baseline_rv": 15.6,
+      "z_score": -1.68,
+      "vrp": 0.0665,
+      "beta_30d": 0.122,
+      "consec_vol": 0,
+      "excess_10d": -4.74,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.12",
+      "sector": "UK (MSCI)"
+    },
+    {
       "ticker": "XLF",
       "current_rv": 7.0,
       "baseline_rv": 14.7,
@@ -406,23 +420,28 @@
       "label": "WATCH",
       "reason": "beta=0.54",
       "sector": "Financials / Banking"
-    },
-    {
-      "ticker": "EWU",
-      "current_rv": 5.4,
-      "baseline_rv": 15.6,
-      "z_score": -1.99,
-      "vrp": 0.0766,
-      "beta_30d": 0.324,
-      "consec_vol": 0,
-      "excess_10d": -4.19,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.32",
-      "sector": "UK (MSCI)"
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.71,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.77,
+      "z_score": 0.28,
+      "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
+    },
     "level": 0,
     "reasons": []
   },
