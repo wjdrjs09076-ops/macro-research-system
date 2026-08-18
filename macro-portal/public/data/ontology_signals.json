@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.19,
-    "ts": "2026-08-18T16:38:27"
+    "ts": "2026-08-18T17:03:45"
   },
-  "generated": "2026-08-18T16:38:27",
+  "generated": "2026-08-18T17:03:46",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -78,7 +78,7 @@
     {
       "ticker": "XLK",
       "direction": 1,
-      "confidence": 0.747,
+      "confidence": 0.7469,
       "rule": "rate_beneficiary",
       "signal_type": "OVERWEIGHT",
       "regime": "mid_vix",
@@ -154,7 +154,7 @@
       "delta_ctrl": -0.0001,
       "t_ctrl": -0.18,
       "q_raw": 0.0,
-      "q_ctrl": 0.8954,
+      "q_ctrl": 0.8953,
       "vif": 4.9,
       "verdict": "killed"
     },
