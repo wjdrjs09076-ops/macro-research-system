@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-08-18T19:02:42",
+  "scan_date": "2026-08-18T19:32:18",
   "etf_signals": [
+    {
+      "ticker": "XLC",
+      "current_rv": 23.3,
+      "baseline_rv": 14.1,
+      "z_score": 2.02,
+      "vrp": -0.0051,
+      "beta_30d": 0.715,
+      "consec_vol": 5,
+      "excess_10d": -1.27,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.0, 5d consec vol",
+      "sector": "Communication"
+    },
     {
       "ticker": "XLE",
       "current_rv": 29.1,
@@ -14,20 +28,6 @@
       "label": "WATCH",
       "reason": "beta=-0.81, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "XLC",
-      "current_rv": 17.4,
-      "baseline_rv": 14.2,
-      "z_score": 0.68,
-      "vrp": 0.0457,
-      "beta_30d": 0.725,
-      "consec_vol": 5,
-      "excess_10d": -2.4,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Communication"
     },
     {
       "ticker": "TLT",
@@ -114,6 +114,20 @@
       "sector": "Semiconductors"
     },
     {
+      "ticker": "XLB",
+      "current_rv": 16.7,
+      "baseline_rv": 17.9,
+      "z_score": -0.25,
+      "vrp": 0.033,
+      "beta_30d": 0.544,
+      "consec_vol": 3,
+      "excess_10d": 0.45,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.54",
+      "sector": "Materials"
+    },
+    {
       "ticker": "GLD",
       "current_rv": 24.0,
       "baseline_rv": 27.5,
@@ -142,26 +156,12 @@
       "sector": "Korea (MSCI)"
     },
     {
-      "ticker": "XLB",
-      "current_rv": 16.7,
-      "baseline_rv": 17.9,
-      "z_score": -0.26,
-      "vrp": 0.0319,
-      "beta_30d": 0.425,
-      "consec_vol": 4,
-      "excess_10d": 0.45,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.43",
-      "sector": "Materials"
-    },
-    {
       "ticker": "XTN",
       "current_rv": 24.0,
-      "baseline_rv": 27.2,
-      "z_score": -0.36,
-      "vrp": -0.0133,
-      "beta_30d": 1.077,
+      "baseline_rv": 27.0,
+      "z_score": -0.33,
+      "vrp": -0.017,
+      "beta_30d": 1.116,
       "consec_vol": 1,
       "excess_10d": -2.03,
       "level": 0,
@@ -254,31 +254,17 @@
       "sector": "Japan (MSCI)"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 22.5,
-      "baseline_rv": 29.3,
-      "z_score": -0.82,
-      "vrp": 0.1123,
-      "beta_30d": 0.758,
-      "consec_vol": 2,
-      "excess_10d": 7.65,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 15.5,
       "baseline_rv": 19.3,
-      "z_score": -0.88,
-      "vrp": 0.0446,
-      "beta_30d": -0.024,
+      "z_score": -0.87,
+      "vrp": 0.0395,
+      "beta_30d": -0.122,
       "consec_vol": 0,
       "excess_10d": -5.73,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.02",
+      "reason": "beta=-0.12",
       "sector": "China Large-Cap"
     },
     {
@@ -294,6 +280,20 @@
       "label": "WATCH",
       "reason": "beta=0.44",
       "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 21.9,
+      "baseline_rv": 29.4,
+      "z_score": -0.91,
+      "vrp": 0.1163,
+      "beta_30d": 1.008,
+      "consec_vol": 2,
+      "excess_10d": 3.66,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "^HSI",
@@ -324,6 +324,20 @@
       "sector": "Healthcare"
     },
     {
+      "ticker": "XLI",
+      "current_rv": 10.9,
+      "baseline_rv": 17.4,
+      "z_score": -1.29,
+      "vrp": 0.0725,
+      "beta_30d": 0.776,
+      "consec_vol": 1,
+      "excess_10d": -0.25,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Industrials"
+    },
+    {
       "ticker": "XLY",
       "current_rv": 12.5,
       "baseline_rv": 19.4,
@@ -336,20 +350,6 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
-    },
-    {
-      "ticker": "XLI",
-      "current_rv": 10.9,
-      "baseline_rv": 17.6,
-      "z_score": -1.35,
-      "vrp": 0.0855,
-      "beta_30d": 0.83,
-      "consec_vol": 2,
-      "excess_10d": -0.25,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Industrials"
     },
     {
       "ticker": "XLF",
@@ -368,15 +368,15 @@
     {
       "ticker": "^STOXX50E",
       "current_rv": 5.6,
-      "baseline_rv": 15.5,
-      "z_score": -1.61,
-      "vrp": 0.0604,
-      "beta_30d": 0.58,
+      "baseline_rv": 15.6,
+      "z_score": -1.65,
+      "vrp": 0.061,
+      "beta_30d": 0.714,
       "consec_vol": 0,
       "excess_10d": -0.37,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.58",
+      "level": 0,
+      "label": "---",
+      "reason": "",
       "sector": "Euro Stoxx 50"
     },
     {
@@ -521,7 +521,7 @@
       "last_date": "2026-08-18"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
