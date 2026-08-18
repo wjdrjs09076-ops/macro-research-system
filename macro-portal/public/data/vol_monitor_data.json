@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-18T14:02:49",
+  "scan_date": "2026-08-18T14:32:21",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -394,6 +394,20 @@
       "sector": "FTSE 100"
     },
     {
+      "ticker": "XLF",
+      "current_rv": 7.0,
+      "baseline_rv": 14.7,
+      "z_score": -1.92,
+      "vrp": 0.0402,
+      "beta_30d": 0.541,
+      "consec_vol": 0,
+      "excess_10d": -1.75,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.54",
+      "sector": "Financials / Banking"
+    },
+    {
       "ticker": "EWU",
       "current_rv": 5.4,
       "baseline_rv": 15.6,
@@ -409,13 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.06,
-      "baseline": 78.71,
-      "z_score": 0.19,
-      "bw_spread": -3.9
-    },
     "level": 0,
     "reasons": []
   },
@@ -514,7 +521,7 @@
       "last_date": "2026-08-18"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
