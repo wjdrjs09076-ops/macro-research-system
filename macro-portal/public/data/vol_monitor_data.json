@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-18T23:28:08",
+  "scan_date": "2026-08-18T23:51:36",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -173,14 +173,14 @@
       "ticker": "000001.SS",
       "current_rv": 11.9,
       "baseline_rv": 14.1,
-      "z_score": -0.4,
-      "vrp": 0.0561,
-      "beta_30d": 0.372,
+      "z_score": -0.39,
+      "vrp": 0.0628,
+      "beta_30d": 0.203,
       "consec_vol": 0,
       "excess_10d": 2.49,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.37",
+      "reason": "beta=0.20",
       "sector": "Shanghai Composite"
     },
     {
