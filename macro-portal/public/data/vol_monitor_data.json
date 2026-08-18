@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-18T05:04:32",
+  "scan_date": "2026-08-18T05:56:53",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -212,20 +212,6 @@
       "sector": "S&P 500 Futures"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 20.8,
-      "baseline_rv": 27.6,
-      "z_score": -0.5,
-      "vrp": 0.0271,
-      "beta_30d": 0.666,
-      "consec_vol": 0,
-      "excess_10d": 4.1,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.67",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "EEM",
       "current_rv": 17.5,
       "baseline_rv": 24.5,
@@ -423,6 +409,25 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.71,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.77,
+      "z_score": 0.28,
+      "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
+    },
     "level": 0,
     "reasons": []
   },
@@ -521,7 +526,7 @@
       "last_date": "2026-08-17"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
