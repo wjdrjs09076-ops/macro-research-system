@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-18T01:36:59",
+  "scan_date": "2026-08-18T03:01:33",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -73,13 +73,13 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 4.1,
+      "current_rv": 4.2,
       "baseline_rv": 4.1,
-      "z_score": 0.07,
-      "vrp": 0.0027,
-      "beta_30d": 0.128,
+      "z_score": 0.09,
+      "vrp": 0.0025,
+      "beta_30d": 0.129,
       "consec_vol": 5,
-      "excess_10d": -1.97,
+      "excess_10d": -1.99,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.13, 5d consec vol",
@@ -87,13 +87,13 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 48.1,
+      "current_rv": 48.2,
       "baseline_rv": 51.4,
       "z_score": -0.12,
-      "vrp": 0.0453,
-      "beta_30d": -3.229,
+      "vrp": 0.0446,
+      "beta_30d": -3.231,
       "consec_vol": 5,
-      "excess_10d": 3.96,
+      "excess_10d": 4.04,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=-3.23, 5d consec vol",
@@ -184,18 +184,18 @@
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 21.9,
-      "baseline_rv": 27.6,
-      "z_score": -0.42,
-      "vrp": 0.036,
-      "beta_30d": 0.573,
-      "consec_vol": 0,
-      "excess_10d": 8.65,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.57",
-      "sector": "Gold Futures"
+      "ticker": "ES=F",
+      "current_rv": 11.4,
+      "baseline_rv": 12.7,
+      "z_score": -0.36,
+      "vrp": 0.0337,
+      "beta_30d": 1.004,
+      "consec_vol": 2,
+      "excess_10d": -0.39,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "000001.SS",
@@ -212,18 +212,18 @@
       "sector": "Shanghai Composite"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 11.0,
-      "baseline_rv": 12.7,
-      "z_score": -0.48,
-      "vrp": 0.0375,
-      "beta_30d": 0.997,
-      "consec_vol": 2,
-      "excess_10d": -0.16,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
+      "ticker": "GC=F",
+      "current_rv": 21.2,
+      "baseline_rv": 27.6,
+      "z_score": -0.47,
+      "vrp": 0.0362,
+      "beta_30d": 0.593,
+      "consec_vol": 0,
+      "excess_10d": 8.04,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.59",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "MCHI",
@@ -423,6 +423,13 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.71,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
     "level": 0,
     "reasons": []
   },
