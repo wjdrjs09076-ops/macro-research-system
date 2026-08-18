@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-18T14:32:21",
+  "scan_date": "2026-08-18T14:39:06",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -423,6 +423,25 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.71,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.77,
+      "z_score": 0.28,
+      "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
+    },
     "level": 0,
     "reasons": []
   },
@@ -447,9 +466,9 @@
         "XLF"
       ],
       "current": 2.702,
-      "baseline": 2.8787,
-      "z_score": 1.07,
-      "last_date": "2026-08-14"
+      "baseline": 2.8779,
+      "z_score": 1.06,
+      "last_date": "2026-08-17"
     },
     {
       "sid": "T10Y2Y",
