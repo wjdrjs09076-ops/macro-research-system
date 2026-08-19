@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T20:35:06",
+  "scan_date": "2026-08-19T21:31:28",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -145,14 +145,14 @@
       "ticker": "000001.SS",
       "current_rv": 12.0,
       "baseline_rv": 14.1,
-      "z_score": -0.38,
-      "vrp": 0.0571,
-      "beta_30d": 0.191,
+      "z_score": -0.39,
+      "vrp": 0.0514,
+      "beta_30d": 0.318,
       "consec_vol": 0,
       "excess_10d": 4.83,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.19",
+      "reason": "beta=0.32",
       "sector": "Shanghai Composite"
     },
     {
@@ -186,15 +186,15 @@
     {
       "ticker": "MCHI",
       "current_rv": 16.7,
-      "baseline_rv": 19.6,
-      "z_score": -0.67,
-      "vrp": 0.0335,
-      "beta_30d": 0.483,
+      "baseline_rv": 19.5,
+      "z_score": -0.63,
+      "vrp": 0.0258,
+      "beta_30d": 0.256,
       "consec_vol": 0,
       "excess_10d": -1.6,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.48",
+      "reason": "beta=0.26",
       "sector": "China Broad (MSCI)"
     },
     {
@@ -230,13 +230,13 @@
       "current_rv": 14.5,
       "baseline_rv": 17.9,
       "z_score": -0.73,
-      "vrp": 0.054,
-      "beta_30d": 0.471,
-      "consec_vol": 3,
+      "vrp": 0.0533,
+      "beta_30d": 0.545,
+      "consec_vol": 2,
       "excess_10d": 0.11,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.47",
+      "reason": "beta=0.55",
       "sector": "Materials"
     },
     {
@@ -270,11 +270,11 @@
     {
       "ticker": "XTN",
       "current_rv": 19.4,
-      "baseline_rv": 27.2,
-      "z_score": -0.9,
-      "vrp": 0.0419,
-      "beta_30d": 1.131,
-      "consec_vol": 1,
+      "baseline_rv": 27.0,
+      "z_score": -0.87,
+      "vrp": 0.0376,
+      "beta_30d": 1.152,
+      "consec_vol": 0,
       "excess_10d": -4.64,
       "level": 0,
       "label": "---",
@@ -396,56 +396,35 @@
     {
       "ticker": "XAR",
       "current_rv": 15.7,
-      "baseline_rv": 30.5,
-      "z_score": -1.94,
-      "vrp": 0.1702,
-      "beta_30d": 1.353,
-      "consec_vol": 1,
+      "baseline_rv": 30.2,
+      "z_score": -1.93,
+      "vrp": 0.1446,
+      "beta_30d": 1.413,
+      "consec_vol": 0,
       "excess_10d": 3.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.35",
+      "reason": "beta=1.41",
       "sector": "Defense / Aerospace"
     },
     {
       "ticker": "EWU",
       "current_rv": 4.9,
       "baseline_rv": 15.6,
-      "z_score": -2.07,
-      "vrp": 0.0812,
-      "beta_30d": 0.138,
+      "z_score": -2.1,
+      "vrp": 0.0752,
+      "beta_30d": 0.325,
       "consec_vol": 0,
       "excess_10d": 0.13,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.14",
+      "reason": "beta=0.32",
       "sector": "UK (MSCI)"
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.82,
-      "baseline": 78.84,
-      "z_score": 0.22,
-      "bw_spread": -0.87
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 91.42,
-      "baseline": 84.95,
-      "z_score": 0.31,
-      "bw_spread": 5.89
-    },
-    "inv": {
-      "latest_mbbl": 722241.0,
-      "wow_chg_pct": -0.12,
-      "surprise": 0.79
-    },
-    "level": 1,
-    "reasons": [
-      "Brent backwardation +5.9%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -480,10 +459,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.504,
-      "baseline": 0.5295,
-      "z_score": -0.24,
-      "last_date": "2026-08-18"
+      "current": 0.5,
+      "baseline": 0.5293,
+      "z_score": -0.28,
+      "last_date": "2026-08-19"
     }
   ],
   "china": [
