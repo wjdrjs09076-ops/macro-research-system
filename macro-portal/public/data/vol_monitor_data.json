@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T12:58:14",
+  "scan_date": "2026-08-19T13:02:30",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -457,31 +457,6 @@
       "baseline": 350.4194,
       "z_score": -0.95,
       "last_date": "2026-08-17"
-    },
-    {
-      "sid": "BAMLH0A0HYM2",
-      "label": "HY Spd",
-      "desc": "HY Credit Spread",
-      "etfs": [
-        "XLF"
-      ],
-      "current": 2.702,
-      "baseline": 2.8781,
-      "z_score": 1.06,
-      "last_date": "2026-08-17"
-    },
-    {
-      "sid": "T10Y2Y",
-      "label": "Yld Crv",
-      "desc": "10Y-2Y Yield Curve",
-      "etfs": [
-        "XLF",
-        "TLT"
-      ],
-      "current": 0.504,
-      "baseline": 0.5295,
-      "z_score": -0.24,
-      "last_date": "2026-08-18"
     }
   ],
   "china": [
