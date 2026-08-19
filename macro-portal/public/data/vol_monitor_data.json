@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T15:02:25",
+  "scan_date": "2026-08-19T15:32:17",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -212,6 +212,20 @@
       "sector": "Healthcare"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 32.5,
+      "baseline_rv": 51.7,
+      "z_score": -0.7,
+      "vrp": 0.1892,
+      "beta_30d": -3.093,
+      "consec_vol": 4,
+      "excess_10d": 12.17,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-3.09",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "XLB",
       "current_rv": 14.5,
       "baseline_rv": 17.9,
@@ -409,25 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.06,
-      "baseline": 78.71,
-      "z_score": 0.19,
-      "bw_spread": -3.9
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 90.61,
-      "baseline": 84.77,
-      "z_score": 0.28,
-      "bw_spread": 3.45
-    },
-    "inv": {
-      "latest_mbbl": 723104.0,
-      "wow_chg_pct": 1.59,
-      "surprise": 2.62
-    },
     "level": 0,
     "reasons": []
   },
@@ -526,7 +521,7 @@
       "last_date": "2026-08-19"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
