@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.84,
-    "ts": "2026-08-19T18:32:20"
+    "ts": "2026-08-19T18:43:02"
   },
-  "generated": "2026-08-19T18:32:20",
+  "generated": "2026-08-19T18:43:02",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -177,7 +177,7 @@
       "sector": "XLB",
       "macro": "DXY",
       "delta_raw": -0.0025,
-      "t_raw": -3.96,
+      "t_raw": -4.01,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0002,
@@ -210,25 +210,25 @@
       "verdict": "killed"
     },
     {
-      "sector": "XLP",
-      "macro": "DXY",
-      "delta_raw": -0.0013,
-      "t_raw": -2.8,
+      "sector": "XLY",
+      "macro": "OIL",
+      "delta_raw": -0.0022,
+      "t_raw": -3.06,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0105,
+      "q_raw": 0.0046,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
     },
     {
-      "sector": "XLY",
-      "macro": "OIL",
-      "delta_raw": -0.0019,
-      "t_raw": -2.65,
+      "sector": "XLP",
+      "macro": "DXY",
+      "delta_raw": -0.0014,
+      "t_raw": -2.87,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0156,
+      "q_raw": 0.0079,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -237,10 +237,10 @@
       "sector": "XLV",
       "macro": "DXY",
       "delta_raw": -0.0014,
-      "t_raw": -2.62,
+      "t_raw": -2.57,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0161,
+      "q_raw": 0.0181,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -249,10 +249,10 @@
       "sector": "XLU",
       "macro": "DXY",
       "delta_raw": -0.0013,
-      "t_raw": -2.57,
+      "t_raw": -2.56,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0175,
+      "q_raw": 0.0181,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
