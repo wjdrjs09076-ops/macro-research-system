@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T22:56:11",
+  "scan_date": "2026-08-19T23:28:42",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -132,13 +132,13 @@
       "current_rv": 20.6,
       "baseline_rv": 24.7,
       "z_score": -0.38,
-      "vrp": 0.1538,
-      "beta_30d": 1.623,
+      "vrp": 0.152,
+      "beta_30d": 1.53,
       "consec_vol": 1,
       "excess_10d": -0.43,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.62",
+      "reason": "beta=1.53",
       "sector": "Emerging Markets"
     },
     {
@@ -396,15 +396,15 @@
     {
       "ticker": "XAR",
       "current_rv": 15.7,
-      "baseline_rv": 30.5,
-      "z_score": -1.94,
-      "vrp": 0.1702,
-      "beta_30d": 1.353,
-      "consec_vol": 1,
+      "baseline_rv": 30.2,
+      "z_score": -1.93,
+      "vrp": 0.1446,
+      "beta_30d": 1.413,
+      "consec_vol": 0,
       "excess_10d": 3.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.35",
+      "reason": "beta=1.41",
       "sector": "Defense / Aerospace"
     },
     {
@@ -423,29 +423,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.82,
-      "baseline": 78.84,
-      "z_score": 0.22,
-      "bw_spread": -0.87
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 91.42,
-      "baseline": 84.95,
-      "z_score": 0.31,
-      "bw_spread": 5.89
-    },
-    "inv": {
-      "latest_mbbl": 722241.0,
-      "wow_chg_pct": -0.12,
-      "surprise": 0.79
-    },
-    "level": 1,
-    "reasons": [
-      "Brent backwardation +5.9%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
