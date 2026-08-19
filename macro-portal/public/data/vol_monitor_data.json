@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T19:02:28",
+  "scan_date": "2026-08-19T19:31:42",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -88,15 +88,15 @@
     {
       "ticker": "^KS11",
       "current_rv": 42.4,
-      "baseline_rv": 48.8,
-      "z_score": -0.24,
-      "vrp": 0.4344,
-      "beta_30d": 1.964,
+      "baseline_rv": 48.5,
+      "z_score": -0.23,
+      "vrp": 0.3706,
+      "beta_30d": 2.339,
       "consec_vol": 4,
       "excess_10d": 7.92,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.96",
+      "reason": "beta=2.34",
       "sector": "KOSPI"
     },
     {
@@ -117,9 +117,9 @@
       "ticker": "^N225",
       "current_rv": 26.3,
       "baseline_rv": 29.4,
-      "z_score": -0.37,
-      "vrp": 0.0785,
-      "beta_30d": 1.049,
+      "z_score": -0.36,
+      "vrp": 0.0789,
+      "beta_30d": 0.916,
       "consec_vol": 1,
       "excess_10d": 4.16,
       "level": 0,
@@ -186,15 +186,15 @@
     {
       "ticker": "MCHI",
       "current_rv": 16.7,
-      "baseline_rv": 19.5,
-      "z_score": -0.63,
-      "vrp": 0.0258,
-      "beta_30d": 0.256,
+      "baseline_rv": 19.6,
+      "z_score": -0.67,
+      "vrp": 0.0335,
+      "beta_30d": 0.483,
       "consec_vol": 0,
       "excess_10d": -1.6,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.26",
+      "reason": "beta=0.48",
       "sector": "China Broad (MSCI)"
     },
     {
@@ -411,14 +411,14 @@
       "ticker": "EWU",
       "current_rv": 4.9,
       "baseline_rv": 15.6,
-      "z_score": -2.1,
-      "vrp": 0.0752,
-      "beta_30d": 0.325,
+      "z_score": -2.07,
+      "vrp": 0.0812,
+      "beta_30d": 0.138,
       "consec_vol": 0,
       "excess_10d": 0.13,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.32",
+      "reason": "beta=0.14",
       "sector": "UK (MSCI)"
     }
   ],
@@ -430,22 +430,8 @@
       "z_score": 0.22,
       "bw_spread": -0.87
     },
-    "brent": {
-      "label": "Brent",
-      "current": 91.42,
-      "baseline": 84.95,
-      "z_score": 0.31,
-      "bw_spread": 5.89
-    },
-    "inv": {
-      "latest_mbbl": 722241.0,
-      "wow_chg_pct": -0.12,
-      "surprise": 0.79
-    },
-    "level": 1,
-    "reasons": [
-      "Brent backwardation +5.9%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
