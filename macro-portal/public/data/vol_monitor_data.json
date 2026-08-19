@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T21:56:25",
+  "scan_date": "2026-08-19T22:31:24",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -19,9 +19,9 @@
       "ticker": "XLC",
       "current_rv": 17.0,
       "baseline_rv": 14.3,
-      "z_score": 0.56,
-      "vrp": 0.0453,
-      "beta_30d": 0.751,
+      "z_score": 0.53,
+      "vrp": 0.0657,
+      "beta_30d": 0.858,
       "consec_vol": 5,
       "excess_10d": -0.85,
       "level": 1,
@@ -230,13 +230,13 @@
       "current_rv": 14.5,
       "baseline_rv": 17.9,
       "z_score": -0.73,
-      "vrp": 0.0533,
-      "beta_30d": 0.545,
-      "consec_vol": 2,
+      "vrp": 0.054,
+      "beta_30d": 0.471,
+      "consec_vol": 3,
       "excess_10d": 0.11,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.55",
+      "reason": "beta=0.47",
       "sector": "Materials"
     },
     {
@@ -354,11 +354,11 @@
     {
       "ticker": "XLI",
       "current_rv": 9.7,
-      "baseline_rv": 17.5,
-      "z_score": -1.54,
-      "vrp": 0.091,
-      "beta_30d": 0.774,
-      "consec_vol": 0,
+      "baseline_rv": 17.7,
+      "z_score": -1.59,
+      "vrp": 0.1045,
+      "beta_30d": 0.857,
+      "consec_vol": 1,
       "excess_10d": -1.02,
       "level": 0,
       "label": "---",
@@ -396,56 +396,40 @@
     {
       "ticker": "XAR",
       "current_rv": 15.7,
-      "baseline_rv": 30.2,
-      "z_score": -1.93,
-      "vrp": 0.1446,
-      "beta_30d": 1.413,
-      "consec_vol": 0,
+      "baseline_rv": 30.5,
+      "z_score": -1.94,
+      "vrp": 0.1702,
+      "beta_30d": 1.353,
+      "consec_vol": 1,
       "excess_10d": 3.46,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.41",
+      "reason": "beta=1.35",
       "sector": "Defense / Aerospace"
     },
     {
       "ticker": "EWU",
       "current_rv": 4.9,
       "baseline_rv": 15.6,
-      "z_score": -2.1,
-      "vrp": 0.0752,
-      "beta_30d": 0.325,
+      "z_score": -2.07,
+      "vrp": 0.0812,
+      "beta_30d": 0.138,
       "consec_vol": 0,
       "excess_10d": 0.13,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.32",
+      "reason": "beta=0.14",
       "sector": "UK (MSCI)"
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.82,
-      "baseline": 78.84,
-      "z_score": 0.22,
-      "bw_spread": -0.87
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 91.42,
-      "baseline": 84.95,
-      "z_score": 0.31,
-      "bw_spread": 5.89
-    },
     "inv": {
       "latest_mbbl": 722241.0,
       "wow_chg_pct": -0.12,
       "surprise": 0.79
     },
-    "level": 1,
-    "reasons": [
-      "Brent backwardation +5.9%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
