@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T16:32:14",
+  "scan_date": "2026-08-19T16:37:43",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -230,13 +230,13 @@
       "current_rv": 14.5,
       "baseline_rv": 17.9,
       "z_score": -0.73,
-      "vrp": 0.0533,
-      "beta_30d": 0.545,
-      "consec_vol": 2,
+      "vrp": 0.054,
+      "beta_30d": 0.471,
+      "consec_vol": 3,
       "excess_10d": 0.11,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.55",
+      "reason": "beta=0.47",
       "sector": "Materials"
     },
     {
@@ -282,6 +282,20 @@
       "sector": "Transportation / Shipping"
     },
     {
+      "ticker": "^HSI",
+      "current_rv": 15.3,
+      "baseline_rv": 19.3,
+      "z_score": -0.94,
+      "vrp": 0.027,
+      "beta_30d": -0.141,
+      "consec_vol": 0,
+      "excess_10d": -0.95,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.14",
+      "sector": "Hang Seng"
+    },
+    {
       "ticker": "^FTMC",
       "current_rv": 7.5,
       "baseline_rv": 12.2,
@@ -310,6 +324,20 @@
       "sector": "Consumer Discretionary"
     },
     {
+      "ticker": "^STOXX50E",
+      "current_rv": 6.3,
+      "baseline_rv": 15.6,
+      "z_score": -1.5,
+      "vrp": 0.0577,
+      "beta_30d": 0.598,
+      "consec_vol": 0,
+      "excess_10d": 0.22,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.60",
+      "sector": "Euro Stoxx 50"
+    },
+    {
       "ticker": "ES=F",
       "current_rv": 7.1,
       "baseline_rv": 12.8,
@@ -326,30 +354,16 @@
     {
       "ticker": "XLI",
       "current_rv": 9.7,
-      "baseline_rv": 17.5,
-      "z_score": -1.54,
-      "vrp": 0.091,
-      "beta_30d": 0.774,
-      "consec_vol": 0,
+      "baseline_rv": 17.7,
+      "z_score": -1.59,
+      "vrp": 0.1045,
+      "beta_30d": 0.857,
+      "consec_vol": 1,
       "excess_10d": -1.02,
       "level": 0,
       "label": "---",
       "reason": "",
       "sector": "Industrials"
-    },
-    {
-      "ticker": "^STOXX50E",
-      "current_rv": 6.3,
-      "baseline_rv": 15.6,
-      "z_score": -1.54,
-      "vrp": 0.059,
-      "beta_30d": 0.706,
-      "consec_vol": 0,
-      "excess_10d": 0.22,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "^FTSE",
@@ -409,6 +423,25 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 82.06,
+      "baseline": 78.71,
+      "z_score": 0.19,
+      "bw_spread": -3.9
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 90.61,
+      "baseline": 84.77,
+      "z_score": 0.28,
+      "bw_spread": 3.45
+    },
+    "inv": {
+      "latest_mbbl": 723104.0,
+      "wow_chg_pct": 1.59,
+      "surprise": 2.62
+    },
     "level": 0,
     "reasons": []
   },
@@ -507,7 +540,7 @@
       "last_date": "2026-08-19"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 26,
   "alert_count": 0,
   "high_count": 0
 }
