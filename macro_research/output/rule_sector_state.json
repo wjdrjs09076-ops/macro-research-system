@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-18T19:32:59",
+  "generated": "2026-08-19T13:33:03",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -28,10 +28,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": 0.0033,
-        "t": 2.84,
+        "t": 2.81,
         "q_fdr": 0.0153
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -41,10 +41,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": 0.0033,
-        "t": 2.84,
+        "t": 2.81,
         "q_fdr": 0.0153
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -57,7 +57,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -67,10 +67,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.001,
-        "t": -0.94,
-        "q_fdr": 0.4513
+        "t": -0.93,
+        "q_fdr": 0.4591
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -80,10 +80,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.001,
-        "t": -0.94,
-        "q_fdr": 0.4513
+        "t": -0.93,
+        "q_fdr": 0.4591
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -96,7 +96,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -105,11 +105,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": 0.002,
-        "t": 1.27,
-        "q_fdr": 0.3443
+        "delta_ctrl": 0.0021,
+        "t": 1.28,
+        "q_fdr": 0.3377
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -118,11 +118,11 @@
       "verdict": "KILLED",
       "controlled": true,
       "evidence": {
-        "delta_ctrl": 0.002,
-        "t": 1.27,
-        "q_fdr": 0.3443
+        "delta_ctrl": 0.0021,
+        "t": 1.28,
+        "q_fdr": 0.3377
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -135,7 +135,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -145,10 +145,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0014,
-        "t": -1.01,
-        "q_fdr": 0.4427
+        "t": -0.99,
+        "q_fdr": 0.4433
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -158,10 +158,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0014,
-        "t": -1.01,
-        "q_fdr": 0.4427
+        "t": -0.99,
+        "q_fdr": 0.4433
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -174,7 +174,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -187,7 +187,7 @@
         "t": -4.38,
         "q_fdr": 0.0002
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -200,7 +200,7 @@
         "t": -4.38,
         "q_fdr": 0.0002
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -213,7 +213,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -223,10 +223,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0032,
-        "t": -2.46,
-        "q_fdr": 0.038
+        "t": -2.45,
+        "q_fdr": 0.0392
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -236,10 +236,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0032,
-        "t": -2.46,
-        "q_fdr": 0.038
+        "t": -2.45,
+        "q_fdr": 0.0392
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -252,7 +252,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -262,10 +262,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0026,
-        "t": -1.9,
-        "q_fdr": 0.1199
+        "t": -1.91,
+        "q_fdr": 0.118
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -275,10 +275,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0026,
-        "t": -1.9,
-        "q_fdr": 0.1199
+        "t": -1.91,
+        "q_fdr": 0.118
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -291,7 +291,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -301,10 +301,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": 0.0012,
-        "t": 1.22,
-        "q_fdr": 0.3628
+        "t": 1.2,
+        "q_fdr": 0.3612
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -314,10 +314,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": 0.0012,
-        "t": 1.22,
-        "q_fdr": 0.3628
+        "t": 1.2,
+        "q_fdr": 0.3612
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -330,7 +330,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -340,10 +340,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0012,
-        "t": -0.96,
-        "q_fdr": 0.4476
+        "t": -0.97,
+        "q_fdr": 0.4433
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -353,10 +353,10 @@
       "controlled": true,
       "evidence": {
         "delta_ctrl": -0.0012,
-        "t": -0.96,
-        "q_fdr": 0.4476
+        "t": -0.97,
+        "q_fdr": 0.4433
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -369,7 +369,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -380,9 +380,9 @@
       "evidence": {
         "delta_ctrl": -0.0043,
         "t": -3.5,
-        "q_fdr": 0.0035
+        "q_fdr": 0.0034
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -393,9 +393,9 @@
       "evidence": {
         "delta_ctrl": -0.0043,
         "t": -3.5,
-        "q_fdr": 0.0035
+        "q_fdr": 0.0034
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -408,7 +408,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_victim",
@@ -421,7 +421,7 @@
         "t": -4.51,
         "q_fdr": 0.0001
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -434,7 +434,7 @@
         "t": -4.51,
         "q_fdr": 0.0001
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     },
     {
       "rule": "rate_beneficiary",
@@ -447,7 +447,7 @@
         "t": null,
         "q_fdr": null
       },
-      "judged": "2026-08-18"
+      "judged": "2026-08-19"
     }
   ]
 }
