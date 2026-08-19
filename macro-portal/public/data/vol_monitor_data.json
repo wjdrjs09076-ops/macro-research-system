@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T21:31:28",
+  "scan_date": "2026-08-19T21:56:25",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -19,9 +19,9 @@
       "ticker": "XLC",
       "current_rv": 17.0,
       "baseline_rv": 14.3,
-      "z_score": 0.53,
-      "vrp": 0.0657,
-      "beta_30d": 0.858,
+      "z_score": 0.56,
+      "vrp": 0.0453,
+      "beta_30d": 0.751,
       "consec_vol": 5,
       "excess_10d": -0.85,
       "level": 1,
@@ -145,14 +145,14 @@
       "ticker": "000001.SS",
       "current_rv": 12.0,
       "baseline_rv": 14.1,
-      "z_score": -0.39,
-      "vrp": 0.0514,
-      "beta_30d": 0.318,
+      "z_score": -0.38,
+      "vrp": 0.0571,
+      "beta_30d": 0.191,
       "consec_vol": 0,
       "excess_10d": 4.83,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.32",
+      "reason": "beta=0.19",
       "sector": "Shanghai Composite"
     },
     {
@@ -186,15 +186,15 @@
     {
       "ticker": "MCHI",
       "current_rv": 16.7,
-      "baseline_rv": 19.5,
-      "z_score": -0.63,
-      "vrp": 0.0258,
-      "beta_30d": 0.256,
+      "baseline_rv": 19.6,
+      "z_score": -0.67,
+      "vrp": 0.0335,
+      "beta_30d": 0.483,
       "consec_vol": 0,
       "excess_10d": -1.6,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.26",
+      "reason": "beta=0.48",
       "sector": "China Broad (MSCI)"
     },
     {
@@ -270,11 +270,11 @@
     {
       "ticker": "XTN",
       "current_rv": 19.4,
-      "baseline_rv": 27.0,
-      "z_score": -0.87,
-      "vrp": 0.0376,
-      "beta_30d": 1.152,
-      "consec_vol": 0,
+      "baseline_rv": 27.2,
+      "z_score": -0.9,
+      "vrp": 0.0419,
+      "beta_30d": 1.131,
+      "consec_vol": 1,
       "excess_10d": -4.64,
       "level": 0,
       "label": "---",
@@ -354,11 +354,11 @@
     {
       "ticker": "XLI",
       "current_rv": 9.7,
-      "baseline_rv": 17.7,
-      "z_score": -1.59,
-      "vrp": 0.1045,
-      "beta_30d": 0.857,
-      "consec_vol": 1,
+      "baseline_rv": 17.5,
+      "z_score": -1.54,
+      "vrp": 0.091,
+      "beta_30d": 0.774,
+      "consec_vol": 0,
       "excess_10d": -1.02,
       "level": 0,
       "label": "---",
@@ -423,8 +423,29 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "wti": {
+      "label": "WTI",
+      "current": 82.82,
+      "baseline": 78.84,
+      "z_score": 0.22,
+      "bw_spread": -0.87
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 91.42,
+      "baseline": 84.95,
+      "z_score": 0.31,
+      "bw_spread": 5.89
+    },
+    "inv": {
+      "latest_mbbl": 722241.0,
+      "wow_chg_pct": -0.12,
+      "surprise": 0.79
+    },
+    "level": 1,
+    "reasons": [
+      "Brent backwardation +5.9%"
+    ]
   },
   "fred": [
     {
