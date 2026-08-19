@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 15.84,
-    "ts": "2026-08-19T18:43:02"
+    "ts": "2026-08-19T19:03:10"
   },
-  "generated": "2026-08-19T18:43:02",
+  "generated": "2026-08-19T19:03:11",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -30,10 +30,10 @@
   "short_straddle_candidates": [],
   "sensitivity_audit": [
     {
-      "sector": "XLY",
+      "sector": "XLK",
       "macro": "VIX",
-      "delta_raw": -0.0108,
-      "t_raw": -24.14,
+      "delta_raw": -0.0136,
+      "t_raw": -23.94,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -42,10 +42,10 @@
       "verdict": "killed"
     },
     {
-      "sector": "XLK",
+      "sector": "XLY",
       "macro": "VIX",
-      "delta_raw": -0.0136,
-      "t_raw": -23.85,
+      "delta_raw": -0.0109,
+      "t_raw": -23.7,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -56,8 +56,8 @@
     {
       "sector": "XLI",
       "macro": "VIX",
-      "delta_raw": -0.0088,
-      "t_raw": -21.94,
+      "delta_raw": -0.0087,
+      "t_raw": -21.57,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -68,8 +68,8 @@
     {
       "sector": "XLF",
       "macro": "VIX",
-      "delta_raw": -0.0082,
-      "t_raw": -20.76,
+      "delta_raw": -0.0081,
+      "t_raw": -20.8,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -80,8 +80,8 @@
     {
       "sector": "XLC",
       "macro": "VIX",
-      "delta_raw": -0.0078,
-      "t_raw": -20.05,
+      "delta_raw": -0.0079,
+      "t_raw": -19.96,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -92,8 +92,8 @@
     {
       "sector": "XLB",
       "macro": "VIX",
-      "delta_raw": -0.0084,
-      "t_raw": -18.09,
+      "delta_raw": -0.0083,
+      "t_raw": -18.15,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -129,7 +129,7 @@
       "sector": "XLV",
       "macro": "VIX",
       "delta_raw": -0.0048,
-      "t_raw": -10.0,
+      "t_raw": -9.91,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -141,7 +141,7 @@
       "sector": "XLE",
       "macro": "VIX",
       "delta_raw": -0.0061,
-      "t_raw": -8.52,
+      "t_raw": -8.56,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -153,7 +153,19 @@
       "sector": "XLU",
       "macro": "VIX",
       "delta_raw": -0.0038,
-      "t_raw": -8.12,
+      "t_raw": -8.05,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
+      "sector": "XLE",
+      "macro": "US10Y",
+      "delta_raw": 0.0044,
+      "t_raw": 5.97,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -165,7 +177,7 @@
       "sector": "XLP",
       "macro": "VIX",
       "delta_raw": -0.0022,
-      "t_raw": -4.89,
+      "t_raw": -4.91,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0,
@@ -174,10 +186,34 @@
       "verdict": "killed"
     },
     {
+      "sector": "XLRE",
+      "macro": "US10Y",
+      "delta_raw": -0.0024,
+      "t_raw": -4.75,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
+      "sector": "XLU",
+      "macro": "US10Y",
+      "delta_raw": -0.002,
+      "t_raw": -4.0,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0002,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
       "sector": "XLB",
       "macro": "DXY",
       "delta_raw": -0.0025,
-      "t_raw": -4.01,
+      "t_raw": -3.96,
       "delta_ctrl": null,
       "t_ctrl": null,
       "q_raw": 0.0002,
@@ -198,13 +234,37 @@
       "verdict": "killed"
     },
     {
+      "sector": "XLP",
+      "macro": "US10Y",
+      "delta_raw": -0.0015,
+      "t_raw": -3.27,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0026,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
       "sector": "XLV",
       "macro": "OIL",
       "delta_raw": -0.0018,
       "t_raw": -3.22,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0028,
+      "q_raw": 0.0029,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
+      "sector": "XLV",
+      "macro": "US10Y",
+      "delta_raw": -0.0016,
+      "t_raw": -3.06,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.0047,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -216,7 +276,7 @@
       "t_raw": -3.06,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0046,
+      "q_raw": 0.0047,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -224,11 +284,11 @@
     {
       "sector": "XLP",
       "macro": "DXY",
-      "delta_raw": -0.0014,
-      "t_raw": -2.87,
+      "delta_raw": -0.0013,
+      "t_raw": -2.8,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0079,
+      "q_raw": 0.0102,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -237,10 +297,10 @@
       "sector": "XLV",
       "macro": "DXY",
       "delta_raw": -0.0014,
-      "t_raw": -2.57,
+      "t_raw": -2.62,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0181,
+      "q_raw": 0.0168,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -249,10 +309,10 @@
       "sector": "XLU",
       "macro": "DXY",
       "delta_raw": -0.0013,
-      "t_raw": -2.56,
+      "t_raw": -2.57,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0181,
+      "q_raw": 0.0185,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -260,11 +320,23 @@
     {
       "sector": "XLI",
       "macro": "OIL",
-      "delta_raw": -0.0015,
-      "t_raw": -2.41,
+      "delta_raw": -0.0014,
+      "t_raw": -2.32,
       "delta_ctrl": null,
       "t_ctrl": null,
-      "q_raw": 0.0266,
+      "q_raw": 0.0357,
+      "q_ctrl": null,
+      "vif": null,
+      "verdict": "killed"
+    },
+    {
+      "sector": "XLB",
+      "macro": "US10Y",
+      "delta_raw": -0.0012,
+      "t_raw": -1.95,
+      "delta_ctrl": null,
+      "t_ctrl": null,
+      "q_raw": 0.087,
       "q_ctrl": null,
       "vif": null,
       "verdict": "killed"
@@ -515,42 +587,42 @@
     "per_threshold": [
       {
         "threshold": 0.03,
-        "p_any": 0.9846,
-        "p_all": 0.013,
-        "p_half": 0.4078,
-        "mean_hit_count": 4.99
+        "p_any": 0.985,
+        "p_all": 0.0136,
+        "p_half": 0.4204,
+        "mean_hit_count": 5.06
       },
       {
         "threshold": 0.05,
-        "p_any": 0.8958,
-        "p_all": 0.0008,
-        "p_half": 0.118,
-        "mean_hit_count": 2.75
+        "p_any": 0.8992,
+        "p_all": 0.001,
+        "p_half": 0.1252,
+        "mean_hit_count": 2.83
       },
       {
         "threshold": 0.1,
-        "p_any": 0.3308,
+        "p_any": 0.3414,
         "p_all": 0.0,
         "p_half": 0.0008,
-        "mean_hit_count": 0.44
+        "mean_hit_count": 0.47
       }
     ],
     "pair_threshold": 0.05,
     "top_pair_co_drawdown": [
       {
-        "a": "XLC",
-        "b": "XLK",
-        "p_co": 0.1658
-      },
-      {
         "a": "XLY",
         "b": "XLK",
-        "p_co": 0.1634
+        "p_co": 0.2106
       },
       {
         "a": "XLY",
         "b": "XLC",
-        "p_co": 0.1534
+        "p_co": 0.1924
+      },
+      {
+        "a": "XLC",
+        "b": "XLK",
+        "p_co": 0.1658
       },
       {
         "a": "XLK",
@@ -564,13 +636,18 @@
       },
       {
         "a": "XLB",
+        "b": "XLY",
+        "p_co": 0.1288
+      },
+      {
+        "a": "XLB",
         "b": "XLK",
         "p_co": 0.1268
       },
       {
-        "a": "XLB",
+        "a": "XLI",
         "b": "XLY",
-        "p_co": 0.1082
+        "p_co": 0.1114
       },
       {
         "a": "XLB",
@@ -581,17 +658,12 @@
         "a": "XLRE",
         "b": "XLC",
         "p_co": 0.1068
-      },
-      {
-        "a": "XLC",
-        "b": "XLE",
-        "p_co": 0.1062
       }
     ],
     "sigmas_annual": {
       "XLB": 0.1596,
       "XLI": 0.1415,
-      "XLY": 0.1651,
+      "XLY": 0.1995,
       "XLRE": 0.1542,
       "XLF": 0.1406,
       "XLC": 0.2048,
