@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-19T10:35:16",
+  "scan_date": "2026-08-19T11:31:31",
   "etf_signals": [
     {
       "ticker": "XLE",
@@ -14,6 +14,20 @@
       "label": "WATCH",
       "reason": "beta=-0.78, 5d consec vol",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 18.2,
+      "baseline_rv": 14.2,
+      "z_score": 0.84,
+      "vrp": 0.0412,
+      "beta_30d": 0.706,
+      "consec_vol": 5,
+      "excess_10d": -2.34,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "EWY",
@@ -507,7 +521,7 @@
       "last_date": "2026-08-19"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
