@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-20T09:41:17",
+  "scan_date": "2026-08-20T10:37:28",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -46,15 +46,15 @@
     {
       "ticker": "000001.SS",
       "current_rv": 17.2,
-      "baseline_rv": 14.1,
-      "z_score": 0.58,
-      "vrp": 0.0205,
-      "beta_30d": 0.295,
+      "baseline_rv": 14.2,
+      "z_score": 0.56,
+      "vrp": 0.0252,
+      "beta_30d": 0.151,
       "consec_vol": 1,
       "excess_10d": 0.55,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.30",
+      "reason": "beta=0.15",
       "sector": "Shanghai Composite"
     },
     {
@@ -156,20 +156,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "EEM",
-      "current_rv": 21.5,
-      "baseline_rv": 24.7,
-      "z_score": -0.3,
-      "vrp": 0.1284,
-      "beta_30d": 1.569,
-      "consec_vol": 0,
-      "excess_10d": 0.76,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.57",
-      "sector": "Emerging Markets"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 3.7,
       "baseline_rv": 4.1,
@@ -182,6 +168,20 @@
       "label": "WATCH",
       "reason": "beta=0.11",
       "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "EEM",
+      "current_rv": 21.5,
+      "baseline_rv": 24.8,
+      "z_score": -0.31,
+      "vrp": 0.1296,
+      "beta_30d": 1.573,
+      "consec_vol": 0,
+      "excess_10d": 0.76,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.57",
+      "sector": "Emerging Markets"
     },
     {
       "ticker": "SOXX",
@@ -500,11 +500,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3626.31,
-      "baseline": 3463.72,
-      "z_score": 0.46,
-      "rv_20d": 50.19,
-      "last_date": "2026-08-19"
+      "current": 3608.22,
+      "baseline": 3464.31,
+      "z_score": 0.41,
+      "rv_20d": 50.24,
+      "last_date": "2026-08-20"
     },
     {
       "sym": "sh000001",
