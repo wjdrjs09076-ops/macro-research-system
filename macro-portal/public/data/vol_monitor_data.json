@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-20T14:32:14",
+  "scan_date": "2026-08-20T14:42:46",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -61,9 +61,9 @@
       "ticker": "XLC",
       "current_rv": 16.8,
       "baseline_rv": 14.4,
-      "z_score": 0.47,
-      "vrp": 0.0418,
-      "beta_30d": 0.729,
+      "z_score": 0.43,
+      "vrp": 0.0617,
+      "beta_30d": 0.873,
       "consec_vol": 5,
       "excess_10d": 0.54,
       "level": 1,
@@ -156,20 +156,6 @@
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "EEM",
-      "current_rv": 21.5,
-      "baseline_rv": 24.7,
-      "z_score": -0.3,
-      "vrp": 0.1284,
-      "beta_30d": 1.569,
-      "consec_vol": 0,
-      "excess_10d": 0.76,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.57",
-      "sector": "Emerging Markets"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 3.7,
       "baseline_rv": 4.1,
@@ -182,6 +168,20 @@
       "label": "WATCH",
       "reason": "beta=0.11",
       "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "EEM",
+      "current_rv": 21.5,
+      "baseline_rv": 24.8,
+      "z_score": -0.31,
+      "vrp": 0.1296,
+      "beta_30d": 1.573,
+      "consec_vol": 0,
+      "excess_10d": 0.76,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.57",
+      "sector": "Emerging Markets"
     },
     {
       "ticker": "SOXX",
@@ -200,15 +200,15 @@
     {
       "ticker": "MCHI",
       "current_rv": 17.6,
-      "baseline_rv": 19.4,
-      "z_score": -0.41,
-      "vrp": 0.0133,
-      "beta_30d": 0.306,
+      "baseline_rv": 19.6,
+      "z_score": -0.46,
+      "vrp": 0.023,
+      "beta_30d": 0.474,
       "consec_vol": 0,
       "excess_10d": -0.97,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.31",
+      "reason": "beta=0.47",
       "sector": "China Broad (MSCI)"
     },
     {
@@ -228,29 +228,29 @@
     {
       "ticker": "XLY",
       "current_rv": 16.2,
-      "baseline_rv": 19.6,
-      "z_score": -0.61,
-      "vrp": 0.0704,
-      "beta_30d": 1.111,
-      "consec_vol": 1,
+      "baseline_rv": 19.8,
+      "z_score": -0.59,
+      "vrp": 0.0962,
+      "beta_30d": 1.348,
+      "consec_vol": 2,
       "excess_10d": 0.09,
-      "level": 0,
-      "label": "---",
-      "reason": "",
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.35",
       "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLB",
       "current_rv": 15.0,
       "baseline_rv": 18.0,
-      "z_score": -0.63,
-      "vrp": 0.0445,
-      "beta_30d": 0.507,
-      "consec_vol": 2,
+      "z_score": -0.62,
+      "vrp": 0.0456,
+      "beta_30d": 0.497,
+      "consec_vol": 1,
       "excess_10d": -0.1,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.51",
+      "reason": "beta=0.50",
       "sector": "Materials"
     },
     {
@@ -284,10 +284,10 @@
     {
       "ticker": "XTN",
       "current_rv": 19.0,
-      "baseline_rv": 27.0,
-      "z_score": -0.91,
-      "vrp": 0.0311,
-      "beta_30d": 1.144,
+      "baseline_rv": 27.2,
+      "z_score": -0.94,
+      "vrp": 0.0345,
+      "beta_30d": 1.13,
       "consec_vol": 0,
       "excess_10d": -4.42,
       "level": 0,
@@ -326,24 +326,24 @@
     {
       "ticker": "XAR",
       "current_rv": 20.1,
-      "baseline_rv": 30.5,
-      "z_score": -1.37,
-      "vrp": 0.1286,
-      "beta_30d": 1.343,
+      "baseline_rv": 30.2,
+      "z_score": -1.35,
+      "vrp": 0.1024,
+      "beta_30d": 1.362,
       "consec_vol": 0,
       "excess_10d": 0.87,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.34",
+      "reason": "beta=1.36",
       "sector": "Defense / Aerospace"
     },
     {
       "ticker": "XLI",
       "current_rv": 10.3,
-      "baseline_rv": 17.5,
-      "z_score": -1.42,
-      "vrp": 0.0787,
-      "beta_30d": 0.749,
+      "baseline_rv": 17.7,
+      "z_score": -1.47,
+      "vrp": 0.0933,
+      "beta_30d": 0.853,
       "consec_vol": 0,
       "excess_10d": -2.28,
       "level": 0,
@@ -394,6 +394,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "EWU",
+      "current_rv": 6.7,
+      "baseline_rv": 15.6,
+      "z_score": -1.74,
+      "vrp": 0.0633,
+      "beta_30d": 0.17,
+      "consec_vol": 0,
+      "excess_10d": 0.51,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.17",
+      "sector": "UK (MSCI)"
+    },
+    {
       "ticker": "^FTSE",
       "current_rv": 4.0,
       "baseline_rv": 11.6,
@@ -406,20 +420,6 @@
       "label": "WATCH",
       "reason": "beta=0.01",
       "sector": "FTSE 100"
-    },
-    {
-      "ticker": "EWU",
-      "current_rv": 6.7,
-      "baseline_rv": 15.6,
-      "z_score": -1.76,
-      "vrp": 0.0561,
-      "beta_30d": 0.299,
-      "consec_vol": 0,
-      "excess_10d": 0.51,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.30",
-      "sector": "UK (MSCI)"
     }
   ],
   "oil": {
@@ -521,7 +521,7 @@
       "last_date": "2026-08-20"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 26,
   "alert_count": 0,
   "high_count": 0
 }
