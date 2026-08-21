@@ -110,8 +110,45 @@ def open_entries_grouped() -> dict[tuple[str, str], list[dict]]:
 PHANTOM_EXIT_REASON = "유령정리(저널-라이브 정합)"
 
 
+def phantom_candidates(live_counts: dict[tuple[str, str], int],
+                       min_age_min: int = 0) -> dict[tuple[str, str], int]:
+    """(ticker, strategy)별 '저널 미청산 − 라이브 보유' 초과분. 실제 정리는 하지 않는다.
+
+    호출자(kinetic)가 이 후보를 *연속 사이클로 확인*한 뒤에만 reconcile_phantoms 로
+    정리하도록 분리한 것 (2026-08-21). 단발 스냅샷을 믿고 즉시 지우면 Alpaca
+    /v2/positions 의 일시적 종목 누락에 저널이 통째로 날아간다 — 7/07 실사고.
+
+    min_age_min: 진입 후 이 시간(분) 이내의 엔트리는 정리 후보에서 보호한다.
+    시장가 체결이 /positions 에 반영되기 전 자기 진입을 유령으로 오인하는 것을 막음.
+    """
+    grouped = open_entries_grouped()
+    cutoff = (dt.datetime.now() - dt.timedelta(minutes=min_age_min)
+              ) if min_age_min else None
+    out: dict[tuple[str, str], int] = {}
+    for key, recs in grouped.items():
+        live_n = max(0, int(live_counts.get(key, 0)))
+        excess = len(recs) - live_n
+        if excess <= 0:
+            continue
+        if cutoff is not None:
+            eligible = 0
+            for r in recs:
+                try:
+                    if dt.datetime.fromisoformat(str(r.get("ts", ""))) <= cutoff:
+                        eligible += 1
+                except ValueError:
+                    eligible += 1   # ts 파싱 불가 = 오래된 레코드로 간주
+            excess = min(excess, eligible)
+        if excess > 0:
+            out[key] = excess
+    return out
+
+
 def reconcile_phantoms(live_counts: dict[tuple[str, str], int],
-                       positions_ok: bool) -> list[dict]:
+                       positions_ok: bool,
+                       *,
+                       min_age_min: int = 0,
+                       only_keys: set[tuple[str, str]] | None = None) -> list[dict]:
     """저널 미청산 ↔ 라이브(Alpaca) 보유수 대조 → 초과(유령) 진입을 P&L-중립 청산.
 
     라이브가 정답. 같은 (ticker, strategy)에 저널 미청산이 라이브 보유수보다 많으면,
@@ -119,21 +156,24 @@ def reconcile_phantoms(live_counts: dict[tuple[str, str], int],
     → pnl=0, reason=PHANTOM_EXIT_REASON 으로 닫아 저널을 라이브에 맞춘다.
     실손익은 매칭됐던 (잘못된) exit 에 이미 기록됐으므로 여기선 0 (이중계상 방지).
 
-    ★ 안전장치: positions_ok=False(=Alpaca positions API 실패. get_positions 가 []로
+    ★ 안전장치 1: positions_ok=False(=Alpaca positions API 실패. get_positions 가 []로
     위장하는 케이스)면 *아무것도 닫지 않는다*. API 실패를 '전부 청산됨'으로 오인해 정상
-    미청산을 몰살하는 것을 막는다 — 이 수정의 핵심 footgun.
+    미청산을 몰살하는 것을 막는다.
+    ★ 안전장치 2 (2026-08-21): only_keys 가 주어지면 그 키만 정리한다. 호출자가 연속
+    사이클 확인(히스테리시스)을 거친 키만 넘기게 해서, /positions 가 한두 사이클 종목을
+    누락하는 실측 불안정성에 저널이 지워지지 않도록 한다. min_age_min 은 신규 진입 보호.
 
     Returns 정리한 유령 entry 레코드 리스트.
     """
     if not positions_ok:
         return []
     grouped = open_entries_grouped()
+    candidates = phantom_candidates(live_counts, min_age_min=min_age_min)
     cleaned: list[dict] = []
-    for key, recs in grouped.items():
-        live_n = max(0, int(live_counts.get(key, 0)))
-        excess = len(recs) - live_n
-        if excess <= 0:
+    for key, excess in candidates.items():
+        if only_keys is not None and key not in only_keys:
             continue
+        recs = grouped.get(key, [])
         # 최신 live_n 건 = 실제 보유로 간주, 나머지(오래된 것부터) = 유령.
         for rec in recs[:excess]:
             entry_cost = round(float(rec.get("entry_cost") or 0), 2)

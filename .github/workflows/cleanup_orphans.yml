@@ -1,0 +1,65 @@
+name: Cleanup Orphan Positions (manual)
+
+# 1회성 수동 실행 전용 — schedule 없음.
+# 정합 붕괴(2026-07-07~08-21: Alpaca /positions 일시 누락 → 저널 전량 유령정리)로
+# 저널에 기록이 없는 채 라이브에만 남은 포지션을 일괄 정리한다.
+# ⚠ 상시 자동화하지 않는 이유: 저널이 또 깨졌을 때 '전량 청산' 버튼이 되기 때문.
+#   반드시 오너가 confirm 을 직접 입력해 실행한다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: '정리를 실행하려면 CLEANUP 을 정확히 입력 (그 외에는 DRY-RUN)'
+        required: true
+        default: 'DRY-RUN'
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r macro_research/requirements.txt
+
+      - name: Cleanup orphans
+        env:
+          ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_ENDPOINT:   ${{ secrets.ALPACA_ENDPOINT }}
+        working-directory: ./macro_research
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" = "CLEANUP" ]; then
+            echo "== LIVE 정리 실행 (장중에만 체결됨) =="
+            python kinetic_executor.py --cleanup-orphans --live
+          else
+            echo "== DRY-RUN (confirm != CLEANUP) =="
+            python kinetic_executor.py --cleanup-orphans
+          fi
+
+      - name: Commit cleanup record
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add macro_research/output/orphan_cleanup.json \
+                  macro_research/output/orphan_positions.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "ops: orphan position cleanup $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git pull --rebase origin main || true
+          git push || echo "nothing to push"

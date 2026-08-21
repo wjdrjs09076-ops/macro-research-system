@@ -123,6 +123,19 @@ SIGNAL_STATE_MAX_AGE_H = 48
 SHADOW_ENTRY_RULES = {"event_vol"}
 EVENT_VOL_SHADOW_LOG = OUTPUT_DIR / "event_vol_shadow_log.jsonl"
 
+# ── 유령 정리 안전장치 (2026-08-21, 정합 붕괴 사고 수정) ─────────
+# 사고: Alpaca /v2/positions 가 사이클마다 보유 종목을 *일부 누락*하는 게 실측됨
+# (7/07 14:00 5종목 전부 → 14:30 XLRE 하나만 → 15:30 다시 5종목, 그 사이 상쇄 체결
+# 없음). 코드가 이 단발 스냅샷을 무조건 진실로 믿고 저널을 지워, 7/06 이후 모든 진입
+# (8/8건)이 같은 분에 유령정리 → 저널 open 0 vs 라이브 6포지션.
+# 연쇄: 헤지 목표 0 → β헤지 자기매도 / dedup 실패 → 사이즈 2배 적층 / entry=None →
+# 보유일 미상으로 21일 청산 영구 불가 / 실현손익이 trade_id 없이 기록돼 검증에서 소실.
+# 대책: 레짐 히스테리시스와 같은 패턴 — 연속 N사이클 동일 불일치를 확인한 뒤에만 정리.
+PHANTOM_STATE_JSON     = OUTPUT_DIR / "phantom_pending.json"
+PHANTOM_CONFIRM_CYCLES = 3      # 연속 N사이클 확인 후에만 정리 (7/07 오발화 전건 차단)
+PHANTOM_GRACE_MIN      = 45     # 진입 후 N분 이내 엔트리는 정리 대상서 보호(체결 반영 지연)
+ORPHAN_STATE_JSON      = OUTPUT_DIR / "orphan_positions.json"   # 역방향(라이브>저널) 기록
+
 # ── SHORT STRADDLE(숏 볼) 파라미터 (2026-06-10 신설) ────────────
 # 시스템 테제 코히어런스 — vol_overpriced ∩ thin_tail_greenlight 만 발화.
 # Naked short straddle 무한 손실 위험 → SL +100% (프리미엄 두 배 손실 시 강제 청산).
@@ -1002,7 +1015,7 @@ def _run_directional_entry(candidates, equity, multipliers, live, market_open) -
         # 헤지 레그 — 섹터 레그 체결 후에만
         hedged = False
         if p.hedge_qty > 0:
-            hres = submit_equity_order(HEDGE_SYMBOL, p.hedge_qty, side=p.hedge_side)
+            hres = _submit_hedge_order(p.hedge_qty, p.hedge_side)
             hedged = hres["status_code"] in (200, 201)
             print(f"    {'OK ' if hedged else 'ERR'} hedge {p.hedge_side} "
                   f"{p.hedge_qty:.3f} {HEDGE_SYMBOL} -> "
@@ -1033,6 +1046,25 @@ def _spy_position_qty() -> float:
     return 0.0
 
 
+def _submit_hedge_order(qty: float, side: str) -> dict:
+    """SPY 헤지 주문 — 0 을 가로지르는 소수주 주문은 Alpaca 가 거부한다.
+
+    실측(2026-07-07): SPY 숏 0.28 잔량이 있는 상태에서 헤지 매수 0.912 →
+    `insufficient qty available (requested 0.912, available 0.28)` code 40310000,
+    이어진 정합 보정도 403. 결과적으로 β헤지가 붙지 못하고 나체 포지션이 남았다.
+    → 0 을 넘는 주문은 이번 사이클엔 flat 까지만 내고, 잔여는 다음 사이클의
+      `_reconcile_spy_hedge` 가 마무리한다(체결 반영 지연 레이스도 함께 피함).
+    """
+    cur = _spy_position_qty()
+    target = cur + (qty if side == "buy" else -qty)
+    if cur and target and (cur > 0) != (target > 0):
+        flat_qty, flat_side = abs(cur), ("sell" if cur > 0 else "buy")
+        print(f"    [헤지] 0-크로스 분할: {side} {qty:.3f} → 이번 사이클 "
+              f"{flat_side} {flat_qty:.3f}(flat)까지만, 잔여 {abs(target):.3f}는 다음 사이클")
+        qty, side = flat_qty, flat_side
+    return submit_equity_order(HEDGE_SYMBOL, qty, side=side)
+
+
 def _reconcile_spy_hedge(live: bool, market_open: bool) -> None:
     """SPY 헤지 풀 정합 — 목표(열린 directional 페어 hedge_qty 합, 방향고려) vs 실제 SPY.
     per-pair 매수/되감기가 어긋나면(예: 과거 int 캐스트로 hedge_qty=0 → 청산 시 안 팔려 누적)
@@ -1057,9 +1089,10 @@ def _reconcile_spy_hedge(live: bool, market_open: bool) -> None:
     if not (live and market_open):
         print(f"    [{'DRY-RUN' if not live else '휴장'}] 보정 미제출: {side} {abs(diff):.3f} SPY")
         return
-    res = submit_equity_order(HEDGE_SYMBOL, abs(diff), side=side)
+    res = _submit_hedge_order(abs(diff), side)
     ok = res["status_code"] in (200, 201)
-    print(f"    {'OK ' if ok else 'ERR'} SPY 보정 {side} {abs(diff):.3f} -> {res['status_code']}")
+    print(f"    {'OK ' if ok else 'ERR'} SPY 보정 {side} {abs(diff):.3f} -> {res['status_code']}"
+          + ("" if ok else f" {str(res.get('body'))[:160]}"))
 
 
 def _live_position_counts(positions: list[dict]) -> dict[tuple[str, str], int]:
@@ -1089,10 +1122,49 @@ def _live_position_counts(positions: list[dict]) -> dict[tuple[str, str], int]:
     return counts
 
 
+def _load_phantom_state() -> dict:
+    if not PHANTOM_STATE_JSON.exists():
+        return {}
+    try:
+        return json.loads(PHANTOM_STATE_JSON.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return {}
+
+
+def _save_phantom_state(state: dict) -> None:
+    try:
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        PHANTOM_STATE_JSON.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+    except OSError:
+        pass
+
+
+def _find_orphans(counts: dict[tuple[str, str], int]) -> list[dict]:
+    """역방향 불일치 = 라이브에 있는데 저널엔 없는 포지션(고아).
+
+    기존 정합은 '저널>라이브'(유령)만 봤고 이쪽은 아예 미구현이었다 — 그래서 저널이
+    비어도 '정합됨'으로 보고됐다. 고아는 rule/진입시각 메타가 없어 보유일·룰은퇴·
+    페어 TP/SL 판정이 전부 불가하므로, 자동 청산하지 않고 *드러내서* 오너 판정에 올린다.
+    """
+    grouped = trade_journal.open_entries_grouped()
+    out: list[dict] = []
+    for key, live_n in counts.items():
+        journal_n = len(grouped.get(key, []))
+        if live_n > journal_n:
+            out.append({"ticker": key[0], "strategy": key[1],
+                        "live": live_n, "journal": journal_n})
+    return out
+
+
 def _reconcile_positions() -> None:
-    """저널 미청산 ↔ 라이브 보유 대조 → 유령(고아 진입) 정리. SPY 정합의 '포지션판'.
-    회계 정합성만 — 주문 제출 없음(저널만 보정). 라이브/휴장 무관하게 매 사이클 실행 가능
-    (Alpaca positions 읽기 + 저널 쓰기만). ★ positions API 실패 시 아무것도 닫지 않음."""
+    """저널 미청산 ↔ 라이브 보유 대조. 회계 정합성만 — 주문 제출 없음(저널만 보정).
+
+    ★ positions API 실패 시 아무것도 닫지 않음.
+    ★ 2026-08-21: 유령 정리는 *연속 PHANTOM_CONFIRM_CYCLES 사이클* 같은 불일치가
+      관측될 때만 실행(단발 스냅샷 불신). 진입 PHANTOM_GRACE_MIN 분 이내는 보호.
+    ★ 2026-08-21: 역방향(라이브>저널=고아)도 검출해 경고 + orphan_positions.json 기록.
+    """
     r = requests.get(f"{TRADE_BASE}/positions", headers=HEADERS, timeout=15)
     positions_ok = r.status_code == 200
     positions = r.json() if positions_ok else []
@@ -1101,14 +1173,64 @@ def _reconcile_positions() -> None:
               f"— 유령 정리 건너뜀(몰살 방지).")
         return
     counts = _live_position_counts(positions)
-    cleaned = trade_journal.reconcile_phantoms(counts, positions_ok=True)
-    if cleaned:
-        for rec in cleaned:
-            print(f"\n  [포지션 정합] 유령 정리: {rec.get('ticker')} {rec.get('strategy')} "
-                  f"(진입 {str(rec.get('ts',''))[:16]}, cost ${rec.get('entry_cost')}) "
-                  f"→ P&L-중립 청산(검증 제외)")
+
+    # ── 정방향(저널>라이브) — 히스테리시스 확인 후에만 정리 ──
+    cands = trade_journal.phantom_candidates(counts, min_age_min=PHANTOM_GRACE_MIN)
+    state = _load_phantom_state()
+    now = dt.datetime.now().isoformat(timespec="seconds")
+    confirmed: set[tuple[str, str]] = set()
+    for key, excess in cands.items():
+        k = f"{key[0]}|{key[1]}"
+        rec = state.get(k) or {"count": 0, "first_seen": now}
+        rec["count"] = int(rec.get("count", 0)) + 1
+        rec["excess"] = excess
+        rec["last_seen"] = now
+        state[k] = rec
+        if rec["count"] >= PHANTOM_CONFIRM_CYCLES:
+            confirmed.add(key)
+        else:
+            print(f"\n  [포지션 정합] 불일치 관측 {rec['count']}/{PHANTOM_CONFIRM_CYCLES}: "
+                  f"{key[0]} {key[1]} (저널 초과 {excess}건) — 확인 대기, 정리 보류. "
+                  f"/positions 일시 누락일 수 있음.")
+    for k in [k for k in state if tuple(k.split("|", 1)) not in cands]:
+        state.pop(k, None)          # 불일치 해소 = 일시 누락이었음 → 카운터 리셋
+
+    cleaned = trade_journal.reconcile_phantoms(
+        counts, positions_ok=True,
+        min_age_min=PHANTOM_GRACE_MIN, only_keys=confirmed)
+    for rec in cleaned:
+        print(f"\n  [포지션 정합] 유령 정리(연속 {PHANTOM_CONFIRM_CYCLES}사이클 확인): "
+              f"{rec.get('ticker')} {rec.get('strategy')} "
+              f"(진입 {str(rec.get('ts',''))[:16]}, cost ${rec.get('entry_cost')}) "
+              f"→ P&L-중립 청산(검증 제외)")
+    for key in confirmed:
+        state.pop(f"{key[0]}|{key[1]}", None)
+    _save_phantom_state(state)
+
+    # ── 역방향(라이브>저널) — 고아 검출. 자동 청산 안 함 ──
+    orphans = _find_orphans(counts)
+    if orphans:
+        print(f"\n  ⚠ [포지션 정합] 고아 라이브 포지션 {len(orphans)}건 "
+              f"— 저널에 없어 보유일·룰은퇴·페어 TP/SL 판정 불가:")
+        for o in orphans:
+            print(f"      {o['ticker']} {o['strategy']} (라이브 {o['live']} / 저널 {o['journal']})")
+        print("      → 정리하려면 장중에 `python kinetic_executor.py --cleanup-orphans --live`")
+        try:
+            ORPHAN_STATE_JSON.write_text(json.dumps(
+                {"ts": now, "orphans": orphans}, ensure_ascii=False, indent=2),
+                encoding="utf-8")
+        except OSError:
+            pass
     else:
-        print("\n  [포지션 정합] 저널-라이브 정합됨 (유령 없음).")
+        try:
+            if ORPHAN_STATE_JSON.exists():
+                ORPHAN_STATE_JSON.write_text(json.dumps(
+                    {"ts": now, "orphans": []}, ensure_ascii=False, indent=2),
+                    encoding="utf-8")
+        except OSError:
+            pass
+    if not cleaned and not orphans and not cands:
+        print("\n  [포지션 정합] 저널-라이브 정합됨 (유령·고아 없음).")
 
 
 def _run_short_straddle_entry(candidates, equity, multipliers, live, market_open) -> None:
@@ -1579,7 +1701,7 @@ def _run_directional_exit(positions: list[dict], live: bool) -> None:
         if entry and entry.get("hedge_qty"):
             h_qty = float(entry["hedge_qty"])
             unwind_side = "sell" if int(entry.get("direction", 0)) < 0 else "buy"
-            hres = submit_equity_order(HEDGE_SYMBOL, h_qty, side=unwind_side)
+            hres = _submit_hedge_order(h_qty, unwind_side)
             hok = hres["status_code"] in (200, 201)
             print(f"    {'OK ' if hok else 'ERR'} unwind hedge {unwind_side} "
                   f"{h_qty:.3f} {HEDGE_SYMBOL} -> {hres['status_code']}")
@@ -1704,6 +1826,95 @@ def write_churn_fills() -> None:
         print(f"  [churn-fills] 산출 스킵: {exc}")
 
 
+ORPHAN_CLEANUP_JSON = OUTPUT_DIR / "orphan_cleanup.json"
+
+
+def cleanup_orphans(live: bool) -> None:
+    """고아 라이브 포지션(저널에 없는 보유) 일괄 정리 — 1회성 수동 실행.
+
+    상시 동작이 아니다(저널이 또 깨졌을 때 전량 청산하는 footgun이 되므로). 정합 붕괴를
+    복구하고 깨끗한 상태에서 재시작하기 위한 오너 승인 액션. 정리 손익은 저널에 진입
+    기록이 없어 귀인·전향검증 원장에 들어갈 수 없으므로 orphan_cleanup.json 에 별도 기록한다.
+    """
+    positions = get_positions()
+    grouped = trade_journal.open_entries_grouped()
+    targets: list[dict] = []
+    spy_pos = None
+    for p in positions:
+        sym, ac = p["symbol"], p.get("asset_class")
+        if ac == "us_equity" and sym == HEDGE_SYMBOL:
+            spy_pos = p
+            continue
+        if ac == "us_equity":
+            key = (sym, "directional")
+        elif ac == "us_option":
+            try:
+                u = parse_occ(sym)[0]
+            except Exception:
+                continue
+            key = (u, "straddle" if float(p.get("qty", 0) or 0) >= 0 else "short_straddle")
+        else:
+            continue
+        if len(grouped.get(key, [])) == 0:      # 저널에 진입 기록 없음 = 고아
+            targets.append({"symbol": sym, "key": f"{key[0]}|{key[1]}",
+                            "qty": float(p.get("qty", 0) or 0),
+                            "cost_basis": float(p.get("cost_basis", 0) or 0),
+                            "market_value": float(p.get("market_value", 0) or 0),
+                            "unrealized_pl": float(p.get("unrealized_pl", 0) or 0)})
+
+    # 열린 저널 페어가 하나도 없으면 SPY 헤지 인벤토리도 주인 없는 잔량
+    hedge_target = sum(
+        (+1 if int(rec.get("direction", 0)) < 0 else -1) * float(rec.get("hedge_qty") or 0)
+        for recs in grouped.values() for rec in recs
+        if rec.get("strategy") == "directional" and rec.get("hedge_qty"))
+    if spy_pos and round(hedge_target, 3) == 0 and float(spy_pos.get("qty", 0) or 0) != 0:
+        targets.append({"symbol": HEDGE_SYMBOL, "key": "SPY|hedge-inventory",
+                        "qty": float(spy_pos.get("qty", 0) or 0),
+                        "cost_basis": float(spy_pos.get("cost_basis", 0) or 0),
+                        "market_value": float(spy_pos.get("market_value", 0) or 0),
+                        "unrealized_pl": float(spy_pos.get("unrealized_pl", 0) or 0)})
+
+    mode = "*** LIVE 청산 ***" if live else "DRY-RUN (미제출)"
+    print(f"\n{'='*60}\n  고아 포지션 정리  |  {mode}\n{'='*60}")
+    if not targets:
+        print("  고아 포지션 없음 — 정리할 것 없음.")
+        return
+    total_pl = sum(t["unrealized_pl"] for t in targets)
+    for t in targets:
+        print(f"  {t['symbol']:<8} qty {t['qty']:+.3f}  평가 ${t['market_value']:,.2f}  "
+              f"미실현 ${t['unrealized_pl']:+,.2f}   [{t['key']}]")
+    print(f"  → {len(targets)}건, 미실현 합계 ${total_pl:+,.2f}")
+    print("  ※ 저널 진입 기록이 없어 이 손익은 귀인/전향검증 원장에 들어가지 않는다"
+          "(clean 표본 아님). orphan_cleanup.json 에 별도 기록.")
+
+    if not live:
+        print("\n  [DRY-RUN] 실제 정리는 --cleanup-orphans --live (장중).")
+        return
+    if not get_market_open():
+        print("\n  [중단] 휴장 중 — 시장가 청산은 장중에만. (미제출)")
+        return
+
+    print("\n  [LIVE] 청산 제출...")
+    for t in targets:
+        res = close_position(t["symbol"])
+        t["close_status"] = res["status_code"]
+        ok = res["status_code"] in (200, 201, 207)
+        print(f"    {'OK ' if ok else 'ERR'} close {t['symbol']} -> {res['status_code']}"
+              + ("" if ok else f" {str(res.get('body'))[:160]}"))
+    try:
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        ORPHAN_CLEANUP_JSON.write_text(json.dumps({
+            "ts": dt.datetime.now().isoformat(timespec="seconds"),
+            "note": "정합 붕괴(2026-07-07~08-21) 복구 — 저널 미기록 포지션 일괄 정리. "
+                    "진입 메타 부재로 전향검증 표본 아님(clean/excluded 어느 쪽도 아님).",
+            "realized_from_unrealized": round(total_pl, 2),
+            "positions": targets,
+        }, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\n  [기록] {ORPHAN_CLEANUP_JSON.name} 저장 (미실현 ${total_pl:+,.2f} 기준)")
+    except OSError as exc:
+        print(f"  [기록] 저장 실패: {exc}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--live", action="store_true", help="진입 실제 발주 (장중)")
@@ -1718,7 +1929,13 @@ def main() -> None:
     ap.add_argument("--json", default=str(VOL_JSON), help="vol_monitor_data.json 경로 (--source vol)")
     ap.add_argument("--minimal", action="store_true",
                     help="최소 사이즈 모드 (0.5%%/시그널, 최대 2건). 첫 실거래 검증용.")
+    ap.add_argument("--cleanup-orphans", action="store_true", dest="cleanup_orphans",
+                    help="저널에 없는 고아 라이브 포지션 일괄 정리 (1회성 수동. --live 필요)")
     args = ap.parse_args()
+
+    if args.cleanup_orphans:
+        cleanup_orphans(live=args.live)
+        return
 
     write_churn_fills()   # churn 비용 fill 기반 산출 (읽기 전용, 휴장 무관·매 사이클)
 
