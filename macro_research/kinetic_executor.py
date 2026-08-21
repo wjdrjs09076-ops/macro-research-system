@@ -632,9 +632,16 @@ def build_directional_plan(cand: dict, equity: float, multipliers: dict[str, flo
             hedge_notional = beta * qty * spot
             # 소수주 헤지 (Alpaca fractional 지원). floor 절단 시 minimal($500) 명목에선
             # beta<~1.5 가 전부 0 으로 잘려 β헤지(R8 D1)가 무력화됐다 → 소수로 정확히.
-            # (섹터숏→SPY롱 매수는 소수 OK. 섹터롱→SPY 소수 공매도는 Alpaca 불가 →
-            #  헤지 주문 실패 시 기존 '아웃라이트 폴백' 경로가 처리 — rate_beneficiary 는 현재 KILLED)
-            hedge_qty = round(hedge_notional / spy_spot, 3)
+            # ★ 단 섹터롱→SPY 숏은 Alpaca 가 소수주 공매도를 금지한다
+            #   (실측 2026-07-07: code 42210000 'fractional orders cannot be sold short'
+            #    → XLK rate_beneficiary 진입이 매번 헤지 없는 아웃라이트로 떨어졌다).
+            #   오너 판정(2026-08-21) = (a) 정수주 반올림. 반올림 오차만큼 과소/과대
+            #   헤지는 감수하고, 헤지 자체가 빠지는 것보다 낫다는 판단. 0주로 반올림되면
+            #   아래 dust 가드가 아웃라이트로 폴백.
+            if int(cand.get("direction", 0)) > 0:
+                hedge_qty = float(round(hedge_notional / spy_spot))
+            else:
+                hedge_qty = round(hedge_notional / spy_spot, 3)
             if hedge_qty * spy_spot >= 1.0:   # Alpaca 최소 주문 $1 미만 = dust 스킵
                 hedge_beta, hedge_price = beta, spy_spot
                 hedge_rv = float(hs.get("resid_vol", 0.0) or 0.0)
@@ -1062,6 +1069,20 @@ def _submit_hedge_order(qty: float, side: str) -> dict:
         print(f"    [헤지] 0-크로스 분할: {side} {qty:.3f} → 이번 사이클 "
               f"{flat_side} {flat_qty:.3f}(flat)까지만, 잔여 {abs(target):.3f}는 다음 사이클")
         qty, side = flat_qty, flat_side
+    elif target < 0:
+        # 숏 잔고는 정수주만 가능(fractional short 금지, code 42210000).
+        # 목표 숏 수량을 정수로 반올림하고 그 차이만큼만 주문 (오너 판정 (a), 2026-08-21).
+        q_target = float(round(target))
+        new_qty = abs(round(q_target - cur, 3))
+        if new_qty < 1e-9:
+            print(f"    [헤지] 숏 정수주 반올림 → 추가 주문 없음 "
+                  f"(목표 {target:+.3f} → {q_target:+.0f}주, 현재 {cur:+.3f})")
+            return {"status_code": 200, "body": {"skipped": "rounded_to_current"}}
+        if abs(new_qty - qty) > 1e-9:
+            print(f"    [헤지] 숏 정수주 반올림: {side} {qty:.3f} → "
+                  f"{new_qty:.0f}주 (목표 {target:+.3f} → {q_target:+.0f})")
+        qty = new_qty
+        side = "sell" if q_target < cur else "buy"
     return submit_equity_order(HEDGE_SYMBOL, qty, side=side)
 
 
@@ -1078,6 +1099,10 @@ def _reconcile_spy_hedge(live: bool, market_open: bool) -> None:
             sign = +1 if int(rec.get("direction", 0)) < 0 else -1   # 섹터숏→SPY롱(+)
             target += sign * hq
     target = round(target, 3)
+    if target < 0:
+        # 순 숏 풀은 정수주로만 도달 가능(소수주 공매도 금지) → 목표를 정수로 반올림.
+        # 이렇게 안 하면 매 사이클 도달 불가능한 소수 목표를 쫓아 주문이 계속 거부된다.
+        target = float(round(target))
     actual = _spy_position_qty()
     diff = round(target - actual, 3)
     spy_spot = get_spot(HEDGE_SYMBOL) or 0.0
