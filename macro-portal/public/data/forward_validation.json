@@ -1,13 +1,13 @@
 {
-  "generated": "2026-08-21T15:02:48",
+  "generated": "2026-08-21T15:32:21",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
     "basis": "27%×2 고정 (n=2 실측 추정: XLB 28%/XLRE 27%). 표본 누적 시 실측 슬리피지 중앙값으로 갱신 예정."
   },
   "cluster_min_n": 8,
-  "n_closed": 9,
-  "clean_n": 4,
+  "n_closed": 11,
+  "clean_n": 6,
   "excluded_n": 5,
   "boundary_note": "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
   "timing_note": "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
@@ -51,6 +51,22 @@
       "exit_date": "2026-07-07",
       "pnl": -2.9,
       "direction_note": "역방향(손실)"
+    },
+    {
+      "n": 5,
+      "ticker": "XLC",
+      "rule": "rate_victim",
+      "exit_date": "2026-08-21",
+      "pnl": -0.49,
+      "direction_note": "역방향(손실)"
+    },
+    {
+      "n": 6,
+      "ticker": "XLY",
+      "rule": "rate_victim",
+      "exit_date": "2026-08-21",
+      "pnl": 0.33,
+      "direction_note": "순방향(이익)"
     }
   ],
   "clean_note": "clean 표본 n<8 이면 군집 판정 보류 — 개별 표본을 '테제 미스/적중'으로 단정 금지. 방향은 표본별 메모(역방향/순방향) 참조.",
@@ -178,6 +194,34 @@
       "entry_cost": 596.05,
       "exit_reason": "보유만료",
       "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-08-21",
+      "entry_date": "2026-08-21",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLC",
+      "regime": "mid_vix",
+      "pnl": -0.49,
+      "entry_cost": 557.1,
+      "exit_reason": "시그널은퇴(rate_victim|XLC)",
+      "holding_days": 0,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-08-21",
+      "entry_date": "2026-08-21",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLY",
+      "regime": "mid_vix",
+      "pnl": 0.33,
+      "entry_cost": 587.75,
+      "exit_reason": "시그널은퇴(rate_victim|XLY)",
+      "holding_days": 0,
       "validation": "clean",
       "exclude_reason": null
     }
