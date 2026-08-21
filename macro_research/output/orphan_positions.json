@@ -1,0 +1,41 @@
+{
+  "ts": "2026-08-21T13:32:47",
+  "orphans": [
+    {
+      "ticker": "XLRE",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    },
+    {
+      "ticker": "XLU",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    },
+    {
+      "ticker": "XLY",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    },
+    {
+      "ticker": "XLC",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    },
+    {
+      "ticker": "XLP",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    },
+    {
+      "ticker": "XLK",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    }
+  ]
+}
