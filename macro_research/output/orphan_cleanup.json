@@ -1,0 +1,61 @@
+{
+  "ts": "2026-08-21T14:01:04",
+  "note": "정합 붕괴(2026-07-07~08-21) 복구 — 저널 미기록 포지션 일괄 정리. 진입 메타 부재로 전향검증 표본 아님(clean/excluded 어느 쪽도 아님).",
+  "realized_from_unrealized": 53.67,
+  "positions": [
+    {
+      "symbol": "XLC",
+      "key": "XLC|directional",
+      "qty": -10.0,
+      "cost_basis": -1118.6,
+      "market_value": -1110.55,
+      "unrealized_pl": 8.05,
+      "close_status": 200
+    },
+    {
+      "symbol": "XLK",
+      "key": "XLK|directional",
+      "qty": 3.0,
+      "cost_basis": 553.539999,
+      "market_value": 549.3,
+      "unrealized_pl": -4.239999,
+      "close_status": 200
+    },
+    {
+      "symbol": "XLP",
+      "key": "XLP|directional",
+      "qty": -12.0,
+      "cost_basis": -1013.690004,
+      "market_value": -1025.58,
+      "unrealized_pl": -11.889996,
+      "close_status": 200
+    },
+    {
+      "symbol": "XLRE",
+      "key": "XLRE|directional",
+      "qty": -14.0,
+      "cost_basis": -627.62,
+      "market_value": -633.08,
+      "unrealized_pl": -5.46,
+      "close_status": 200
+    },
+    {
+      "symbol": "XLU",
+      "key": "XLU|directional",
+      "qty": -24.0,
+      "cost_basis": -1102.35,
+      "market_value": -1046.04,
+      "unrealized_pl": 56.31,
+      "close_status": 200
+    },
+    {
+      "symbol": "XLY",
+      "key": "XLY|directional",
+      "qty": -10.0,
+      "cost_basis": -1183.8,
+      "market_value": -1172.9,
+      "unrealized_pl": 10.9,
+      "close_status": 200
+    }
+  ]
+}
