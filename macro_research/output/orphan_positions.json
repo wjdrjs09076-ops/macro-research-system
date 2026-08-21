@@ -1,41 +1,4 @@
 {
-  "ts": "2026-08-21T13:53:06",
-  "orphans": [
-    {
-      "ticker": "XLU",
-      "strategy": "directional",
-      "live": 1,
-      "journal": 0
-    },
-    {
-      "ticker": "XLC",
-      "strategy": "directional",
-      "live": 1,
-      "journal": 0
-    },
-    {
-      "ticker": "XLK",
-      "strategy": "directional",
-      "live": 1,
-      "journal": 0
-    },
-    {
-      "ticker": "XLP",
-      "strategy": "directional",
-      "live": 1,
-      "journal": 0
-    },
-    {
-      "ticker": "XLRE",
-      "strategy": "directional",
-      "live": 1,
-      "journal": 0
-    },
-    {
-      "ticker": "XLY",
-      "strategy": "directional",
-      "live": 1,
-      "journal": 0
-    }
-  ]
+  "ts": "2026-08-21T14:32:16",
+  "orphans": []
 }
