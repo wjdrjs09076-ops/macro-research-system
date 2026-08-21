@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-21T16:40:51",
+  "scan_date": "2026-08-21T17:02:05",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -380,6 +380,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "^STOXX50E",
+      "current_rv": 6.1,
+      "baseline_rv": 15.6,
+      "z_score": -1.57,
+      "vrp": 0.0561,
+      "beta_30d": 0.629,
+      "consec_vol": 0,
+      "excess_10d": -0.47,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.63",
+      "sector": "Euro Stoxx 50"
+    },
+    {
       "ticker": "^FTSE",
       "current_rv": 4.1,
       "baseline_rv": 11.6,
@@ -528,7 +542,7 @@
       "last_date": "2026-08-21"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
