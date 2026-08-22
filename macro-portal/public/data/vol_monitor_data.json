@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-22T03:50:08",
+  "scan_date": "2026-08-22T04:39:09",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -184,20 +184,6 @@
       "sector": "Nikkei 225"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 22.2,
-      "baseline_rv": 27.4,
-      "z_score": -0.38,
-      "vrp": 0.0394,
-      "beta_30d": 0.636,
-      "consec_vol": 0,
-      "excess_10d": 8.21,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.64",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "EEM",
       "current_rv": 20.5,
       "baseline_rv": 24.8,
@@ -229,11 +215,11 @@
       "ticker": "ZN=F",
       "current_rv": 3.6,
       "baseline_rv": 4.1,
-      "z_score": -0.5,
-      "vrp": 0.0058,
-      "beta_30d": 0.109,
+      "z_score": -0.48,
+      "vrp": 0.0057,
+      "beta_30d": 0.108,
       "consec_vol": 1,
-      "excess_10d": 0.64,
+      "excess_10d": 0.62,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.11",
@@ -254,6 +240,20 @@
       "sector": "Semiconductors"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 19.8,
+      "baseline_rv": 27.4,
+      "z_score": -0.56,
+      "vrp": 0.052,
+      "beta_30d": 0.62,
+      "consec_vol": 0,
+      "excess_10d": 7.38,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.62",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "MCHI",
       "current_rv": 16.4,
       "baseline_rv": 19.3,
@@ -269,16 +269,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 33.1,
+      "current_rv": 32.2,
       "baseline_rv": 52.1,
-      "z_score": -0.69,
-      "vrp": 0.1392,
-      "beta_30d": -2.972,
+      "z_score": -0.72,
+      "vrp": 0.1462,
+      "beta_30d": -2.963,
       "consec_vol": 1,
-      "excess_10d": 11.49,
+      "excess_10d": 11.97,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-2.97",
+      "reason": "beta=-2.96",
       "sector": "WTI Crude Futures"
     },
     {
@@ -367,13 +367,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 7.8,
+      "current_rv": 7.9,
       "baseline_rv": 12.8,
-      "z_score": -1.35,
-      "vrp": 0.0682,
-      "beta_30d": 0.996,
+      "z_score": -1.33,
+      "vrp": 0.0675,
+      "beta_30d": 0.997,
       "consec_vol": 0,
-      "excess_10d": -0.21,
+      "excess_10d": -0.16,
       "level": 0,
       "label": "---",
       "reason": "",
