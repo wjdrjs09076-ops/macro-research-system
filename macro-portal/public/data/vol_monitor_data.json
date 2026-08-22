@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-22T10:29:41",
+  "scan_date": "2026-08-22T10:54:26",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -364,6 +364,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 7.9,
+      "baseline_rv": 12.8,
+      "z_score": -1.33,
+      "vrp": 0.0675,
+      "beta_30d": 0.997,
+      "consec_vol": 0,
+      "excess_10d": -0.16,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "^STOXX50E",
