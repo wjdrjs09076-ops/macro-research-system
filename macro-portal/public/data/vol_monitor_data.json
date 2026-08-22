@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-22T15:49:59",
+  "scan_date": "2026-08-22T16:31:04",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -56,20 +56,6 @@
       "label": "WATCH",
       "reason": "beta=0.22",
       "sector": "Shanghai Composite"
-    },
-    {
-      "ticker": "XLE",
-      "current_rv": 23.1,
-      "baseline_rv": 21.6,
-      "z_score": 0.29,
-      "vrp": -0.0082,
-      "beta_30d": -0.674,
-      "consec_vol": 5,
-      "excess_10d": 11.26,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.67, 5d consec vol",
-      "sector": "Energy / Oil"
     },
     {
       "ticker": "EWY",
@@ -542,7 +528,7 @@
       "last_date": "2026-08-21"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
