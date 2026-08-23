@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-23T03:09:12",
+  "scan_date": "2026-08-23T04:10:58",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -156,6 +156,20 @@
       "sector": "Defense / Aerospace"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 23.6,
+      "baseline_rv": 27.3,
+      "z_score": -0.28,
+      "vrp": 0.0324,
+      "beta_30d": 0.644,
+      "consec_vol": 0,
+      "excess_10d": 8.63,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.64",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XLB",
       "current_rv": 16.7,
       "baseline_rv": 18.1,
@@ -238,20 +252,6 @@
       "label": "WATCH",
       "reason": "beta=2.85",
       "sector": "Semiconductors"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 19.8,
-      "baseline_rv": 27.3,
-      "z_score": -0.55,
-      "vrp": 0.0521,
-      "beta_30d": 0.62,
-      "consec_vol": 0,
-      "excess_10d": 7.38,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.62",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "MCHI",
@@ -423,8 +423,29 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "wti": {
+      "label": "WTI",
+      "current": 82.82,
+      "baseline": 79.16,
+      "z_score": 0.21,
+      "bw_spread": -0.87
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 91.42,
+      "baseline": 85.44,
+      "z_score": 0.29,
+      "bw_spread": 5.89
+    },
+    "inv": {
+      "latest_mbbl": 722241.0,
+      "wow_chg_pct": -0.12,
+      "surprise": 0.79
+    },
+    "level": 1,
+    "reasons": [
+      "Brent backwardation +5.9%"
+    ]
   },
   "fred": [
     {
