@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-23T21:50:29",
+  "scan_date": "2026-08-23T22:28:29",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -156,20 +156,6 @@
       "sector": "Defense / Aerospace"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 23.6,
-      "baseline_rv": 27.3,
-      "z_score": -0.28,
-      "vrp": 0.0324,
-      "beta_30d": 0.644,
-      "consec_vol": 0,
-      "excess_10d": 8.63,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.64",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLB",
       "current_rv": 16.7,
       "baseline_rv": 18.1,
@@ -252,6 +238,20 @@
       "label": "WATCH",
       "reason": "beta=2.85",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 19.8,
+      "baseline_rv": 27.3,
+      "z_score": -0.55,
+      "vrp": 0.0521,
+      "beta_30d": 0.62,
+      "consec_vol": 0,
+      "excess_10d": 7.38,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.62",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "MCHI",
