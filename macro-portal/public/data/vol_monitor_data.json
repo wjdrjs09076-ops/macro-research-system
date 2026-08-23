@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-23T09:33:25",
+  "scan_date": "2026-08-23T10:30:09",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -268,20 +268,6 @@
       "sector": "China Broad (MSCI)"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 32.2,
-      "baseline_rv": 52.2,
-      "z_score": -0.73,
-      "vrp": 0.1462,
-      "beta_30d": -2.963,
-      "consec_vol": 1,
-      "excess_10d": 11.97,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.96",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "XTN",
       "current_rv": 19.8,
       "baseline_rv": 27.0,
@@ -542,7 +528,7 @@
       "last_date": "2026-08-21"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
