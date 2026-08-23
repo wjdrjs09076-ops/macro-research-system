@@ -1,11 +1,11 @@
 {
-  "scan_date": "2026-08-22T23:49:00",
+  "scan_date": "2026-08-23T01:45:06",
   "etf_signals": [
     {
       "ticker": "XLV",
       "current_rv": 23.9,
-      "baseline_rv": 15.6,
-      "z_score": 2.23,
+      "baseline_rv": 15.7,
+      "z_score": 2.24,
       "vrp": -0.0219,
       "beta_30d": -0.151,
       "consec_vol": 3,
@@ -33,7 +33,7 @@
       "ticker": "XLC",
       "current_rv": 17.3,
       "baseline_rv": 14.5,
-      "z_score": 0.55,
+      "z_score": 0.54,
       "vrp": 0.0274,
       "beta_30d": 0.703,
       "consec_vol": 5,
@@ -61,7 +61,7 @@
       "ticker": "XLE",
       "current_rv": 23.1,
       "baseline_rv": 21.6,
-      "z_score": 0.29,
+      "z_score": 0.28,
       "vrp": -0.0082,
       "beta_30d": -0.674,
       "consec_vol": 5,
@@ -74,8 +74,8 @@
     {
       "ticker": "EWY",
       "current_rv": 57.8,
-      "baseline_rv": 55.5,
-      "z_score": 0.09,
+      "baseline_rv": 55.7,
+      "z_score": 0.08,
       "vrp": 0.2568,
       "beta_30d": 3.158,
       "consec_vol": 4,
@@ -88,7 +88,7 @@
     {
       "ticker": "^KS11",
       "current_rv": 51.6,
-      "baseline_rv": 50.1,
+      "baseline_rv": 50.3,
       "z_score": 0.05,
       "vrp": 0.3384,
       "beta_30d": 1.326,
@@ -102,8 +102,8 @@
     {
       "ticker": "GLD",
       "current_rv": 25.6,
-      "baseline_rv": 27.3,
-      "z_score": -0.12,
+      "baseline_rv": 27.2,
+      "z_score": -0.11,
       "vrp": 0.0391,
       "beta_30d": 0.537,
       "consec_vol": 5,
@@ -130,7 +130,7 @@
     {
       "ticker": "EWJ",
       "current_rv": 19.3,
-      "baseline_rv": 20.8,
+      "baseline_rv": 20.9,
       "z_score": -0.21,
       "vrp": 0.063,
       "beta_30d": 1.303,
@@ -158,8 +158,8 @@
     {
       "ticker": "XLB",
       "current_rv": 16.7,
-      "baseline_rv": 18.0,
-      "z_score": -0.29,
+      "baseline_rv": 18.1,
+      "z_score": -0.3,
       "vrp": 0.0333,
       "beta_30d": 0.522,
       "consec_vol": 0,
@@ -186,8 +186,8 @@
     {
       "ticker": "EEM",
       "current_rv": 20.5,
-      "baseline_rv": 24.8,
-      "z_score": -0.4,
+      "baseline_rv": 24.9,
+      "z_score": -0.41,
       "vrp": 0.1401,
       "beta_30d": 1.485,
       "consec_vol": 0,
@@ -228,7 +228,7 @@
     {
       "ticker": "SOXX",
       "current_rv": 35.1,
-      "baseline_rv": 44.8,
+      "baseline_rv": 44.9,
       "z_score": -0.53,
       "vrp": 0.31,
       "beta_30d": 2.851,
@@ -242,9 +242,9 @@
     {
       "ticker": "GC=F",
       "current_rv": 19.8,
-      "baseline_rv": 27.4,
-      "z_score": -0.56,
-      "vrp": 0.052,
+      "baseline_rv": 27.3,
+      "z_score": -0.55,
+      "vrp": 0.0521,
       "beta_30d": 0.62,
       "consec_vol": 0,
       "excess_10d": 7.38,
@@ -270,8 +270,8 @@
     {
       "ticker": "CL=F",
       "current_rv": 32.2,
-      "baseline_rv": 52.1,
-      "z_score": -0.72,
+      "baseline_rv": 52.2,
+      "z_score": -0.73,
       "vrp": 0.1462,
       "beta_30d": -2.963,
       "consec_vol": 1,
@@ -298,7 +298,7 @@
     {
       "ticker": "XLK",
       "current_rv": 17.5,
-      "baseline_rv": 26.0,
+      "baseline_rv": 26.1,
       "z_score": -0.9,
       "vrp": 0.1948,
       "beta_30d": 1.96,
@@ -340,7 +340,7 @@
     {
       "ticker": "XLF",
       "current_rv": 10.4,
-      "baseline_rv": 14.7,
+      "baseline_rv": 14.6,
       "z_score": -1.07,
       "vrp": 0.0122,
       "beta_30d": 0.492,
@@ -368,7 +368,7 @@
     {
       "ticker": "ES=F",
       "current_rv": 7.9,
-      "baseline_rv": 12.8,
+      "baseline_rv": 12.9,
       "z_score": -1.33,
       "vrp": 0.0675,
       "beta_30d": 0.997,
@@ -396,7 +396,7 @@
     {
       "ticker": "^FTSE",
       "current_rv": 5.2,
-      "baseline_rv": 11.5,
+      "baseline_rv": 11.6,
       "z_score": -1.45,
       "vrp": 0.0278,
       "beta_30d": 0.03,
@@ -410,8 +410,8 @@
     {
       "ticker": "EWU",
       "current_rv": 7.0,
-      "baseline_rv": 15.6,
-      "z_score": -1.71,
+      "baseline_rv": 15.7,
+      "z_score": -1.73,
       "vrp": 0.0484,
       "beta_30d": 0.327,
       "consec_vol": 0,
@@ -426,15 +426,15 @@
     "wti": {
       "label": "WTI",
       "current": 82.82,
-      "baseline": 79.05,
+      "baseline": 79.16,
       "z_score": 0.21,
       "bw_spread": -0.87
     },
     "brent": {
       "label": "Brent",
       "current": 91.42,
-      "baseline": 85.31,
-      "z_score": 0.3,
+      "baseline": 85.44,
+      "z_score": 0.29,
       "bw_spread": 5.89
     },
     "inv": {
@@ -496,8 +496,8 @@
         "MCHI"
       ],
       "current": 4653.45,
-      "baseline": 4697.91,
-      "z_score": -0.34,
+      "baseline": 4698.69,
+      "z_score": -0.35,
       "rv_20d": 19.77,
       "last_date": "2026-08-21"
     },
@@ -509,8 +509,8 @@
         "MCHI"
       ],
       "current": 7970.0,
-      "baseline": 7937.01,
-      "z_score": 0.06,
+      "baseline": 7940.64,
+      "z_score": 0.05,
       "rv_20d": 33.63,
       "last_date": "2026-08-21"
     },
@@ -522,7 +522,7 @@
         "MCHI"
       ],
       "current": 3592.08,
-      "baseline": 3466.97,
+      "baseline": 3469.46,
       "z_score": 0.35,
       "rv_20d": 49.54,
       "last_date": "2026-08-21"
@@ -536,8 +536,8 @@
         "MCHI"
       ],
       "current": 3935.26,
-      "baseline": 4010.05,
-      "z_score": -0.69,
+      "baseline": 4010.76,
+      "z_score": -0.7,
       "rv_20d": 14.91,
       "last_date": "2026-08-21"
     }
