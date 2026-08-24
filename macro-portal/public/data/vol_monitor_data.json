@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-24T11:34:28",
+  "scan_date": "2026-08-24T13:02:09",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -458,18 +458,6 @@
       "current": 222.826,
       "baseline": 349.2177,
       "z_score": -0.95,
-      "last_date": "2026-08-20"
-    },
-    {
-      "sid": "BAMLH0A0HYM2",
-      "label": "HY Spd",
-      "desc": "HY Credit Spread",
-      "etfs": [
-        "XLF"
-      ],
-      "current": 2.72,
-      "baseline": 2.8773,
-      "z_score": 0.95,
       "last_date": "2026-08-20"
     },
     {
