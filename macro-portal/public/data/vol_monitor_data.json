@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-25T23:29:45",
+  "scan_date": "2026-08-25T23:54:05",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -28,6 +28,20 @@
       "label": "WATCH",
       "reason": "beta=0.33",
       "sector": "Long-term Treasury"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 17.6,
+      "baseline_rv": 14.6,
+      "z_score": 0.59,
+      "vrp": 0.0245,
+      "beta_30d": 0.706,
+      "consec_vol": 5,
+      "excess_10d": 1.73,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "000001.SS",
@@ -528,7 +542,7 @@
       "last_date": "2026-08-25"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
