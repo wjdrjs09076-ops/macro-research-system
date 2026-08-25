@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-25T10:02:33",
+  "scan_date": "2026-08-25T11:01:59",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,24 +423,12 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 82.82,
-      "baseline": 79.26,
-      "z_score": 0.2,
-      "bw_spread": -0.87
-    },
     "brent": {
       "label": "Brent",
       "current": 91.42,
       "baseline": 85.56,
       "z_score": 0.29,
       "bw_spread": 5.89
-    },
-    "inv": {
-      "latest_mbbl": 722241.0,
-      "wow_chg_pct": -0.12,
-      "surprise": 0.79
     },
     "level": 1,
     "reasons": [
@@ -521,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3530.42,
-      "baseline": 3475.08,
-      "z_score": 0.16,
-      "rv_20d": 49.55,
-      "last_date": "2026-08-24"
+      "current": 3468.81,
+      "baseline": 3476.21,
+      "z_score": -0.02,
+      "rv_20d": 41.91,
+      "last_date": "2026-08-25"
     },
     {
       "sym": "sh000001",
