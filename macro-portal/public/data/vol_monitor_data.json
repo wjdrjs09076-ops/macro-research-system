@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-25T18:02:06",
+  "scan_date": "2026-08-25T18:31:57",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -112,6 +112,20 @@
       "label": "WATCH",
       "reason": "beta=0.40, 5d consec vol",
       "sector": "Gold"
+    },
+    {
+      "ticker": "FXI",
+      "current_rv": 18.0,
+      "baseline_rv": 19.2,
+      "z_score": -0.25,
+      "vrp": 0.0039,
+      "beta_30d": -0.004,
+      "consec_vol": 0,
+      "excess_10d": -1.32,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.00",
+      "sector": "China Large-Cap"
     },
     {
       "ticker": "EWJ",
@@ -528,7 +542,7 @@
       "last_date": "2026-08-25"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
