@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-25T14:56:21",
+  "scan_date": "2026-08-25T15:02:00",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -296,20 +296,6 @@
       "sector": "Technology"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 28.0,
-      "baseline_rv": 52.5,
-      "z_score": -0.89,
-      "vrp": 0.1964,
-      "beta_30d": -2.581,
-      "consec_vol": 0,
-      "excess_10d": 4.82,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.58",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "^FTMC",
       "current_rv": 7.5,
       "baseline_rv": 12.3,
@@ -542,7 +528,7 @@
       "last_date": "2026-08-25"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 23,
   "alert_count": 0,
   "high_count": 0
 }
