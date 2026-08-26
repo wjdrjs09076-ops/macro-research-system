@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-26T10:07:25",
+  "scan_date": "2026-08-26T11:03:45",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -521,11 +521,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3468.81,
-      "baseline": 3478.86,
-      "z_score": -0.03,
-      "rv_20d": 41.91,
-      "last_date": "2026-08-25"
+      "current": 3457.09,
+      "baseline": 3478.83,
+      "z_score": -0.06,
+      "rv_20d": 41.61,
+      "last_date": "2026-08-26"
     },
     {
       "sym": "sh000001",
