@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-26T16:31:38",
+  "scan_date": "2026-08-26T17:02:29",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -447,45 +447,7 @@
       "Brent backwardation +5.9%"
     ]
   },
-  "fred": [
-    {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 235.172,
-      "baseline": 344.2393,
-      "z_score": -0.81,
-      "last_date": "2026-08-25"
-    },
-    {
-      "sid": "BAMLH0A0HYM2",
-      "label": "HY Spd",
-      "desc": "HY Credit Spread",
-      "etfs": [
-        "XLF"
-      ],
-      "current": 2.714,
-      "baseline": 2.8759,
-      "z_score": 0.97,
-      "last_date": "2026-08-25"
-    },
-    {
-      "sid": "T10Y2Y",
-      "label": "Yld Crv",
-      "desc": "10Y-2Y Yield Curve",
-      "etfs": [
-        "XLF",
-        "TLT"
-      ],
-      "current": 0.478,
-      "baseline": 0.5293,
-      "z_score": -0.48,
-      "last_date": "2026-08-25"
-    }
-  ],
+  "fred": [],
   "china": [
     {
       "sym": "sh000300",
