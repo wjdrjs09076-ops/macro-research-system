@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-26T18:19:06",
+  "scan_date": "2026-08-26T18:32:29",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -448,18 +448,6 @@
     ]
   },
   "fred": [
-    {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 235.172,
-      "baseline": 344.2393,
-      "z_score": -0.81,
-      "last_date": "2026-08-25"
-    },
     {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
