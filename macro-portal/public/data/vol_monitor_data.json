@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-26T03:12:18",
+  "scan_date": "2026-08-26T04:12:19",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -100,6 +100,20 @@
       "sector": "Gold"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 4.1,
+      "z_score": -0.14,
+      "vrp": 0.0031,
+      "beta_30d": 0.097,
+      "consec_vol": 1,
+      "excess_10d": 0.94,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.10",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "EEM",
       "current_rv": 23.3,
       "baseline_rv": 25.1,
@@ -112,20 +126,6 @@
       "label": "WATCH",
       "reason": "beta=1.39",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.9,
-      "baseline_rv": 4.1,
-      "z_score": -0.18,
-      "vrp": 0.0033,
-      "beta_30d": 0.097,
-      "consec_vol": 0,
-      "excess_10d": 0.93,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.10",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EWJ",
@@ -184,34 +184,6 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 39.5,
-      "baseline_rv": 52.6,
-      "z_score": -0.48,
-      "vrp": 0.1104,
-      "beta_30d": -2.687,
-      "consec_vol": 0,
-      "excess_10d": -2.52,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.69",
-      "sector": "WTI Crude Futures"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 20.4,
-      "baseline_rv": 27.0,
-      "z_score": -0.49,
-      "vrp": 0.0383,
-      "beta_30d": 0.495,
-      "consec_vol": 0,
-      "excess_10d": 8.0,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.50",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "SOXX",
       "current_rv": 36.1,
       "baseline_rv": 45.5,
@@ -224,6 +196,20 @@
       "label": "WATCH",
       "reason": "beta=2.76",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 20.2,
+      "baseline_rv": 27.0,
+      "z_score": -0.51,
+      "vrp": 0.0393,
+      "beta_30d": 0.471,
+      "consec_vol": 0,
+      "excess_10d": 6.34,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.47",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "^N225",
@@ -280,6 +266,20 @@
       "label": "WATCH",
       "reason": "beta=-0.18",
       "sector": "Hang Seng"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 32.3,
+      "baseline_rv": 52.6,
+      "z_score": -0.74,
+      "vrp": 0.1532,
+      "beta_30d": -2.654,
+      "consec_vol": 0,
+      "excess_10d": -0.23,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.65",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^FTMC",
@@ -339,13 +339,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 8.0,
+      "current_rv": 8.1,
       "baseline_rv": 12.9,
-      "z_score": -1.33,
-      "vrp": 0.0698,
-      "beta_30d": 0.996,
+      "z_score": -1.3,
+      "vrp": 0.0689,
+      "beta_30d": 0.997,
       "consec_vol": 0,
-      "excess_10d": -0.2,
+      "excess_10d": -0.11,
       "level": 0,
       "label": "---",
       "reason": "",
