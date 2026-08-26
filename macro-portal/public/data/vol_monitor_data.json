@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-26T13:31:39",
+  "scan_date": "2026-08-26T14:02:10",
   "etf_signals": [
     {
       "ticker": "TLT",
@@ -467,10 +467,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 2.724,
-      "baseline": 2.8765,
-      "z_score": 0.91,
-      "last_date": "2026-08-24"
+      "current": 2.714,
+      "baseline": 2.8759,
+      "z_score": 0.97,
+      "last_date": "2026-08-25"
     },
     {
       "sid": "T10Y2Y",
