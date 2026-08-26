@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-08-26T18:03:04",
+  "scan_date": "2026-08-26T18:19:06",
   "etf_signals": [
+    {
+      "ticker": "TLT",
+      "current_rv": 13.6,
+      "baseline_rv": 9.0,
+      "z_score": 2.06,
+      "vrp": -0.0217,
+      "beta_30d": 0.34,
+      "consec_vol": 5,
+      "excess_10d": 2.17,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.1, beta=0.34, 5d consec vol",
+      "sector": "Long-term Treasury"
+    },
     {
       "ticker": "XLV",
       "current_rv": 22.9,
@@ -433,7 +447,45 @@
       "Brent backwardation +7.9%"
     ]
   },
-  "fred": [],
+  "fred": [
+    {
+      "sid": "USEPUINDXD",
+      "label": "EPU",
+      "desc": "Econ Policy Uncertainty",
+      "etfs": [
+        "ALL"
+      ],
+      "current": 235.172,
+      "baseline": 344.2393,
+      "z_score": -0.81,
+      "last_date": "2026-08-25"
+    },
+    {
+      "sid": "BAMLH0A0HYM2",
+      "label": "HY Spd",
+      "desc": "HY Credit Spread",
+      "etfs": [
+        "XLF"
+      ],
+      "current": 2.714,
+      "baseline": 2.8759,
+      "z_score": 0.97,
+      "last_date": "2026-08-25"
+    },
+    {
+      "sid": "T10Y2Y",
+      "label": "Yld Crv",
+      "desc": "10Y-2Y Yield Curve",
+      "etfs": [
+        "XLF",
+        "TLT"
+      ],
+      "current": 0.478,
+      "baseline": 0.5293,
+      "z_score": -0.48,
+      "last_date": "2026-08-25"
+    }
+  ],
   "china": [
     {
       "sym": "sh000300",
@@ -490,7 +542,7 @@
       "last_date": "2026-08-26"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
