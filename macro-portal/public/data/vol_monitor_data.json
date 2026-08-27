@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-27T11:07:38",
+  "scan_date": "2026-08-27T13:04:14",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,8 +423,29 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "wti": {
+      "label": "WTI",
+      "current": 85.87,
+      "baseline": 79.4,
+      "z_score": 0.37,
+      "bw_spread": 3.61
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 92.85,
+      "baseline": 85.8,
+      "z_score": 0.35,
+      "bw_spread": 7.92
+    },
+    "inv": {
+      "latest_mbbl": 718636.0,
+      "wow_chg_pct": -0.5,
+      "surprise": 0.29
+    },
+    "level": 1,
+    "reasons": [
+      "Brent backwardation +7.9%"
+    ]
   },
   "fred": [
     {
@@ -434,10 +455,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 235.172,
-      "baseline": 344.2393,
-      "z_score": -0.81,
-      "last_date": "2026-08-25"
+      "current": 233.876,
+      "baseline": 343.4321,
+      "z_score": -0.82,
+      "last_date": "2026-08-26"
     },
     {
       "sid": "BAMLH0A0HYM2",
