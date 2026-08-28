@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-28T16:02:08",
+  "scan_date": "2026-08-28T16:31:39",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -310,6 +310,20 @@
       "sector": "Industrials"
     },
     {
+      "ticker": "XLE",
+      "current_rv": 16.5,
+      "baseline_rv": 21.9,
+      "z_score": -1.03,
+      "vrp": 0.0501,
+      "beta_30d": -0.56,
+      "consec_vol": 1,
+      "excess_10d": 2.91,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.56",
+      "sector": "Energy / Oil"
+    },
+    {
       "ticker": "^FTSE",
       "current_rv": 6.2,
       "baseline_rv": 11.5,
@@ -528,7 +542,7 @@
       "last_date": "2026-08-28"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 1,
   "high_count": 0
 }
