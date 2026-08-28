@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-28T13:02:12",
+  "scan_date": "2026-08-28T13:31:45",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -455,10 +455,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 233.876,
-      "baseline": 343.4321,
-      "z_score": -0.82,
-      "last_date": "2026-08-26"
+      "current": 236.268,
+      "baseline": 341.6168,
+      "z_score": -0.79,
+      "last_date": "2026-08-27"
     },
     {
       "sid": "BAMLH0A0HYM2",
