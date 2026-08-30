@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-08-30T01:33:29",
+  "scan_date": "2026-08-30T08:09:29",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -28,6 +28,20 @@
       "label": "WATCH",
       "reason": "vol z=1.8, beta=0.39, 5d consec vol",
       "sector": "Long-term Treasury"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.6,
+      "baseline_rv": 4.1,
+      "z_score": 0.49,
+      "vrp": -0.0002,
+      "beta_30d": 0.113,
+      "consec_vol": 2,
+      "excess_10d": 0.25,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.11",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "000001.SS",
@@ -100,20 +114,6 @@
       "sector": "KOSPI"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 26.3,
-      "baseline_rv": 27.0,
-      "z_score": -0.05,
-      "vrp": -0.0089,
-      "beta_30d": 0.532,
-      "consec_vol": 1,
-      "excess_10d": 3.22,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.53",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLK",
       "current_rv": 25.7,
       "baseline_rv": 26.5,
@@ -126,20 +126,6 @@
       "label": "WATCH",
       "reason": "beta=2.08",
       "sector": "Technology"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.9,
-      "baseline_rv": 4.1,
-      "z_score": -0.17,
-      "vrp": 0.0031,
-      "beta_30d": 0.108,
-      "consec_vol": 1,
-      "excess_10d": 0.46,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.11",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLY",
@@ -168,6 +154,20 @@
       "label": "WATCH",
       "reason": "beta=1.34",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 23.0,
+      "baseline_rv": 27.0,
+      "z_score": -0.3,
+      "vrp": 0.0071,
+      "beta_30d": 0.508,
+      "consec_vol": 0,
+      "excess_10d": 4.35,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.51",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "SOXX",
