@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 14.43,
-    "ts": "2026-08-31T14:32:23"
+    "ts": "2026-08-31T15:03:12"
   },
-  "generated": "2026-08-31T14:32:24",
+  "generated": "2026-08-31T15:03:12",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -66,7 +66,7 @@
       "delta_ctrl": -0.0005,
       "t_ctrl": -0.63,
       "q_raw": 0.0,
-      "q_ctrl": 0.6257,
+      "q_ctrl": 0.6258,
       "vif": 4.9,
       "verdict": "killed"
     },
