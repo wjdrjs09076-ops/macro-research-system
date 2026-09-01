@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-01T07:43:21",
+  "scan_date": "2026-09-01T13:02:36",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -58,20 +58,6 @@
       "sector": "Gold"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 14.9,
-      "baseline_rv": 14.8,
-      "z_score": 0.02,
-      "vrp": 0.0516,
-      "beta_30d": 0.564,
-      "consec_vol": 5,
-      "excess_10d": 1.33,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.56, 5d consec vol",
-      "sector": "Communication"
-    },
-    {
       "ticker": "GC=F",
       "current_rv": 26.8,
       "baseline_rv": 27.0,
@@ -84,6 +70,20 @@
       "label": "WATCH",
       "reason": "beta=0.56",
       "sector": "Gold Futures"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 14.5,
+      "baseline_rv": 14.7,
+      "z_score": -0.05,
+      "vrp": 0.0454,
+      "beta_30d": 0.557,
+      "consec_vol": 5,
+      "excess_10d": -0.32,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.56, 5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "EWY",
@@ -157,13 +157,13 @@
     },
     {
       "ticker": "XLY",
-      "current_rv": 17.6,
-      "baseline_rv": 19.5,
-      "z_score": -0.36,
-      "vrp": 0.0514,
-      "beta_30d": 1.026,
+      "current_rv": 17.7,
+      "baseline_rv": 19.6,
+      "z_score": -0.35,
+      "vrp": 0.049,
+      "beta_30d": 1.036,
       "consec_vol": 0,
-      "excess_10d": 0.64,
+      "excess_10d": -0.35,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -449,18 +449,6 @@
   },
   "fred": [
     {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 208.558,
-      "baseline": 340.9927,
-      "z_score": -0.99,
-      "last_date": "2026-08-30"
-    },
-    {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
       "desc": "HY Credit Spread",
@@ -495,11 +483,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4601.47,
-      "baseline": 4700.87,
-      "z_score": -0.76,
-      "rv_20d": 16.28,
-      "last_date": "2026-08-31"
+      "current": 4613.35,
+      "baseline": 4700.14,
+      "z_score": -0.67,
+      "rv_20d": 15.72,
+      "last_date": "2026-09-01"
     },
     {
       "sym": "sh000905",
@@ -508,11 +496,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7855.07,
-      "baseline": 7967.3,
-      "z_score": -0.2,
-      "rv_20d": 27.6,
-      "last_date": "2026-08-31"
+      "current": 7884.59,
+      "baseline": 7966.05,
+      "z_score": -0.15,
+      "rv_20d": 26.78,
+      "last_date": "2026-09-01"
     },
     {
       "sym": "sz399006",
@@ -521,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3429.77,
-      "baseline": 3487.43,
+      "current": 3428.95,
+      "baseline": 3486.99,
       "z_score": -0.17,
-      "rv_20d": 37.86,
-      "last_date": "2026-08-31"
+      "rv_20d": 32.31,
+      "last_date": "2026-09-01"
     },
     {
       "sym": "sh000001",
@@ -535,11 +523,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3939.4,
-      "baseline": 4012.16,
-      "z_score": -0.68,
-      "rv_20d": 13.95,
-      "last_date": "2026-08-31"
+      "current": 3957.49,
+      "baseline": 4011.56,
+      "z_score": -0.51,
+      "rv_20d": 14.01,
+      "last_date": "2026-09-01"
     }
   ],
   "flagged_count": 24,
