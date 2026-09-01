@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-01T16:02:44",
+  "scan_date": "2026-09-01T16:32:15",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -310,6 +310,20 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
+      "ticker": "^HSI",
+      "current_rv": 14.6,
+      "baseline_rv": 19.1,
+      "z_score": -1.05,
+      "vrp": 0.0159,
+      "beta_30d": -0.314,
+      "consec_vol": 0,
+      "excess_10d": 2.78,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.31",
+      "sector": "Hang Seng"
+    },
+    {
       "ticker": "EWU",
       "current_rv": 10.0,
       "baseline_rv": 15.8,
@@ -423,11 +437,6 @@
       "z_score": 0.32,
       "bw_spread": 7.92
     },
-    "inv": {
-      "latest_mbbl": 718636.0,
-      "wow_chg_pct": -0.5,
-      "surprise": 0.29
-    },
     "level": 1,
     "reasons": [
       "Brent backwardation +7.9%"
@@ -528,7 +537,7 @@
       "last_date": "2026-09-01"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 24,
   "alert_count": 1,
   "high_count": 1
 }
