@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-01T18:31:57",
+  "scan_date": "2026-09-01T19:02:45",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -436,11 +436,6 @@
       "baseline": 86.29,
       "z_score": 0.32,
       "bw_spread": 7.92
-    },
-    "inv": {
-      "latest_mbbl": 718636.0,
-      "wow_chg_pct": -0.5,
-      "surprise": 0.29
     },
     "level": 1,
     "reasons": [
