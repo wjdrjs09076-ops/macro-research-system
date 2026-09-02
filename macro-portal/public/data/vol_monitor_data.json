@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-02T14:31:51",
+  "scan_date": "2026-09-02T15:02:27",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -17,16 +17,16 @@
     },
     {
       "ticker": "TLT",
-      "current_rv": 12.6,
+      "current_rv": 13.0,
       "baseline_rv": 9.0,
-      "z_score": 1.62,
-      "vrp": -0.0235,
-      "beta_30d": 0.411,
+      "z_score": 1.78,
+      "vrp": -0.0227,
+      "beta_30d": 0.391,
       "consec_vol": 5,
-      "excess_10d": 1.4,
+      "excess_10d": 2.23,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.41, 5d consec vol",
+      "reason": "beta=0.39, 5d consec vol",
       "sector": "Long-term Treasury"
     },
     {
@@ -45,16 +45,16 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 15.5,
+      "current_rv": 15.4,
       "baseline_rv": 14.1,
-      "z_score": 0.27,
-      "vrp": 0.0066,
-      "beta_30d": -0.165,
+      "z_score": 0.24,
+      "vrp": 0.0115,
+      "beta_30d": -0.088,
       "consec_vol": 5,
-      "excess_10d": 0.51,
+      "excess_10d": 1.15,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.17, 5d consec vol",
+      "reason": "beta=-0.09, 5d consec vol",
       "sector": "Shanghai Composite"
     },
     {
@@ -70,20 +70,6 @@
       "label": "WATCH",
       "reason": "beta=0.60",
       "sector": "Gold Futures"
-    },
-    {
-      "ticker": "XLC",
-      "current_rv": 15.0,
-      "baseline_rv": 14.8,
-      "z_score": 0.05,
-      "vrp": 0.0487,
-      "beta_30d": 0.622,
-      "consec_vol": 5,
-      "excess_10d": 1.13,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.62, 5d consec vol",
-      "sector": "Communication"
     },
     {
       "ticker": "XLY",
@@ -115,27 +101,27 @@
     },
     {
       "ticker": "^KS11",
-      "current_rv": 49.1,
+      "current_rv": 49.3,
       "baseline_rv": 52.9,
       "z_score": -0.13,
-      "vrp": 0.2336,
-      "beta_30d": 0.532,
+      "vrp": 0.2487,
+      "beta_30d": 0.612,
       "consec_vol": 3,
-      "excess_10d": 0.67,
+      "excess_10d": -0.44,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.53",
+      "reason": "beta=0.61",
       "sector": "KOSPI"
     },
     {
       "ticker": "^FTMC",
-      "current_rv": 11.3,
+      "current_rv": 11.1,
       "baseline_rv": 12.3,
-      "z_score": -0.19,
-      "vrp": -0.0057,
+      "z_score": -0.25,
+      "vrp": -0.0051,
       "beta_30d": 0.512,
-      "consec_vol": 1,
-      "excess_10d": 0.39,
+      "consec_vol": 0,
+      "excess_10d": -0.03,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.51",
@@ -198,6 +184,34 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "EWJ",
+      "current_rv": 17.0,
+      "baseline_rv": 21.2,
+      "z_score": -0.57,
+      "vrp": 0.0824,
+      "beta_30d": 1.183,
+      "consec_vol": 0,
+      "excess_10d": -1.81,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 11.0,
+      "baseline_rv": 14.8,
+      "z_score": -0.7,
+      "vrp": 0.0789,
+      "beta_30d": 0.566,
+      "consec_vol": 4,
+      "excess_10d": 1.26,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.57",
+      "sector": "Communication"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 24.4,
       "baseline_rv": 30.2,
@@ -238,6 +252,20 @@
       "label": "WATCH",
       "reason": "beta=2.68",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "XTN",
+      "current_rv": 19.2,
+      "baseline_rv": 27.2,
+      "z_score": -0.92,
+      "vrp": 0.0297,
+      "beta_30d": 1.331,
+      "consec_vol": 0,
+      "excess_10d": -6.16,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.33",
+      "sector": "Transportation / Shipping"
     },
     {
       "ticker": "^STOXX50E",
@@ -282,20 +310,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "XTN",
-      "current_rv": 17.3,
-      "baseline_rv": 27.1,
-      "z_score": -1.13,
-      "vrp": 0.0449,
-      "beta_30d": 1.307,
-      "consec_vol": 0,
-      "excess_10d": -4.51,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.31",
-      "sector": "Transportation / Shipping"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 12.0,
       "baseline_rv": 17.8,
@@ -324,32 +338,32 @@
       "sector": "UK (MSCI)"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 6.3,
-      "baseline_rv": 11.5,
-      "z_score": -1.16,
-      "vrp": 0.0132,
-      "beta_30d": 0.028,
-      "consec_vol": 0,
-      "excess_10d": 1.76,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.03",
-      "sector": "FTSE 100"
-    },
-    {
       "ticker": "^HSI",
       "current_rv": 14.0,
       "baseline_rv": 19.1,
       "z_score": -1.18,
-      "vrp": 0.0166,
-      "beta_30d": -0.222,
+      "vrp": 0.0212,
+      "beta_30d": -0.22,
       "consec_vol": 0,
-      "excess_10d": 0.21,
+      "excess_10d": 0.73,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=-0.22",
       "sector": "Hang Seng"
+    },
+    {
+      "ticker": "^FTSE",
+      "current_rv": 6.1,
+      "baseline_rv": 11.5,
+      "z_score": -1.22,
+      "vrp": 0.0156,
+      "beta_30d": 0.031,
+      "consec_vol": 0,
+      "excess_10d": 1.72,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.03",
+      "sector": "FTSE 100"
     },
     {
       "ticker": "^N225",
@@ -392,20 +406,6 @@
       "label": "WATCH",
       "reason": "beta=-0.04",
       "sector": "China Large-Cap"
-    },
-    {
-      "ticker": "EWJ",
-      "current_rv": 9.4,
-      "baseline_rv": 21.2,
-      "z_score": -1.62,
-      "vrp": 0.1568,
-      "beta_30d": 1.109,
-      "consec_vol": 0,
-      "excess_10d": 0.59,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "MCHI",
