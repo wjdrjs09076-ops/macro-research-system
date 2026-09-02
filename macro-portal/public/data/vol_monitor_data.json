@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-02T20:01:59",
+  "scan_date": "2026-09-02T20:31:50",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -45,16 +45,16 @@
     },
     {
       "ticker": "000001.SS",
-      "current_rv": 15.5,
+      "current_rv": 15.4,
       "baseline_rv": 14.1,
-      "z_score": 0.27,
-      "vrp": 0.0066,
-      "beta_30d": -0.165,
+      "z_score": 0.24,
+      "vrp": 0.0115,
+      "beta_30d": -0.088,
       "consec_vol": 5,
-      "excess_10d": 0.51,
+      "excess_10d": 1.15,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.17, 5d consec vol",
+      "reason": "beta=-0.09, 5d consec vol",
       "sector": "Shanghai Composite"
     },
     {
@@ -86,18 +86,18 @@
       "sector": "Communication"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 19.6,
-      "baseline_rv": 19.5,
-      "z_score": 0.02,
-      "vrp": 0.0434,
-      "beta_30d": 1.097,
+      "ticker": "EWY",
+      "current_rv": 54.9,
+      "baseline_rv": 56.9,
+      "z_score": -0.08,
+      "vrp": 0.248,
+      "beta_30d": 3.024,
       "consec_vol": 1,
-      "excess_10d": -0.73,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Consumer Discretionary"
+      "excess_10d": -3.41,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=3.02",
+      "sector": "Korea (MSCI)"
     },
     {
       "ticker": "ZN=F",
@@ -128,14 +128,28 @@
       "sector": "KOSPI"
     },
     {
+      "ticker": "XLY",
+      "current_rv": 18.7,
+      "baseline_rv": 19.5,
+      "z_score": -0.15,
+      "vrp": 0.0519,
+      "beta_30d": 1.071,
+      "consec_vol": 0,
+      "excess_10d": -0.62,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Consumer Discretionary"
+    },
+    {
       "ticker": "^FTMC",
-      "current_rv": 11.3,
+      "current_rv": 11.1,
       "baseline_rv": 12.3,
-      "z_score": -0.19,
-      "vrp": -0.0057,
+      "z_score": -0.25,
+      "vrp": -0.0051,
       "beta_30d": 0.512,
-      "consec_vol": 1,
-      "excess_10d": 0.39,
+      "consec_vol": 0,
+      "excess_10d": -0.03,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.51",
@@ -154,6 +168,20 @@
       "label": "WATCH",
       "reason": "beta=2.00",
       "sector": "Technology"
+    },
+    {
+      "ticker": "EEM",
+      "current_rv": 22.3,
+      "baseline_rv": 25.3,
+      "z_score": -0.29,
+      "vrp": 0.1226,
+      "beta_30d": 1.334,
+      "consec_vol": 0,
+      "excess_10d": 0.45,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.33",
+      "sector": "Emerging Markets"
     },
     {
       "ticker": "XLB",
@@ -198,6 +226,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "EWJ",
+      "current_rv": 17.0,
+      "baseline_rv": 21.2,
+      "z_score": -0.57,
+      "vrp": 0.0824,
+      "beta_30d": 1.183,
+      "consec_vol": 0,
+      "excess_10d": -1.81,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Japan (MSCI)"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 24.4,
       "baseline_rv": 30.2,
@@ -210,20 +252,6 @@
       "label": "WATCH",
       "reason": "beta=1.59",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "EWY",
-      "current_rv": 34.7,
-      "baseline_rv": 56.9,
-      "z_score": -0.88,
-      "vrp": 0.4412,
-      "beta_30d": 2.839,
-      "consec_vol": 0,
-      "excess_10d": 4.28,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.84",
-      "sector": "Korea (MSCI)"
     },
     {
       "ticker": "SOXX",
@@ -252,20 +280,6 @@
       "label": "WATCH",
       "reason": "beta=0.65",
       "sector": "Euro Stoxx 50"
-    },
-    {
-      "ticker": "EEM",
-      "current_rv": 15.3,
-      "baseline_rv": 25.3,
-      "z_score": -0.94,
-      "vrp": 0.1885,
-      "beta_30d": 1.25,
-      "consec_vol": 0,
-      "excess_10d": 2.94,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Emerging Markets"
     },
     {
       "ticker": "XLE",
@@ -324,20 +338,6 @@
       "sector": "UK (MSCI)"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 6.3,
-      "baseline_rv": 11.5,
-      "z_score": -1.16,
-      "vrp": 0.0132,
-      "beta_30d": 0.028,
-      "consec_vol": 0,
-      "excess_10d": 1.76,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.03",
-      "sector": "FTSE 100"
-    },
-    {
       "ticker": "^HSI",
       "current_rv": 14.0,
       "baseline_rv": 19.1,
@@ -350,6 +350,20 @@
       "label": "WATCH",
       "reason": "beta=-0.22",
       "sector": "Hang Seng"
+    },
+    {
+      "ticker": "^FTSE",
+      "current_rv": 6.1,
+      "baseline_rv": 11.5,
+      "z_score": -1.22,
+      "vrp": 0.0156,
+      "beta_30d": 0.031,
+      "consec_vol": 0,
+      "excess_10d": 1.72,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.03",
+      "sector": "FTSE 100"
     },
     {
       "ticker": "^N225",
@@ -381,44 +395,30 @@
     },
     {
       "ticker": "FXI",
-      "current_rv": 12.5,
+      "current_rv": 11.9,
       "baseline_rv": 19.1,
-      "z_score": -1.47,
-      "vrp": 0.0381,
-      "beta_30d": -0.039,
+      "z_score": -1.63,
+      "vrp": 0.0472,
+      "beta_30d": -0.097,
       "consec_vol": 0,
-      "excess_10d": 1.55,
+      "excess_10d": 1.89,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.04",
+      "reason": "beta=-0.10",
       "sector": "China Large-Cap"
     },
     {
-      "ticker": "EWJ",
-      "current_rv": 9.4,
-      "baseline_rv": 21.2,
-      "z_score": -1.62,
-      "vrp": 0.1568,
-      "beta_30d": 1.109,
-      "consec_vol": 0,
-      "excess_10d": 0.59,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Japan (MSCI)"
-    },
-    {
       "ticker": "MCHI",
-      "current_rv": 11.0,
+      "current_rv": 9.6,
       "baseline_rv": 19.2,
-      "z_score": -1.77,
-      "vrp": 0.0596,
-      "beta_30d": 0.147,
+      "z_score": -2.08,
+      "vrp": 0.0741,
+      "beta_30d": 0.132,
       "consec_vol": 0,
-      "excess_10d": -0.14,
+      "excess_10d": 0.01,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.15",
+      "reason": "beta=0.13",
       "sector": "China Broad (MSCI)"
     }
   ],
@@ -543,7 +543,7 @@
       "last_date": "2026-09-02"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 26,
   "alert_count": 0,
   "high_count": 0
 }
