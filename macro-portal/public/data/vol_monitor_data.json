@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-02T17:02:29",
+  "scan_date": "2026-09-02T17:31:32",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -425,26 +425,27 @@
   "oil": {
     "wti": {
       "label": "WTI",
-      "current": 85.87,
-      "baseline": 79.83,
-      "z_score": 0.35,
-      "bw_spread": 3.61
+      "current": 86.58,
+      "baseline": 79.97,
+      "z_score": 0.38,
+      "bw_spread": 5.59
     },
     "brent": {
       "label": "Brent",
-      "current": 92.85,
-      "baseline": 86.29,
-      "z_score": 0.32,
-      "bw_spread": 7.92
+      "current": 92.33,
+      "baseline": 86.42,
+      "z_score": 0.3,
+      "bw_spread": 7.97
     },
     "inv": {
-      "latest_mbbl": 718636.0,
-      "wow_chg_pct": -0.5,
-      "surprise": 0.29
+      "latest_mbbl": 711064.0,
+      "wow_chg_pct": -1.05,
+      "surprise": -0.34
     },
     "level": 1,
     "reasons": [
-      "Brent backwardation +7.9%"
+      "WTI backwardation +5.6%",
+      "Brent backwardation +8.0%"
     ]
   },
   "fred": [
