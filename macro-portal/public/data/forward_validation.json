@@ -1,13 +1,13 @@
 {
-  "generated": "2026-09-03T13:03:01",
+  "generated": "2026-09-03T13:32:24",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
     "basis": "27%×2 고정 (n=2 실측 추정: XLB 28%/XLRE 27%). 표본 누적 시 실측 슬리피지 중앙값으로 갱신 예정."
   },
   "cluster_min_n": 8,
-  "n_closed": 14,
-  "clean_n": 9,
+  "n_closed": 15,
+  "clean_n": 10,
   "excluded_n": 5,
   "boundary_note": "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
   "timing_note": "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
@@ -90,6 +90,14 @@
       "rule": "rate_victim",
       "exit_date": "2026-09-02",
       "pnl": -1.34,
+      "direction_note": "역방향(손실)"
+    },
+    {
+      "n": 10,
+      "ticker": "XLU",
+      "rule": "rate_victim",
+      "exit_date": "2026-09-03",
+      "pnl": -1.81,
       "direction_note": "역방향(손실)"
     }
   ],
@@ -288,6 +296,20 @@
       "entry_cost": 509.52,
       "exit_reason": "시그널은퇴(rate_victim|XLU)",
       "holding_days": 0,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-09-03",
+      "entry_date": "2026-09-02",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLU",
+      "regime": "mid_vix",
+      "pnl": -1.81,
+      "entry_cost": 512.22,
+      "exit_reason": "시그널은퇴(rate_victim|XLU)",
+      "holding_days": 1,
       "validation": "clean",
       "exclude_reason": null
     }
