@@ -40,14 +40,14 @@
     "total_pnl": -2.8
   },
   "rate_victim|directional": {
-    "multiplier": 0.9961,
+    "multiplier": 0.9962,
     "killed": false,
-    "trades": 23,
+    "trades": 24,
     "cohorts": 8,
-    "win_rate": 0.3043,
-    "avg_pnl_pct": -0.0043,
-    "avg_pnl_pct_eff": -0.0073,
-    "total_pnl": -55.38
+    "win_rate": 0.2917,
+    "avg_pnl_pct": -0.0041,
+    "avg_pnl_pct_eff": -0.0072,
+    "total_pnl": -55.69
   },
   "event_vol|straddle": {
     "multiplier": 1.0,
