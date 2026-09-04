@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-03T23:09:29",
+  "scan_date": "2026-09-04T01:13:56",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -14,6 +14,20 @@
       "label": "WATCH",
       "reason": "beta=0.64, 5d consec vol",
       "sector": "Communication"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 30.3,
+      "baseline_rv": 27.0,
+      "z_score": 0.25,
+      "vrp": 0.0153,
+      "beta_30d": 0.622,
+      "consec_vol": 4,
+      "excess_10d": -2.18,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.62",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "GLD",
@@ -86,20 +100,6 @@
       "sector": "Materials"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 23.2,
-      "baseline_rv": 27.0,
-      "z_score": -0.29,
-      "vrp": 0.0153,
-      "beta_30d": 0.622,
-      "consec_vol": 3,
-      "excess_10d": -2.18,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.62",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "^KS11",
       "current_rv": 43.7,
       "baseline_rv": 52.9,
@@ -112,20 +112,6 @@
       "label": "WATCH",
       "reason": "beta=0.30",
       "sector": "KOSPI"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.8,
-      "baseline_rv": 4.1,
-      "z_score": -0.33,
-      "vrp": 0.0024,
-      "beta_30d": 0.123,
-      "consec_vol": 2,
-      "excess_10d": -0.53,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.12",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLK",
@@ -156,10 +142,24 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 3.7,
+      "baseline_rv": 4.1,
+      "z_score": -0.42,
+      "vrp": 0.0024,
+      "beta_30d": 0.123,
+      "consec_vol": 3,
+      "excess_10d": -0.53,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.12",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "CL=F",
-      "current_rv": 39.6,
-      "baseline_rv": 53.1,
-      "z_score": -0.5,
+      "current_rv": 38.5,
+      "baseline_rv": 53.0,
+      "z_score": -0.54,
       "vrp": 0.0567,
       "beta_30d": -2.847,
       "consec_vol": 0,
@@ -324,6 +324,20 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 8.4,
+      "baseline_rv": 12.9,
+      "z_score": -1.17,
+      "vrp": 0.0663,
+      "beta_30d": 1.002,
+      "consec_vol": 0,
+      "excess_10d": -0.17,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "^HSI",
       "current_rv": 13.9,
       "baseline_rv": 19.0,
@@ -336,20 +350,6 @@
       "label": "WATCH",
       "reason": "beta=-0.23",
       "sector": "Hang Seng"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 8.1,
-      "baseline_rv": 12.9,
-      "z_score": -1.27,
-      "vrp": 0.0663,
-      "beta_30d": 1.002,
-      "consec_vol": 0,
-      "excess_10d": -0.17,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "EWU",
@@ -426,15 +426,15 @@
     "wti": {
       "label": "WTI",
       "current": 86.58,
-      "baseline": 80.09,
-      "z_score": 0.38,
+      "baseline": 80.21,
+      "z_score": 0.37,
       "bw_spread": 5.59
     },
     "brent": {
       "label": "Brent",
       "current": 92.33,
-      "baseline": 86.54,
-      "z_score": 0.29,
+      "baseline": 86.66,
+      "z_score": 0.28,
       "bw_spread": 7.97
     },
     "inv": {
@@ -469,7 +469,7 @@
         "XLF"
       ],
       "current": 2.634,
-      "baseline": 2.8757,
+      "baseline": 2.8762,
       "z_score": 1.45,
       "last_date": "2026-09-02"
     },
@@ -482,7 +482,7 @@
         "TLT"
       ],
       "current": 0.406,
-      "baseline": 0.5268,
+      "baseline": 0.5266,
       "z_score": -1.14,
       "last_date": "2026-09-03"
     }
