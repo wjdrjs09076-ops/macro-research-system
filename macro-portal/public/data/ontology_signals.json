@@ -1,14 +1,14 @@
 {
-  "active_regime": "mid_vix",
+  "active_regime": "low_vix",
   "regime_state": {
-    "confirmed": "mid_vix",
-    "pending": "low_vix",
-    "pending_count": 1,
+    "confirmed": "low_vix",
+    "pending": null,
+    "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 14.32,
-    "ts": "2026-09-04T13:32:28"
+    "ts": "2026-09-04T14:02:42"
   },
-  "generated": "2026-09-04T13:32:28",
+  "generated": "2026-09-04T14:02:43",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -27,86 +27,6 @@
   },
   "straddle_candidates": [],
   "directional_candidates": [
-    {
-      "ticker": "XLRE",
-      "direction": -1,
-      "confidence": 0.8096,
-      "rule": "rate_victim",
-      "signal_type": "UNDERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_victim"
-      ],
-      "reasoning": [
-        "XLRE: delta(US10Y) = -0.0043 < -0.001 (t=-3.63, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
-        "gamma(US10Y) = 0.0004: convex -- some protection at large moves.",
-        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
-    {
-      "ticker": "XLY",
-      "direction": -1,
-      "confidence": 0.7941,
-      "rule": "rate_victim",
-      "signal_type": "UNDERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_victim"
-      ],
-      "reasoning": [
-        "XLY: delta(US10Y) = -0.0041 < -0.001 (t=-3.94, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
-        "gamma(US10Y) = -0.0011: concave to rate rises -- losses accelerate as rates increase further.",
-        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
-    {
-      "ticker": "XLC",
-      "direction": -1,
-      "confidence": 0.7785,
-      "rule": "rate_victim",
-      "signal_type": "UNDERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_victim"
-      ],
-      "reasoning": [
-        "XLC: delta(US10Y) = -0.0038 < -0.001 (t=-3.77, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
-        "gamma(US10Y) = -0.0003: concave to rate rises -- losses accelerate as rates increase further.",
-        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
-    {
-      "ticker": "XLP",
-      "direction": -1,
-      "confidence": 0.7192,
-      "rule": "rate_victim",
-      "signal_type": "UNDERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_victim"
-      ],
-      "reasoning": [
-        "XLP: delta(US10Y) = -0.0028 < -0.001 (t=-2.21, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
-        "gamma(US10Y) = 0.0002: convex -- some protection at large moves.",
-        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
-    {
-      "ticker": "XLU",
-      "direction": -1,
-      "confidence": 0.7174,
-      "rule": "rate_victim",
-      "signal_type": "UNDERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_victim"
-      ],
-      "reasoning": [
-        "XLU: delta(US10Y) = -0.0028 < -0.001 (t=-2.10, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
-        "gamma(US10Y) = 0.0007: convex -- some protection at large moves.",
-        "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
     {
       "ticker": "XLK",
       "direction": 1,
@@ -146,7 +66,7 @@
       "delta_ctrl": -0.0005,
       "t_ctrl": -0.63,
       "q_raw": 0.0,
-      "q_ctrl": 0.6492,
+      "q_ctrl": 0.6493,
       "vif": 4.9,
       "verdict": "killed"
     },
