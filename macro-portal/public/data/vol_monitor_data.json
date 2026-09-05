@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-05T03:55:56",
+  "scan_date": "2026-09-05T08:15:48",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -14,20 +14,6 @@
       "label": "WATCH",
       "reason": "beta=0.44, 5d consec vol",
       "sector": "Communication"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.3,
-      "baseline_rv": 4.1,
-      "z_score": 0.17,
-      "vrp": -0.0029,
-      "beta_30d": 0.132,
-      "consec_vol": 4,
-      "excess_10d": -1.3,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.13",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "GLD",
@@ -72,17 +58,31 @@
       "sector": "Financials / Banking"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 24.4,
-      "baseline_rv": 27.0,
-      "z_score": -0.19,
-      "vrp": 0.0001,
-      "beta_30d": 0.594,
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 4.1,
+      "z_score": -0.14,
+      "vrp": -0.0014,
+      "beta_30d": 0.124,
       "consec_vol": 4,
-      "excess_10d": -3.71,
+      "excess_10d": -1.08,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.59",
+      "reason": "beta=0.12",
+      "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 25.0,
+      "baseline_rv": 27.0,
+      "z_score": -0.15,
+      "vrp": -0.0005,
+      "beta_30d": 0.629,
+      "consec_vol": 4,
+      "excess_10d": -4.77,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.63",
       "sector": "Gold Futures"
     },
     {
@@ -101,13 +101,13 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 37.9,
+      "current_rv": 37.8,
       "baseline_rv": 53.1,
-      "z_score": -0.56,
-      "vrp": 0.0758,
-      "beta_30d": -2.445,
+      "z_score": -0.57,
+      "vrp": 0.0759,
+      "beta_30d": -2.455,
       "consec_vol": 0,
-      "excess_10d": 4.34,
+      "excess_10d": 4.62,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=-2.45",
