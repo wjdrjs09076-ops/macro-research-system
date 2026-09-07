@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-07T01:15:40",
+  "scan_date": "2026-09-07T06:33:58",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -44,20 +44,6 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 25.8,
-      "baseline_rv": 27.0,
-      "z_score": -0.09,
-      "vrp": -0.0006,
-      "beta_30d": 0.629,
-      "consec_vol": 4,
-      "excess_10d": -4.77,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.63",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLF",
       "current_rv": 14.1,
       "baseline_rv": 14.5,
@@ -72,6 +58,34 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 4.1,
+      "z_score": -0.14,
+      "vrp": -0.0014,
+      "beta_30d": 0.124,
+      "consec_vol": 4,
+      "excess_10d": -1.08,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.12",
+      "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 25.0,
+      "baseline_rv": 27.1,
+      "z_score": -0.16,
+      "vrp": -0.0006,
+      "beta_30d": 0.629,
+      "consec_vol": 4,
+      "excess_10d": -4.77,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.63",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XLK",
       "current_rv": 24.2,
       "baseline_rv": 26.5,
@@ -84,20 +98,6 @@
       "label": "WATCH",
       "reason": "beta=2.02",
       "sector": "Technology"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.9,
-      "baseline_rv": 4.1,
-      "z_score": -0.24,
-      "vrp": -0.0014,
-      "beta_30d": 0.124,
-      "consec_vol": 3,
-      "excess_10d": -1.08,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.12",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLY",
@@ -128,6 +128,20 @@
       "sector": "Long-term Treasury"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 37.8,
+      "baseline_rv": 53.4,
+      "z_score": -0.58,
+      "vrp": 0.0759,
+      "beta_30d": -2.455,
+      "consec_vol": 0,
+      "excess_10d": 4.62,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.45",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "SOXX",
       "current_rv": 33.8,
       "baseline_rv": 45.7,
@@ -140,20 +154,6 @@
       "label": "WATCH",
       "reason": "beta=2.65",
       "sector": "Semiconductors"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 34.5,
-      "baseline_rv": 53.3,
-      "z_score": -0.7,
-      "vrp": 0.0759,
-      "beta_30d": -2.455,
-      "consec_vol": 0,
-      "excess_10d": 4.62,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.45",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "EWY",
@@ -297,9 +297,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 8.5,
+      "current_rv": 8.7,
       "baseline_rv": 12.8,
-      "z_score": -1.12,
+      "z_score": -1.08,
       "vrp": 0.0526,
       "beta_30d": 1.001,
       "consec_vol": 0,
