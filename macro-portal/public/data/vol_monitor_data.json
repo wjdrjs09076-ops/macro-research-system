@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-07T06:33:58",
+  "scan_date": "2026-09-07T13:02:39",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -450,18 +450,6 @@
   },
   "fred": [
     {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 236.814,
-      "baseline": 339.1014,
-      "z_score": -0.76,
-      "last_date": "2026-09-03"
-    },
-    {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
       "desc": "HY Credit Spread",
@@ -496,11 +484,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4577.02,
-      "baseline": 4698.74,
-      "z_score": -0.93,
-      "rv_20d": 15.3,
-      "last_date": "2026-09-04"
+      "current": 4567.01,
+      "baseline": 4698.38,
+      "z_score": -1.0,
+      "rv_20d": 15.49,
+      "last_date": "2026-09-07"
     },
     {
       "sym": "sh000905",
@@ -509,11 +497,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7789.58,
-      "baseline": 7976.43,
-      "z_score": -0.34,
-      "rv_20d": 25.15,
-      "last_date": "2026-09-04"
+      "current": 7751.03,
+      "baseline": 7976.31,
+      "z_score": -0.41,
+      "rv_20d": 25.62,
+      "last_date": "2026-09-07"
     },
     {
       "sym": "sz399006",
@@ -522,11 +510,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3348.69,
-      "baseline": 3491.11,
-      "z_score": -0.42,
-      "rv_20d": 32.26,
-      "last_date": "2026-09-04"
+      "current": 3340.69,
+      "baseline": 3490.85,
+      "z_score": -0.44,
+      "rv_20d": 34.91,
+      "last_date": "2026-09-07"
     },
     {
       "sym": "sh000001",
@@ -536,11 +524,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3955.96,
-      "baseline": 4010.97,
-      "z_score": -0.51,
-      "rv_20d": 13.21,
-      "last_date": "2026-09-04"
+      "current": 3945.24,
+      "baseline": 4010.85,
+      "z_score": -0.61,
+      "rv_20d": 12.97,
+      "last_date": "2026-09-07"
     }
   ],
   "flagged_count": 24,
