@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-08T10:01:44",
+  "scan_date": "2026-09-08T13:02:28",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -423,6 +423,13 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 86.58,
+      "baseline": 80.45,
+      "z_score": 0.36,
+      "bw_spread": 5.59
+    },
     "brent": {
       "label": "Brent",
       "current": 92.33,
@@ -437,22 +444,11 @@
     },
     "level": 1,
     "reasons": [
+      "WTI backwardation +5.6%",
       "Brent backwardation +8.0%"
     ]
   },
   "fred": [
-    {
-      "sid": "USEPUINDXD",
-      "label": "EPU",
-      "desc": "Econ Policy Uncertainty",
-      "etfs": [
-        "ALL"
-      ],
-      "current": 379.488,
-      "baseline": 337.845,
-      "z_score": 0.31,
-      "last_date": "2026-09-06"
-    },
     {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
@@ -514,11 +510,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3340.69,
-      "baseline": 3491.97,
-      "z_score": -0.44,
-      "rv_20d": 34.91,
-      "last_date": "2026-09-07"
+      "current": 3333.95,
+      "baseline": 3491.49,
+      "z_score": -0.46,
+      "rv_20d": 35.02,
+      "last_date": "2026-09-08"
     },
     {
       "sym": "sh000001",
