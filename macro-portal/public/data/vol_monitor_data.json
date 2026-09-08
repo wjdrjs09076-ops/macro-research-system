@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-08T05:04:51",
+  "scan_date": "2026-09-08T10:01:44",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -423,13 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 86.58,
-      "baseline": 80.45,
-      "z_score": 0.36,
-      "bw_spread": 5.59
-    },
     "brent": {
       "label": "Brent",
       "current": 92.33,
@@ -444,7 +437,6 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +5.6%",
       "Brent backwardation +8.0%"
     ]
   },
@@ -496,11 +488,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4567.01,
-      "baseline": 4698.32,
-      "z_score": -1.0,
-      "rv_20d": 15.49,
-      "last_date": "2026-09-07"
+      "current": 4556.47,
+      "baseline": 4697.9,
+      "z_score": -1.08,
+      "rv_20d": 15.31,
+      "last_date": "2026-09-08"
     },
     {
       "sym": "sh000905",
@@ -509,11 +501,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7751.03,
-      "baseline": 7979.21,
-      "z_score": -0.42,
-      "rv_20d": 25.62,
-      "last_date": "2026-09-07"
+      "current": 7733.48,
+      "baseline": 7978.62,
+      "z_score": -0.45,
+      "rv_20d": 25.53,
+      "last_date": "2026-09-08"
     },
     {
       "sym": "sz399006",
@@ -536,11 +528,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3945.24,
-      "baseline": 4010.97,
-      "z_score": -0.61,
-      "rv_20d": 12.97,
-      "last_date": "2026-09-07"
+      "current": 3937.37,
+      "baseline": 4010.82,
+      "z_score": -0.68,
+      "rv_20d": 12.66,
+      "last_date": "2026-09-08"
     }
   ],
   "flagged_count": 24,
