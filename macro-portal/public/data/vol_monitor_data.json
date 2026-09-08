@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-08T20:02:24",
+  "scan_date": "2026-09-08T20:31:37",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -449,6 +449,30 @@
     ]
   },
   "fred": [
+    {
+      "sid": "USEPUINDXD",
+      "label": "EPU",
+      "desc": "Econ Policy Uncertainty",
+      "etfs": [
+        "ALL"
+      ],
+      "current": 484.766,
+      "baseline": 337.9742,
+      "z_score": 1.09,
+      "last_date": "2026-09-07"
+    },
+    {
+      "sid": "BAMLH0A0HYM2",
+      "label": "HY Spd",
+      "desc": "HY Credit Spread",
+      "etfs": [
+        "XLF"
+      ],
+      "current": 2.664,
+      "baseline": 2.8739,
+      "z_score": 1.24,
+      "last_date": "2026-09-07"
+    },
     {
       "sid": "T10Y2Y",
       "label": "Yld Crv",
