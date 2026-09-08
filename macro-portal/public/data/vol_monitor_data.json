@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-08T13:02:28",
+  "scan_date": "2026-09-08T13:31:54",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -449,6 +449,18 @@
     ]
   },
   "fred": [
+    {
+      "sid": "USEPUINDXD",
+      "label": "EPU",
+      "desc": "Econ Policy Uncertainty",
+      "etfs": [
+        "ALL"
+      ],
+      "current": 484.766,
+      "baseline": 337.9742,
+      "z_score": 1.09,
+      "last_date": "2026-09-07"
+    },
     {
       "sid": "BAMLH0A0HYM2",
       "label": "HY Spd",
