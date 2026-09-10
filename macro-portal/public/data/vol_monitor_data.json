@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-10T12:09:37",
+  "scan_date": "2026-09-10T13:02:26",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -406,20 +406,6 @@
       "label": "WATCH",
       "reason": "beta=-0.18",
       "sector": "Hang Seng"
-    },
-    {
-      "ticker": "TLT",
-      "current_rv": 4.2,
-      "baseline_rv": 9.1,
-      "z_score": -2.17,
-      "vrp": 0.0512,
-      "beta_30d": 0.403,
-      "consec_vol": 1,
-      "excess_10d": -1.28,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.40",
-      "sector": "Long-term Treasury"
     }
   ],
   "oil": {
@@ -543,7 +529,7 @@
       "last_date": "2026-09-10"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 24,
   "alert_count": 0,
   "high_count": 0
 }
