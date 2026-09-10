@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-10T15:02:29",
+  "scan_date": "2026-09-10T15:31:51",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -456,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 456.516,
-      "baseline": 338.2444,
-      "z_score": 0.88,
-      "last_date": "2026-09-08"
+      "current": 465.252,
+      "baseline": 337.016,
+      "z_score": 0.95,
+      "last_date": "2026-09-09"
     },
     {
       "sid": "BAMLH0A0HYM2",
