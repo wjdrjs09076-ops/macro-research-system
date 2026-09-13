@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-13T00:10:51",
+  "scan_date": "2026-09-13T05:16:10",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -59,17 +59,31 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 25.1,
+      "current_rv": 26.2,
       "baseline_rv": 27.0,
-      "z_score": -0.14,
-      "vrp": -0.0214,
-      "beta_30d": 0.715,
+      "z_score": -0.06,
+      "vrp": -0.0308,
+      "beta_30d": 0.773,
       "consec_vol": 5,
-      "excess_10d": -4.43,
+      "excess_10d": -3.45,
       "level": 1,
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Gold Futures"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 4.1,
+      "z_score": -0.12,
+      "vrp": 0.0035,
+      "beta_30d": 0.206,
+      "consec_vol": 2,
+      "excess_10d": -1.37,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.21",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "FXI",
@@ -98,20 +112,6 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.8,
-      "baseline_rv": 4.1,
-      "z_score": -0.29,
-      "vrp": 0.0034,
-      "beta_30d": 0.217,
-      "consec_vol": 1,
-      "excess_10d": -1.19,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.22",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "CL=F",
