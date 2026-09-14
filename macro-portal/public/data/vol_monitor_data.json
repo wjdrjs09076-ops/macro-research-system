@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-14T01:28:16",
+  "scan_date": "2026-09-14T06:56:45",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -58,6 +58,20 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 25.1,
+      "baseline_rv": 27.0,
+      "z_score": -0.14,
+      "vrp": -0.0214,
+      "beta_30d": 0.715,
+      "consec_vol": 5,
+      "excess_10d": -4.43,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "FXI",
       "current_rv": 17.9,
       "baseline_rv": 19.0,
@@ -86,18 +100,32 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 21.6,
-      "baseline_rv": 27.0,
+      "ticker": "ZN=F",
+      "current_rv": 3.8,
+      "baseline_rv": 4.1,
+      "z_score": -0.29,
+      "vrp": 0.0034,
+      "beta_30d": 0.217,
+      "consec_vol": 1,
+      "excess_10d": -1.19,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.22",
+      "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 42.8,
+      "baseline_rv": 53.6,
       "z_score": -0.4,
-      "vrp": -0.0214,
-      "beta_30d": 0.715,
-      "consec_vol": 4,
-      "excess_10d": -4.43,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
+      "vrp": 0.0685,
+      "beta_30d": -2.867,
+      "consec_vol": 0,
+      "excess_10d": 19.4,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.87",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLV",
@@ -112,34 +140,6 @@
       "label": "WATCH",
       "reason": "beta=0.23",
       "sector": "Healthcare"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 41.9,
-      "baseline_rv": 53.5,
-      "z_score": -0.43,
-      "vrp": 0.0685,
-      "beta_30d": -2.867,
-      "consec_vol": 0,
-      "excess_10d": 19.4,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.87",
-      "sector": "WTI Crude Futures"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.6,
-      "baseline_rv": 4.1,
-      "z_score": -0.5,
-      "vrp": 0.0034,
-      "beta_30d": 0.217,
-      "consec_vol": 0,
-      "excess_10d": -1.19,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.22",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^FTSE",
@@ -241,9 +241,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 10.1,
-      "baseline_rv": 12.6,
-      "z_score": -0.67,
+      "current_rv": 9.9,
+      "baseline_rv": 12.7,
+      "z_score": -0.72,
       "vrp": 0.0531,
       "beta_30d": 1.001,
       "consec_vol": 0,
@@ -543,7 +543,7 @@
       "last_date": "2026-09-11"
     }
   ],
-  "flagged_count": 24,
+  "flagged_count": 25,
   "alert_count": 0,
   "high_count": 0
 }
