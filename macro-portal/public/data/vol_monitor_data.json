@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-15T06:34:47",
+  "scan_date": "2026-09-15T12:34:47",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -114,20 +114,6 @@
       "sector": "Semiconductors"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 23.2,
-      "baseline_rv": 27.1,
-      "z_score": -0.29,
-      "vrp": -0.0005,
-      "beta_30d": 0.925,
-      "consec_vol": 4,
-      "excess_10d": -1.67,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "ZN=F",
       "current_rv": 3.8,
       "baseline_rv": 4.1,
@@ -154,6 +140,20 @@
       "label": "---",
       "reason": "",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 22.1,
+      "baseline_rv": 27.1,
+      "z_score": -0.39,
+      "vrp": 0.0086,
+      "beta_30d": 0.865,
+      "consec_vol": 4,
+      "excess_10d": -2.83,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "XLI",
@@ -496,11 +496,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4533.99,
-      "baseline": 4696.37,
-      "z_score": -1.23,
-      "rv_20d": 13.92,
-      "last_date": "2026-09-14"
+      "current": 4512.25,
+      "baseline": 4695.7,
+      "z_score": -1.38,
+      "rv_20d": 13.99,
+      "last_date": "2026-09-15"
     },
     {
       "sym": "sh000905",
@@ -509,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7681.67,
-      "baseline": 7990.51,
-      "z_score": -0.58,
-      "rv_20d": 23.69,
-      "last_date": "2026-09-14"
+      "current": 7639.85,
+      "baseline": 7989.43,
+      "z_score": -0.65,
+      "rv_20d": 23.68,
+      "last_date": "2026-09-15"
     },
     {
       "sym": "sz399006",
@@ -522,11 +522,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3332.15,
-      "baseline": 3495.86,
-      "z_score": -0.48,
-      "rv_20d": 31.34,
-      "last_date": "2026-09-14"
+      "current": 3309.79,
+      "baseline": 3495.19,
+      "z_score": -0.55,
+      "rv_20d": 31.37,
+      "last_date": "2026-09-15"
     },
     {
       "sym": "sh000001",
@@ -536,11 +536,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3919.98,
-      "baseline": 4010.27,
-      "z_score": -0.84,
-      "rv_20d": 12.13,
-      "last_date": "2026-09-14"
+      "current": 3904.73,
+      "baseline": 4009.93,
+      "z_score": -0.98,
+      "rv_20d": 12.16,
+      "last_date": "2026-09-15"
     }
   ],
   "flagged_count": 23,
