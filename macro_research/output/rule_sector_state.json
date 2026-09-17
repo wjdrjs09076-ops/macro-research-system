@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-17T15:15:49",
+  "generated": "2026-09-17T19:13:20",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -22,9 +22,7 @@
     "vol_overpriced|XLE",
     "vol_overpriced|XLF",
     "vol_overpriced|XLI",
-    "vol_overpriced|XLK",
-    "vol_overpriced|XLRE",
-    "vol_overpriced|XLU"
+    "vol_overpriced|XLRE"
   ],
   "rate_verdicts": [
     {
@@ -75,7 +73,7 @@
       "evidence": {
         "delta_ctrl": -0.0011,
         "t": -1.08,
-        "q_fdr": 0.4332
+        "q_fdr": 0.4331
       },
       "judged": "2026-09-17"
     },
@@ -88,7 +86,7 @@
       "evidence": {
         "delta_ctrl": -0.0011,
         "t": -1.08,
-        "q_fdr": 0.4332
+        "q_fdr": 0.4331
       },
       "judged": "2026-09-17"
     },
@@ -153,7 +151,7 @@
       "evidence": {
         "delta_ctrl": -0.0014,
         "t": -1.04,
-        "q_fdr": 0.4332
+        "q_fdr": 0.4331
       },
       "judged": "2026-09-17"
     },
@@ -166,7 +164,7 @@
       "evidence": {
         "delta_ctrl": -0.0014,
         "t": -1.04,
-        "q_fdr": 0.4332
+        "q_fdr": 0.4331
       },
       "judged": "2026-09-17"
     },
@@ -348,7 +346,7 @@
       "evidence": {
         "delta_ctrl": -0.0012,
         "t": -1.01,
-        "q_fdr": 0.4332
+        "q_fdr": 0.4331
       },
       "judged": "2026-09-17"
     },
@@ -361,7 +359,7 @@
       "evidence": {
         "delta_ctrl": -0.0012,
         "t": -1.01,
-        "q_fdr": 0.4332
+        "q_fdr": 0.4331
       },
       "judged": "2026-09-17"
     },
