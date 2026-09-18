@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-17T22:23:46",
+  "scan_date": "2026-09-18T00:42:42",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -14,6 +14,20 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Communication"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 14.0,
+      "baseline_rv": 12.5,
+      "z_score": 0.39,
+      "vrp": 0.0724,
+      "beta_30d": 0.995,
+      "consec_vol": 1,
+      "excess_10d": -0.12,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "XLF",
@@ -72,6 +86,34 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 4.1,
+      "z_score": -0.09,
+      "vrp": 0.0031,
+      "beta_30d": 0.208,
+      "consec_vol": 1,
+      "excess_10d": -0.47,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.21",
+      "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 49.0,
+      "baseline_rv": 53.5,
+      "z_score": -0.17,
+      "vrp": 0.0668,
+      "beta_30d": -2.166,
+      "consec_vol": 2,
+      "excess_10d": 14.16,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.17",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "^FTMC",
       "current_rv": 11.2,
       "baseline_rv": 12.1,
@@ -100,20 +142,6 @@
       "sector": "Korea (MSCI)"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 46.9,
-      "baseline_rv": 53.5,
-      "z_score": -0.25,
-      "vrp": 0.0668,
-      "beta_30d": -2.166,
-      "consec_vol": 1,
-      "excess_10d": 14.16,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.17",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "SOXX",
       "current_rv": 40.6,
       "baseline_rv": 45.6,
@@ -140,20 +168,6 @@
       "label": "---",
       "reason": "",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.8,
-      "baseline_rv": 4.1,
-      "z_score": -0.35,
-      "vrp": 0.0031,
-      "beta_30d": 0.208,
-      "consec_vol": 0,
-      "excess_10d": -0.47,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.21",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^FTSE",
@@ -199,12 +213,12 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 21.2,
-      "baseline_rv": 27.2,
+      "current_rv": 21.1,
+      "baseline_rv": 27.1,
       "z_score": -0.47,
       "vrp": 0.0098,
       "beta_30d": 1.208,
-      "consec_vol": 2,
+      "consec_vol": 1,
       "excess_10d": 0.88,
       "level": 0,
       "label": "---",
@@ -266,20 +280,6 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 9.8,
-      "baseline_rv": 12.6,
-      "z_score": -0.72,
-      "vrp": 0.0724,
-      "beta_30d": 0.995,
-      "consec_vol": 0,
-      "excess_10d": -0.12,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "XLB",
@@ -426,15 +426,15 @@
     "wti": {
       "label": "WTI",
       "current": 97.46,
-      "baseline": 81.42,
-      "z_score": 0.97,
+      "baseline": 81.54,
+      "z_score": 0.96,
       "bw_spread": 16.56
     },
     "brent": {
       "label": "Brent",
       "current": 111.15,
-      "baseline": 88.09,
-      "z_score": 1.2,
+      "baseline": 88.23,
+      "z_score": 1.19,
       "bw_spread": 23.75
     },
     "inv": {
@@ -469,7 +469,7 @@
         "XLF"
       ],
       "current": 2.704,
-      "baseline": 2.8694,
+      "baseline": 2.8681,
       "z_score": 0.96,
       "last_date": "2026-09-16"
     },
@@ -483,7 +483,7 @@
       ],
       "current": 0.304,
       "baseline": 0.5207,
-      "z_score": -2.0,
+      "z_score": -1.99,
       "last_date": "2026-09-17"
     }
   ],
