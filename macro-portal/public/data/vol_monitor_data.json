@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-20T09:41:18",
+  "scan_date": "2026-09-20T14:03:40",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -44,6 +44,20 @@
       "sector": "China Large-Cap"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.4,
+      "baseline_rv": 4.1,
+      "z_score": 0.27,
+      "vrp": -0.0009,
+      "beta_30d": 0.221,
+      "consec_vol": 2,
+      "excess_10d": -0.72,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.22",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "TLT",
       "current_rv": 9.8,
       "baseline_rv": 9.3,
@@ -56,6 +70,20 @@
       "label": "WATCH",
       "reason": "beta=0.52",
       "sector": "Long-term Treasury"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 59.1,
+      "baseline_rv": 53.6,
+      "z_score": 0.21,
+      "vrp": -0.0424,
+      "beta_30d": -2.15,
+      "consec_vol": 3,
+      "excess_10d": 6.97,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.15",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^FTMC",
@@ -114,20 +142,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.0,
-      "baseline_rv": 4.1,
-      "z_score": -0.1,
-      "vrp": -0.0001,
-      "beta_30d": 0.225,
-      "consec_vol": 2,
-      "excess_10d": -0.49,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.23",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "EWY",
       "current_rv": 55.4,
       "baseline_rv": 57.8,
@@ -154,20 +168,6 @@
       "label": "WATCH",
       "reason": "beta=0.55",
       "sector": "Euro Stoxx 50"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 49.7,
-      "baseline_rv": 53.6,
-      "z_score": -0.15,
-      "vrp": 0.0017,
-      "beta_30d": -2.08,
-      "consec_vol": 3,
-      "excess_10d": 11.11,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.08",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "EEM",
