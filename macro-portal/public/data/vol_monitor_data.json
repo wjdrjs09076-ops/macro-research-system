@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-21T07:01:26",
+  "scan_date": "2026-09-21T13:59:21",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -456,9 +456,21 @@
       "etfs": [
         "ALL"
       ],
-      "current": 277.476,
-      "baseline": 340.0787,
-      "z_score": -0.45,
+      "current": 227.94,
+      "baseline": 338.1634,
+      "z_score": -0.8,
+      "last_date": "2026-09-20"
+    },
+    {
+      "sid": "BAMLH0A0HYM2",
+      "label": "HY Spd",
+      "desc": "HY Credit Spread",
+      "etfs": [
+        "XLF"
+      ],
+      "current": 2.704,
+      "baseline": 2.8661,
+      "z_score": 0.95,
       "last_date": "2026-09-17"
     },
     {
@@ -484,11 +496,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4475.59,
-      "baseline": 4694.01,
-      "z_score": -1.63,
-      "rv_20d": 11.08,
-      "last_date": "2026-09-18"
+      "current": 4487.48,
+      "baseline": 4692.96,
+      "z_score": -1.53,
+      "rv_20d": 10.67,
+      "last_date": "2026-09-21"
     },
     {
       "sym": "sh000905",
@@ -497,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7654.17,
-      "baseline": 7998.5,
-      "z_score": -0.65,
-      "rv_20d": 19.11,
-      "last_date": "2026-09-18"
+      "current": 7710.03,
+      "baseline": 7996.42,
+      "z_score": -0.54,
+      "rv_20d": 18.12,
+      "last_date": "2026-09-21"
     },
     {
       "sym": "sz399006",
@@ -510,11 +522,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3303.19,
-      "baseline": 3499.45,
-      "z_score": -0.58,
-      "rv_20d": 25.4,
-      "last_date": "2026-09-18"
+      "current": 3325.99,
+      "baseline": 3498.4,
+      "z_score": -0.51,
+      "rv_20d": 23.06,
+      "last_date": "2026-09-21"
     },
     {
       "sym": "sh000001",
@@ -524,11 +536,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3885.74,
-      "baseline": 4008.78,
-      "z_score": -1.13,
-      "rv_20d": 9.88,
-      "last_date": "2026-09-18"
+      "current": 3898.65,
+      "baseline": 4008.18,
+      "z_score": -1.01,
+      "rv_20d": 10.17,
+      "last_date": "2026-09-21"
     }
   ],
   "flagged_count": 22,
