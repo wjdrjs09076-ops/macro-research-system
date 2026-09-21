@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-21T01:28:15",
+  "scan_date": "2026-09-21T07:01:26",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -42,20 +42,6 @@
       "label": "WATCH",
       "reason": "beta=0.39",
       "sector": "China Large-Cap"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 62.6,
-      "baseline_rv": 53.7,
-      "z_score": 0.33,
-      "vrp": 0.0017,
-      "beta_30d": -2.08,
-      "consec_vol": 4,
-      "excess_10d": 11.11,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.08",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "TLT",
@@ -128,20 +114,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.1,
-      "baseline_rv": 4.1,
-      "z_score": -0.08,
-      "vrp": -0.0001,
-      "beta_30d": 0.225,
-      "consec_vol": 3,
-      "excess_10d": -0.49,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.23",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "EWY",
       "current_rv": 55.4,
       "baseline_rv": 58.0,
@@ -154,6 +126,20 @@
       "label": "WATCH",
       "reason": "beta=2.57",
       "sector": "Korea (MSCI)"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.0,
+      "baseline_rv": 4.1,
+      "z_score": -0.11,
+      "vrp": -0.0001,
+      "beta_30d": 0.225,
+      "consec_vol": 2,
+      "excess_10d": -0.49,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.23",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^STOXX50E",
@@ -170,6 +156,20 @@
       "sector": "Euro Stoxx 50"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 49.7,
+      "baseline_rv": 53.8,
+      "z_score": -0.15,
+      "vrp": 0.0017,
+      "beta_30d": -2.08,
+      "consec_vol": 3,
+      "excess_10d": 11.11,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.08",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "EEM",
       "current_rv": 24.1,
       "baseline_rv": 25.6,
@@ -182,20 +182,6 @@
       "label": "---",
       "reason": "",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 11.4,
-      "baseline_rv": 12.4,
-      "z_score": -0.27,
-      "vrp": 0.0438,
-      "beta_30d": 0.996,
-      "consec_vol": 0,
-      "excess_10d": -0.02,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "GLD",
@@ -252,6 +238,20 @@
       "label": "WATCH",
       "reason": "beta=-0.20",
       "sector": "KOSPI"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 9.8,
+      "baseline_rv": 12.4,
+      "z_score": -0.69,
+      "vrp": 0.0438,
+      "beta_30d": 0.996,
+      "consec_vol": 0,
+      "excess_10d": -0.02,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "EWJ",
@@ -338,6 +338,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 14.5,
+      "baseline_rv": 27.3,
+      "z_score": -0.99,
+      "vrp": 0.0698,
+      "beta_30d": 1.1,
+      "consec_vol": 0,
+      "excess_10d": -1.29,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XTN",
       "current_rv": 17.6,
       "baseline_rv": 26.6,
@@ -350,20 +364,6 @@
       "label": "WATCH",
       "reason": "beta=1.37",
       "sector": "Transportation / Shipping"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 13.1,
-      "baseline_rv": 27.3,
-      "z_score": -1.11,
-      "vrp": 0.0698,
-      "beta_30d": 1.1,
-      "consec_vol": 0,
-      "excess_10d": -1.29,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "^N225",
@@ -459,18 +459,6 @@
       "current": 277.476,
       "baseline": 340.0787,
       "z_score": -0.45,
-      "last_date": "2026-09-17"
-    },
-    {
-      "sid": "BAMLH0A0HYM2",
-      "label": "HY Spd",
-      "desc": "HY Credit Spread",
-      "etfs": [
-        "XLF"
-      ],
-      "current": 2.704,
-      "baseline": 2.8661,
-      "z_score": 0.95,
       "last_date": "2026-09-17"
     },
     {
