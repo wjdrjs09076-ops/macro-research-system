@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-23T14:23:12",
+  "generated": "2026-09-23T18:34:45",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -22,6 +22,8 @@
     "vol_overpriced|XLE",
     "vol_overpriced|XLF",
     "vol_overpriced|XLI",
+    "vol_overpriced|XLP",
+    "vol_overpriced|XLU",
     "vol_overpriced|XLV",
     "vol_overpriced|XLY"
   ],
