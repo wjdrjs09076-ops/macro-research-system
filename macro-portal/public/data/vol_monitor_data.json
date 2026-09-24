@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-23T22:09:54",
+  "scan_date": "2026-09-24T00:47:22",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -16,13 +16,27 @@
       "sector": "Communication"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 5.9,
+      "baseline_rv": 4.1,
+      "z_score": 1.75,
+      "vrp": -0.0054,
+      "beta_30d": 0.216,
+      "consec_vol": 5,
+      "excess_10d": -2.71,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.22, 5d consec vol",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "ES=F",
-      "current_rv": 15.0,
+      "current_rv": 15.5,
       "baseline_rv": 12.4,
-      "z_score": 0.67,
+      "z_score": 0.82,
       "vrp": 0.0022,
       "beta_30d": 1.106,
-      "consec_vol": 2,
+      "consec_vol": 3,
       "excess_10d": 0.75,
       "level": 0,
       "label": "---",
@@ -56,20 +70,6 @@
       "label": "WATCH",
       "reason": "beta=0.50",
       "sector": "Long-term Treasury"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.6,
-      "baseline_rv": 4.1,
-      "z_score": 0.46,
-      "vrp": -0.0054,
-      "beta_30d": 0.216,
-      "consec_vol": 4,
-      "excess_10d": -2.71,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.22",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "FXI",
@@ -143,8 +143,8 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 57.1,
-      "baseline_rv": 53.9,
+      "current_rv": 56.8,
+      "baseline_rv": 53.7,
       "z_score": 0.12,
       "vrp": -0.044,
       "beta_30d": -2.448,
@@ -339,9 +339,9 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 13.2,
+      "current_rv": 13.5,
       "baseline_rv": 27.4,
-      "z_score": -1.11,
+      "z_score": -1.09,
       "vrp": 0.0766,
       "beta_30d": 0.627,
       "consec_vol": 0,
@@ -426,14 +426,14 @@
     "wti": {
       "label": "WTI",
       "current": 101.32,
-      "baseline": 82.23,
+      "baseline": 82.37,
       "z_score": 1.17,
       "bw_spread": 18.03
     },
     "brent": {
       "label": "Brent",
       "current": 120.03,
-      "baseline": 89.03,
+      "baseline": 89.18,
       "z_score": 1.63,
       "bw_spread": 28.02
     },
@@ -469,7 +469,7 @@
         "XLF"
       ],
       "current": 2.684,
-      "baseline": 2.8628,
+      "baseline": 2.862,
       "z_score": 1.05,
       "last_date": "2026-09-22"
     },
@@ -482,8 +482,8 @@
         "TLT"
       ],
       "current": 0.246,
-      "baseline": 0.5168,
-      "z_score": -2.43,
+      "baseline": 0.5165,
+      "z_score": -2.42,
       "last_date": "2026-09-23"
     }
   ],
