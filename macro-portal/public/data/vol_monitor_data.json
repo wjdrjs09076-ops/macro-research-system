@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-26T05:21:06",
+  "scan_date": "2026-09-26T10:08:35",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -257,7 +257,7 @@
       "ticker": "XLK",
       "current_rv": 21.6,
       "baseline_rv": 26.2,
-      "z_score": -0.48,
+      "z_score": -0.47,
       "vrp": 0.0979,
       "beta_30d": 1.601,
       "consec_vol": 1,
