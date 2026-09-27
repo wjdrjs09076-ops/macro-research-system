@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-27T19:12:56",
+  "scan_date": "2026-09-27T22:31:07",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -31,16 +31,16 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 5.6,
+      "current_rv": 5.5,
       "baseline_rv": 4.1,
-      "z_score": 1.46,
-      "vrp": -0.008,
-      "beta_30d": 0.25,
+      "z_score": 1.37,
+      "vrp": -0.0075,
+      "beta_30d": 0.245,
       "consec_vol": 5,
-      "excess_10d": -2.5,
+      "excess_10d": -2.61,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=0.25, 5d consec vol",
+      "reason": "beta=0.24, 5d consec vol",
       "sector": "10Y Treasury Futures"
     },
     {
