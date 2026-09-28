@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-28T01:08:29",
+  "scan_date": "2026-09-28T07:28:34",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -31,9 +31,9 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 5.4,
+      "current_rv": 5.5,
       "baseline_rv": 4.1,
-      "z_score": 1.25,
+      "z_score": 1.36,
       "vrp": -0.0075,
       "beta_30d": 0.245,
       "consec_vol": 5,
@@ -45,9 +45,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 14.4,
+      "current_rv": 14.6,
       "baseline_rv": 12.3,
-      "z_score": 0.54,
+      "z_score": 0.59,
       "vrp": 0.0071,
       "beta_30d": 1.103,
       "consec_vol": 5,
@@ -227,12 +227,12 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 43.5,
-      "baseline_rv": 54.0,
-      "z_score": -0.4,
+      "current_rv": 44.0,
+      "baseline_rv": 54.1,
+      "z_score": -0.38,
       "vrp": 0.1053,
       "beta_30d": -2.151,
-      "consec_vol": 2,
+      "consec_vol": 3,
       "excess_10d": -8.76,
       "level": 1,
       "label": "WATCH",
@@ -325,8 +325,8 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 13.7,
-      "baseline_rv": 27.5,
+      "current_rv": 13.6,
+      "baseline_rv": 27.6,
       "z_score": -1.1,
       "vrp": 0.0632,
       "beta_30d": 0.798,
