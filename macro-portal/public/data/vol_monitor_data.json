@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-29T20:10:58",
+  "scan_date": "2026-09-29T23:55:45",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -254,6 +254,20 @@
       "sector": "Consumer Discretionary"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 21.2,
+      "baseline_rv": 27.6,
+      "z_score": -0.5,
+      "vrp": 0.0295,
+      "beta_30d": 0.984,
+      "consec_vol": 0,
+      "excess_10d": -5.11,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "SOXX",
       "current_rv": 34.0,
       "baseline_rv": 45.3,
@@ -322,20 +336,6 @@
       "label": "WATCH",
       "reason": "beta=0.18",
       "sector": "KOSPI"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 13.6,
-      "baseline_rv": 27.6,
-      "z_score": -1.1,
-      "vrp": 0.0632,
-      "beta_30d": 0.798,
-      "consec_vol": 0,
-      "excess_10d": -3.17,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "XTN",
@@ -481,10 +481,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.3,
-      "baseline": 0.5125,
-      "z_score": -1.83,
-      "last_date": "2026-09-28"
+      "current": 0.324,
+      "baseline": 0.5114,
+      "z_score": -1.6,
+      "last_date": "2026-09-29"
     }
   ],
   "china": [
