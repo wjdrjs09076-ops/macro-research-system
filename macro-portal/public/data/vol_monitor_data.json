@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-09-30T21:23:45",
+  "scan_date": "2026-10-01T00:47:02",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -33,7 +33,7 @@
       "ticker": "ZN=F",
       "current_rv": 5.5,
       "baseline_rv": 4.1,
-      "z_score": 1.36,
+      "z_score": 1.38,
       "vrp": -0.0063,
       "beta_30d": 0.249,
       "consec_vol": 5,
@@ -45,9 +45,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 14.7,
+      "current_rv": 14.4,
       "baseline_rv": 12.3,
-      "z_score": 0.63,
+      "z_score": 0.54,
       "vrp": 0.0202,
       "beta_30d": 1.1,
       "consec_vol": 5,
@@ -226,20 +226,6 @@
       "sector": "Euro Stoxx 50"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 21.5,
-      "baseline_rv": 27.6,
-      "z_score": -0.49,
-      "vrp": 0.0241,
-      "beta_30d": 1.032,
-      "consec_vol": 0,
-      "excess_10d": -4.68,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "SOXX",
       "current_rv": 33.7,
       "baseline_rv": 45.4,
@@ -252,6 +238,20 @@
       "label": "WATCH",
       "reason": "beta=2.16",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 19.6,
+      "baseline_rv": 27.6,
+      "z_score": -0.64,
+      "vrp": 0.0241,
+      "beta_30d": 1.032,
+      "consec_vol": 0,
+      "excess_10d": -4.68,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "EWY",
@@ -282,6 +282,20 @@
       "sector": "Materials"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 34.6,
+      "baseline_rv": 54.3,
+      "z_score": -0.75,
+      "vrp": 0.264,
+      "beta_30d": -1.924,
+      "consec_vol": 0,
+      "excess_10d": -17.73,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.92",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "XLK",
       "current_rv": 19.0,
       "baseline_rv": 26.3,
@@ -294,20 +308,6 @@
       "label": "WATCH",
       "reason": "beta=1.62",
       "sector": "Technology"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 32.9,
-      "baseline_rv": 54.3,
-      "z_score": -0.82,
-      "vrp": 0.264,
-      "beta_30d": -1.924,
-      "consec_vol": 1,
-      "excess_10d": -17.73,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.92",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLY",
@@ -426,15 +426,15 @@
     "wti": {
       "label": "WTI",
       "current": 97.17,
-      "baseline": 83.49,
+      "baseline": 83.63,
       "z_score": 0.85,
       "bw_spread": 10.65
     },
     "brent": {
       "label": "Brent",
       "current": 118.8,
-      "baseline": 90.64,
-      "z_score": 1.48,
+      "baseline": 90.79,
+      "z_score": 1.47,
       "bw_spread": 21.48
     },
     "inv": {
@@ -469,7 +469,7 @@
         "XLF"
       ],
       "current": 2.912,
-      "baseline": 2.856,
+      "baseline": 2.8556,
       "z_score": -0.33,
       "last_date": "2026-09-29"
     },
@@ -482,7 +482,7 @@
         "TLT"
       ],
       "current": 0.354,
-      "baseline": 0.5103,
+      "baseline": 0.5102,
       "z_score": -1.32,
       "last_date": "2026-09-30"
     }
