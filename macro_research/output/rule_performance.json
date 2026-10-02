@@ -20,14 +20,14 @@
     "total_pnl": -71.5
   },
   "rate_beneficiary|directional": {
-    "multiplier": 1.0,
+    "multiplier": 1.0046,
     "killed": false,
-    "trades": 5,
-    "cohorts": 4,
-    "win_rate": 0.6,
-    "avg_pnl_pct": 0.0006,
-    "avg_pnl_pct_eff": 0.0042,
-    "total_pnl": 2.2
+    "trades": 6,
+    "cohorts": 5,
+    "win_rate": 0.6667,
+    "avg_pnl_pct": 0.0093,
+    "avg_pnl_pct_eff": 0.0139,
+    "total_pnl": 22.23
   },
   "shock_propagator|directional": {
     "multiplier": 1.0,
@@ -40,14 +40,14 @@
     "total_pnl": -2.8
   },
   "rate_victim|directional": {
-    "multiplier": 0.9985,
+    "multiplier": 1.001,
     "killed": false,
-    "trades": 30,
-    "cohorts": 8,
-    "win_rate": 0.4,
-    "avg_pnl_pct": 0.0023,
-    "avg_pnl_pct_eff": -0.0029,
-    "total_pnl": 34.12
+    "trades": 34,
+    "cohorts": 9,
+    "win_rate": 0.4706,
+    "avg_pnl_pct": 0.0065,
+    "avg_pnl_pct_eff": 0.0016,
+    "total_pnl": 118.95
   },
   "event_vol|straddle": {
     "multiplier": 1.0,

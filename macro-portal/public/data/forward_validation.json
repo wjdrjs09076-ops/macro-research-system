@@ -1,13 +1,13 @@
 {
-  "generated": "2026-10-02T13:04:41",
+  "generated": "2026-10-02T18:39:38",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
     "basis": "27%×2 고정 (n=2 실측 추정: XLB 28%/XLRE 27%). 표본 누적 시 실측 슬리피지 중앙값으로 갱신 예정."
   },
   "cluster_min_n": 8,
-  "n_closed": 24,
-  "clean_n": 19,
+  "n_closed": 29,
+  "clean_n": 24,
   "excluded_n": 5,
   "boundary_note": "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
   "timing_note": "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
@@ -170,6 +170,46 @@
       "rule": "rate_victim",
       "exit_date": "2026-09-24",
       "pnl": 40.01,
+      "direction_note": "순방향(이익)"
+    },
+    {
+      "n": 20,
+      "ticker": "XLC",
+      "rule": "rate_victim",
+      "exit_date": "2026-10-02",
+      "pnl": 12.76,
+      "direction_note": "순방향(이익)"
+    },
+    {
+      "n": 21,
+      "ticker": "XLK",
+      "rule": "rate_beneficiary",
+      "exit_date": "2026-10-02",
+      "pnl": 20.03,
+      "direction_note": "순방향(이익)"
+    },
+    {
+      "n": 22,
+      "ticker": "XLP",
+      "rule": "rate_victim",
+      "exit_date": "2026-10-02",
+      "pnl": 18.21,
+      "direction_note": "순방향(이익)"
+    },
+    {
+      "n": 23,
+      "ticker": "XLRE",
+      "rule": "rate_victim",
+      "exit_date": "2026-10-02",
+      "pnl": 36.8,
+      "direction_note": "순방향(이익)"
+    },
+    {
+      "n": 24,
+      "ticker": "XLY",
+      "rule": "rate_victim",
+      "exit_date": "2026-10-02",
+      "pnl": 17.06,
       "direction_note": "순방향(이익)"
     }
   ],
@@ -506,6 +546,76 @@
       "regime": "mid_vix",
       "pnl": 40.01,
       "entry_cost": 515.58,
+      "exit_reason": "보유만료",
+      "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-10-02",
+      "entry_date": "2026-09-11",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLC",
+      "regime": "mid_vix",
+      "pnl": 12.76,
+      "entry_cost": 562.65,
+      "exit_reason": "보유만료",
+      "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-10-02",
+      "entry_date": "2026-09-11",
+      "rule": "rate_beneficiary",
+      "strategy": "directional",
+      "ticker": "XLK",
+      "regime": "mid_vix",
+      "pnl": 20.03,
+      "entry_cost": 376.16,
+      "exit_reason": "보유만료",
+      "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-10-02",
+      "entry_date": "2026-09-11",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLP",
+      "regime": "mid_vix",
+      "pnl": 18.21,
+      "entry_cost": 501.6,
+      "exit_reason": "보유만료",
+      "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-10-02",
+      "entry_date": "2026-09-11",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLRE",
+      "regime": "mid_vix",
+      "pnl": 36.8,
+      "entry_cost": 607.95,
+      "exit_reason": "보유만료",
+      "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null
+    },
+    {
+      "exit_date": "2026-10-02",
+      "entry_date": "2026-09-11",
+      "rule": "rate_victim",
+      "strategy": "directional",
+      "ticker": "XLY",
+      "regime": "mid_vix",
+      "pnl": 17.06,
+      "entry_cost": 564.05,
       "exit_reason": "보유만료",
       "holding_days": 21,
       "validation": "clean",
