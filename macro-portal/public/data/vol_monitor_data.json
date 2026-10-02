@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-01T20:16:29",
+  "scan_date": "2026-10-02T00:05:42",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -33,7 +33,7 @@
       "ticker": "ZN=F",
       "current_rv": 5.5,
       "baseline_rv": 4.1,
-      "z_score": 1.37,
+      "z_score": 1.39,
       "vrp": -0.007,
       "beta_30d": 0.274,
       "consec_vol": 5,
@@ -45,9 +45,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 14.5,
+      "current_rv": 13.7,
       "baseline_rv": 12.3,
-      "z_score": 0.57,
+      "z_score": 0.35,
       "vrp": 0.0254,
       "beta_30d": 1.101,
       "consec_vol": 5,
@@ -198,6 +198,34 @@
       "sector": "China Broad (MSCI)"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 39.9,
+      "baseline_rv": 54.3,
+      "z_score": -0.55,
+      "vrp": 0.2477,
+      "beta_30d": -1.992,
+      "consec_vol": 0,
+      "excess_10d": -13.59,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.99",
+      "sector": "WTI Crude Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 20.2,
+      "baseline_rv": 27.6,
+      "z_score": -0.58,
+      "vrp": 0.0387,
+      "beta_30d": 1.004,
+      "consec_vol": 0,
+      "excess_10d": -6.01,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "EWY",
       "current_rv": 44.5,
       "baseline_rv": 58.7,
@@ -226,20 +254,6 @@
       "sector": "Semiconductors"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 19.8,
-      "baseline_rv": 27.6,
-      "z_score": -0.62,
-      "vrp": 0.0387,
-      "beta_30d": 1.004,
-      "consec_vol": 0,
-      "excess_10d": -6.01,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "FXI",
       "current_rv": 16.2,
       "baseline_rv": 19.0,
@@ -266,20 +280,6 @@
       "label": "WATCH",
       "reason": "beta=0.59",
       "sector": "Materials"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 34.4,
-      "baseline_rv": 54.3,
-      "z_score": -0.76,
-      "vrp": 0.2477,
-      "beta_30d": -1.992,
-      "consec_vol": 0,
-      "excess_10d": -13.59,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.99",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLK",
@@ -423,8 +423,22 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "brent": {
+      "label": "Brent",
+      "current": 118.8,
+      "baseline": 90.94,
+      "z_score": 1.47,
+      "bw_spread": 21.48
+    },
+    "inv": {
+      "latest_mbbl": 711087.0,
+      "wow_chg_pct": 0.02,
+      "surprise": 0.24
+    },
+    "level": 1,
+    "reasons": [
+      "Brent backwardation +21.5%"
+    ]
   },
   "fred": [
     {
@@ -447,7 +461,7 @@
         "XLF"
       ],
       "current": 2.99,
-      "baseline": 2.8551,
+      "baseline": 2.855,
       "z_score": -0.79,
       "last_date": "2026-09-30"
     },
@@ -459,10 +473,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.354,
-      "baseline": 0.5102,
-      "z_score": -1.32,
-      "last_date": "2026-09-30"
+      "current": 0.384,
+      "baseline": 0.5092,
+      "z_score": -1.05,
+      "last_date": "2026-10-01"
     }
   ],
   "china": [
