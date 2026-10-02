@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-02T06:04:18",
+  "scan_date": "2026-10-02T13:04:22",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -56,6 +56,20 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 13.3,
+      "baseline_rv": 12.2,
+      "z_score": 0.21,
+      "vrp": 0.01,
+      "beta_30d": 0.655,
+      "consec_vol": 5,
+      "excess_10d": -1.28,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.65, 5d consec vol",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "^FTSE",
@@ -409,30 +423,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 97.17,
-      "baseline": 83.77,
-      "z_score": 0.84,
-      "bw_spread": 10.65
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 118.8,
-      "baseline": 90.94,
-      "z_score": 1.47,
-      "bw_spread": 21.48
-    },
-    "inv": {
-      "latest_mbbl": 711087.0,
-      "wow_chg_pct": 0.02,
-      "surprise": 0.24
-    },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +10.7%",
-      "Brent backwardation +21.5%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -442,10 +434,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 233.504,
-      "baseline": 333.5231,
-      "z_score": -0.72,
-      "last_date": "2026-09-30"
+      "current": 224.026,
+      "baseline": 333.5254,
+      "z_score": -0.79,
+      "last_date": "2026-10-01"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -529,7 +521,7 @@
       "last_date": "2026-09-30"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 0,
   "high_count": 0
 }
