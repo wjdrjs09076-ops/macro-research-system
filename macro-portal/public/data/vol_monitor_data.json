@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-10-03T07:52:29",
+  "scan_date": "2026-10-03T13:13:16",
   "etf_signals": [
+    {
+      "ticker": "XLC",
+      "current_rv": 25.5,
+      "baseline_rv": 15.1,
+      "z_score": 1.95,
+      "vrp": -0.0389,
+      "beta_30d": 0.873,
+      "consec_vol": 5,
+      "excess_10d": -1.06,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=1.9, 5d consec vol",
+      "sector": "Communication"
+    },
     {
       "ticker": "ZN=F",
       "current_rv": 5.8,
@@ -529,7 +543,7 @@
       "last_date": "2026-09-30"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 0,
   "high_count": 0
 }
