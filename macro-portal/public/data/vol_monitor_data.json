@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-03T20:52:54",
+  "scan_date": "2026-10-03T23:41:50",
   "etf_signals": [
     {
       "ticker": "XLC",
@@ -282,6 +282,20 @@
       "sector": "Gold Futures"
     },
     {
+      "ticker": "SOXX",
+      "current_rv": 31.3,
+      "baseline_rv": 45.5,
+      "z_score": -0.77,
+      "vrp": 0.1924,
+      "beta_30d": 2.172,
+      "consec_vol": 0,
+      "excess_10d": 9.12,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=2.17",
+      "sector": "Semiconductors"
+    },
+    {
       "ticker": "XLY",
       "current_rv": 14.4,
       "baseline_rv": 19.0,
@@ -529,7 +543,7 @@
       "last_date": "2026-09-30"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 0,
   "high_count": 0
 }
