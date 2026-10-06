@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-06T10:42:44",
+  "scan_date": "2026-10-06T17:07:25",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -456,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 253.404,
-      "baseline": 332.4383,
-      "z_score": -0.56,
-      "last_date": "2026-10-04"
+      "current": 294.682,
+      "baseline": 330.929,
+      "z_score": -0.26,
+      "last_date": "2026-10-05"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -468,10 +468,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.112,
-      "baseline": 2.8554,
-      "z_score": -1.5,
-      "last_date": "2026-10-02"
+      "current": 3.132,
+      "baseline": 2.8561,
+      "z_score": -1.61,
+      "last_date": "2026-10-05"
     },
     {
       "sid": "T10Y2Y",
