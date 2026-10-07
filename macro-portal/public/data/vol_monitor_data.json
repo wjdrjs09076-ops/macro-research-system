@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-07T07:39:24",
+  "scan_date": "2026-10-07T15:24:55",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -296,6 +296,20 @@
       "sector": "Financials / Banking"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 8.6,
+      "baseline_rv": 12.4,
+      "z_score": -1.01,
+      "vrp": 0.0705,
+      "beta_30d": 1.093,
+      "consec_vol": 3,
+      "excess_10d": -0.2,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "^KS11",
       "current_rv": 24.7,
       "baseline_rv": 54.8,
@@ -442,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 294.682,
-      "baseline": 330.929,
-      "z_score": -0.26,
-      "last_date": "2026-10-05"
+      "current": 455.9,
+      "baseline": 329.6702,
+      "z_score": 0.9,
+      "last_date": "2026-10-06"
     },
     {
       "sid": "BAMLH0A0HYM2",
