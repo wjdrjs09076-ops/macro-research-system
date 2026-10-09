@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-08T20:37:13",
+  "scan_date": "2026-10-09T01:06:42",
   "etf_signals": [
     {
       "ticker": "XLI",
@@ -14,6 +14,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.1,
+      "baseline_rv": 4.2,
+      "z_score": -0.05,
+      "vrp": 0.0096,
+      "beta_30d": 0.267,
+      "consec_vol": 4,
+      "excess_10d": -1.75,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.27",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "000001.SS",
@@ -70,20 +84,6 @@
       "label": "WATCH",
       "reason": "beta=0.46",
       "sector": "FTSE 100"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.9,
-      "baseline_rv": 4.2,
-      "z_score": -0.3,
-      "vrp": 0.0096,
-      "beta_30d": 0.267,
-      "consec_vol": 4,
-      "excess_10d": -1.75,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.27",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "FXI",
@@ -157,9 +157,9 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 20.0,
+      "current_rv": 20.8,
       "baseline_rv": 27.5,
-      "z_score": -0.6,
+      "z_score": -0.53,
       "vrp": 0.0111,
       "beta_30d": 0.966,
       "consec_vol": 0,
@@ -212,6 +212,20 @@
       "sector": "China Broad (MSCI)"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 34.7,
+      "baseline_rv": 55.0,
+      "z_score": -0.79,
+      "vrp": 0.207,
+      "beta_30d": -1.958,
+      "consec_vol": 0,
+      "excess_10d": -5.32,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.96",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "XLB",
       "current_rv": 14.2,
       "baseline_rv": 18.0,
@@ -238,20 +252,6 @@
       "label": "---",
       "reason": "",
       "sector": "UK (MSCI)"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 33.6,
-      "baseline_rv": 55.0,
-      "z_score": -0.84,
-      "vrp": 0.207,
-      "beta_30d": -1.958,
-      "consec_vol": 0,
-      "excess_10d": -5.32,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.96",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLV",
@@ -338,6 +338,20 @@
       "sector": "KOSPI"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 7.8,
+      "baseline_rv": 12.5,
+      "z_score": -1.24,
+      "vrp": 0.0814,
+      "beta_30d": 1.095,
+      "consec_vol": 1,
+      "excess_10d": -0.19,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "XAR",
       "current_rv": 19.7,
       "baseline_rv": 30.0,
@@ -350,20 +364,6 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 7.6,
-      "baseline_rv": 12.4,
-      "z_score": -1.28,
-      "vrp": 0.0814,
-      "beta_30d": 1.095,
-      "consec_vol": 2,
-      "excess_10d": -0.19,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "XLY",
@@ -426,14 +426,14 @@
     "wti": {
       "label": "WTI",
       "current": 95.72,
-      "baseline": 84.65,
-      "z_score": 0.71,
+      "baseline": 84.79,
+      "z_score": 0.7,
       "bw_spread": 6.65
     },
     "brent": {
       "label": "Brent",
       "current": 120.55,
-      "baseline": 92.02,
+      "baseline": 92.19,
       "z_score": 1.49,
       "bw_spread": 18.46
     },
@@ -469,7 +469,7 @@
         "XLF"
       ],
       "current": 3.116,
-      "baseline": 2.8585,
+      "baseline": 2.8582,
       "z_score": -1.49,
       "last_date": "2026-10-07"
     },
@@ -481,10 +481,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.474,
-      "baseline": 0.5066,
-      "z_score": -0.27,
-      "last_date": "2026-10-07"
+      "current": 0.476,
+      "baseline": 0.5064,
+      "z_score": -0.25,
+      "last_date": "2026-10-08"
     }
   ],
   "china": [
