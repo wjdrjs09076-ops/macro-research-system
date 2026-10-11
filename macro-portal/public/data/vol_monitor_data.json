@@ -1,11 +1,11 @@
 {
-  "scan_date": "2026-10-10T21:26:36",
+  "scan_date": "2026-10-11T00:24:17",
   "etf_signals": [
     {
       "ticker": "FXI",
       "current_rv": 21.6,
-      "baseline_rv": 19.1,
-      "z_score": 0.56,
+      "baseline_rv": 19.2,
+      "z_score": 0.55,
       "vrp": -0.0233,
       "beta_30d": 0.698,
       "consec_vol": 3,
@@ -32,7 +32,7 @@
     {
       "ticker": "MCHI",
       "current_rv": 20.2,
-      "baseline_rv": 19.0,
+      "baseline_rv": 19.1,
       "z_score": 0.24,
       "vrp": -0.0208,
       "beta_30d": 0.888,
@@ -47,10 +47,10 @@
       "ticker": "^FTSE",
       "current_rv": 11.9,
       "baseline_rv": 11.3,
-      "z_score": 0.14,
+      "z_score": 0.13,
       "vrp": -0.0132,
       "beta_30d": 0.485,
-      "consec_vol": 2,
+      "consec_vol": 1,
       "excess_10d": -2.27,
       "level": 1,
       "label": "WATCH",
@@ -72,20 +72,6 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.1,
-      "baseline_rv": 4.2,
-      "z_score": -0.11,
-      "vrp": 0.0072,
-      "beta_30d": 0.245,
-      "consec_vol": 4,
-      "excess_10d": -1.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.25",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "000001.SS",
       "current_rv": 13.7,
       "baseline_rv": 14.3,
@@ -100,23 +86,23 @@
       "sector": "Shanghai Composite"
     },
     {
-      "ticker": "GLD",
-      "current_rv": 26.0,
-      "baseline_rv": 28.2,
-      "z_score": -0.17,
-      "vrp": -0.0254,
-      "beta_30d": 1.337,
-      "consec_vol": 1,
-      "excess_10d": -3.09,
+      "ticker": "ZN=F",
+      "current_rv": 4.1,
+      "baseline_rv": 4.2,
+      "z_score": -0.12,
+      "vrp": 0.0072,
+      "beta_30d": 0.245,
+      "consec_vol": 4,
+      "excess_10d": -1.2,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=1.34",
-      "sector": "Gold"
+      "reason": "beta=0.25",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "^STOXX50E",
       "current_rv": 14.3,
-      "baseline_rv": 15.3,
+      "baseline_rv": 15.4,
       "z_score": -0.17,
       "vrp": 0.0039,
       "beta_30d": 0.782,
@@ -130,7 +116,7 @@
     {
       "ticker": "XLI",
       "current_rv": 16.8,
-      "baseline_rv": 17.6,
+      "baseline_rv": 17.7,
       "z_score": -0.18,
       "vrp": 0.0021,
       "beta_30d": 0.917,
@@ -142,10 +128,24 @@
       "sector": "Industrials"
     },
     {
+      "ticker": "GLD",
+      "current_rv": 26.0,
+      "baseline_rv": 28.3,
+      "z_score": -0.18,
+      "vrp": -0.0254,
+      "beta_30d": 1.337,
+      "consec_vol": 1,
+      "excess_10d": -3.09,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.34",
+      "sector": "Gold"
+    },
+    {
       "ticker": "XLC",
       "current_rv": 14.5,
       "baseline_rv": 15.6,
-      "z_score": -0.19,
+      "z_score": -0.2,
       "vrp": 0.0643,
       "beta_30d": 0.842,
       "consec_vol": 2,
@@ -173,7 +173,7 @@
       "ticker": "TLT",
       "current_rv": 8.5,
       "baseline_rv": 9.3,
-      "z_score": -0.33,
+      "z_score": -0.34,
       "vrp": 0.0254,
       "beta_30d": 0.491,
       "consec_vol": 2,
@@ -184,9 +184,23 @@
       "sector": "Long-term Treasury"
     },
     {
+      "ticker": "^N225",
+      "current_rv": 26.2,
+      "baseline_rv": 29.4,
+      "z_score": -0.37,
+      "vrp": -0.0065,
+      "beta_30d": 0.189,
+      "consec_vol": 0,
+      "excess_10d": 3.12,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.19",
+      "sector": "Nikkei 225"
+    },
+    {
       "ticker": "GC=F",
       "current_rv": 21.9,
-      "baseline_rv": 27.5,
+      "baseline_rv": 27.6,
       "z_score": -0.45,
       "vrp": -0.0116,
       "beta_30d": 0.974,
@@ -243,7 +257,7 @@
       "ticker": "EEM",
       "current_rv": 19.0,
       "baseline_rv": 26.4,
-      "z_score": -0.78,
+      "z_score": -0.79,
       "vrp": 0.0674,
       "beta_30d": 1.519,
       "consec_vol": 0,
@@ -256,7 +270,7 @@
     {
       "ticker": "CL=F",
       "current_rv": 34.6,
-      "baseline_rv": 55.1,
+      "baseline_rv": 55.3,
       "z_score": -0.81,
       "vrp": 0.1678,
       "beta_30d": -2.135,
@@ -284,8 +298,8 @@
     {
       "ticker": "EWY",
       "current_rv": 36.9,
-      "baseline_rv": 59.5,
-      "z_score": -0.98,
+      "baseline_rv": 59.7,
+      "z_score": -0.99,
       "vrp": 0.1925,
       "beta_30d": 2.666,
       "consec_vol": 0,
@@ -299,7 +313,7 @@
       "ticker": "EWJ",
       "current_rv": 14.3,
       "baseline_rv": 21.4,
-      "z_score": -1.0,
+      "z_score": -1.01,
       "vrp": 0.079,
       "beta_30d": 1.269,
       "consec_vol": 0,
@@ -326,9 +340,9 @@
     {
       "ticker": "SOXX",
       "current_rv": 26.4,
-      "baseline_rv": 46.0,
-      "z_score": -1.08,
-      "vrp": 0.2088,
+      "baseline_rv": 46.1,
+      "z_score": -1.09,
+      "vrp": 0.2089,
       "beta_30d": 1.992,
       "consec_vol": 0,
       "excess_10d": -3.16,
@@ -340,8 +354,8 @@
     {
       "ticker": "^KS11",
       "current_rv": 24.2,
-      "baseline_rv": 54.7,
-      "z_score": -1.08,
+      "baseline_rv": 54.9,
+      "z_score": -1.09,
       "vrp": 0.1979,
       "beta_30d": 0.545,
       "consec_vol": 0,
@@ -352,23 +366,9 @@
       "sector": "KOSPI"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 8.2,
-      "baseline_rv": 12.5,
-      "z_score": -1.13,
-      "vrp": 0.0727,
-      "beta_30d": 1.092,
-      "consec_vol": 0,
-      "excess_10d": -0.22,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "XAR",
       "current_rv": 20.5,
-      "baseline_rv": 29.8,
+      "baseline_rv": 29.9,
       "z_score": -1.14,
       "vrp": 0.0572,
       "beta_30d": 1.153,
@@ -380,9 +380,23 @@
       "sector": "Defense / Aerospace"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 8.2,
+      "baseline_rv": 12.5,
+      "z_score": -1.14,
+      "vrp": 0.0727,
+      "beta_30d": 1.092,
+      "consec_vol": 0,
+      "excess_10d": -0.22,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "XLY",
       "current_rv": 12.6,
-      "baseline_rv": 19.0,
+      "baseline_rv": 19.1,
       "z_score": -1.24,
       "vrp": 0.0687,
       "beta_30d": 1.262,
@@ -483,7 +497,7 @@
         "MCHI"
       ],
       "current": 4334.22,
-      "baseline": 4694.09,
+      "baseline": 4694.79,
       "z_score": -2.64,
       "rv_20d": 13.11,
       "last_date": "2026-10-09"
@@ -496,8 +510,8 @@
         "MCHI"
       ],
       "current": 7355.31,
-      "baseline": 8046.04,
-      "z_score": -1.44,
+      "baseline": 8051.09,
+      "z_score": -1.47,
       "rv_20d": 20.56,
       "last_date": "2026-10-09"
     },
@@ -509,8 +523,8 @@
         "MCHI"
       ],
       "current": 3099.53,
-      "baseline": 3521.07,
-      "z_score": -1.31,
+      "baseline": 3523.33,
+      "z_score": -1.32,
       "rv_20d": 28.47,
       "last_date": "2026-10-09"
     },
@@ -523,13 +537,13 @@
         "MCHI"
       ],
       "current": 3824.39,
-      "baseline": 4010.27,
+      "baseline": 4010.83,
       "z_score": -1.72,
       "rv_20d": 11.06,
       "last_date": "2026-10-09"
     }
   ],
-  "flagged_count": 17,
+  "flagged_count": 18,
   "alert_count": 0,
   "high_count": 0
 }
