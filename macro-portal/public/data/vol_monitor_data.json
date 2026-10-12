@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-12T01:38:28",
+  "scan_date": "2026-10-12T08:56:24",
   "etf_signals": [
     {
       "ticker": "FXI",
@@ -84,6 +84,20 @@
       "label": "WATCH",
       "reason": "beta=0.21",
       "sector": "Shanghai Composite"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 4.1,
+      "baseline_rv": 4.2,
+      "z_score": -0.12,
+      "vrp": 0.0072,
+      "beta_30d": 0.245,
+      "consec_vol": 4,
+      "excess_10d": -1.2,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.25",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLI",
@@ -184,6 +198,20 @@
       "sector": "Nikkei 225"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 21.9,
+      "baseline_rv": 27.6,
+      "z_score": -0.46,
+      "vrp": -0.0116,
+      "beta_30d": 0.974,
+      "consec_vol": 0,
+      "excess_10d": -3.31,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "XLF",
       "current_rv": 12.2,
       "baseline_rv": 14.4,
@@ -196,20 +224,6 @@
       "label": "---",
       "reason": "",
       "sector": "Financials / Banking"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.6,
-      "baseline_rv": 4.2,
-      "z_score": -0.55,
-      "vrp": 0.0072,
-      "beta_30d": 0.245,
-      "consec_vol": 3,
-      "excess_10d": -1.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.25",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EWU",
@@ -240,20 +254,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 35.7,
-      "baseline_rv": 55.4,
-      "z_score": -0.78,
-      "vrp": 0.1678,
-      "beta_30d": -2.135,
-      "consec_vol": 0,
-      "excess_10d": -1.34,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.14",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "EEM",
       "current_rv": 19.0,
       "baseline_rv": 26.5,
@@ -266,6 +266,20 @@
       "label": "WATCH",
       "reason": "beta=1.52",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 34.6,
+      "baseline_rv": 55.4,
+      "z_score": -0.82,
+      "vrp": 0.1678,
+      "beta_30d": -2.135,
+      "consec_vol": 0,
+      "excess_10d": -1.34,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.14",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLB",
@@ -366,6 +380,20 @@
       "sector": "Defense / Aerospace"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 8.2,
+      "baseline_rv": 12.5,
+      "z_score": -1.15,
+      "vrp": 0.0727,
+      "beta_30d": 1.092,
+      "consec_vol": 0,
+      "excess_10d": -0.22,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "XLY",
       "current_rv": 12.6,
       "baseline_rv": 19.1,
@@ -380,20 +408,6 @@
       "sector": "Consumer Discretionary"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 11.9,
-      "baseline_rv": 27.6,
-      "z_score": -1.25,
-      "vrp": -0.0116,
-      "beta_30d": 0.974,
-      "consec_vol": 0,
-      "excess_10d": -3.31,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "XLK",
       "current_rv": 14.3,
       "baseline_rv": 26.6,
@@ -406,20 +420,6 @@
       "label": "WATCH",
       "reason": "beta=1.42",
       "sector": "Technology"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 6.9,
-      "baseline_rv": 12.6,
-      "z_score": -1.5,
-      "vrp": 0.0727,
-      "beta_30d": 1.092,
-      "consec_vol": 0,
-      "excess_10d": -0.22,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     }
   ],
   "oil": {
