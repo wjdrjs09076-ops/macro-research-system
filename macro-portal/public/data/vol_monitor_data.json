@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-13T08:18:41",
+  "scan_date": "2026-10-13T16:20:13",
   "etf_signals": [
     {
       "ticker": "FXI",
@@ -168,6 +168,20 @@
       "label": "---",
       "reason": "",
       "sector": "UK (MSCI)"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 3.6,
+      "baseline_rv": 4.2,
+      "z_score": -0.56,
+      "vrp": 0.0106,
+      "beta_30d": 0.238,
+      "consec_vol": 3,
+      "excess_10d": -1.55,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.24",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLE",
@@ -442,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 245.878,
-      "baseline": 329.3107,
-      "z_score": -0.59,
-      "last_date": "2026-10-11"
+      "current": 213.694,
+      "baseline": 329.1027,
+      "z_score": -0.82,
+      "last_date": "2026-10-12"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -455,9 +469,9 @@
         "XLF"
       ],
       "current": 3.098,
-      "baseline": 2.8579,
-      "z_score": -1.38,
-      "last_date": "2026-10-08"
+      "baseline": 2.86,
+      "z_score": -1.36,
+      "last_date": "2026-10-12"
     },
     {
       "sid": "T10Y2Y",
@@ -482,11 +496,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4323.67,
-      "baseline": 4694.58,
-      "z_score": -2.68,
-      "rv_20d": 13.18,
-      "last_date": "2026-10-12"
+      "current": 4309.76,
+      "baseline": 4692.82,
+      "z_score": -2.73,
+      "rv_20d": 12.76,
+      "last_date": "2026-10-13"
     },
     {
       "sym": "sh000905",
@@ -495,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7293.45,
-      "baseline": 8058.39,
-      "z_score": -1.64,
-      "rv_20d": 21.32,
-      "last_date": "2026-10-12"
+      "current": 7222.54,
+      "baseline": 8055.28,
+      "z_score": -1.79,
+      "rv_20d": 20.32,
+      "last_date": "2026-10-13"
     },
     {
       "sym": "sz399006",
@@ -508,11 +522,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3064.33,
-      "baseline": 3526.15,
-      "z_score": -1.45,
-      "rv_20d": 29.51,
-      "last_date": "2026-10-12"
+      "current": 3027.49,
+      "baseline": 3524.22,
+      "z_score": -1.56,
+      "rv_20d": 25.7,
+      "last_date": "2026-10-13"
     },
     {
       "sym": "sh000001",
@@ -522,14 +536,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3819.12,
-      "baseline": 4011.24,
-      "z_score": -1.77,
-      "rv_20d": 11.09,
-      "last_date": "2026-10-12"
+      "current": 3813.2,
+      "baseline": 4010.33,
+      "z_score": -1.81,
+      "rv_20d": 11.1,
+      "last_date": "2026-10-13"
     }
   ],
-  "flagged_count": 15,
+  "flagged_count": 16,
   "alert_count": 0,
   "high_count": 0
 }
