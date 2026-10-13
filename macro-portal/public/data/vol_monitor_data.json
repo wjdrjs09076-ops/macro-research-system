@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-13T01:12:17",
+  "scan_date": "2026-10-13T08:18:41",
   "etf_signals": [
     {
       "ticker": "FXI",
@@ -86,20 +86,6 @@
       "sector": "Euro Stoxx 50"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 14.5,
-      "baseline_rv": 15.7,
-      "z_score": -0.21,
-      "vrp": 0.0643,
-      "beta_30d": 0.842,
-      "consec_vol": 2,
-      "excess_10d": -3.21,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Communication"
-    },
-    {
       "ticker": "XLV",
       "current_rv": 15.3,
       "baseline_rv": 16.2,
@@ -156,18 +142,18 @@
       "sector": "Nikkei 225"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 3.7,
-      "baseline_rv": 4.2,
-      "z_score": -0.53,
-      "vrp": 0.0109,
-      "beta_30d": 0.237,
-      "consec_vol": 3,
-      "excess_10d": -1.4,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.24",
-      "sector": "10Y Treasury Futures"
+      "ticker": "XLC",
+      "current_rv": 13.5,
+      "baseline_rv": 15.7,
+      "z_score": -0.41,
+      "vrp": 0.076,
+      "beta_30d": 0.872,
+      "consec_vol": 0,
+      "excess_10d": -1.35,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Communication"
     },
     {
       "ticker": "EWU",
@@ -198,6 +184,20 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 36.2,
+      "baseline_rv": 55.6,
+      "z_score": -0.77,
+      "vrp": 0.1563,
+      "beta_30d": -2.176,
+      "consec_vol": 0,
+      "excess_10d": -0.17,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.18",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "TLT",
       "current_rv": 7.4,
       "baseline_rv": 9.3,
@@ -210,20 +210,6 @@
       "label": "WATCH",
       "reason": "beta=0.49",
       "sector": "Long-term Treasury"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 35.5,
-      "baseline_rv": 55.6,
-      "z_score": -0.8,
-      "vrp": 0.1615,
-      "beta_30d": -2.171,
-      "consec_vol": 0,
-      "excess_10d": -0.77,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.17",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "EEM",
@@ -353,13 +339,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 12.8,
+      "current_rv": 12.4,
       "baseline_rv": 27.7,
-      "z_score": -1.19,
-      "vrp": 0.0765,
-      "beta_30d": 0.923,
+      "z_score": -1.22,
+      "vrp": 0.0798,
+      "beta_30d": 0.92,
       "consec_vol": 0,
-      "excess_10d": -1.32,
+      "excess_10d": -1.07,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -395,13 +381,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 7.2,
+      "current_rv": 7.0,
       "baseline_rv": 12.6,
-      "z_score": -1.44,
-      "vrp": 0.0871,
-      "beta_30d": 1.093,
+      "z_score": -1.49,
+      "vrp": 0.089,
+      "beta_30d": 1.091,
       "consec_vol": 0,
-      "excess_10d": -0.4,
+      "excess_10d": -0.19,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -543,7 +529,7 @@
       "last_date": "2026-10-12"
     }
   ],
-  "flagged_count": 16,
+  "flagged_count": 15,
   "alert_count": 0,
   "high_count": 0
 }
