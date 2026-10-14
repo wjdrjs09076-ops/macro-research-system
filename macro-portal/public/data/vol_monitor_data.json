@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-14T05:58:44",
+  "scan_date": "2026-10-14T11:41:23",
   "etf_signals": [
     {
       "ticker": "FXI",
@@ -423,8 +423,30 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "wti": {
+      "label": "WTI",
+      "current": 95.72,
+      "baseline": 85.1,
+      "z_score": 0.69,
+      "bw_spread": 6.65
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 120.55,
+      "baseline": 92.52,
+      "z_score": 1.48,
+      "bw_spread": 18.46
+    },
+    "inv": {
+      "latest_mbbl": 707117.0,
+      "wow_chg_pct": -0.56,
+      "surprise": -0.34
+    },
+    "level": 1,
+    "reasons": [
+      "WTI backwardation +6.7%",
+      "Brent backwardation +18.5%"
+    ]
   },
   "fred": [
     {
@@ -474,11 +496,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4309.76,
-      "baseline": 4693.37,
-      "z_score": -2.73,
-      "rv_20d": 12.76,
-      "last_date": "2026-10-13"
+      "current": 4281.77,
+      "baseline": 4691.68,
+      "z_score": -2.89,
+      "rv_20d": 13.26,
+      "last_date": "2026-10-14"
     },
     {
       "sym": "sh000905",
@@ -487,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7222.54,
-      "baseline": 8060.11,
-      "z_score": -1.81,
-      "rv_20d": 20.32,
-      "last_date": "2026-10-13"
+      "current": 7131.53,
+      "baseline": 8056.97,
+      "z_score": -2.0,
+      "rv_20d": 20.51,
+      "last_date": "2026-10-14"
     },
     {
       "sym": "sz399006",
@@ -500,11 +522,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 3027.49,
-      "baseline": 3526.32,
-      "z_score": -1.57,
-      "rv_20d": 25.7,
-      "last_date": "2026-10-13"
+      "current": 2973.78,
+      "baseline": 3524.35,
+      "z_score": -1.73,
+      "rv_20d": 27.07,
+      "last_date": "2026-10-14"
     },
     {
       "sym": "sh000001",
@@ -514,11 +536,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3813.2,
-      "baseline": 4010.88,
-      "z_score": -1.81,
-      "rv_20d": 11.1,
-      "last_date": "2026-10-13"
+      "current": 3798.21,
+      "baseline": 4010.03,
+      "z_score": -1.94,
+      "rv_20d": 11.29,
+      "last_date": "2026-10-14"
     }
   ],
   "flagged_count": 17,
