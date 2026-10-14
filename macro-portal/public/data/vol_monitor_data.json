@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-14T20:33:09",
+  "scan_date": "2026-10-14T23:48:49",
   "etf_signals": [
     {
       "ticker": "FXI",
@@ -437,11 +437,6 @@
       "z_score": 1.48,
       "bw_spread": 18.46
     },
-    "inv": {
-      "latest_mbbl": 707117.0,
-      "wow_chg_pct": -0.56,
-      "surprise": -0.34
-    },
     "level": 1,
     "reasons": [
       "WTI backwardation +6.7%",
@@ -481,10 +476,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.464,
-      "baseline": 0.5057,
-      "z_score": -0.34,
-      "last_date": "2026-10-13"
+      "current": 0.442,
+      "baseline": 0.5056,
+      "z_score": -0.53,
+      "last_date": "2026-10-14"
     }
   ],
   "china": [
