@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-14T11:41:23",
+  "scan_date": "2026-10-14T16:56:20",
   "etf_signals": [
     {
       "ticker": "FXI",
@@ -456,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 213.694,
-      "baseline": 329.1027,
-      "z_score": -0.82,
-      "last_date": "2026-10-12"
+      "current": 216.422,
+      "baseline": 329.3129,
+      "z_score": -0.8,
+      "last_date": "2026-10-13"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -468,10 +468,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.098,
-      "baseline": 2.8592,
-      "z_score": -1.37,
-      "last_date": "2026-10-12"
+      "current": 3.124,
+      "baseline": 2.8599,
+      "z_score": -1.51,
+      "last_date": "2026-10-13"
     },
     {
       "sid": "T10Y2Y",
