@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-15T14:21:50",
+  "scan_date": "2026-10-15T18:33:08",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,8 +423,22 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "brent": {
+      "label": "Brent",
+      "current": 120.55,
+      "baseline": 92.68,
+      "z_score": 1.48,
+      "bw_spread": 18.46
+    },
+    "inv": {
+      "latest_mbbl": 707117.0,
+      "wow_chg_pct": -0.56,
+      "surprise": -0.34
+    },
+    "level": 1,
+    "reasons": [
+      "Brent backwardation +18.5%"
+    ]
   },
   "fred": [
     {
@@ -446,10 +460,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.124,
-      "baseline": 2.8588,
-      "z_score": -1.53,
-      "last_date": "2026-10-13"
+      "current": 3.156,
+      "baseline": 2.8598,
+      "z_score": -1.7,
+      "last_date": "2026-10-14"
     },
     {
       "sid": "T10Y2Y",
