@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-15T09:19:53",
+  "scan_date": "2026-10-15T14:21:50",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,22 +423,8 @@
     }
   ],
   "oil": {
-    "brent": {
-      "label": "Brent",
-      "current": 120.55,
-      "baseline": 92.68,
-      "z_score": 1.48,
-      "bw_spread": 18.46
-    },
-    "inv": {
-      "latest_mbbl": 707117.0,
-      "wow_chg_pct": -0.56,
-      "surprise": -0.34
-    },
-    "level": 1,
-    "reasons": [
-      "Brent backwardation +18.5%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -448,10 +434,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 216.422,
-      "baseline": 329.3129,
-      "z_score": -0.8,
-      "last_date": "2026-10-13"
+      "current": 218.868,
+      "baseline": 329.4631,
+      "z_score": -0.78,
+      "last_date": "2026-10-14"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -488,11 +474,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4281.77,
-      "baseline": 4691.68,
-      "z_score": -2.89,
-      "rv_20d": 13.26,
-      "last_date": "2026-10-14"
+      "current": 4252.92,
+      "baseline": 4689.78,
+      "z_score": -3.03,
+      "rv_20d": 13.32,
+      "last_date": "2026-10-15"
     },
     {
       "sym": "sh000905",
@@ -501,11 +487,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 7131.53,
-      "baseline": 8056.97,
-      "z_score": -2.0,
-      "rv_20d": 20.51,
-      "last_date": "2026-10-14"
+      "current": 7035.69,
+      "baseline": 8052.93,
+      "z_score": -2.18,
+      "rv_20d": 22.22,
+      "last_date": "2026-10-15"
     },
     {
       "sym": "sz399006",
@@ -514,11 +500,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2973.78,
-      "baseline": 3524.35,
-      "z_score": -1.73,
-      "rv_20d": 27.07,
-      "last_date": "2026-10-14"
+      "current": 2923.09,
+      "baseline": 3521.91,
+      "z_score": -1.87,
+      "rv_20d": 27.98,
+      "last_date": "2026-10-15"
     },
     {
       "sym": "sh000001",
@@ -528,11 +514,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3798.21,
-      "baseline": 4010.03,
-      "z_score": -1.94,
-      "rv_20d": 11.29,
-      "last_date": "2026-10-14"
+      "current": 3777.32,
+      "baseline": 4009.04,
+      "z_score": -2.11,
+      "rv_20d": 12.1,
+      "last_date": "2026-10-15"
     }
   ],
   "flagged_count": 19,
