@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-16T11:07:35",
+  "scan_date": "2026-10-16T15:29:10",
   "etf_signals": [
     {
       "ticker": "^N225",
@@ -430,9 +430,22 @@
       "z_score": 0.85,
       "bw_spread": 7.51
     },
+    "brent": {
+      "label": "Brent",
+      "current": 126.98,
+      "baseline": 93.64,
+      "z_score": 1.76,
+      "bw_spread": 19.78
+    },
+    "inv": {
+      "latest_mbbl": 698560.0,
+      "wow_chg_pct": -1.21,
+      "surprise": -0.93
+    },
     "level": 1,
     "reasons": [
-      "WTI backwardation +7.5%"
+      "WTI backwardation +7.5%",
+      "Brent backwardation +19.8%"
     ]
   },
   "fred": [
@@ -443,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 218.868,
-      "baseline": 329.4631,
-      "z_score": -0.78,
-      "last_date": "2026-10-14"
+      "current": 225.668,
+      "baseline": 329.0635,
+      "z_score": -0.73,
+      "last_date": "2026-10-15"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -455,10 +468,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.156,
-      "baseline": 2.8585,
-      "z_score": -1.71,
-      "last_date": "2026-10-14"
+      "current": 3.172,
+      "baseline": 2.8598,
+      "z_score": -1.79,
+      "last_date": "2026-10-15"
     },
     {
       "sid": "T10Y2Y",
