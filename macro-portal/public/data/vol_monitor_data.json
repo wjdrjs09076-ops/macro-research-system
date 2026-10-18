@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-18T13:07:53",
+  "scan_date": "2026-10-18T16:46:34",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,22 +423,8 @@
     }
   ],
   "oil": {
-    "brent": {
-      "label": "Brent",
-      "current": 126.98,
-      "baseline": 93.99,
-      "z_score": 1.76,
-      "bw_spread": 19.78
-    },
-    "inv": {
-      "latest_mbbl": 698560.0,
-      "wow_chg_pct": -1.21,
-      "surprise": -0.93
-    },
-    "level": 1,
-    "reasons": [
-      "Brent backwardation +19.8%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
