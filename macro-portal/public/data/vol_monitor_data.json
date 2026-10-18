@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-18T04:01:19",
+  "scan_date": "2026-10-18T08:48:56",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,11 +423,6 @@
     }
   ],
   "oil": {
-    "inv": {
-      "latest_mbbl": 698560.0,
-      "wow_chg_pct": -1.21,
-      "surprise": -0.93
-    },
     "level": 0,
     "reasons": []
   },
