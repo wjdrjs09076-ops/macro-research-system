@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-19T00:04:16",
+  "scan_date": "2026-10-19T05:09:47",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -156,6 +156,34 @@
       "sector": "Technology"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 3.7,
+      "baseline_rv": 4.3,
+      "z_score": -0.55,
+      "vrp": 0.0171,
+      "beta_30d": 0.173,
+      "consec_vol": 1,
+      "excess_10d": 1.86,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.17",
+      "sector": "10Y Treasury Futures"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 10.3,
+      "baseline_rv": 12.6,
+      "z_score": -0.61,
+      "vrp": 0.1044,
+      "beta_30d": 1.09,
+      "consec_vol": 0,
+      "excess_10d": -0.11,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "^STOXX50E",
       "current_rv": 11.6,
       "baseline_rv": 15.5,
@@ -184,20 +212,6 @@
       "sector": "Industrials"
     },
     {
-      "ticker": "ES=F",
-      "current_rv": 10.0,
-      "baseline_rv": 12.6,
-      "z_score": -0.69,
-      "vrp": 0.1044,
-      "beta_30d": 1.09,
-      "consec_vol": 0,
-      "excess_10d": -0.11,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
-    },
-    {
       "ticker": "^HSI",
       "current_rv": 15.1,
       "baseline_rv": 18.3,
@@ -210,34 +224,6 @@
       "label": "WATCH",
       "reason": "beta=0.06",
       "sector": "Hang Seng"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 3.5,
-      "baseline_rv": 4.3,
-      "z_score": -0.76,
-      "vrp": 0.0171,
-      "beta_30d": 0.173,
-      "consec_vol": 1,
-      "excess_10d": 1.86,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.17",
-      "sector": "10Y Treasury Futures"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 36.1,
-      "baseline_rv": 55.7,
-      "z_score": -0.79,
-      "vrp": 0.2785,
-      "beta_30d": -2.008,
-      "consec_vol": 0,
-      "excess_10d": 11.75,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-2.01",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XAR",
@@ -339,9 +325,9 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 16.5,
+      "current_rv": 16.3,
       "baseline_rv": 27.8,
-      "z_score": -0.92,
+      "z_score": -0.93,
       "vrp": 0.0639,
       "beta_30d": 0.578,
       "consec_vol": 0,
@@ -378,6 +364,20 @@
       "label": "WATCH",
       "reason": "beta=2.51",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 30.6,
+      "baseline_rv": 55.9,
+      "z_score": -1.02,
+      "vrp": 0.2785,
+      "beta_30d": -2.008,
+      "consec_vol": 0,
+      "excess_10d": 11.75,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-2.01",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XLY",
