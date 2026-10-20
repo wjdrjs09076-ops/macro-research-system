@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-20T20:22:43",
+  "scan_date": "2026-10-20T23:20:24",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -423,30 +423,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 98.35,
-      "baseline": 86.12,
-      "z_score": 0.83,
-      "bw_spread": 7.51
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 126.98,
-      "baseline": 94.14,
-      "z_score": 1.76,
-      "bw_spread": 19.78
-    },
-    "inv": {
-      "latest_mbbl": 698560.0,
-      "wow_chg_pct": -1.21,
-      "surprise": -0.93
-    },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +7.5%",
-      "Brent backwardation +19.8%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -481,10 +459,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.37,
-      "baseline": 0.5046,
-      "z_score": -1.11,
-      "last_date": "2026-10-19"
+      "current": 0.352,
+      "baseline": 0.5042,
+      "z_score": -1.26,
+      "last_date": "2026-10-20"
     }
   ],
   "china": [
