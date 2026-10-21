@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-21T13:02:51",
+  "scan_date": "2026-10-21T13:07:46",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -430,6 +430,13 @@
       "z_score": 0.83,
       "bw_spread": 7.51
     },
+    "brent": {
+      "label": "Brent",
+      "current": 126.98,
+      "baseline": 94.14,
+      "z_score": 1.76,
+      "bw_spread": 19.78
+    },
     "inv": {
       "latest_mbbl": 698560.0,
       "wow_chg_pct": -1.21,
@@ -437,7 +444,8 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +7.5%"
+      "WTI backwardation +7.5%",
+      "Brent backwardation +19.8%"
     ]
   },
   "fred": [
@@ -448,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 306.6,
-      "baseline": 328.4508,
-      "z_score": -0.15,
-      "last_date": "2026-10-19"
+      "current": 315.85,
+      "baseline": 327.7963,
+      "z_score": -0.08,
+      "last_date": "2026-10-20"
     },
     {
       "sid": "BAMLH0A0HYM2",
