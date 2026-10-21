@@ -434,6 +434,19 @@ def _rate_evidence(G) -> list[dict]:
     return out
 
 
+def _rate_inputs_missing(G) -> list[str]:
+    """US10Y partial t 가 유한하지 않은 섹터 목록 (정상 데이터면 빈 리스트)."""
+    import math
+    from ontology.schema import SECTOR_NAMES
+
+    out = []
+    for sec in SECTOR_NAMES:
+        t = G.edges[sec, "US10Y"].get("t_delta_ctrl") if G.has_edge(sec, "US10Y") else None
+        if t is None or not math.isfinite(float(t)):
+            out.append(sec)
+    return out
+
+
 def _write_rule_sector_state(G, active_regime: str) -> None:
     """**단일 진실원** (라운드 7 비평 1번 / 감사 P0-1): 현재 데이터에서 유효한
     (rule × sector) 상태표 + 증거 + freeze 메타. 실행기·PDF·포털이 이것만 참조.
@@ -441,7 +454,17 @@ def _write_rule_sector_state(G, active_regime: str) -> None:
     유효성 = run_all_regimes 발화 (레짐 무관 *데이터* 유효성 — 레짐이 바뀌어도
     데이터가 유효하면 포지션을 털지 않기 위해 레짐 필터와 분리).
     kinetic 의 '시그널은퇴' 청산이 이 파일로 죽은 시그널 위의 포지션을 회수한다.
+
+    가드 (2026-10-21): rate_* 입력(partial 회귀 t)이 한 섹터라도 비면 쓰지 않는다.
+    데이터 부재를 '시그널 사망'으로 기록하면 다음 사이클 kinetic 이 그 섹터 포지션을
+    시그널은퇴로 청산한다(8/21 전부-NaN 사이클 → XLC·XLY 0일 왕복 실측). 쓰지 않으면
+    직전 상태가 유지되고, 48h 넘게 비면 kinetic 이 시그널은퇴 판정 자체를 보류한다.
     """
+    missing = _rate_inputs_missing(G)
+    if missing:
+        print(f"  [GUARD] rate_* 입력(partial 회귀) 결측 섹터 {missing} — "
+              f"rule_sector_state 미갱신(직전 상태 유지)")
+        return
     try:
         all_sig = generate_signals(G, active_regime, run_all_regimes=True)
         valid = sorted({f"{s.rule_name}|{s.sector}" for s in all_sig})

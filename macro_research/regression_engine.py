@@ -341,10 +341,18 @@ if __name__ == "__main__":
     macro_chg = pd.read_parquet(OUTPUT_DIR / "macro_changes.parquet")
 
     static_df = run_static_regression(returns, macro_chg, standardize=True)
+    partial_df = run_multivariate_regression(returns, macro_chg, standardize=True)
+
+    # 가드 (2026-10-21): 입력 붕괴로 회귀가 전부 NaN 이면 덮어쓰지 않는다 — 커밋된 직전
+    # 결과가 남는다. 전부-NaN partial 은 rate_* 신호를 일괄 소멸시켜 보유 포지션 전체를
+    # 시그널은퇴로 청산시킨다(8/21 XLC·XLY 0일 왕복 실측).
+    for name, df, col in (("static", static_df, "t_delta"), ("partial", partial_df, "t_delta_ctrl")):
+        if not np.isfinite(pd.to_numeric(df[col], errors="coerce")).any():
+            sys.exit(f"[GUARD] {name} 회귀 전부 NaN — static/partial_results.csv 미갱신(직전 결과 유지)")
+
     static_df.to_csv(OUTPUT_DIR / "static_results.csv")
     print(f"static_results.csv  갱신 ({len(static_df)} rows)")
 
-    partial_df = run_multivariate_regression(returns, macro_chg, standardize=True)
     partial_df.to_csv(OUTPUT_DIR / "partial_results.csv")
     print(f"partial_results.csv 갱신 ({len(partial_df)} rows)")
 

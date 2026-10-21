@@ -86,6 +86,9 @@ jobs:
           NASDAQ_DATA_LINK_KEY: ${{ secrets.NASDAQ_DATA_LINK_KEY }}
         working-directory: ./macro_research
         run: |
+          # 원시 레벨 = LKG(lkg_levels.csv, Stage 5 커밋) 기준 거래일 고정 — 새 거래일이
+          # 붙을 때만 갱신, 장중엔 결측 칸 보강만. yfinance 간헐 누락이 사이클마다 회귀
+          # 입력을 바꿔 신호가 깜빡이던 것 차단 (2026-10-21). 결과는 data_quality.json.
           python data_loader.py
           python garch_estimator.py
           python implied_vol.py
@@ -136,6 +139,8 @@ jobs:
                   macro_research/output/event_vol_shadow_log.jsonl \
                   macro_research/output/phantom_pending.json \
                   macro_research/output/orphan_positions.json \
+                  macro_research/output/lkg_levels.csv \
+                  macro_research/output/data_quality.json \
                   macro-portal/public/data/vol_monitor_data.json \
                   macro-portal/public/data/ontology_signals.json \
                   macro-portal/public/data/iv_history.json \

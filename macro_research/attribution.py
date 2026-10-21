@@ -35,6 +35,24 @@ CLUSTER_MIN_N = 8                        # 군집 판정 게이트 (이 미만�
 # '완전히 새 이벤트'에서 z 뚫는 표본 — 자동탐지 불가, 그 이벤트 확인 시 아래 날짜로 설정.
 # None = 전 event_vol 표본 검증 제외(clean n=0).
 EVENT_VOL_CLEAN_AFTER = None
+# 데이터 결함 표본 (2026-10-21 오너 판정): yfinance 불완전 응답으로 partial 회귀 입력이
+# 사이클마다 바뀌어 생긴 0~1일 왕복 — 테제가 아니라 계측 결함이 만든 청산이라 검증 제외.
+# 근거: CI 런 33639312973(8/28 행 누락, n=414) vs 33642529938(완전, n=416) 로그 대조 +
+# origin 2,163사이클 스캔. 수정 = data_loader LKG·거래일 고정 + 전부-NaN 가드(같은 날).
+# 8/28 XLU(XLU-2026-08-27-e535d0)는 그날 내내 q=0.1049 일정 = 정상 거래일 단위 경계
+# 넘김이라 clean 유지 — 기계적 기준(입력 결함 유무)이지 손익 기준이 아님.
+_DEFECT_ROWGAP = "yfinance 행 누락(8/28) → 회귀 n 416↔414 교대 → q가 0.10 경계를 사이클마다 넘나듦"
+_DEFECT_ALLNAN = "yfinance fetch 실패 → partial 회귀 전부 NaN → rate 신호 일괄 소멸"
+DATA_DEFECT_TRADES = {
+    "XLC-2026-08-21-5fa651": _DEFECT_ALLNAN,
+    "XLY-2026-08-21-e07043": _DEFECT_ALLNAN,
+    "XLU-2026-09-02-c85041": _DEFECT_ROWGAP,
+    "XLU-2026-09-02-08469d": _DEFECT_ROWGAP,
+    "XLU-2026-09-02-a63071": _DEFECT_ROWGAP,
+    "XLU-2026-09-03-7495c9": _DEFECT_ROWGAP,
+    "XLU-2026-09-03-1be1a6": _DEFECT_ROWGAP,
+    "XLU-2026-09-03-e93173": _DEFECT_ROWGAP,
+}
 
 
 def export_forward_validation() -> dict:
@@ -59,6 +77,9 @@ def export_forward_validation() -> dict:
                 validation = "excluded"
                 ex_reason = ("event_vol 임계(z≥2.5)가 origin-event(6/15) 표본으로 선택됨 = 임계 튜닝 in-sample"
                              + (" + origin-event 진입 오염" if ent <= "2026-06-16" else ""))
+        if t.get("trade_id") in DATA_DEFECT_TRADES:
+            validation = "excluded"
+            ex_reason = "데이터 결함: " + DATA_DEFECT_TRADES[t["trade_id"]]
         fwd.append({
             "exit_date":    ex,
             "entry_date":   ent,
@@ -131,6 +152,8 @@ def export_forward_validation() -> dict:
                               "event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
         "timing_note":        "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 "
                               "어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
+        "data_defect_note":   "8/21·9/02~03 0일 왕복 8건 = yfinance 불완전 응답이 회귀 입력을 사이클마다 바꿔 생긴 "
+                              "계측 결함(테제 무관) → 검증 제외(10/21 판정). 10/21부터 LKG·거래일 고정으로 차단.",
         "churn_diagnostic": {
             "definition":   "event_vol 스트래들 당일진입+청산(holding_days=0) = 임계경계 깜빡임 왕복. "
                             "룰 발화 히스테리시스 부재로 z가 2.5 경계서 깜빡이면 매 사이클 진입↔은퇴.",
@@ -143,6 +166,10 @@ def export_forward_validation() -> dict:
             "cum_pnl":      churn_pnl,           # 동결: churn 누적 슬리피지(실체결가)
             "verdict_note": "결론(6/30): event_vol shadow → churn moot. 비용은 실거래가 기준"
                             "(저널 mid-pnl 은 ~2.7배 과소였음). instrument 교체 시 소급 재평가용 보존.",
+            "directional_note": "정정(10/21): 'churn=event_vol 전용' 전제는 틀렸음 — 룰 발화 히스테리시스 "
+                                "부재는 directional 에도 해당. 관측된 directional churn 9건 중 8건은 데이터 "
+                                "결함(위 data_defect_note), 1건(8/28 XLU)은 정상 거래일 단위 경계 넘김. "
+                                "후자 빈도는 확정 일봉 재생으로 측정 후 판정(미결).",
         },
         "clean_samples":      clean_samples,
         "clean_note":         (f"clean 표본 n<{CLUSTER_MIN_N} 이면 군집 판정 보류 — 개별 표본을 "
