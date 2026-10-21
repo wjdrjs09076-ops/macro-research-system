@@ -53,6 +53,13 @@ DATA_DEFECT_TRADES = {
     "XLU-2026-09-03-1be1a6": _DEFECT_ROWGAP,
     "XLU-2026-09-03-e93173": _DEFECT_ROWGAP,
 }
+# 외부 핑거 사망기(2026-09-11~10-21, RTH 체크 14.6→1.3회/일) 청산 — 오너 판정(10/22): clean 유지 +
+# 주석. 보유만료 6건은 타이밍 둔감. 손절은 늦은 체결로 크기만 부풀었고 부호(손실)는 같다 —
+# 손실만 빼면 비대칭 제외가 되므로 빼지 않는다.
+TIMING_NOTES = {
+    "XLP-2026-10-05-885f2e": "핑거 사망기 늦은 체결: 손절선 −7% → 실현 −9.01% (+2.01%p 초과)",
+    "XLU-2026-09-25-340f16": "핑거 사망기 늦은 체결: 손절선 −7% → 실현 −7.11% (+0.11%p 초과)",
+}
 
 
 def export_forward_validation() -> dict:
@@ -93,6 +100,7 @@ def export_forward_validation() -> dict:
             "holding_days": t.get("holding_days"),
             "validation":   validation,        # clean | excluded
             "exclude_reason": ex_reason,
+            "note":         TIMING_NOTES.get(t.get("trade_id")),
         })
     fwd.sort(key=lambda r: r["exit_date"])
     clean_n = sum(1 for r in fwd if r["validation"] == "clean")
@@ -151,7 +159,9 @@ def export_forward_validation() -> dict:
         "boundary_note":      "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 "
                               "event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
         "timing_note":        "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 "
-                              "어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean.",
+                              "어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean. "
+                              "2026-09-11~10-21 핑거 사망(RTH 1.3회/일) 기간 청산 8건은 clean 유지(10/22 판정) — "
+                              "보유만료 6건 타이밍 둔감, 손절 2건은 표본별 note 에 초과 체결폭 기록.",
         "data_defect_note":   "8/21·9/02~03 0일 왕복 8건 = yfinance 불완전 응답이 회귀 입력을 사이클마다 바꿔 생긴 "
                               "계측 결함(테제 무관) → 검증 제외(10/21 판정). 10/21부터 LKG·거래일 고정으로 차단.",
         "churn_diagnostic": {
