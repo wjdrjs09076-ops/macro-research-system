@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-22T11:32:31",
+  "scan_date": "2026-10-22T13:02:34",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -140,6 +140,20 @@
       "label": "WATCH",
       "reason": "beta=-0.01",
       "sector": "Nikkei 225"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 3.9,
+      "baseline_rv": 4.3,
+      "z_score": -0.36,
+      "vrp": 0.0106,
+      "beta_30d": 0.157,
+      "consec_vol": 1,
+      "excess_10d": 1.11,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.16",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EWU",
@@ -409,17 +423,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 100.95,
-      "baseline": 86.51,
-      "z_score": 0.99,
-      "bw_spread": 9.04
-    },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +9.0%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -516,7 +521,7 @@
       "last_date": "2026-10-22"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 21,
   "alert_count": 0,
   "high_count": 0
 }
