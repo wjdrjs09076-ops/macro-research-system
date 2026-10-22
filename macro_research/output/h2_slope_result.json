@@ -1,0 +1,62 @@
+{
+  "preregistration": "h2_slope_preregistration.md",
+  "rule": "x=y10-y1, 확장창 OLS Δ(next 21obs, bp)=a+b·x (j+21<=i 만), s=sign(a+b·x_i), r=s·Δ_i",
+  "data": {
+    "series": "H15/H15/RIFLGFCY10_N.B − H15/H15/RIFLGFCY01_N.B",
+    "first_obs": "1962-01-02",
+    "last_obs": "2026-10-20",
+    "n_obs": 16185,
+    "raw_sha256": "a3812f62f9effc9f62e8f83b3189e43579ee3356131064e2ea439f2eadc72fd1"
+  },
+  "primary": {
+    "n": 414,
+    "first_block": "1992-01-02",
+    "last_block_end": "2026-10-02",
+    "mean_bp": -0.319,
+    "sd_bp": 27.642,
+    "t": -0.235,
+    "t_nw_lag3": -0.24,
+    "hit_rate": 0.4767,
+    "share_beta_negative": 1.0,
+    "share_forecast_up": 0.4686
+  },
+  "first_half": {
+    "n": 203,
+    "first_block": "1992-01-02",
+    "last_block_end": "2009-01-15",
+    "mean_bp": -0.35,
+    "sd_bp": 30.741,
+    "t": -0.162,
+    "t_nw_lag3": -0.17,
+    "hit_rate": 0.4824,
+    "share_beta_negative": 1.0,
+    "share_forecast_up": 0.5222
+  },
+  "second_half": {
+    "n": 211,
+    "first_block": "2009-01-15",
+    "last_block_end": "2026-10-02",
+    "mean_bp": -0.289,
+    "sd_bp": 24.365,
+    "t": -0.172,
+    "t_nw_lag3": -0.166,
+    "hit_rate": 0.4712,
+    "share_beta_negative": 1.0,
+    "share_forecast_up": 0.4171
+  },
+  "prepub_reference_not_evidence": {
+    "n": 234,
+    "first_block": "1972-04-03",
+    "last_block_end": "1991-12-18",
+    "mean_bp": 0.731,
+    "sd_bp": 45.774,
+    "t": 0.244,
+    "t_nw_lag3": 0.242,
+    "hit_rate": 0.5129,
+    "share_beta_negative": 0.8974,
+    "share_forecast_up": 0.7179
+  },
+  "verdict": "REJECT",
+  "criterion": "primary t >= 2.24 (Bonferroni, H2 규칙 2개) AND 전반·후반 mean_bp > 0",
+  "stopping_rule": "H2-2 = H2 마지막 시도. REJECT 면 H2 종결."
+}

@@ -166,12 +166,13 @@
   {
    "id": "rate_direction_alpha_H2",
    "claim": "금리 방향 예측 + 금리 민감 노출 = 알파 (H2)",
-   "evidence": "H2-1 사전등록(fe6ac1a7, 정정1 75def9b7) 10년물 TSMOM(MOP2012, 252/21): 발표 이후 2013-01~2026-10 164블록 평균 +0.57bp t=0.31 적중 49.7%, 전반 평균 −0.50bp → 기각. 발표 이전 참고 t=1.51(증거 아님). 시도 규칙 수 1. 결과=output/h2_tsmom_result.json",
+   "evidence": "H2-1 사전등록(fe6ac1a7, 정정1 75def9b7) 10년물 TSMOM(MOP2012, 252/21): 발표 이후 2013-01~2026-10 164블록 평균 +0.57bp t=0.31 적중 49.7%, 전반 평균 −0.50bp → 기각. 발표 이전 참고 t=1.51(증거 아님). 시도 규칙 수 1. 결과=output/h2_tsmom_result.json | H2-2 사전등록(6233cc1a) 10Y−1Y 실시간 예측회귀(CS1991): 발표 이후 1992-01~2026-10 414블록 평균 −0.32bp t=−0.24 적중 47.7%, 전·후반 모두 음수 → 기각(기준 t>=2.24 Bonferroni). 정지 규칙상 H2 종결 — 변형 재시도 금지. 결과=output/h2_slope_result.json",
    "start_date": null,
-   "status": "H2-1 REJECTED (2026-10-22) — 다른 규칙은 별도 사전등록으로만",
+   "status": "CLOSED (2026-10-22) — H2-1·H2-2 모두 기각, 정지 규칙 발동",
    "live_status": "라이브 미배선.",
    "status_history": [
-    "DESIGN (2026-10-22)"
+    "DESIGN (2026-10-22)",
+    "H2-1 REJECTED (2026-10-22) — 다른 규칙은 별도 사전등록으로만"
    ]
   }
  ],
@@ -264,6 +265,7 @@
   "H2_selected": "정식 질문 = 금리 방향 예측을 붙인 알파(H2). 폭 확대(A)는 H2 위에서만 의미.",
   "data_defect_exclusion": "8/21·9/02~03 0일 왕복 8건 검증 제외(yfinance 불완전 응답, 수정 커밋 16c6e44d).",
   "finger_dead_samples": "9/11~10/21 청산 8건 clean 유지 + 손절 2건 초과체결 주석(8515b24f).",
-  "rule_hysteresis": "거래일 단위 경계 넘김(OOS 22회, XLU 11) — 룰 변경=시계 리셋이라 H2 재설계 시 함께 결정."
+  "rule_hysteresis": "거래일 단위 경계 넘김(OOS 22회, XLU 11) — 룰 변경=시계 리셋이라 H2 재설계 시 함께 결정.",
+  "H2_closed": "H2-1(TSMOM t=0.31)·H2-2(기울기 t=−0.24) 사전등록 검정 모두 기각 → H2 종결. 다음 결정 = directional 트랙 유지/정리."
  }
 }
