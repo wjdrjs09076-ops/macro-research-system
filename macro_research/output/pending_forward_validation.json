@@ -161,7 +161,7 @@
    "evidence": "10/22 실측: clean 18건 손익 vs 보유기간 ΔUS10Y 상관 0.91, 부호일치 14/18(불일치 4건 |손익|<$7). 룰은 금리 민감도 유의성만 보고 금리 방향을 예측하지 않음 → 기대손익 ≈ 민감도×E[Δ금리] − 비용. clean 합 +$105.82 는 8~9월 금리 상승(+0.24/+0.40/+0.30)을 탄 것.",
    "start_date": "2026-06-16",
    "status": "RECLASSIFIED (2026-10-22) — 테제 검증 대상 아님",
-   "live_status": "페이퍼 계속 운용 = 집행·인프라 검증용. 표본은 '그 기간 금리가 올랐나'의 증거일 뿐 엣지 증거 아님."
+   "live_status": "2026-10-22 신규 진입 shadow 격리(kinetic DIRECTIONAL_ENTRY_SHADOW) — H2 종결로 검증할 가설 없음. 보유 5종목(XLRE/XLY/XLC/XLK/XLU)은 타이머·손절·시그널은퇴로 자연 청산(~11/15). 룰 발화·rule_sector_state 는 H1 계측용으로 유지."
   },
   {
    "id": "rate_direction_alpha_H2",
@@ -266,6 +266,7 @@
   "data_defect_exclusion": "8/21·9/02~03 0일 왕복 8건 검증 제외(yfinance 불완전 응답, 수정 커밋 16c6e44d).",
   "finger_dead_samples": "9/11~10/21 청산 8건 clean 유지 + 손절 2건 초과체결 주석(8515b24f).",
   "rule_hysteresis": "거래일 단위 경계 넘김(OOS 22회, XLU 11) — 룰 변경=시계 리셋이라 H2 재설계 시 함께 결정.",
-  "H2_closed": "H2-1(TSMOM t=0.31)·H2-2(기울기 t=−0.24) 사전등록 검정 모두 기각 → H2 종결. 다음 결정 = directional 트랙 유지/정리."
+  "H2_closed": "H2-1(TSMOM t=0.31)·H2-2(기울기 t=−0.24) 사전등록 검정 모두 기각 → H2 종결. 다음 결정 = directional 트랙 유지/정리.",
+  "directional_shadow": "directional 신규 진입 중단(shadow), 보유분 자연 청산. H1(민감도 지속성) 사전등록 검정 착수."
  }
 }

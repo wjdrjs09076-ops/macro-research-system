@@ -123,6 +123,13 @@ SIGNAL_STATE_MAX_AGE_H = 48
 SHADOW_ENTRY_RULES = {"event_vol"}
 EVENT_VOL_SHADOW_LOG = OUTPUT_DIR / "event_vol_shadow_log.jsonl"
 
+# directional 트랙 = shadow 격리 (2026-10-22 판정). 라이브 directional 손익은 보유기간 ΔUS10Y 와
+# 상관 0.91 — 금리 방향을 예측하지 않는 무조건부 숏듀레이션 노출이고, 그 위에 붙일 금리 방향
+# 예측(H2)은 사전등록 검정 2개 모두 기각돼 종결(42e57bae). 검증할 가설이 없으므로 *신규 진입만*
+# 정지한다. 룰 발화·rule_sector_state(시그널은퇴 기준)·청산(타이머/손절/시그널은퇴)·SPY 헤지
+# 정합은 그대로 — 보유분은 자연 청산되고 신호 계산은 H1(민감도 지속성) 계측용으로 계속 돈다.
+DIRECTIONAL_ENTRY_SHADOW = True
+
 # ── 유령 정리 안전장치 (2026-08-21, 정합 붕괴 사고 수정) ─────────
 # 사고: Alpaca /v2/positions 가 사이클마다 보유 종목을 *일부 누락*하는 게 실측됨
 # (7/07 14:00 5종목 전부 → 14:30 XLRE 하나만 → 15:30 다시 5종목, 그 사이 상쇄 체결
@@ -953,6 +960,11 @@ def _run_directional_entry(candidates, equity, multipliers, live, market_open) -
     held = held_equity_underlyings() - {HEDGE_SYMBOL}   # SPY 는 헤지 인벤토리 — dedup 제외
     print(f"\n  ── DIRECTIONAL (베타헤지 페어: 섹터 + β·{HEDGE_SYMBOL})  "
           f"보유중 {sorted(held) or '없음'} ──")
+
+    if DIRECTIONAL_ENTRY_SHADOW:
+        for cand in candidates:
+            print(f"  [shadow] {cand['ticker']}: {cand.get('rule')} 발화 — 신규 진입 격리(10/22 판정, H2 종결)")
+        return
 
     hedge_stats = load_hedge_stats()
     if not hedge_stats:
