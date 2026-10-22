@@ -1,5 +1,5 @@
 {
- "schema_version": "1.1",
+ "schema_version": "1.2",
  "created": "2026-06-16",
  "purpose": "config freeze 이후 전향(forward) 페이퍼 표본만 진짜 OOS. 아래는 전부 in-sample(오염 명시) PENDING. 라운드9 event_vol 구조변경으로 OOS 시계 2026-06-16 재리셋.",
  "in_sample_window": {
@@ -21,8 +21,12 @@
     "contamination": "in-sample; IV 합성가정; 룰 가지치기 생존편향; designer leakage(P1-6)"
    },
    "start_date": "2026-06-16",
-   "status": "PENDING",
-   "live_status": "β헤지 스프레드는 2026-06-16까지 minimal+floor 버그로 라이브 미적용(아웃라이트)였음. 6/16 소수주 수정으로 directional이 실제 페어화(XLRE+SPY0.30/XLY+SPY0.89). 전향 검증은 이 시점부터 유효 — 그 이전 directional 표본은 아웃라이트라 이 주장의 증거 아님."
+   "status": "MOOT (2026-10-22)",
+   "live_status": "β헤지 스프레드는 2026-06-16까지 minimal+floor 버그로 라이브 미적용(아웃라이트)였음. 6/16 소수주 수정으로 directional이 실제 페어화(XLRE+SPY0.30/XLY+SPY0.89). 전향 검증은 이 시점부터 유효 — 그 이전 directional 표본은 아웃라이트라 이 주장의 증거 아님.",
+   "status_history": [
+    "PENDING"
+   ],
+   "closed_reason": "비교 대상(스트래들) 테제 종결로 비교 자체가 무의미."
   },
   {
    "id": "co_crash_cluster_straddle",
@@ -38,7 +42,11 @@
     "contamination": "in-sample; n<10 주장불가; look-ahead(시점-aware 재적합 미구현); 룰 가지치기 생존편향"
    },
    "start_date": "2026-06-16",
-   "status": "PENDING"
+   "status": "CLOSED_THESIS (2026-10-22)",
+   "status_history": [
+    "PENDING"
+   ],
+   "closed_reason": "스트래들(방향 무관) 테제 공식 종결(오너 판정 C). 근거: D1/W2-B 현실 IV 전 창 손실 기각, event_vol 6/30 shadow, 숏볼 수학적 발화불가(P2-5), 6/30 이후 라이브 스트래들 진입 0건. 전향 표본 영영 없음 — 재개하려면 새 테제·새 시계로."
   },
   {
    "id": "fat_tail_alert_straddle",
@@ -54,7 +62,11 @@
     "contamination": "in-sample; n<10; 실측 무유의(win 50%/총 +$6)"
    },
    "start_date": "2026-06-16",
-   "status": "PENDING"
+   "status": "CLOSED_THESIS (2026-10-22)",
+   "status_history": [
+    "PENDING"
+   ],
+   "closed_reason": "스트래들(방향 무관) 테제 공식 종결(오너 판정 C). 근거: D1/W2-B 현실 IV 전 창 손실 기각, event_vol 6/30 shadow, 숏볼 수학적 발화불가(P2-5), 6/30 이후 라이브 스트래들 진입 0건. 전향 표본 영영 없음 — 재개하려면 새 테제·새 시계로."
   },
   {
    "id": "trail_25_40_straddle",
@@ -69,7 +81,11 @@
     "contamination": "in-sample; 소표본; 9격자 in-sample 관측"
    },
    "start_date": "2026-06-16",
-   "status": "PENDING"
+   "status": "CLOSED_THESIS (2026-10-22)",
+   "status_history": [
+    "PENDING"
+   ],
+   "closed_reason": "스트래들(방향 무관) 테제 공식 종결(오너 판정 C). 근거: D1/W2-B 현실 IV 전 창 손실 기각, event_vol 6/30 shadow, 숏볼 수학적 발화불가(P2-5), 6/30 이후 라이브 스트래들 진입 0건. 전향 표본 영영 없음 — 재개하려면 새 테제·새 시계로."
   },
   {
    "id": "system_total",
@@ -86,7 +102,11 @@
     "contamination": "in-sample 재구성; 생존편향; designer leakage(P1-6); baseline VIX>25 SPY 에 패배(n=2)"
    },
    "start_date": "2026-06-16",
-   "status": "PENDING"
+   "status": "RECLASSIFIED (2026-10-22)",
+   "status_history": [
+    "PENDING"
+   ],
+   "closed_reason": "시스템 합산 손익은 아래 directional_rate_exposure 로 재분류 — 테제 검증 지표 아님."
   },
   {
    "id": "event_vol_straddle",
@@ -102,7 +122,7 @@
     "contamination": "in-sample n 극소(룰 6/16 신설, 과거 발화 적음); 백테스트 VRP=GARCH proxy(라이브 Alpaca IV와 다름); 진짜 테스트는 전향 표본"
    },
    "start_date": "2026-06-16",
-   "status": "SHADOW_ISOLATED (2026-06-30)",
+   "status": "CLOSED_THESIS (2026-10-22)",
    "first_sample_caveat": {
     "trade": "XLB-2026-06-15-72f2df",
     "issue": "origin-event 오염 — cron 지연 아님(룰배포 15:08:23Z +2.5분 즉시진입)이나, flag_log상 6/13부터 z~2.7/VRP~-0.05 조건 지속 = 룰 배포 2일전부터 켜진 신호에 즉시진입. 룰이 자기 탄생 이벤트(6/15 vol급등)에 진입한 표본.",
@@ -129,7 +149,27 @@
     "basis": "닫힌 5건 전부 손실 합계 −219.5 USD(−77.5/−37.5/−16.5/−9.0/−79.0). 표본 운 아니라 구조적: z 하락=시그널은퇴 청산=vol crush 결합 + 진입 슬리피지(섹터ETF옵션 왕복 스프레드). 메커니즘 판정이라 오염 표본으로도 유효. 게다가 minimal 예산서 clean 표본화 구조적 불가(오염 아니면 예산 스킵: XLK 6/26 z=2.85 발화했으나 예산 초과로 진입 0).",
     "oos_impact": "없음 — 실행 격리지 룰 비활성 아님. directional 전향 시계(OOS 2026-06-16, clean_n=1) 불변. 리셋 금지.",
     "firing_record": "event_vol_shadow_log.jsonl 에 발화 누적(instrument 교체 시 소급 평가용)."
-   }
+   },
+   "status_history": [
+    "SHADOW_ISOLATED (2026-06-30)"
+   ],
+   "closed_reason": "스트래들(방향 무관) 테제 공식 종결(오너 판정 C). 근거: D1/W2-B 현실 IV 전 창 손실 기각, event_vol 6/30 shadow, 숏볼 수학적 발화불가(P2-5), 6/30 이후 라이브 스트래들 진입 0건. 전향 표본 영영 없음 — 재개하려면 새 테제·새 시계로."
+  },
+  {
+   "id": "directional_rate_exposure",
+   "claim": "라이브 directional(rate_victim 숏 / rate_beneficiary 롱, β헤지 21일) = 알파 테제가 아니라 무조건부 숏듀레이션 노출",
+   "evidence": "10/22 실측: clean 18건 손익 vs 보유기간 ΔUS10Y 상관 0.91, 부호일치 14/18(불일치 4건 |손익|<$7). 룰은 금리 민감도 유의성만 보고 금리 방향을 예측하지 않음 → 기대손익 ≈ 민감도×E[Δ금리] − 비용. clean 합 +$105.82 는 8~9월 금리 상승(+0.24/+0.40/+0.30)을 탄 것.",
+   "start_date": "2026-06-16",
+   "status": "RECLASSIFIED (2026-10-22) — 테제 검증 대상 아님",
+   "live_status": "페이퍼 계속 운용 = 집행·인프라 검증용. 표본은 '그 기간 금리가 올랐나'의 증거일 뿐 엣지 증거 아님."
+  },
+  {
+   "id": "rate_direction_alpha_H2",
+   "claim": "금리 방향 예측 + 금리 민감 노출 = 알파 (H2)",
+   "evidence": "미설계. 사전등록(규칙·데이터 창·통과 기준) 커밋 후에만 데이터 확인.",
+   "start_date": null,
+   "status": "DESIGN (2026-10-22)",
+   "live_status": "라이브 미배선."
   }
  ],
  "monitored_controls": [
@@ -215,5 +255,12 @@
    "beta_hedge_measured": "β헤지 작동 실측: SPY 레그 −1.2로 시장 베타 제거 → 남은 −17.7은 순수 idiosyncratic. rate_victim 숏 테제(XLU 하락)와 반대로 XLU 상승 = 역방향 표본.",
    "discipline": "n=1<8(cluster_min_n) → 판정 보류. 패배를 테제 실패로 단정 금지(승리를 성공으로 안 읽듯)."
   }
+ },
+ "decisions_2026_10_22": {
+  "C_question_switch": "스트래들 테제 공식 종결 + 라이브 directional 을 '무조건부 숏듀레이션 노출'로 재분류.",
+  "H2_selected": "정식 질문 = 금리 방향 예측을 붙인 알파(H2). 폭 확대(A)는 H2 위에서만 의미.",
+  "data_defect_exclusion": "8/21·9/02~03 0일 왕복 8건 검증 제외(yfinance 불완전 응답, 수정 커밋 16c6e44d).",
+  "finger_dead_samples": "9/11~10/21 청산 8건 clean 유지 + 손절 2건 초과체결 주석(8515b24f).",
+  "rule_hysteresis": "거래일 단위 경계 넘김(OOS 22회, XLU 11) — 룰 변경=시계 리셋이라 H2 재설계 시 함께 결정."
  }
 }
