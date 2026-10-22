@@ -166,10 +166,13 @@
   {
    "id": "rate_direction_alpha_H2",
    "claim": "금리 방향 예측 + 금리 민감 노출 = 알파 (H2)",
-   "evidence": "미설계. 사전등록(규칙·데이터 창·통과 기준) 커밋 후에만 데이터 확인.",
+   "evidence": "H2-1 사전등록(fe6ac1a7, 정정1 75def9b7) 10년물 TSMOM(MOP2012, 252/21): 발표 이후 2013-01~2026-10 164블록 평균 +0.57bp t=0.31 적중 49.7%, 전반 평균 −0.50bp → 기각. 발표 이전 참고 t=1.51(증거 아님). 시도 규칙 수 1. 결과=output/h2_tsmom_result.json",
    "start_date": null,
-   "status": "DESIGN (2026-10-22)",
-   "live_status": "라이브 미배선."
+   "status": "H2-1 REJECTED (2026-10-22) — 다른 규칙은 별도 사전등록으로만",
+   "live_status": "라이브 미배선.",
+   "status_history": [
+    "DESIGN (2026-10-22)"
+   ]
   }
  ],
  "monitored_controls": [

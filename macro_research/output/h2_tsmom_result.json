@@ -1,0 +1,56 @@
+{
+  "preregistration": "h2_tsmom_preregistration.md",
+  "rule": "s=sign(y_i - y_(i-252)), r=s*(y_(i+21)-y_i)*100bp, 겹치지 않는 21관측 블록",
+  "data": {
+    "series": "FRED DGS10",
+    "first_obs": "1962-01-02",
+    "last_obs": "2026-10-20",
+    "n_obs": 16185
+  },
+  "primary": {
+    "n": 164,
+    "first_block": "2013-01-02",
+    "last_block_end": "2026-10-09",
+    "mean_bp": 0.573,
+    "sd_bp": 23.531,
+    "t": 0.312,
+    "t_nw_lag3": 0.299,
+    "hit_rate": 0.4969,
+    "share_long_yield": 0.5793
+  },
+  "first_half": {
+    "n": 84,
+    "first_block": "2013-01-02",
+    "last_block_end": "2020-01-23",
+    "mean_bp": -0.5,
+    "sd_bp": 18.594,
+    "t": -0.246,
+    "t_nw_lag3": -0.264,
+    "hit_rate": 0.5,
+    "share_long_yield": 0.4881
+  },
+  "second_half": {
+    "n": 80,
+    "first_block": "2020-01-23",
+    "last_block_end": "2026-10-09",
+    "mean_bp": 1.7,
+    "sd_bp": 27.871,
+    "t": 0.546,
+    "t_nw_lag3": 0.508,
+    "hit_rate": 0.4935,
+    "share_long_yield": 0.675
+  },
+  "prepub_reference_not_evidence": {
+    "n": 594,
+    "first_block": "1963-01-07",
+    "last_block_end": "2012-12-19",
+    "mean_bp": 2.17,
+    "sd_bp": 34.98,
+    "t": 1.512,
+    "t_nw_lag3": 1.573,
+    "hit_rate": 0.5391,
+    "share_long_yield": 0.5168
+  },
+  "verdict": "REJECT",
+  "criterion": "primary t >= 2.0 AND 전반·후반 mean_bp > 0"
+}
