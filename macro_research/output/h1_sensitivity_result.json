@@ -1,0 +1,147 @@
+{
+  "preregistration": "h1_sensitivity_preregistration.md",
+  "grade_C": {
+    "n_days": 3399,
+    "first": "2003-01-02",
+    "last": "2024-12-31",
+    "k": 0.026693,
+    "t": 12.679,
+    "t_nw_lag5": 6.733,
+    "avg_selected": 2.86
+  },
+  "grade_C_first_half": {
+    "n_days": 978,
+    "first": "2003-01-02",
+    "last": "2013-12-31",
+    "k": 0.009124,
+    "t": 2.161,
+    "t_nw_lag5": 1.546,
+    "avg_selected": 1.37
+  },
+  "grade_C_second_half": {
+    "n_days": 2421,
+    "first": "2014-01-02",
+    "last": "2024-12-31",
+    "k": 0.036606,
+    "t": 15.518,
+    "t_nw_lag5": 6.841,
+    "avg_selected": 3.46
+  },
+  "grade_C_per_sector_exploratory": {
+    "XLB": {
+      "n_days": 766,
+      "first": "2007-08-21",
+      "last": "2023-12-22",
+      "k": -0.004357,
+      "t": -0.904,
+      "t_nw_lag5": -0.699,
+      "avg_selected": 1.0
+    },
+    "XLC": {
+      "n_days": 89,
+      "first": "2020-03-05",
+      "last": "2022-01-03",
+      "k": 0.012691,
+      "t": 1.421,
+      "t_nw_lag5": 1.687,
+      "avg_selected": 1.0
+    },
+    "XLE": {
+      "n_days": 933,
+      "first": "2011-12-08",
+      "last": "2024-09-04",
+      "k": 0.03512,
+      "t": 5.705,
+      "t_nw_lag5": 3.932,
+      "avg_selected": 1.0
+    },
+    "XLF": {
+      "n_days": 2058,
+      "first": "2004-03-26",
+      "last": "2024-09-06",
+      "k": 0.026836,
+      "t": 8.274,
+      "t_nw_lag5": 5.081,
+      "avg_selected": 1.0
+    },
+    "XLI": {
+      "n_days": 129,
+      "first": "2011-12-01",
+      "last": "2023-12-06",
+      "k": 0.00021,
+      "t": 0.04,
+      "t_nw_lag5": 0.058,
+      "avg_selected": 1.0
+    },
+    "XLK": {
+      "n_days": 608,
+      "first": "2007-08-09",
+      "last": "2024-09-04",
+      "k": 0.022214,
+      "t": 4.34,
+      "t_nw_lag5": 3.705,
+      "avg_selected": 1.0
+    },
+    "XLP": {
+      "n_days": 823,
+      "first": "2016-12-30",
+      "last": "2022-09-28",
+      "k": 0.010807,
+      "t": 2.232,
+      "t_nw_lag5": 0.75,
+      "avg_selected": 1.0
+    },
+    "XLRE": {
+      "n_days": 1533,
+      "first": "2016-10-05",
+      "last": "2024-12-31",
+      "k": 0.038947,
+      "t": 9.905,
+      "t_nw_lag5": 4.932,
+      "avg_selected": 1.0
+    },
+    "XLU": {
+      "n_days": 2223,
+      "first": "2004-10-14",
+      "last": "2024-03-18",
+      "k": 0.031545,
+      "t": 8.963,
+      "t_nw_lag5": 4.027,
+      "avg_selected": 1.0
+    },
+    "XLV": {
+      "n_days": 439,
+      "first": "2003-04-30",
+      "last": "2023-10-25",
+      "k": -0.004503,
+      "t": -1.002,
+      "t_nw_lag5": -0.575,
+      "avg_selected": 1.0
+    },
+    "XLY": {
+      "n_days": 116,
+      "first": "2003-01-02",
+      "last": "2024-09-10",
+      "k": 0.010522,
+      "t": 1.0,
+      "t_nw_lag5": 1.215,
+      "avg_selected": 1.0
+    }
+  },
+  "verdict_grade_C": "PASS",
+  "criterion": "grade C: k>0 & t>=2.0 & 전반·후반 k>0",
+  "grade_A_contaminated_not_evidence": {
+    "n_days": 88,
+    "first": "2026-06-16",
+    "last": "2026-10-20",
+    "k": 0.062974,
+    "t": 3.446,
+    "t_nw_lag5": 3.873,
+    "avg_selected": 5.1
+  },
+  "grade_B_forward": {
+    "n_days": 0,
+    "target_days": 250,
+    "status": "진행 중 (0/250)"
+  }
+}
