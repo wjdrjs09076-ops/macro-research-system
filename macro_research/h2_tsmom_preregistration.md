@@ -52,6 +52,19 @@ t ≈ SR×√년수 라서 SR 0.5 가정 시 전향만으론 t=2 까지 ~16년 �
   (표현 수단: 섹터 스프레드 vs 채권 ETF, 비용, 히스테리시스)의 별도 사전등록·전향 검증 후에만.
 - Simple t 와 NW t 가 엇갈리면(한쪽만 2 이상) 결과 보고 시 명시한다 — 판정은 위 기준대로.
 
+## 정정 1 (2026-10-22, 실행 전) — 데이터 원천
+
+- 사유: 사전등록 커밋(fe6ac1a7) 직후 첫 실행에서 FRED 가 점검 페이지(HTML)를 반환 → 파싱 실패로
+  판정 미실행(결과 미산출, 잘못 저장된 파일 삭제). 오너 지시로 원천 교체.
+- 교체: 연준 Data Download Program H.15 패키지 "Treasury Constant Maturities" 의
+  **`H15/H15/RIFLGFCY10_N.B`** (Market yield on U.S. Treasury securities at 10-year constant
+  maturity, quoted on investment basis) — FRED `DGS10` 이 미러링하는 원 시리즈와 동일.
+- 변환: `h2_h15_to_csv.py` 가 `output/h2_dgs10.csv`(observation_date,DGS10, `ND`→결측)로 바꾸고,
+  사전등록 스크립트는 **수정 없이** 재현 모드 `python h2_tsmom_test.py output/h2_dgs10.csv` 로 실행.
+- 불변: 규칙·파라미터·구간·지표·판정 기준 전부.
+- 정정 전에 본 것: H.15 메타데이터 헤더와 첫 데이터 행(1962-01-02 = 4.06, 발표 이전 참고 구간)뿐.
+  판정 구간(2013~) 값은 보지 않음.
+
 ## 오염 고지
 
 - 규칙·파라미터는 문헌 고정이라 이 데이터로 튜닝하지 않았다. 다만 설계자(사람·모델 모두)는
