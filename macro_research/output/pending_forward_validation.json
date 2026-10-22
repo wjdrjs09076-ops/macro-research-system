@@ -181,7 +181,8 @@
    "evidence": "H1 사전등록(f1f19078) 등급 C 2003~2024 재생(롤링 370, β126): 3,399일 k=+0.0267 t=12.68(NW 6.73), 전반 k>0(t 2.16, NW 1.55 약함)·후반 k>0(t 15.5) → PASS. 노출이지 알파 아님(H2 종결과 합치면 금리 방향 견해 없이는 금리 노출만 생산). 등급 A(6/16~10/20, 오염) t 3.45. 결과=output/h1_sensitivity_result.json",
    "start_date": "2026-10-21",
    "status": "PASS grade C (2026-10-22) — 등급 B 전향 확인 진행 중(0/250)",
-   "live_status": "신호 계산은 shadow 로 계속 → 등급 B 는 `python h1_sensitivity_test.py run` 로 250거래일 도달 시 판정."
+   "live_status": "신호 계산은 shadow 로 계속 → 등급 B 는 `python h1_sensitivity_test.py run` 로 250거래일 도달 시 판정.",
+   "grade_B_rule": "정정 1(2026-10-22, 값 미확인 시점 고정): 2026-10-21 이후 첫 250 선정일, PASS = k>0 & 단순 t≥2.0, 전·후반 조건 미적용, NW 보고만, 1회 판정·중간 통계 비공개, 정정 커밋 코드로 실행"
   }
  ],
  "monitored_controls": [

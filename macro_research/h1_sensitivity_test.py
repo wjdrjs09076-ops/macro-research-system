@@ -5,6 +5,9 @@ h1_sensitivity_test.py — H1 사전등록 검정: 회귀로 고른 섹터 금�
 
     python h1_sensitivity_test.py fetch          # yfinance 재수집 → output/h1_levels_hist.csv (등급 C 원자료)
     python h1_sensitivity_test.py run            # 등급 C 판정 + 등급 A(오염, 보고만)·B(전향) 집계
+
+정정 1(등급 B 판정 규칙): grade_b() — 사전등록 문서 '정정 1' 참조. 등급 B 판정은 이 정정 커밋의
+regression_engine·ontology.inference.T 로 실행(이후 변경되면 이 커밋을 체크아웃해 실행).
 """
 from __future__ import annotations
 
@@ -155,6 +158,17 @@ def per_sector(df: pd.DataFrame) -> dict:
     return out
 
 
+def grade_b(b: pd.DataFrame) -> dict:
+    """정정 1: 2026-10-21 이후 첫 250 선정일, 통과 = k>0 & 단순 t≥2.0 (전·후반 조건 미적용, NW 보고만).
+    250일 전에는 일수만 — 중간 통계를 내지 않는다(조기 판정·연장 유혹 차단)."""
+    b = b.head(GRADE_B_N)
+    r = {"target_days": GRADE_B_N, "criterion": f"k>0 & t>={PASS_T} (전·후반 조건 미적용, NW 보고만) — 정정 1"}
+    if len(b) < GRADE_B_N:
+        return {"n_days": int(len(b)), **r, "status": f"진행 중 ({len(b)}/{GRADE_B_N}) — 중간 통계 비공개"}
+    s = k_stats(b)
+    return {**s, **r, "status": "판정", "verdict": "PASS" if s["k"] > 0 and s["t"] >= PASS_T else "REJECT"}
+
+
 def run() -> dict:
     ret, mchg = assemble(pd.read_csv(HIST_CSV, index_col=0, parse_dates=True, float_precision="round_trip"))
     c = daily_panel(ret, mchg, *GRADE_C, expanding=False)
@@ -171,9 +185,7 @@ def run() -> dict:
 
     lret, lmchg = assemble(pd.read_csv(LKG_CSV, index_col=0, parse_dates=True, float_precision="round_trip"))
     res["grade_A_contaminated_not_evidence"] = k_stats(daily_panel(lret, lmchg, *GRADE_A, expanding=True))
-    b = daily_panel(lret, lmchg, GRADE_B_START, "2100-01-01", expanding=True).head(GRADE_B_N)
-    res["grade_B_forward"] = {**k_stats(b), "target_days": GRADE_B_N,
-                              "status": "판정" if len(b) >= GRADE_B_N else f"진행 중 ({len(b)}/{GRADE_B_N})"}
+    res["grade_B_forward"] = grade_b(daily_panel(lret, lmchg, GRADE_B_START, "2100-01-01", expanding=True))
     return res
 
 
