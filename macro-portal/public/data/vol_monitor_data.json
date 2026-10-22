@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-22T13:31:57",
+  "scan_date": "2026-10-22T14:02:42",
   "etf_signals": [
     {
       "ticker": "XLV",
@@ -468,10 +468,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.282,
-      "baseline": 2.8601,
+      "current": 3.286,
+      "baseline": 2.8617,
       "z_score": -2.4,
-      "last_date": "2026-10-20"
+      "last_date": "2026-10-21"
     },
     {
       "sid": "T10Y2Y",
