@@ -1,0 +1,390 @@
+{
+  "preregistration": "h3_risk_preregistration.md",
+  "window": {
+    "first": "2003-01-02",
+    "last": "2024-12-31",
+    "n_days": 5525,
+    "n_shock": 578,
+    "avg_avail": 9.63,
+    "avg_selected": 1.76
+  },
+  "shock_comparisons": {
+    "textbook_minus_apparatus": {
+      "all": {
+        "n": 578,
+        "mean": -1.8544311422817849e-06,
+        "t": -2.056,
+        "t_nw": -2.004
+      },
+      "first_half": {
+        "n": 268,
+        "mean": -1.2422628719880606e-06,
+        "t": -0.835,
+        "t_nw": -1.074
+      },
+      "second_half": {
+        "n": 310,
+        "mean": -2.383660485632488e-06,
+        "t": -2.197,
+        "t_nw": -1.702
+      }
+    },
+    "naive_minus_apparatus": {
+      "all": {
+        "n": 578,
+        "mean": -7.67917824129521e-07,
+        "t": -0.613,
+        "t_nw": -0.51
+      },
+      "first_half": {
+        "n": 268,
+        "mean": -1.3587552422816159e-06,
+        "t": -0.756,
+        "t_nw": -0.644
+      },
+      "second_half": {
+        "n": 310,
+        "mean": -2.571293465012587e-07,
+        "t": -0.147,
+        "t_nw": -0.121
+      }
+    }
+  },
+  "verdict": "REJECT",
+  "criterion": "두 비교 모두: 평균 D>0 & NW(lag 5) t>=2.0 & 전·후반 평균 D>0 (충격일, 제곱오차)",
+  "report_shock_ES": {
+    "textbook": 0.0115,
+    "naive": 0.0012,
+    "apparatus": -0.0061
+  },
+  "report_shock_abs_comparisons": {
+    "textbook_minus_apparatus": {
+      "all": {
+        "n": 578,
+        "mean": -7.303920258527577e-05,
+        "t": -3.182,
+        "t_nw": -2.706
+      },
+      "first_half": {
+        "n": 268,
+        "mean": -6.169006470691776e-05,
+        "t": -2.073,
+        "t_nw": -2.176
+      },
+      "second_half": {
+        "n": 310,
+        "mean": -8.285071533172721e-05,
+        "t": -2.42,
+        "t_nw": -1.899
+      }
+    },
+    "naive_minus_apparatus": {
+      "all": {
+        "n": 578,
+        "mean": -4.2310954066205365e-05,
+        "t": -1.292,
+        "t_nw": -1.024
+      },
+      "first_half": {
+        "n": 268,
+        "mean": -3.9113478438907355e-07,
+        "t": -0.009,
+        "t_nw": -0.008
+      },
+      "second_half": {
+        "n": 310,
+        "mean": -7.8551313961453e-05,
+        "t": -1.593,
+        "t_nw": -1.238
+      }
+    }
+  },
+  "report_all_days_ES": {
+    "textbook": 0.0093,
+    "naive": 0.0097,
+    "apparatus": 0.0062
+  },
+  "report_all_days_comparisons": {
+    "textbook_minus_apparatus": {
+      "all": {
+        "n": 5525,
+        "mean": -1.8493334261315773e-07,
+        "t": -1.665,
+        "t_nw": -1.496
+      },
+      "first_half": {
+        "n": 2759,
+        "mean": -6.747664201166476e-08,
+        "t": -0.407,
+        "t_nw": -0.386
+      },
+      "second_half": {
+        "n": 2766,
+        "mean": -3.0209279198391663e-07,
+        "t": -2.04,
+        "t_nw": -1.731
+      }
+    },
+    "naive_minus_apparatus": {
+      "all": {
+        "n": 5525,
+        "mean": -2.0978124432411388e-07,
+        "t": -1.373,
+        "t_nw": -1.245
+      },
+      "first_half": {
+        "n": 2759,
+        "mean": -8.995335720998301e-08,
+        "t": -0.447,
+        "t_nw": -0.426
+      },
+      "second_half": {
+        "n": 2766,
+        "mean": -3.293058793739646e-07,
+        "t": -1.431,
+        "t_nw": -1.254
+      }
+    }
+  },
+  "report_shock_per_sector_ES": {
+    "XLB": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": -0.0111,
+      "ES_apparatus": -0.0509
+    },
+    "XLC": {
+      "n": 182,
+      "ES_textbook": 0.0,
+      "ES_naive": -0.0208,
+      "ES_apparatus": 0.0014
+    },
+    "XLE": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": -0.017,
+      "ES_apparatus": 0.0125
+    },
+    "XLF": {
+      "n": 578,
+      "ES_textbook": 0.0371,
+      "ES_naive": 0.0303,
+      "ES_apparatus": 0.0225
+    },
+    "XLI": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": -0.055,
+      "ES_apparatus": -0.0123
+    },
+    "XLK": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": 0.0021,
+      "ES_apparatus": 0.0173
+    },
+    "XLP": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": -0.0558,
+      "ES_apparatus": -0.0531
+    },
+    "XLRE": {
+      "n": 239,
+      "ES_textbook": -0.0128,
+      "ES_naive": -0.0128,
+      "ES_apparatus": -0.0438
+    },
+    "XLU": {
+      "n": 578,
+      "ES_textbook": 0.0266,
+      "ES_naive": 0.0425,
+      "ES_apparatus": -0.0417
+    },
+    "XLV": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": -0.0231,
+      "ES_apparatus": -0.0025
+    },
+    "XLY": {
+      "n": 578,
+      "ES_textbook": 0.0,
+      "ES_naive": 0.0083,
+      "ES_apparatus": 0.0024
+    }
+  },
+  "report_regime_exploratory": {
+    "yearly": {
+      "2003": {
+        "mean_G": 0.06,
+        "n_shock": 21,
+        "ES_textbook": 0.0148,
+        "ES_naive": -0.1627,
+        "ES_apparatus": 0.014
+      },
+      "2004": {
+        "mean_G": 0.033,
+        "n_shock": 17,
+        "ES_textbook": 0.0336,
+        "ES_naive": 0.0695,
+        "ES_apparatus": -0.0052
+      },
+      "2005": {
+        "mean_G": 0.153,
+        "n_shock": 14,
+        "ES_textbook": 0.0076,
+        "ES_naive": 0.0047,
+        "ES_apparatus": 0.0123
+      },
+      "2006": {
+        "mean_G": 0.0,
+        "n_shock": 15,
+        "ES_textbook": 0.0476,
+        "ES_naive": 0.05,
+        "ES_apparatus": 0.0
+      },
+      "2007": {
+        "mean_G": 0.058,
+        "n_shock": 47,
+        "ES_textbook": 0.038,
+        "ES_naive": 0.0225,
+        "ES_apparatus": 0.0301
+      },
+      "2008": {
+        "mean_G": 0.166,
+        "n_shock": 52,
+        "ES_textbook": -0.0001,
+        "ES_naive": 0.0178,
+        "ES_apparatus": -0.0137
+      },
+      "2009": {
+        "mean_G": 0.029,
+        "n_shock": 21,
+        "ES_textbook": -0.0215,
+        "ES_naive": -0.0289,
+        "ES_apparatus": -0.0061
+      },
+      "2010": {
+        "mean_G": 0.004,
+        "n_shock": 17,
+        "ES_textbook": -0.0533,
+        "ES_naive": -0.0769,
+        "ES_apparatus": -0.0207
+      },
+      "2011": {
+        "mean_G": 0.005,
+        "n_shock": 28,
+        "ES_textbook": 0.0072,
+        "ES_naive": -0.0199,
+        "ES_apparatus": 0.0
+      },
+      "2012": {
+        "mean_G": 0.01,
+        "n_shock": 9,
+        "ES_textbook": -0.0173,
+        "ES_naive": -0.0034,
+        "ES_apparatus": 0.0
+      },
+      "2013": {
+        "mean_G": 0.073,
+        "n_shock": 27,
+        "ES_textbook": 0.2156,
+        "ES_naive": 0.2338,
+        "ES_apparatus": 0.0015
+      },
+      "2014": {
+        "mean_G": 0.052,
+        "n_shock": 19,
+        "ES_textbook": 0.1089,
+        "ES_naive": 0.0679,
+        "ES_apparatus": -0.0037
+      },
+      "2015": {
+        "mean_G": 0.045,
+        "n_shock": 43,
+        "ES_textbook": 0.1703,
+        "ES_naive": 0.1602,
+        "ES_apparatus": -0.0167
+      },
+      "2016": {
+        "mean_G": 0.146,
+        "n_shock": 12,
+        "ES_textbook": 0.2925,
+        "ES_naive": 0.2925,
+        "ES_apparatus": 0.1843
+      },
+      "2017": {
+        "mean_G": 0.493,
+        "n_shock": 16,
+        "ES_textbook": 0.3101,
+        "ES_naive": 0.2943,
+        "ES_apparatus": 0.2802
+      },
+      "2018": {
+        "mean_G": 0.488,
+        "n_shock": 22,
+        "ES_textbook": 0.0832,
+        "ES_naive": 0.0974,
+        "ES_apparatus": 0.0954
+      },
+      "2019": {
+        "mean_G": 0.344,
+        "n_shock": 47,
+        "ES_textbook": 0.1242,
+        "ES_naive": 0.1592,
+        "ES_apparatus": 0.1008
+      },
+      "2020": {
+        "mean_G": 0.304,
+        "n_shock": 29,
+        "ES_textbook": -0.1227,
+        "ES_naive": -0.1296,
+        "ES_apparatus": -0.1347
+      },
+      "2021": {
+        "mean_G": 0.232,
+        "n_shock": 22,
+        "ES_textbook": 0.0312,
+        "ES_naive": 0.0101,
+        "ES_apparatus": 0.0831
+      },
+      "2022": {
+        "mean_G": 0.368,
+        "n_shock": 61,
+        "ES_textbook": 0.0075,
+        "ES_naive": -0.1125,
+        "ES_apparatus": -0.0053
+      },
+      "2023": {
+        "mean_G": 0.487,
+        "n_shock": 24,
+        "ES_textbook": 0.0898,
+        "ES_naive": 0.163,
+        "ES_apparatus": 0.1487
+      },
+      "2024": {
+        "mean_G": 0.212,
+        "n_shock": 15,
+        "ES_textbook": 0.1988,
+        "ES_naive": 0.2473,
+        "ES_apparatus": 0.1372
+      }
+    },
+    "n_blocks": 87,
+    "RI_on_G": {
+      "corr": 0.411,
+      "coef_G": 0.0745,
+      "t": 4.154,
+      "t_nw": 4.13
+    },
+    "RI_on_G_and_RI_prev": {
+      "n": 86,
+      "coef_G": 0.0485,
+      "t_G": 2.429,
+      "t_nw_G": 3.245,
+      "coef_RI_prev": 0.2947,
+      "t_nw_RI_prev": 3.463
+    }
+  }
+}
