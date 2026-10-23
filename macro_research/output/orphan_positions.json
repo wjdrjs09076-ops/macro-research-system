@@ -1,4 +1,17 @@
 {
-  "ts": "2026-10-22T19:32:12",
-  "orphans": []
+  "ts": "2026-10-23T13:32:28",
+  "orphans": [
+    {
+      "ticker": "XLY",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    },
+    {
+      "ticker": "XLRE",
+      "strategy": "directional",
+      "live": 1,
+      "journal": 0
+    }
+  ]
 }
