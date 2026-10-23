@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-23T15:01:53",
+  "scan_date": "2026-10-23T15:31:49",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -168,6 +168,20 @@
       "label": "WATCH",
       "reason": "beta=3.18",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 29.0,
+      "baseline_rv": 29.5,
+      "z_score": -0.06,
+      "vrp": 0.004,
+      "beta_30d": 0.277,
+      "consec_vol": 2,
+      "excess_10d": -8.89,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.28",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "ES=F",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-23"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 22,
   "alert_count": 1,
   "high_count": 0
 }
