@@ -6,9 +6,9 @@
     "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 19.03,
-    "ts": "2026-10-23T18:02:40"
+    "ts": "2026-10-23T18:32:17"
   },
-  "generated": "2026-10-23T18:02:40",
+  "generated": "2026-10-23T18:32:17",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
