@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-23T15:31:49",
+  "scan_date": "2026-10-23T16:02:08",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -392,20 +392,6 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
-    },
-    {
-      "ticker": "EWJ",
-      "current_rv": 11.0,
-      "baseline_rv": 21.7,
-      "z_score": -1.57,
-      "vrp": 0.1313,
-      "beta_30d": 1.15,
-      "consec_vol": 0,
-      "excess_10d": -1.54,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "XLB",
