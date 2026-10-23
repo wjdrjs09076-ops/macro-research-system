@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-23T04:15:49",
+  "scan_date": "2026-10-23T09:30:29",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -536,11 +536,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3710.73,
-      "baseline": 4005.99,
+      "current": 3705.56,
+      "baseline": 4004.55,
       "z_score": -2.57,
-      "rv_20d": 12.39,
-      "last_date": "2026-10-22"
+      "rv_20d": 13.08,
+      "last_date": "2026-10-23"
     }
   ],
   "flagged_count": 22,
