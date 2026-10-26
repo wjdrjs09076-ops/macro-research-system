@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-10-26T01:36:53",
+  "scan_date": "2026-10-26T07:38:53",
   "etf_signals": [
     {
       "ticker": "ZN=F",
       "current_rv": 7.2,
       "baseline_rv": 4.3,
-      "z_score": 2.83,
+      "z_score": 2.89,
       "vrp": -0.0044,
       "beta_30d": 0.018,
-      "consec_vol": 3,
+      "consec_vol": 2,
       "excess_10d": 3.89,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=2.8, beta=0.02",
+      "reason": "vol z=2.9, beta=0.02",
       "sector": "10Y Treasury Futures"
     },
     {
@@ -227,9 +227,9 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 11.0,
-      "baseline_rv": 12.4,
-      "z_score": -0.38,
+      "current_rv": 10.9,
+      "baseline_rv": 12.5,
+      "z_score": -0.41,
       "vrp": 0.0929,
       "beta_30d": 1.094,
       "consec_vol": 0,
@@ -238,20 +238,6 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 43.8,
-      "baseline_rv": 56.0,
-      "z_score": -0.5,
-      "vrp": 0.1665,
-      "beta_30d": -1.818,
-      "consec_vol": 0,
-      "excess_10d": 14.49,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.82",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "XTN",
@@ -266,6 +252,20 @@
       "label": "WATCH",
       "reason": "beta=0.61",
       "sector": "Transportation / Shipping"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 41.5,
+      "baseline_rv": 56.1,
+      "z_score": -0.59,
+      "vrp": 0.1665,
+      "beta_30d": -1.818,
+      "consec_vol": 0,
+      "excess_10d": 14.49,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.82",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "EWY",
@@ -296,20 +296,6 @@
       "sector": "Gold"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 16.7,
-      "baseline_rv": 27.6,
-      "z_score": -0.88,
-      "vrp": 0.0449,
-      "beta_30d": 0.685,
-      "consec_vol": 0,
-      "excess_10d": -2.61,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.69",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "EEM",
       "current_rv": 19.1,
       "baseline_rv": 26.9,
@@ -322,6 +308,20 @@
       "label": "WATCH",
       "reason": "beta=1.75",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 16.6,
+      "baseline_rv": 27.7,
+      "z_score": -0.9,
+      "vrp": 0.0449,
+      "beta_30d": 0.685,
+      "consec_vol": 0,
+      "excess_10d": -2.61,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.69",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "^FTMC",
