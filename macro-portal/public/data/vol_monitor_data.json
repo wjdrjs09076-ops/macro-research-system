@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-27T19:31:54",
+  "scan_date": "2026-10-27T20:01:58",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -56,6 +56,20 @@
       "label": "WATCH",
       "reason": "beta=1.88",
       "sector": "Technology"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 18.3,
+      "baseline_rv": 16.4,
+      "z_score": 0.37,
+      "vrp": 0.026,
+      "beta_30d": 0.949,
+      "consec_vol": 5,
+      "excess_10d": -5.35,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Communication"
     },
     {
       "ticker": "SOXX",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-27"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 22,
   "alert_count": 1,
   "high_count": 0
 }
