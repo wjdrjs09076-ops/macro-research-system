@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-27T19:02:00",
+  "scan_date": "2026-10-27T19:31:54",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -56,20 +56,6 @@
       "label": "WATCH",
       "reason": "beta=1.88",
       "sector": "Technology"
-    },
-    {
-      "ticker": "XLC",
-      "current_rv": 18.3,
-      "baseline_rv": 16.4,
-      "z_score": 0.37,
-      "vrp": 0.026,
-      "beta_30d": 0.949,
-      "consec_vol": 5,
-      "excess_10d": -5.35,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Communication"
     },
     {
       "ticker": "SOXX",
@@ -380,6 +366,20 @@
       "sector": "China Large-Cap"
     },
     {
+      "ticker": "MCHI",
+      "current_rv": 14.3,
+      "baseline_rv": 19.3,
+      "z_score": -1.06,
+      "vrp": 0.0323,
+      "beta_30d": 0.968,
+      "consec_vol": 1,
+      "excess_10d": -4.31,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "China Broad (MSCI)"
+    },
+    {
       "ticker": "XLB",
       "current_rv": 10.5,
       "baseline_rv": 18.1,
@@ -529,7 +529,7 @@
       "last_date": "2026-10-27"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
