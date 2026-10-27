@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-27T20:31:44",
+  "scan_date": "2026-10-27T20:53:11",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -84,6 +84,20 @@
       "label": "WATCH",
       "reason": "beta=3.01",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "XLF",
+      "current_rv": 14.7,
+      "baseline_rv": 14.5,
+      "z_score": 0.05,
+      "vrp": 0.018,
+      "beta_30d": 0.367,
+      "consec_vol": 2,
+      "excess_10d": 3.41,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.37",
+      "sector": "Financials / Banking"
     },
     {
       "ticker": "^KS11",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-27"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 22,
   "alert_count": 1,
   "high_count": 0
 }
