@@ -1,13 +1,13 @@
 {
-  "generated": "2026-10-27T13:02:17",
+  "generated": "2026-10-27T13:32:32",
   "oos_forward_start": "2026-06-16",
   "slippage_zero": {
     "roundtrip_pct": 0.54,
     "basis": "27%×2 고정 (n=2 실측 추정: XLB 28%/XLRE 27%). 표본 누적 시 실측 슬리피지 중앙값으로 갱신 예정."
   },
   "cluster_min_n": 8,
-  "n_closed": 34,
-  "clean_n": 21,
+  "n_closed": 35,
+  "clean_n": 22,
   "excluded_n": 13,
   "boundary_note": "event_vol 임계(z≥2.5)가 6/15 origin-event 표본으로 정해짐 → 그 표본기간 event_vol 전부 검증 제외(임계 튜닝). 진짜 clean = freeze 후 새 이벤트 발화부터.",
   "timing_note": "초기 표본은 cron 스로틀(외부 핑거 미설정)로 청산 타이밍이 신호 사망 시점과 어긋날 수 있음(6/22 청산: 직전 사이클 2h42m 공백). 핑거 셋업 후 표본만 타이밍 clean. 2026-09-11~10-21 핑거 사망(RTH 1.3회/일) 기간 청산 8건은 clean 유지(10/22 판정) — 보유만료 6건 타이밍 둔감, 손절 2건은 표본별 note 에 초과 체결폭 기록.",
@@ -189,6 +189,14 @@
       "exit_date": "2026-10-26",
       "pnl": 23.03,
       "direction_note": "순방향(이익)"
+    },
+    {
+      "n": 22,
+      "ticker": "XLK",
+      "rule": "rate_beneficiary",
+      "exit_date": "2026-10-27",
+      "pnl": -16.82,
+      "direction_note": "역방향(손실)"
     }
   ],
   "clean_note": "clean 표본 n<8 이면 군집 판정 보류 — 개별 표본을 '테제 미스/적중'으로 단정 금지. 방향은 표본별 메모(역방향/순방향) 참조.",
@@ -697,6 +705,21 @@
       "regime": "mid_vix",
       "pnl": 23.03,
       "entry_cost": 445.78,
+      "exit_reason": "보유만료",
+      "holding_days": 21,
+      "validation": "clean",
+      "exclude_reason": null,
+      "note": null
+    },
+    {
+      "exit_date": "2026-10-27",
+      "entry_date": "2026-10-06",
+      "rule": "rate_beneficiary",
+      "strategy": "directional",
+      "ticker": "XLK",
+      "regime": "mid_vix",
+      "pnl": -16.82,
+      "entry_cost": 404.7,
       "exit_reason": "보유만료",
       "holding_days": 21,
       "validation": "clean",

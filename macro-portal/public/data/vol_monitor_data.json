@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-27T13:02:00",
+  "scan_date": "2026-10-27T13:31:56",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -394,20 +394,6 @@
       "sector": "China Broad (MSCI)"
     },
     {
-      "ticker": "XLB",
-      "current_rv": 10.5,
-      "baseline_rv": 18.1,
-      "z_score": -1.67,
-      "vrp": 0.0472,
-      "beta_30d": 0.273,
-      "consec_vol": 0,
-      "excess_10d": 5.5,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.27",
-      "sector": "Materials"
-    },
-    {
       "ticker": "EWJ",
       "current_rv": 10.4,
       "baseline_rv": 21.8,
@@ -456,10 +442,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 286.562,
-      "baseline": 327.9504,
-      "z_score": -0.29,
-      "last_date": "2026-10-25"
+      "current": 307.498,
+      "baseline": 327.8812,
+      "z_score": -0.14,
+      "last_date": "2026-10-26"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -543,7 +529,7 @@
       "last_date": "2026-10-27"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
