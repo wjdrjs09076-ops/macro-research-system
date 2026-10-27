@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-27T16:19:18",
+  "scan_date": "2026-10-27T16:31:57",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -14,20 +14,6 @@
       "label": "ALERT",
       "reason": "vol z=2.9, beta=0.02",
       "sector": "10Y Treasury Futures"
-    },
-    {
-      "ticker": "XLV",
-      "current_rv": 23.2,
-      "baseline_rv": 16.2,
-      "z_score": 1.85,
-      "vrp": -0.0474,
-      "beta_30d": 0.06,
-      "consec_vol": 5,
-      "excess_10d": 5.88,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "vol z=1.8, beta=0.06, 5d consec vol",
-      "sector": "Healthcare"
     },
     {
       "ticker": "TLT",
@@ -543,7 +529,7 @@
       "last_date": "2026-10-27"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
