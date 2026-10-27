@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-27T05:27:51",
+  "scan_date": "2026-10-27T10:52:17",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -154,6 +154,20 @@
       "label": "WATCH",
       "reason": "beta=0.60",
       "sector": "Euro Stoxx 50"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 11.9,
+      "baseline_rv": 12.4,
+      "z_score": -0.13,
+      "vrp": 0.0717,
+      "beta_30d": 1.091,
+      "consec_vol": 1,
+      "excess_10d": -0.19,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "^N225",
@@ -482,11 +496,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4101.84,
-      "baseline": 4678.98,
-      "z_score": -3.46,
-      "rv_20d": 15.11,
-      "last_date": "2026-10-26"
+      "current": 4081.33,
+      "baseline": 4676.33,
+      "z_score": -3.49,
+      "rv_20d": 14.73,
+      "last_date": "2026-10-27"
     },
     {
       "sym": "sh000905",
@@ -495,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 6772.88,
-      "baseline": 8056.98,
-      "z_score": -2.72,
-      "rv_20d": 23.44,
-      "last_date": "2026-10-26"
+      "current": 6706.88,
+      "baseline": 8050.87,
+      "z_score": -2.81,
+      "rv_20d": 24.14,
+      "last_date": "2026-10-27"
     },
     {
       "sym": "sz399006",
@@ -508,11 +522,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2666.63,
-      "baseline": 3515.44,
-      "z_score": -2.53,
+      "current": 2628.42,
+      "baseline": 3511.54,
+      "z_score": -2.6,
       "rv_20d": 32.15,
-      "last_date": "2026-10-26"
+      "last_date": "2026-10-27"
     },
     {
       "sym": "sh000001",
@@ -522,11 +536,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3698.88,
-      "baseline": 4006.09,
-      "z_score": -2.63,
-      "rv_20d": 12.44,
-      "last_date": "2026-10-26"
+      "current": 3681.47,
+      "baseline": 4004.73,
+      "z_score": -2.73,
+      "rv_20d": 12.05,
+      "last_date": "2026-10-27"
     }
   ],
   "flagged_count": 22,
