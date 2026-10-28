@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-28T15:02:20",
+  "scan_date": "2026-10-28T15:31:58",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -436,6 +436,11 @@
       "baseline": 95.58,
       "z_score": 1.56,
       "bw_spread": 16.13
+    },
+    "inv": {
+      "latest_mbbl": 695200.0,
+      "wow_chg_pct": -0.48,
+      "surprise": -0.28
     },
     "level": 1,
     "reasons": [
