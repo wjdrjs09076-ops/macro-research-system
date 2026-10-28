@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-28T13:02:35",
+  "scan_date": "2026-10-28T13:25:55",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -42,6 +42,20 @@
       "label": "WATCH",
       "reason": "beta=0.04, 5d consec vol",
       "sector": "Healthcare"
+    },
+    {
+      "ticker": "XLK",
+      "current_rv": 33.0,
+      "baseline_rv": 26.3,
+      "z_score": 0.71,
+      "vrp": 0.04,
+      "beta_30d": 1.932,
+      "consec_vol": 5,
+      "excess_10d": -2.27,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.93, 5d consec vol",
+      "sector": "Technology"
     },
     {
       "ticker": "SOXX",
@@ -442,10 +456,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 307.498,
-      "baseline": 327.8812,
-      "z_score": -0.14,
-      "last_date": "2026-10-26"
+      "current": 299.18,
+      "baseline": 327.2023,
+      "z_score": -0.2,
+      "last_date": "2026-10-27"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-28"
     }
   ],
-  "flagged_count": 19,
+  "flagged_count": 20,
   "alert_count": 1,
   "high_count": 0
 }
