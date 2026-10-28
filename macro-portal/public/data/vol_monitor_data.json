@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-28T18:02:37",
+  "scan_date": "2026-10-28T18:31:59",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -425,14 +425,27 @@
   "oil": {
     "wti": {
       "label": "WTI",
-      "current": 100.95,
-      "baseline": 87.08,
-      "z_score": 0.98,
-      "bw_spread": 9.04
+      "current": 105.37,
+      "baseline": 87.34,
+      "z_score": 1.28,
+      "bw_spread": 11.61
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 122.85,
+      "baseline": 96.45,
+      "z_score": 1.37,
+      "bw_spread": 11.42
+    },
+    "inv": {
+      "latest_mbbl": 693208.0,
+      "wow_chg_pct": -0.29,
+      "surprise": -0.07
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +9.0%"
+      "WTI backwardation +11.6%",
+      "Brent backwardation +11.4%"
     ]
   },
   "fred": [
