@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-28T13:31:50",
+  "scan_date": "2026-10-28T14:02:19",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -336,6 +336,20 @@
       "label": "---",
       "reason": "",
       "sector": "Gold"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 18.9,
+      "baseline_rv": 27.5,
+      "z_score": -0.69,
+      "vrp": 0.0187,
+      "beta_30d": 0.727,
+      "consec_vol": 0,
+      "excess_10d": -1.37,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "XAR",
