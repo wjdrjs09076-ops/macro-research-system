@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-28T06:08:56",
+  "scan_date": "2026-10-28T13:02:35",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -42,20 +42,6 @@
       "label": "WATCH",
       "reason": "beta=0.04, 5d consec vol",
       "sector": "Healthcare"
-    },
-    {
-      "ticker": "XLK",
-      "current_rv": 33.0,
-      "baseline_rv": 26.3,
-      "z_score": 0.71,
-      "vrp": 0.04,
-      "beta_30d": 1.932,
-      "consec_vol": 5,
-      "excess_10d": -2.27,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=1.93, 5d consec vol",
-      "sector": "Technology"
     },
     {
       "ticker": "SOXX",
@@ -496,11 +482,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4081.33,
-      "baseline": 4676.88,
-      "z_score": -3.49,
-      "rv_20d": 14.73,
-      "last_date": "2026-10-27"
+      "current": 4075.72,
+      "baseline": 4674.04,
+      "z_score": -3.42,
+      "rv_20d": 15.39,
+      "last_date": "2026-10-28"
     },
     {
       "sym": "sh000905",
@@ -509,11 +495,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 6706.88,
-      "baseline": 8055.32,
-      "z_score": -2.84,
-      "rv_20d": 24.14,
-      "last_date": "2026-10-27"
+      "current": 6666.95,
+      "baseline": 8049.22,
+      "z_score": -2.87,
+      "rv_20d": 26.19,
+      "last_date": "2026-10-28"
     },
     {
       "sym": "sz399006",
@@ -522,11 +508,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2628.42,
-      "baseline": 3513.51,
-      "z_score": -2.61,
-      "rv_20d": 32.15,
-      "last_date": "2026-10-27"
+      "current": 2616.43,
+      "baseline": 3509.39,
+      "z_score": -2.6,
+      "rv_20d": 36.14,
+      "last_date": "2026-10-28"
     },
     {
       "sym": "sh000001",
@@ -536,14 +522,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3681.47,
-      "baseline": 4005.3,
+      "current": 3675.16,
+      "baseline": 4003.83,
       "z_score": -2.74,
-      "rv_20d": 12.05,
-      "last_date": "2026-10-27"
+      "rv_20d": 12.83,
+      "last_date": "2026-10-28"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 19,
   "alert_count": 1,
   "high_count": 0
 }
