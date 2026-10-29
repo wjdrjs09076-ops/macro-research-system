@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-29T13:02:06",
+  "scan_date": "2026-10-29T13:31:45",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -126,20 +126,6 @@
       "label": "WATCH",
       "reason": "beta=0.61",
       "sector": "Transportation / Shipping"
-    },
-    {
-      "ticker": "000001.SS",
-      "current_rv": 15.2,
-      "baseline_rv": 14.5,
-      "z_score": 0.12,
-      "vrp": -0.0211,
-      "beta_30d": 0.233,
-      "consec_vol": 2,
-      "excess_10d": -2.63,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.23",
-      "sector": "Shanghai Composite"
     },
     {
       "ticker": "XLC",
@@ -406,6 +392,20 @@
       "label": "WATCH",
       "reason": "beta=0.29",
       "sector": "Materials"
+    },
+    {
+      "ticker": "EWJ",
+      "current_rv": 10.0,
+      "baseline_rv": 21.8,
+      "z_score": -1.78,
+      "vrp": 0.1051,
+      "beta_30d": 1.053,
+      "consec_vol": 0,
+      "excess_10d": -1.25,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Japan (MSCI)"
     }
   ],
   "oil": {
@@ -529,7 +529,7 @@
       "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 20,
   "alert_count": 1,
   "high_count": 0
 }
