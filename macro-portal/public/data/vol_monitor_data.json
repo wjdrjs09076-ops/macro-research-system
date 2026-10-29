@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-29T13:31:45",
+  "scan_date": "2026-10-29T14:02:05",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -126,6 +126,20 @@
       "label": "WATCH",
       "reason": "beta=0.61",
       "sector": "Transportation / Shipping"
+    },
+    {
+      "ticker": "000001.SS",
+      "current_rv": 15.2,
+      "baseline_rv": 14.5,
+      "z_score": 0.12,
+      "vrp": -0.0211,
+      "beta_30d": 0.233,
+      "consec_vol": 2,
+      "excess_10d": -2.63,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.23",
+      "sector": "Shanghai Composite"
     },
     {
       "ticker": "XLC",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
