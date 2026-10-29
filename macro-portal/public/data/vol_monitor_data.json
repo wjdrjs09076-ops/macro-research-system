@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-29T14:31:48",
+  "scan_date": "2026-10-29T15:01:53",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -84,6 +84,20 @@
       "label": "WATCH",
       "reason": "beta=3.29, 5d consec vol",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "XLK",
+      "current_rv": 29.8,
+      "baseline_rv": 26.2,
+      "z_score": 0.38,
+      "vrp": 0.0385,
+      "beta_30d": 1.975,
+      "consec_vol": 5,
+      "excess_10d": 0.09,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.98, 5d consec vol",
+      "sector": "Technology"
     },
     {
       "ticker": "^N225",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
