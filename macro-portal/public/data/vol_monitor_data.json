@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-29T17:31:51",
+  "scan_date": "2026-10-29T18:02:29",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -98,6 +98,20 @@
       "label": "WATCH",
       "reason": "beta=1.98, 5d consec vol",
       "sector": "Technology"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 32.5,
+      "baseline_rv": 29.8,
+      "z_score": 0.32,
+      "vrp": -0.0554,
+      "beta_30d": 0.345,
+      "consec_vol": 2,
+      "excess_10d": -5.92,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.055, beta=0.35",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "XTN",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
