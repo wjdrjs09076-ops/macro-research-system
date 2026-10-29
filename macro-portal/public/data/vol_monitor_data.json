@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-29T09:42:30",
+  "scan_date": "2026-10-29T13:02:06",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -28,6 +28,20 @@
       "label": "WATCH",
       "reason": "vol z=1.9, beta=0.10, 5d consec vol",
       "sector": "Long-term Treasury"
+    },
+    {
+      "ticker": "XLV",
+      "current_rv": 18.1,
+      "baseline_rv": 16.3,
+      "z_score": 0.49,
+      "vrp": -0.0069,
+      "beta_30d": 0.03,
+      "consec_vol": 5,
+      "excess_10d": 2.95,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.03, 5d consec vol",
+      "sector": "Healthcare"
     },
     {
       "ticker": "XLE",
@@ -392,20 +406,6 @@
       "label": "WATCH",
       "reason": "beta=0.29",
       "sector": "Materials"
-    },
-    {
-      "ticker": "EWJ",
-      "current_rv": 10.0,
-      "baseline_rv": 21.8,
-      "z_score": -1.78,
-      "vrp": 0.1051,
-      "beta_30d": 1.053,
-      "consec_vol": 0,
-      "excess_10d": -1.25,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Japan (MSCI)"
     }
   ],
   "oil": {
@@ -508,11 +508,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2616.43,
-      "baseline": 3509.39,
-      "z_score": -2.6,
-      "rv_20d": 36.14,
-      "last_date": "2026-10-28"
+      "current": 2604.57,
+      "baseline": 3504.73,
+      "z_score": -2.58,
+      "rv_20d": 37.78,
+      "last_date": "2026-10-29"
     },
     {
       "sym": "sh000001",
@@ -529,7 +529,7 @@
       "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 21,
   "alert_count": 1,
   "high_count": 0
 }
