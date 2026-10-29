@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-10-29T02:44:28",
+  "scan_date": "2026-10-29T09:42:30",
   "etf_signals": [
     {
       "ticker": "ZN=F",
-      "current_rv": 7.3,
+      "current_rv": 7.5,
       "baseline_rv": 4.3,
-      "z_score": 2.99,
-      "vrp": -0.0099,
-      "beta_30d": 0.004,
+      "z_score": 3.21,
+      "vrp": -0.0113,
+      "beta_30d": -0.003,
       "consec_vol": 5,
-      "excess_10d": 0.85,
+      "excess_10d": 0.51,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=3.0, beta=0.00, 5d consec vol",
+      "reason": "vol z=3.2, beta=-0.00, 5d consec vol",
       "sector": "10Y Treasury Futures"
     },
     {
@@ -28,20 +28,6 @@
       "label": "WATCH",
       "reason": "vol z=1.9, beta=0.10, 5d consec vol",
       "sector": "Long-term Treasury"
-    },
-    {
-      "ticker": "XLV",
-      "current_rv": 18.1,
-      "baseline_rv": 16.3,
-      "z_score": 0.49,
-      "vrp": -0.0069,
-      "beta_30d": 0.03,
-      "consec_vol": 5,
-      "excess_10d": 2.95,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.03, 5d consec vol",
-      "sector": "Healthcare"
     },
     {
       "ticker": "XLE",
@@ -226,6 +212,20 @@
       "sector": "Consumer Discretionary"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 11.4,
+      "baseline_rv": 12.4,
+      "z_score": -0.25,
+      "vrp": 0.063,
+      "beta_30d": 1.091,
+      "consec_vol": 2,
+      "excess_10d": -0.18,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "^FTSE",
       "current_rv": 10.4,
       "baseline_rv": 11.5,
@@ -238,20 +238,6 @@
       "label": "WATCH",
       "reason": "beta=0.25",
       "sector": "FTSE 100"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 11.3,
-      "baseline_rv": 12.4,
-      "z_score": -0.28,
-      "vrp": 0.0643,
-      "beta_30d": 1.08,
-      "consec_vol": 2,
-      "excess_10d": -0.68,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "EWY",
@@ -269,16 +255,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 45.7,
+      "current_rv": 46.7,
       "baseline_rv": 56.0,
-      "z_score": -0.42,
-      "vrp": 0.0639,
-      "beta_30d": -1.829,
+      "z_score": -0.38,
+      "vrp": 0.0605,
+      "beta_30d": -1.807,
       "consec_vol": 0,
-      "excess_10d": 6.75,
+      "excess_10d": 7.82,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-1.83",
+      "reason": "beta=-1.81",
       "sector": "WTI Crude Futures"
     },
     {
@@ -325,13 +311,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 17.2,
+      "current_rv": 17.3,
       "baseline_rv": 27.5,
-      "z_score": -0.82,
-      "vrp": 0.0265,
-      "beta_30d": 0.795,
+      "z_score": -0.81,
+      "vrp": 0.0262,
+      "beta_30d": 0.793,
       "consec_vol": 0,
-      "excess_10d": -1.61,
+      "excess_10d": -1.7,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -496,11 +482,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4075.72,
-      "baseline": 4674.04,
-      "z_score": -3.42,
-      "rv_20d": 15.39,
-      "last_date": "2026-10-28"
+      "current": 4076.83,
+      "baseline": 4670.85,
+      "z_score": -3.3,
+      "rv_20d": 15.49,
+      "last_date": "2026-10-29"
     },
     {
       "sym": "sh000905",
@@ -509,11 +495,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 6666.95,
-      "baseline": 8049.22,
-      "z_score": -2.87,
-      "rv_20d": 26.19,
-      "last_date": "2026-10-28"
+      "current": 6626.64,
+      "baseline": 8042.25,
+      "z_score": -2.89,
+      "rv_20d": 27.1,
+      "last_date": "2026-10-29"
     },
     {
       "sym": "sz399006",
@@ -536,14 +522,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3675.16,
-      "baseline": 4003.83,
-      "z_score": -2.74,
-      "rv_20d": 12.83,
-      "last_date": "2026-10-28"
+      "current": 3673.84,
+      "baseline": 4002.11,
+      "z_score": -2.69,
+      "rv_20d": 12.93,
+      "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 20,
   "alert_count": 1,
   "high_count": 0
 }
