@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-30T20:31:59",
+  "scan_date": "2026-10-30T23:59:26",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -98,20 +98,6 @@
       "label": "WATCH",
       "reason": "beta=0.59, 5d consec vol",
       "sector": "Euro Stoxx 50"
-    },
-    {
-      "ticker": "XAR",
-      "current_rv": 29.1,
-      "baseline_rv": 28.9,
-      "z_score": 0.02,
-      "vrp": 0.0475,
-      "beta_30d": 0.974,
-      "consec_vol": 1,
-      "excess_10d": 4.98,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Defense / Aerospace"
     },
     {
       "ticker": "XTN",
@@ -481,10 +467,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.334,
-      "baseline": 0.4981,
-      "z_score": -1.32,
-      "last_date": "2026-10-29"
+      "current": 0.348,
+      "baseline": 0.4973,
+      "z_score": -1.2,
+      "last_date": "2026-10-30"
     }
   ],
   "china": [
