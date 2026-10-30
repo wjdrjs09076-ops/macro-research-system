@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-30T17:32:02",
+  "scan_date": "2026-10-30T18:02:17",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -182,20 +182,6 @@
       "label": "WATCH",
       "reason": "beta=0.27",
       "sector": "Shanghai Composite"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 11.5,
-      "baseline_rv": 12.4,
-      "z_score": -0.23,
-      "vrp": 0.0658,
-      "beta_30d": 1.102,
-      "consec_vol": 2,
-      "excess_10d": -0.16,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "EWY",
@@ -430,13 +416,6 @@
       "z_score": 1.28,
       "bw_spread": 11.61
     },
-    "brent": {
-      "label": "Brent",
-      "current": 122.85,
-      "baseline": 96.77,
-      "z_score": 1.36,
-      "bw_spread": 11.42
-    },
     "inv": {
       "latest_mbbl": 693208.0,
       "wow_chg_pct": -0.29,
@@ -444,8 +423,7 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +11.6%",
-      "Brent backwardation +11.4%"
+      "WTI backwardation +11.6%"
     ]
   },
   "fred": [
