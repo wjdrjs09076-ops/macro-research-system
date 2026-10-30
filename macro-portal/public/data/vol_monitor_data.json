@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-10-30T01:46:43",
+  "scan_date": "2026-10-30T08:24:33",
   "etf_signals": [
     {
       "ticker": "ZN=F",
-      "current_rv": 8.2,
+      "current_rv": 7.1,
       "baseline_rv": 4.3,
-      "z_score": 3.82,
-      "vrp": -0.0098,
-      "beta_30d": -0.069,
+      "z_score": 2.81,
+      "vrp": -0.0066,
+      "beta_30d": -0.05,
       "consec_vol": 5,
-      "excess_10d": 1.44,
+      "excess_10d": 0.92,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=3.8, beta=-0.07, 5d consec vol",
+      "reason": "vol z=2.8, beta=-0.05, 5d consec vol",
       "sector": "10Y Treasury Futures"
     },
     {
@@ -70,20 +70,6 @@
       "label": "WATCH",
       "reason": "beta=3.31, 5d consec vol",
       "sector": "Semiconductors"
-    },
-    {
-      "ticker": "ES=F",
-      "current_rv": 13.1,
-      "baseline_rv": 12.4,
-      "z_score": 0.2,
-      "vrp": 0.0554,
-      "beta_30d": 1.137,
-      "consec_vol": 3,
-      "excess_10d": -1.12,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "XLE",
@@ -198,6 +184,20 @@
       "sector": "Shanghai Composite"
     },
     {
+      "ticker": "ES=F",
+      "current_rv": 11.5,
+      "baseline_rv": 12.4,
+      "z_score": -0.23,
+      "vrp": 0.0658,
+      "beta_30d": 1.102,
+      "consec_vol": 2,
+      "excess_10d": -0.16,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "S&P 500 Futures"
+    },
+    {
       "ticker": "EWY",
       "current_rv": 54.8,
       "baseline_rv": 60.6,
@@ -213,16 +213,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 45.0,
+      "current_rv": 45.5,
       "baseline_rv": 55.9,
-      "z_score": -0.44,
-      "vrp": 0.082,
-      "beta_30d": -1.914,
+      "z_score": -0.42,
+      "vrp": 0.0798,
+      "beta_30d": -1.873,
       "consec_vol": 0,
-      "excess_10d": 5.81,
+      "excess_10d": 4.7,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-1.91",
+      "reason": "beta=-1.87",
       "sector": "WTI Crude Futures"
     },
     {
@@ -282,20 +282,6 @@
       "sector": "UK (MSCI)"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 8.6,
-      "baseline_rv": 11.5,
-      "z_score": -0.64,
-      "vrp": 0.0189,
-      "beta_30d": 0.151,
-      "consec_vol": 2,
-      "excess_10d": -0.79,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.15",
-      "sector": "FTSE 100"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 14.0,
       "baseline_rv": 17.6,
@@ -353,13 +339,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 14.9,
+      "current_rv": 14.7,
       "baseline_rv": 27.4,
-      "z_score": -1.0,
-      "vrp": 0.0505,
-      "beta_30d": 0.829,
+      "z_score": -1.02,
+      "vrp": 0.0517,
+      "beta_30d": 0.816,
       "consec_vol": 0,
-      "excess_10d": -3.41,
+      "excess_10d": -3.05,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -543,7 +529,7 @@
       "last_date": "2026-10-29"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 19,
   "alert_count": 1,
   "high_count": 0
 }
