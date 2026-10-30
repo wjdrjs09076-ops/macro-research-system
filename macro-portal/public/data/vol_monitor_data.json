@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-30T13:31:53",
+  "scan_date": "2026-10-30T14:02:14",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -238,6 +238,20 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "EEM",
+      "current_rv": 22.2,
+      "baseline_rv": 26.9,
+      "z_score": -0.54,
+      "vrp": 0.0543,
+      "beta_30d": 1.738,
+      "consec_vol": 0,
+      "excess_10d": -1.57,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=1.74",
+      "sector": "Emerging Markets"
     },
     {
       "ticker": "^FTMC",
@@ -529,7 +543,7 @@
       "last_date": "2026-10-30"
     }
   ],
-  "flagged_count": 19,
+  "flagged_count": 20,
   "alert_count": 1,
   "high_count": 0
 }
