@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-30T15:31:51",
+  "scan_date": "2026-10-30T16:02:16",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -168,20 +168,6 @@
       "label": "---",
       "reason": "",
       "sector": "KOSPI"
-    },
-    {
-      "ticker": "000001.SS",
-      "current_rv": 13.6,
-      "baseline_rv": 14.5,
-      "z_score": -0.17,
-      "vrp": -0.0075,
-      "beta_30d": 0.267,
-      "consec_vol": 2,
-      "excess_10d": -1.2,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.27",
-      "sector": "Shanghai Composite"
     },
     {
       "ticker": "ES=F",
@@ -543,7 +529,7 @@
       "last_date": "2026-10-30"
     }
   ],
-  "flagged_count": 20,
+  "flagged_count": 19,
   "alert_count": 1,
   "high_count": 0
 }
