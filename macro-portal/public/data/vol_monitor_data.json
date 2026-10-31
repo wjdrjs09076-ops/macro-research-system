@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-10-31T11:07:14",
+  "scan_date": "2026-10-31T16:16:09",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -350,20 +350,6 @@
       "label": "WATCH",
       "reason": "beta=0.62",
       "sector": "Nikkei 225"
-    },
-    {
-      "ticker": "XLC",
-      "current_rv": 11.4,
-      "baseline_rv": 16.4,
-      "z_score": -0.94,
-      "vrp": 0.1067,
-      "beta_30d": 0.968,
-      "consec_vol": 3,
-      "excess_10d": -8.89,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Communication"
     },
     {
       "ticker": "FXI",
