@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-02T15:01:56",
+  "scan_date": "2026-11-02T15:31:49",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -210,20 +210,6 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
-    },
-    {
-      "ticker": "XTN",
-      "current_rv": 24.2,
-      "baseline_rv": 26.2,
-      "z_score": -0.23,
-      "vrp": 0.038,
-      "beta_30d": 0.452,
-      "consec_vol": 2,
-      "excess_10d": 2.24,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.45",
-      "sector": "Transportation / Shipping"
     },
     {
       "ticker": "EEM",
@@ -468,10 +454,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.252,
-      "baseline": 2.8643,
-      "z_score": -2.11,
-      "last_date": "2026-10-29"
+      "current": 3.264,
+      "baseline": 2.8664,
+      "z_score": -2.13,
+      "last_date": "2026-10-30"
     },
     {
       "sid": "T10Y2Y",
@@ -543,7 +529,7 @@
       "last_date": "2026-11-02"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 20,
   "alert_count": 1,
   "high_count": 0
 }
