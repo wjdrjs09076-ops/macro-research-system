@@ -1,20 +1,6 @@
 {
-  "scan_date": "2026-11-02T18:02:12",
+  "scan_date": "2026-11-02T18:31:54",
   "etf_signals": [
-    {
-      "ticker": "ZN=F",
-      "current_rv": 7.3,
-      "baseline_rv": 4.3,
-      "z_score": 3.0,
-      "vrp": -0.0093,
-      "beta_30d": -0.088,
-      "consec_vol": 5,
-      "excess_10d": 2.09,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=3.0, beta=-0.09, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
     {
       "ticker": "TLT",
       "current_rv": 12.8,
@@ -543,7 +529,7 @@
       "last_date": "2026-11-02"
     }
   ],
-  "flagged_count": 21,
-  "alert_count": 1,
+  "flagged_count": 20,
+  "alert_count": 0,
   "high_count": 0
 }
