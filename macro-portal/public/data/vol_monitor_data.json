@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-02T16:31:43",
+  "scan_date": "2026-11-02T17:01:53",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -112,20 +112,6 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
-    },
-    {
-      "ticker": "^STOXX50E",
-      "current_rv": 16.7,
-      "baseline_rv": 15.5,
-      "z_score": 0.19,
-      "vrp": -0.0036,
-      "beta_30d": 0.619,
-      "consec_vol": 5,
-      "excess_10d": -0.17,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.62, 5d consec vol",
-      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "XLF",
@@ -543,7 +529,7 @@
       "last_date": "2026-11-02"
     }
   ],
-  "flagged_count": 21,
+  "flagged_count": 20,
   "alert_count": 1,
   "high_count": 0
 }
