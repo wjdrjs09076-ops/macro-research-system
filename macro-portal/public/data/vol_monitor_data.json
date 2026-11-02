@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-11-02T01:24:49",
+  "scan_date": "2026-11-02T08:06:57",
   "etf_signals": [
     {
       "ticker": "ZN=F",
-      "current_rv": 7.2,
+      "current_rv": 7.3,
       "baseline_rv": 4.3,
-      "z_score": 2.88,
+      "z_score": 3.0,
       "vrp": -0.0093,
       "beta_30d": -0.088,
       "consec_vol": 5,
       "excess_10d": 2.09,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=2.9, beta=-0.09, 5d consec vol",
+      "reason": "vol z=3.0, beta=-0.09, 5d consec vol",
       "sector": "10Y Treasury Futures"
     },
     {
@@ -103,7 +103,7 @@
       "ticker": "ES=F",
       "current_rv": 13.6,
       "baseline_rv": 12.4,
-      "z_score": 0.3,
+      "z_score": 0.31,
       "vrp": 0.0673,
       "beta_30d": 1.085,
       "consec_vol": 3,
@@ -268,34 +268,6 @@
       "sector": "Gold"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 21.3,
-      "baseline_rv": 27.2,
-      "z_score": -0.47,
-      "vrp": 0.0392,
-      "beta_30d": 0.988,
-      "consec_vol": 0,
-      "excess_10d": -5.93,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Gold Futures"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 43.7,
-      "baseline_rv": 56.0,
-      "z_score": -0.5,
-      "vrp": 0.097,
-      "beta_30d": -1.698,
-      "consec_vol": 0,
-      "excess_10d": 3.94,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.70",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "XLY",
       "current_rv": 16.3,
       "baseline_rv": 19.0,
@@ -308,6 +280,34 @@
       "label": "---",
       "reason": "",
       "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 43.3,
+      "baseline_rv": 56.1,
+      "z_score": -0.52,
+      "vrp": 0.097,
+      "beta_30d": -1.698,
+      "consec_vol": 0,
+      "excess_10d": 3.94,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.70",
+      "sector": "WTI Crude Futures"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 20.4,
+      "baseline_rv": 27.3,
+      "z_score": -0.55,
+      "vrp": 0.0392,
+      "beta_30d": 0.988,
+      "consec_vol": 0,
+      "excess_10d": -5.93,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "EWU",
