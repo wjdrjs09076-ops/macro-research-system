@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-02T18:45:16",
+  "scan_date": "2026-11-02T19:02:07",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -84,6 +84,20 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
+    },
+    {
+      "ticker": "^HSI",
+      "current_rv": 20.4,
+      "baseline_rv": 18.4,
+      "z_score": 0.42,
+      "vrp": -0.0286,
+      "beta_30d": 0.067,
+      "consec_vol": 5,
+      "excess_10d": -0.68,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.07, 5d consec vol",
+      "sector": "Hang Seng"
     },
     {
       "ticker": "ES=F",
@@ -392,20 +406,6 @@
       "label": "WATCH",
       "reason": "beta=0.66",
       "sector": "China Broad (MSCI)"
-    },
-    {
-      "ticker": "XLB",
-      "current_rv": 8.6,
-      "baseline_rv": 18.0,
-      "z_score": -2.06,
-      "vrp": 0.0692,
-      "beta_30d": 0.153,
-      "consec_vol": 0,
-      "excess_10d": 4.49,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.15",
-      "sector": "Materials"
     }
   ],
   "oil": {
