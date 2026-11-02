@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-02T19:02:07",
+  "scan_date": "2026-11-02T19:31:50",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -42,20 +42,6 @@
       "label": "WATCH",
       "reason": "beta=2.14, 5d consec vol",
       "sector": "Technology"
-    },
-    {
-      "ticker": "SOXX",
-      "current_rv": 65.0,
-      "baseline_rv": 45.9,
-      "z_score": 1.04,
-      "vrp": 0.0026,
-      "beta_30d": 3.554,
-      "consec_vol": 5,
-      "excess_10d": -2.79,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=3.55, 5d consec vol",
-      "sector": "Semiconductors"
     },
     {
       "ticker": "XLV",
@@ -406,6 +392,20 @@
       "label": "WATCH",
       "reason": "beta=0.66",
       "sector": "China Broad (MSCI)"
+    },
+    {
+      "ticker": "XLB",
+      "current_rv": 8.6,
+      "baseline_rv": 18.0,
+      "z_score": -2.06,
+      "vrp": 0.0692,
+      "beta_30d": 0.153,
+      "consec_vol": 0,
+      "excess_10d": 4.49,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.15",
+      "sector": "Materials"
     }
   ],
   "oil": {
