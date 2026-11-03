@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-03T16:32:05",
+  "scan_date": "2026-11-03T16:56:10",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -182,20 +182,6 @@
       "label": "WATCH",
       "reason": "beta=-1.17",
       "sector": "WTI Crude Futures"
-    },
-    {
-      "ticker": "^KS11",
-      "current_rv": 55.8,
-      "baseline_rv": 55.7,
-      "z_score": 0.0,
-      "vrp": -0.0169,
-      "beta_30d": 0.981,
-      "consec_vol": 4,
-      "excess_10d": 3.98,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "KOSPI"
     },
     {
       "ticker": "XLI",
