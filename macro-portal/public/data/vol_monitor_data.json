@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-03T17:31:57",
+  "scan_date": "2026-11-03T18:02:23",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -378,6 +378,20 @@
       "label": "WATCH",
       "reason": "beta=0.04",
       "sector": "FTSE 100"
+    },
+    {
+      "ticker": "EWJ",
+      "current_rv": 14.2,
+      "baseline_rv": 21.8,
+      "z_score": -1.14,
+      "vrp": 0.1255,
+      "beta_30d": 1.129,
+      "consec_vol": 0,
+      "excess_10d": -0.39,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "EWU",
