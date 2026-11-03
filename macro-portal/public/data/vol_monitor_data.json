@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-03T13:31:42",
+  "scan_date": "2026-11-03T14:02:19",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -84,6 +84,20 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
+    },
+    {
+      "ticker": "XLV",
+      "current_rv": 18.6,
+      "baseline_rv": 16.4,
+      "z_score": 0.61,
+      "vrp": -0.0063,
+      "beta_30d": -0.131,
+      "consec_vol": 5,
+      "excess_10d": 6.9,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.13, 5d consec vol",
+      "sector": "Healthcare"
     },
     {
       "ticker": "^HSI",
@@ -529,7 +543,7 @@
       "last_date": "2026-11-03"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 1,
   "high_count": 0
 }
