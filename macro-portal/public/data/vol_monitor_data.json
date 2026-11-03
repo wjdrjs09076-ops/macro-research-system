@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-03T17:02:12",
+  "scan_date": "2026-11-03T17:31:57",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -380,20 +380,6 @@
       "sector": "FTSE 100"
     },
     {
-      "ticker": "EWJ",
-      "current_rv": 14.2,
-      "baseline_rv": 21.8,
-      "z_score": -1.14,
-      "vrp": 0.1255,
-      "beta_30d": 1.129,
-      "consec_vol": 0,
-      "excess_10d": -0.39,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Japan (MSCI)"
-    },
-    {
       "ticker": "EWU",
       "current_rv": 9.2,
       "baseline_rv": 15.4,
@@ -406,6 +392,20 @@
       "label": "WATCH",
       "reason": "beta=0.02",
       "sector": "UK (MSCI)"
+    },
+    {
+      "ticker": "XLB",
+      "current_rv": 10.9,
+      "baseline_rv": 18.0,
+      "z_score": -1.54,
+      "vrp": 0.0469,
+      "beta_30d": 0.174,
+      "consec_vol": 0,
+      "excess_10d": 7.1,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.17",
+      "sector": "Materials"
     }
   ],
   "oil": {
@@ -529,7 +529,7 @@
       "last_date": "2026-11-03"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 1,
   "high_count": 0
 }
