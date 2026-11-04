@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-04T19:32:07",
+  "scan_date": "2026-11-04T20:02:32",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -142,20 +142,6 @@
       "sector": "S&P 500 Futures"
     },
     {
-      "ticker": "^STOXX50E",
-      "current_rv": 16.5,
-      "baseline_rv": 15.5,
-      "z_score": 0.18,
-      "vrp": 0.0017,
-      "beta_30d": 0.513,
-      "consec_vol": 5,
-      "excess_10d": 2.32,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.51, 5d consec vol",
-      "sector": "Euro Stoxx 50"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 17.8,
       "baseline_rv": 17.6,
@@ -168,6 +154,20 @@
       "label": "---",
       "reason": "",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "^FTMC",
+      "current_rv": 12.8,
+      "baseline_rv": 12.8,
+      "z_score": 0.02,
+      "vrp": 0.0192,
+      "beta_30d": 0.289,
+      "consec_vol": 2,
+      "excess_10d": 3.19,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.29",
+      "sector": "FTSE 250 (UK 내수)"
     },
     {
       "ticker": "CL=F",
@@ -409,30 +409,13 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 88.4,
-      "z_score": 1.18,
-      "bw_spread": 8.54
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 119.13,
-      "baseline": 97.9,
-      "z_score": 1.12,
-      "bw_spread": 6.02
-    },
     "inv": {
       "latest_mbbl": 691944.0,
       "wow_chg_pct": -0.18,
       "surprise": 0.18
     },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +8.5%",
-      "Brent backwardation +6.0%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
