@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-04T16:31:52",
+  "scan_date": "2026-11-04T17:02:15",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -154,6 +154,20 @@
       "label": "WATCH",
       "reason": "beta=0.51, 5d consec vol",
       "sector": "Euro Stoxx 50"
+    },
+    {
+      "ticker": "XLI",
+      "current_rv": 17.8,
+      "baseline_rv": 17.6,
+      "z_score": 0.05,
+      "vrp": 0.0229,
+      "beta_30d": 0.84,
+      "consec_vol": 2,
+      "excess_10d": 4.63,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Industrials"
     },
     {
       "ticker": "^FTMC",
