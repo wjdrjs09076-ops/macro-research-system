@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-04T16:02:23",
+  "scan_date": "2026-11-04T16:31:52",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -154,20 +154,6 @@
       "label": "WATCH",
       "reason": "beta=0.51, 5d consec vol",
       "sector": "Euro Stoxx 50"
-    },
-    {
-      "ticker": "XLI",
-      "current_rv": 17.8,
-      "baseline_rv": 17.6,
-      "z_score": 0.05,
-      "vrp": 0.0229,
-      "beta_30d": 0.84,
-      "consec_vol": 2,
-      "excess_10d": 4.63,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Industrials"
     },
     {
       "ticker": "^FTMC",
@@ -430,6 +416,13 @@
       "z_score": 1.28,
       "bw_spread": 11.61
     },
+    "brent": {
+      "label": "Brent",
+      "current": 122.85,
+      "baseline": 97.26,
+      "z_score": 1.36,
+      "bw_spread": 11.42
+    },
     "inv": {
       "latest_mbbl": 693208.0,
       "wow_chg_pct": -0.29,
@@ -437,7 +430,8 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +11.6%"
+      "WTI backwardation +11.6%",
+      "Brent backwardation +11.4%"
     ]
   },
   "fred": [
