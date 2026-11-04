@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-11-04T02:37:15",
+  "scan_date": "2026-11-04T10:43:19",
   "etf_signals": [
     {
       "ticker": "ZN=F",
-      "current_rv": 7.1,
+      "current_rv": 7.5,
       "baseline_rv": 4.3,
-      "z_score": 2.82,
-      "vrp": -0.0115,
-      "beta_30d": -0.135,
+      "z_score": 3.24,
+      "vrp": -0.0137,
+      "beta_30d": -0.147,
       "consec_vol": 5,
-      "excess_10d": 3.42,
+      "excess_10d": 3.03,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=2.8, beta=-0.14, 5d consec vol",
+      "reason": "vol z=3.2, beta=-0.15, 5d consec vol",
       "sector": "10Y Treasury Futures"
     },
     {
@@ -72,6 +72,20 @@
       "sector": "Semiconductors"
     },
     {
+      "ticker": "XAR",
+      "current_rv": 35.3,
+      "baseline_rv": 28.7,
+      "z_score": 0.75,
+      "vrp": -0.007,
+      "beta_30d": 1.133,
+      "consec_vol": 4,
+      "excess_10d": 7.36,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "Defense / Aerospace"
+    },
+    {
       "ticker": "XLF",
       "current_rv": 16.2,
       "baseline_rv": 14.4,
@@ -115,13 +129,13 @@
     },
     {
       "ticker": "ES=F",
-      "current_rv": 13.4,
+      "current_rv": 13.5,
       "baseline_rv": 12.4,
-      "z_score": 0.26,
-      "vrp": 0.0861,
-      "beta_30d": 0.971,
+      "z_score": 0.27,
+      "vrp": 0.0848,
+      "beta_30d": 1.004,
       "consec_vol": 3,
-      "excess_10d": -1.21,
+      "excess_10d": -0.13,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -171,16 +185,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 56.0,
+      "current_rv": 55.8,
       "baseline_rv": 56.0,
-      "z_score": -0.0,
-      "vrp": 0.0208,
-      "beta_30d": -1.192,
+      "z_score": -0.01,
+      "vrp": 0.0201,
+      "beta_30d": -1.165,
       "consec_vol": 2,
-      "excess_10d": -4.16,
+      "excess_10d": -3.28,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-1.19",
+      "reason": "beta=-1.16",
       "sector": "WTI Crude Futures"
     },
     {
@@ -287,9 +301,9 @@
       "baseline_rv": 27.1,
       "z_score": -0.25,
       "vrp": 0.0266,
-      "beta_30d": 1.16,
+      "beta_30d": 1.153,
       "consec_vol": 2,
-      "excess_10d": -2.78,
+      "excess_10d": -2.99,
       "level": 0,
       "label": "---",
       "reason": "",
@@ -482,11 +496,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4027.4,
-      "baseline": 4662.94,
-      "z_score": -3.26,
-      "rv_20d": 14.42,
-      "last_date": "2026-11-03"
+      "current": 4030.89,
+      "baseline": 4660.03,
+      "z_score": -3.17,
+      "rv_20d": 17.2,
+      "last_date": "2026-11-04"
     },
     {
       "sym": "sh000905",
@@ -495,11 +509,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 6421.61,
-      "baseline": 8039.16,
-      "z_score": -3.18,
-      "rv_20d": 28.95,
-      "last_date": "2026-11-03"
+      "current": 6417.84,
+      "baseline": 8032.13,
+      "z_score": -3.12,
+      "rv_20d": 34.79,
+      "last_date": "2026-11-04"
     },
     {
       "sym": "sz399006",
@@ -508,11 +522,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2483.27,
-      "baseline": 3498.52,
+      "current": 2465.26,
+      "baseline": 3494.18,
       "z_score": -2.79,
-      "rv_20d": 38.84,
-      "last_date": "2026-11-03"
+      "rv_20d": 47.49,
+      "last_date": "2026-11-04"
     },
     {
       "sym": "sh000001",
@@ -522,11 +536,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3635.61,
-      "baseline": 3998.77,
-      "z_score": -2.83,
-      "rv_20d": 13.26,
-      "last_date": "2026-11-03"
+      "current": 3636.55,
+      "baseline": 3997.17,
+      "z_score": -2.77,
+      "rv_20d": 15.77,
+      "last_date": "2026-11-04"
     }
   ],
   "flagged_count": 23,
