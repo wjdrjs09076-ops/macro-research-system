@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-04T10:43:19",
+  "scan_date": "2026-11-04T13:02:41",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -84,20 +84,6 @@
       "label": "---",
       "reason": "",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "XLF",
-      "current_rv": 16.2,
-      "baseline_rv": 14.4,
-      "z_score": 0.46,
-      "vrp": 0.0103,
-      "beta_30d": 0.26,
-      "consec_vol": 5,
-      "excess_10d": 4.55,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.26, 5d consec vol",
-      "sector": "Financials / Banking"
     },
     {
       "ticker": "^HSI",
@@ -423,30 +409,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 105.37,
-      "baseline": 87.93,
-      "z_score": 1.28,
-      "bw_spread": 11.61
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 122.85,
-      "baseline": 97.26,
-      "z_score": 1.36,
-      "bw_spread": 11.42
-    },
-    "inv": {
-      "latest_mbbl": 693208.0,
-      "wow_chg_pct": -0.29,
-      "surprise": -0.07
-    },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +11.6%",
-      "Brent backwardation +11.4%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -543,7 +507,7 @@
       "last_date": "2026-11-04"
     }
   ],
-  "flagged_count": 23,
+  "flagged_count": 22,
   "alert_count": 1,
   "high_count": 0
 }
