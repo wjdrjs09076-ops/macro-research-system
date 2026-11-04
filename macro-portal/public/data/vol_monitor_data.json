@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-04T20:02:32",
+  "scan_date": "2026-11-04T20:32:42",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -140,6 +140,20 @@
       "label": "---",
       "reason": "",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "^STOXX50E",
+      "current_rv": 16.5,
+      "baseline_rv": 15.5,
+      "z_score": 0.18,
+      "vrp": 0.0017,
+      "beta_30d": 0.513,
+      "consec_vol": 5,
+      "excess_10d": 2.32,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.51, 5d consec vol",
+      "sector": "Euro Stoxx 50"
     },
     {
       "ticker": "XLI",
@@ -409,11 +423,6 @@
     }
   ],
   "oil": {
-    "inv": {
-      "latest_mbbl": 691944.0,
-      "wow_chg_pct": -0.18,
-      "surprise": 0.18
-    },
     "level": 0,
     "reasons": []
   },
@@ -512,7 +521,7 @@
       "last_date": "2026-11-04"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 1,
   "high_count": 0
 }
