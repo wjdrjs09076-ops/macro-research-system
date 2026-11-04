@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-04T15:02:16",
+  "scan_date": "2026-11-04T15:31:54",
   "etf_signals": [
     {
       "ticker": "ZN=F",
@@ -282,6 +282,20 @@
       "sector": "Gold"
     },
     {
+      "ticker": "EWY",
+      "current_rv": 56.0,
+      "baseline_rv": 60.8,
+      "z_score": -0.22,
+      "vrp": 0.1451,
+      "beta_30d": 3.124,
+      "consec_vol": 1,
+      "excess_10d": 3.16,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=3.12",
+      "sector": "Korea (MSCI)"
+    },
+    {
       "ticker": "GC=F",
       "current_rv": 24.0,
       "baseline_rv": 27.1,
@@ -529,7 +543,7 @@
       "last_date": "2026-11-04"
     }
   ],
-  "flagged_count": 22,
+  "flagged_count": 23,
   "alert_count": 1,
   "high_count": 0
 }
