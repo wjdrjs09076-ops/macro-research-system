@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-11-05T19:02:36",
+  "scan_date": "2026-11-05T19:31:58",
   "etf_signals": [
+    {
+      "ticker": "SOXX",
+      "current_rv": 953.6,
+      "baseline_rv": 45.7,
+      "z_score": 49.44,
+      "vrp": -2.6862,
+      "beta_30d": -3.396,
+      "consec_vol": 5,
+      "excess_10d": 181.61,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=49.4, VRP=-2.686, beta=-3.40, 5d consec vol",
+      "sector": "Semiconductors"
+    },
     {
       "ticker": "ZN=F",
       "current_rv": 7.4,
@@ -112,20 +126,6 @@
       "label": "WATCH",
       "reason": "VRP=-0.068, beta=0.52, 5d consec vol",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "SOXX",
-      "current_rv": 67.3,
-      "baseline_rv": 45.7,
-      "z_score": 1.17,
-      "vrp": -0.1075,
-      "beta_30d": 2.787,
-      "consec_vol": 5,
-      "excess_10d": -10.82,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.108, beta=2.79, 5d consec vol",
-      "sector": "Semiconductors"
     },
     {
       "ticker": "XLK",
@@ -430,9 +430,22 @@
       "z_score": 1.18,
       "bw_spread": 8.54
     },
+    "brent": {
+      "label": "Brent",
+      "current": 119.13,
+      "baseline": 98.07,
+      "z_score": 1.11,
+      "bw_spread": 6.02
+    },
+    "inv": {
+      "latest_mbbl": 691944.0,
+      "wow_chg_pct": -0.18,
+      "surprise": 0.18
+    },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%"
+      "WTI backwardation +8.5%",
+      "Brent backwardation +6.0%"
     ]
   },
   "fred": [
@@ -531,6 +544,6 @@
     }
   ],
   "flagged_count": 25,
-  "alert_count": 2,
-  "high_count": 1
+  "alert_count": 3,
+  "high_count": 2
 }

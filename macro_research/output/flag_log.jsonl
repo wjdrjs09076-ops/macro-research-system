@@ -213,3 +213,4 @@
 {"ts": "2026-11-04T02:37:15", "ticker": "ZN=F", "level": 2, "z_score": 2.82, "vrp": -0.0115, "reason": "vol z=2.8, beta=-0.14, 5d consec vol"}
 {"ts": "2026-11-05T00:16:01", "ticker": "ZN=F", "level": 2, "z_score": 3.14, "vrp": -0.0134, "reason": "vol z=3.1, beta=-0.13, 5d consec vol"}
 {"ts": "2026-11-05T00:16:01", "ticker": "XLE", "level": 3, "z_score": 2.98, "vrp": -0.0628, "reason": "vol z=3.0, VRP=-0.063, beta=-1.02"}
+{"ts": "2026-11-05T19:31:58", "ticker": "SOXX", "level": 3, "z_score": 49.44, "vrp": -2.6862, "reason": "vol z=49.4, VRP=-2.686, beta=-3.40, 5d consec vol"}
