@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-05T20:32:03",
+  "scan_date": "2026-11-05T21:52:02",
   "etf_signals": [
     {
       "ticker": "SOXX",
@@ -350,20 +350,6 @@
       "label": "WATCH",
       "reason": "beta=0.31",
       "sector": "FTSE 250 (UK 내수)"
-    },
-    {
-      "ticker": "^KS11",
-      "current_rv": 52.9,
-      "baseline_rv": 55.9,
-      "z_score": -0.11,
-      "vrp": -0.0191,
-      "beta_30d": 0.951,
-      "consec_vol": 3,
-      "excess_10d": 0.36,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "KOSPI"
     },
     {
       "ticker": "EWY",
