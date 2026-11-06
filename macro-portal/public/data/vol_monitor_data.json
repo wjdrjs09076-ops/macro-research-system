@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-06T18:31:56",
+  "scan_date": "2026-11-06T19:02:39",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,13 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 88.69,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
     "brent": {
       "label": "Brent",
       "current": 119.13,
@@ -444,7 +437,6 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%",
       "Brent backwardation +6.0%"
     ]
   },
