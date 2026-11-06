@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-06T09:44:43",
+  "scan_date": "2026-11-06T13:02:39",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -168,20 +168,6 @@
       "label": "WATCH",
       "reason": "beta=0.42",
       "sector": "UK (MSCI)"
-    },
-    {
-      "ticker": "EWJ",
-      "current_rv": 33.1,
-      "baseline_rv": 21.7,
-      "z_score": 1.69,
-      "vrp": 0.0235,
-      "beta_30d": 1.199,
-      "consec_vol": 1,
-      "excess_10d": -2.71,
-      "level": 0,
-      "label": "---",
-      "reason": "",
-      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "EWY",
@@ -423,30 +409,13 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 88.69,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 119.13,
-      "baseline": 98.22,
-      "z_score": 1.11,
-      "bw_spread": 6.02
-    },
     "inv": {
       "latest_mbbl": 691944.0,
       "wow_chg_pct": -0.18,
       "surprise": 0.18
     },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +8.5%",
-      "Brent backwardation +6.0%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -522,11 +491,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2475.1,
-      "baseline": 3489.29,
-      "z_score": -2.71,
-      "rv_20d": 47.22,
-      "last_date": "2026-11-05"
+      "current": 2485.42,
+      "baseline": 3483.94,
+      "z_score": -2.63,
+      "rv_20d": 48.34,
+      "last_date": "2026-11-06"
     },
     {
       "sym": "sh000001",
