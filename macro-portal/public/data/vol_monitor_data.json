@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-06T19:32:01",
+  "scan_date": "2026-11-06T20:02:32",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -282,20 +282,6 @@
       "sector": "10Y Treasury Futures"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 66.2,
-      "baseline_rv": 55.8,
-      "z_score": 0.42,
-      "vrp": -0.0299,
-      "beta_30d": -1.263,
-      "consec_vol": 4,
-      "excess_10d": -4.58,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.26",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "^HSI",
       "current_rv": 20.0,
       "baseline_rv": 18.4,
@@ -423,13 +409,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 88.69,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
     "brent": {
       "label": "Brent",
       "current": 119.13,
@@ -444,7 +423,6 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%",
       "Brent backwardation +6.0%"
     ]
   },
@@ -543,7 +521,7 @@
       "last_date": "2026-11-06"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 6,
   "high_count": 1
 }
