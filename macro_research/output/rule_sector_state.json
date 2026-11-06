@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-06T14:32:41",
+  "generated": "2026-11-06T15:03:25",
   "audit_version": "2026-06-12-orthogonal-fdr",
   "freeze": {
     "version": "v2",
@@ -9,11 +9,11 @@
   "basis": "run_all_regimes 데이터 유효성 (FDR q<0.10 게이트 포함)",
   "valid_pairs": [
     "co_crash_cluster|XLF",
+    "event_vol|XLE",
     "event_vol|XLF",
     "event_vol|XLK",
     "event_vol|XLP",
     "event_vol|XLRE",
-    "event_vol|XLY",
     "fat_tail_alert|XLE",
     "fat_tail_alert|XLI",
     "fat_tail_alert|XLV",
@@ -25,8 +25,7 @@
     "rate_victim|XLY",
     "vol_overpriced|XLB",
     "vol_overpriced|XLC",
-    "vol_overpriced|XLI",
-    "vol_overpriced|XLU"
+    "vol_overpriced|XLI"
   ],
   "rate_verdicts": [
     {
