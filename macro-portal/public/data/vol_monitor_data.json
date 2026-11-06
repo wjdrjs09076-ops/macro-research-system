@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-06T17:17:08",
+  "scan_date": "2026-11-06T17:32:09",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -364,6 +364,20 @@
       "label": "WATCH",
       "reason": "beta=0.26",
       "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "^KS11",
+      "current_rv": 56.8,
+      "baseline_rv": 55.9,
+      "z_score": 0.03,
+      "vrp": -0.0483,
+      "beta_30d": 0.997,
+      "consec_vol": 4,
+      "excess_10d": 1.83,
+      "level": 0,
+      "label": "---",
+      "reason": "",
+      "sector": "KOSPI"
     },
     {
       "ticker": "^STOXX50E",
