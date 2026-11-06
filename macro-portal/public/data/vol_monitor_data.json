@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-06T16:31:59",
+  "scan_date": "2026-11-06T17:02:41",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -352,20 +352,6 @@
       "sector": "Gold Futures"
     },
     {
-      "ticker": "^FTMC",
-      "current_rv": 13.3,
-      "baseline_rv": 12.7,
-      "z_score": 0.14,
-      "vrp": 0.015,
-      "beta_30d": 0.259,
-      "consec_vol": 4,
-      "excess_10d": 6.04,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.26",
-      "sector": "FTSE 250 (UK 내수)"
-    },
-    {
       "ticker": "^KS11",
       "current_rv": 56.8,
       "baseline_rv": 55.9,
@@ -423,13 +409,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 88.69,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
     "brent": {
       "label": "Brent",
       "current": 119.13,
@@ -437,14 +416,8 @@
       "z_score": 1.11,
       "bw_spread": 6.02
     },
-    "inv": {
-      "latest_mbbl": 691944.0,
-      "wow_chg_pct": -0.18,
-      "surprise": 0.18
-    },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%",
       "Brent backwardation +6.0%"
     ]
   },
@@ -543,7 +516,7 @@
       "last_date": "2026-11-06"
     }
   ],
-  "flagged_count": 26,
+  "flagged_count": 25,
   "alert_count": 6,
   "high_count": 1
 }
