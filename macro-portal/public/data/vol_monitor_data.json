@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-06T13:32:02",
+  "scan_date": "2026-11-06T14:02:11",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -352,6 +352,20 @@
       "sector": "Gold Futures"
     },
     {
+      "ticker": "^FTMC",
+      "current_rv": 13.3,
+      "baseline_rv": 12.7,
+      "z_score": 0.14,
+      "vrp": 0.015,
+      "beta_30d": 0.259,
+      "consec_vol": 4,
+      "excess_10d": 6.04,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.26",
+      "sector": "FTSE 250 (UK 내수)"
+    },
+    {
       "ticker": "^KS11",
       "current_rv": 56.8,
       "baseline_rv": 55.9,
@@ -529,7 +543,7 @@
       "last_date": "2026-11-06"
     }
   ],
-  "flagged_count": 25,
+  "flagged_count": 26,
   "alert_count": 6,
   "high_count": 1
 }
