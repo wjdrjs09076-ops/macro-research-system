@@ -1,15 +1,15 @@
 {
-  "scan_date": "2026-11-07T02:16:25",
+  "scan_date": "2026-11-07T09:07:45",
   "etf_signals": [
     {
       "ticker": "ES=F",
       "current_rv": 26.7,
       "baseline_rv": 12.4,
       "z_score": 3.78,
-      "vrp": -0.0046,
-      "beta_30d": 0.995,
+      "vrp": -0.0044,
+      "beta_30d": 0.994,
       "consec_vol": 5,
-      "excess_10d": -0.1,
+      "excess_10d": -0.12,
       "level": 2,
       "label": "ALERT",
       "reason": "vol z=3.8, 5d consec vol",
@@ -142,20 +142,6 @@
       "sector": "UK (MSCI)"
     },
     {
-      "ticker": "XLC",
-      "current_rv": 26.0,
-      "baseline_rv": 16.7,
-      "z_score": 1.82,
-      "vrp": 0.0001,
-      "beta_30d": 0.451,
-      "consec_vol": 2,
-      "excess_10d": 1.21,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "vol z=1.8, beta=0.45",
-      "sector": "Communication"
-    },
-    {
       "ticker": "XLB",
       "current_rv": 26.3,
       "baseline_rv": 17.8,
@@ -182,6 +168,20 @@
       "label": "---",
       "reason": "",
       "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "XLC",
+      "current_rv": 24.8,
+      "baseline_rv": 16.7,
+      "z_score": 1.58,
+      "vrp": -0.0017,
+      "beta_30d": 0.477,
+      "consec_vol": 3,
+      "excess_10d": 2.59,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.48",
+      "sector": "Communication"
     },
     {
       "ticker": "EWY",
@@ -296,6 +296,20 @@
       "sector": "FTSE 100"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.7,
+      "baseline_rv": 4.4,
+      "z_score": 0.35,
+      "vrp": 0.0115,
+      "beta_30d": -0.104,
+      "consec_vol": 5,
+      "excess_10d": 4.06,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "^FTMC",
       "current_rv": 14.3,
       "baseline_rv": 12.7,
@@ -308,20 +322,6 @@
       "label": "WATCH",
       "reason": "beta=0.24, 5d consec vol",
       "sector": "FTSE 250 (UK 내수)"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 4.7,
-      "baseline_rv": 4.4,
-      "z_score": 0.33,
-      "vrp": 0.0116,
-      "beta_30d": -0.104,
-      "consec_vol": 5,
-      "excess_10d": 4.08,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "FXI",
@@ -353,16 +353,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 61.1,
+      "current_rv": 61.4,
       "baseline_rv": 55.9,
-      "z_score": 0.21,
-      "vrp": -0.0123,
-      "beta_30d": -1.228,
+      "z_score": 0.23,
+      "vrp": -0.0147,
+      "beta_30d": -1.22,
       "consec_vol": 5,
-      "excess_10d": -9.43,
+      "excess_10d": -8.89,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-1.23, 5d consec vol",
+      "reason": "beta=-1.22, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
@@ -381,13 +381,13 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 28.6,
+      "current_rv": 28.7,
       "baseline_rv": 27.0,
-      "z_score": 0.13,
-      "vrp": -0.0373,
-      "beta_30d": 0.419,
+      "z_score": 0.14,
+      "vrp": -0.0379,
+      "beta_30d": 0.417,
       "consec_vol": 5,
-      "excess_10d": 5.08,
+      "excess_10d": 4.97,
       "level": 1,
       "label": "WATCH",
       "reason": "beta=0.42, 5d consec vol",
