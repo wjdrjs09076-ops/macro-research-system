@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-07T09:07:45",
+  "scan_date": "2026-11-07T15:51:47",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -411,9 +411,9 @@
       "ticker": "TLT",
       "current_rv": 8.5,
       "baseline_rv": 9.5,
-      "z_score": -0.42,
-      "vrp": 0.0292,
-      "beta_30d": -0.074,
+      "z_score": -0.43,
+      "vrp": 0.0293,
+      "beta_30d": -0.07,
       "consec_vol": 3,
       "excess_10d": 3.89,
       "level": 1,
