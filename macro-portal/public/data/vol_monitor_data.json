@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-08T05:31:57",
+  "scan_date": "2026-11-08T13:04:33",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -366,6 +366,20 @@
       "sector": "WTI Crude Futures"
     },
     {
+      "ticker": "GLD",
+      "current_rv": 30.5,
+      "baseline_rv": 28.3,
+      "z_score": 0.18,
+      "vrp": -0.0168,
+      "beta_30d": 0.523,
+      "consec_vol": 5,
+      "excess_10d": 4.93,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.52, 5d consec vol",
+      "sector": "Gold"
+    },
+    {
       "ticker": "GC=F",
       "current_rv": 28.7,
       "baseline_rv": 27.0,
@@ -529,7 +543,7 @@
       "last_date": "2026-11-06"
     }
   ],
-  "flagged_count": 27,
+  "flagged_count": 28,
   "alert_count": 6,
   "high_count": 1
 }
