@@ -1,25 +1,25 @@
 {
-  "scan_date": "2026-11-08T22:23:57",
+  "scan_date": "2026-11-09T01:52:36",
   "etf_signals": [
     {
       "ticker": "ES=F",
-      "current_rv": 26.7,
+      "current_rv": 26.3,
       "baseline_rv": 12.5,
-      "z_score": 3.78,
+      "z_score": 3.69,
       "vrp": -0.0044,
       "beta_30d": 0.994,
       "consec_vol": 5,
       "excess_10d": -0.12,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=3.8, 5d consec vol",
+      "reason": "vol z=3.7, 5d consec vol",
       "sector": "S&P 500 Futures"
     },
     {
       "ticker": "XLF",
       "current_rv": 27.6,
       "baseline_rv": 14.3,
-      "z_score": 3.28,
+      "z_score": 3.29,
       "vrp": -0.0452,
       "beta_30d": 0.635,
       "consec_vol": 5,
@@ -47,21 +47,21 @@
       "ticker": "XLY",
       "current_rv": 33.8,
       "baseline_rv": 19.0,
-      "z_score": 2.82,
+      "z_score": 2.81,
       "vrp": -0.031,
       "beta_30d": 1.015,
-      "consec_vol": 5,
+      "consec_vol": 4,
       "excess_10d": 7.26,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=2.8, 5d consec vol",
+      "reason": "vol z=2.8",
       "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XAR",
       "current_rv": 53.4,
       "baseline_rv": 28.5,
-      "z_score": 2.8,
+      "z_score": 2.79,
       "vrp": -0.114,
       "beta_30d": 0.907,
       "consec_vol": 5,
@@ -75,7 +75,7 @@
       "ticker": "XLE",
       "current_rv": 34.6,
       "baseline_rv": 22.0,
-      "z_score": 2.47,
+      "z_score": 2.5,
       "vrp": -0.0488,
       "beta_30d": -0.045,
       "consec_vol": 5,
@@ -89,7 +89,7 @@
       "ticker": "SOXX",
       "current_rv": 86.8,
       "baseline_rv": 45.9,
-      "z_score": 2.24,
+      "z_score": 2.23,
       "vrp": -0.1005,
       "beta_30d": 2.715,
       "consec_vol": 5,
@@ -117,7 +117,7 @@
       "ticker": "XLI",
       "current_rv": 27.4,
       "baseline_rv": 17.4,
-      "z_score": 1.91,
+      "z_score": 1.9,
       "vrp": -0.0366,
       "beta_30d": 0.764,
       "consec_vol": 5,
@@ -145,7 +145,7 @@
       "ticker": "XLB",
       "current_rv": 26.3,
       "baseline_rv": 17.8,
-      "z_score": 1.8,
+      "z_score": 1.79,
       "vrp": -0.0485,
       "beta_30d": 0.53,
       "consec_vol": 3,
@@ -158,7 +158,7 @@
     {
       "ticker": "EWJ",
       "current_rv": 33.2,
-      "baseline_rv": 21.6,
+      "baseline_rv": 21.7,
       "z_score": 1.7,
       "vrp": -0.0091,
       "beta_30d": 1.161,
@@ -172,7 +172,7 @@
     {
       "ticker": "XLC",
       "current_rv": 24.8,
-      "baseline_rv": 16.7,
+      "baseline_rv": 16.8,
       "z_score": 1.58,
       "vrp": -0.0017,
       "beta_30d": 0.477,
@@ -186,8 +186,8 @@
     {
       "ticker": "EWY",
       "current_rv": 87.9,
-      "baseline_rv": 60.9,
-      "z_score": 1.27,
+      "baseline_rv": 61.0,
+      "z_score": 1.26,
       "vrp": -0.0596,
       "beta_30d": 2.679,
       "consec_vol": 2,
@@ -229,7 +229,7 @@
       "ticker": "XTN",
       "current_rv": 34.1,
       "baseline_rv": 26.2,
-      "z_score": 0.87,
+      "z_score": 0.86,
       "vrp": -0.037,
       "beta_30d": 0.741,
       "consec_vol": 3,
@@ -243,7 +243,7 @@
       "ticker": "000001.SS",
       "current_rv": 19.1,
       "baseline_rv": 14.6,
-      "z_score": 0.87,
+      "z_score": 0.86,
       "vrp": -0.0334,
       "beta_30d": 0.244,
       "consec_vol": 5,
@@ -257,7 +257,7 @@
       "ticker": "MCHI",
       "current_rv": 22.5,
       "baseline_rv": 19.0,
-      "z_score": 0.77,
+      "z_score": 0.78,
       "vrp": -0.0078,
       "beta_30d": 0.244,
       "consec_vol": 3,
@@ -284,7 +284,7 @@
     {
       "ticker": "^FTSE",
       "current_rv": 14.0,
-      "baseline_rv": 11.5,
+      "baseline_rv": 11.6,
       "z_score": 0.54,
       "vrp": -0.0138,
       "beta_30d": 0.136,
@@ -297,7 +297,7 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 4.7,
+      "current_rv": 4.8,
       "baseline_rv": 4.4,
       "z_score": 0.34,
       "vrp": 0.0115,
@@ -313,7 +313,7 @@
       "ticker": "FXI",
       "current_rv": 20.5,
       "baseline_rv": 19.1,
-      "z_score": 0.33,
+      "z_score": 0.34,
       "vrp": 0.0051,
       "beta_30d": 0.148,
       "consec_vol": 3,
@@ -326,7 +326,7 @@
     {
       "ticker": "^FTMC",
       "current_rv": 14.3,
-      "baseline_rv": 12.7,
+      "baseline_rv": 12.8,
       "z_score": 0.33,
       "vrp": 0.0005,
       "beta_30d": 0.241,
@@ -353,9 +353,9 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 61.4,
+      "current_rv": 61.5,
       "baseline_rv": 56.0,
-      "z_score": 0.22,
+      "z_score": 0.23,
       "vrp": -0.0147,
       "beta_30d": -1.22,
       "consec_vol": 5,
@@ -369,7 +369,7 @@
       "ticker": "GLD",
       "current_rv": 30.5,
       "baseline_rv": 28.3,
-      "z_score": 0.18,
+      "z_score": 0.17,
       "vrp": -0.0168,
       "beta_30d": 0.523,
       "consec_vol": 5,
@@ -381,9 +381,9 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 28.7,
+      "current_rv": 29.2,
       "baseline_rv": 27.0,
-      "z_score": 0.13,
+      "z_score": 0.17,
       "vrp": -0.0379,
       "beta_30d": 0.417,
       "consec_vol": 5,
@@ -410,8 +410,8 @@
     {
       "ticker": "TLT",
       "current_rv": 8.5,
-      "baseline_rv": 9.5,
-      "z_score": -0.43,
+      "baseline_rv": 9.6,
+      "z_score": -0.44,
       "vrp": 0.0293,
       "beta_30d": -0.07,
       "consec_vol": 3,
@@ -426,15 +426,15 @@
     "wti": {
       "label": "WTI",
       "current": 104.56,
-      "baseline": 88.96,
+      "baseline": 89.09,
       "z_score": 1.17,
       "bw_spread": 8.54
     },
     "brent": {
       "label": "Brent",
       "current": 119.13,
-      "baseline": 98.51,
-      "z_score": 1.1,
+      "baseline": 98.66,
+      "z_score": 1.09,
       "bw_spread": 6.02
     },
     "inv": {
@@ -469,7 +469,7 @@
         "XLF"
       ],
       "current": 3.414,
-      "baseline": 2.8697,
+      "baseline": 2.8694,
       "z_score": -2.84,
       "last_date": "2026-11-05"
     },
@@ -482,7 +482,7 @@
         "TLT"
       ],
       "current": 0.342,
-      "baseline": 0.4929,
+      "baseline": 0.4927,
       "z_score": -1.2,
       "last_date": "2026-11-06"
     }
@@ -497,8 +497,8 @@
         "MCHI"
       ],
       "current": 4058.96,
-      "baseline": 4653.68,
-      "z_score": -2.85,
+      "baseline": 4653.8,
+      "z_score": -2.84,
       "rv_20d": 17.51,
       "last_date": "2026-11-06"
     },
@@ -510,7 +510,7 @@
         "MCHI"
       ],
       "current": 6541.52,
-      "baseline": 8021.23,
+      "baseline": 8024.04,
       "z_score": -2.74,
       "rv_20d": 35.47,
       "last_date": "2026-11-06"
@@ -523,8 +523,8 @@
         "MCHI"
       ],
       "current": 2485.42,
-      "baseline": 3486.47,
-      "z_score": -2.62,
+      "baseline": 3487.9,
+      "z_score": -2.63,
       "rv_20d": 48.34,
       "last_date": "2026-11-06"
     },
@@ -537,8 +537,8 @@
         "MCHI"
       ],
       "current": 3654.28,
-      "baseline": 3993.76,
-      "z_score": -2.51,
+      "baseline": 3993.88,
+      "z_score": -2.5,
       "rv_20d": 15.98,
       "last_date": "2026-11-06"
     }
