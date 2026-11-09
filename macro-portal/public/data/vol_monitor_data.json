@@ -1,6 +1,20 @@
 {
-  "scan_date": "2026-11-09T18:31:47",
+  "scan_date": "2026-11-09T19:02:36",
   "etf_signals": [
+    {
+      "ticker": "ES=F",
+      "current_rv": 26.7,
+      "baseline_rv": 12.5,
+      "z_score": 3.78,
+      "vrp": -0.0044,
+      "beta_30d": 0.994,
+      "consec_vol": 5,
+      "excess_10d": -0.12,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=3.8, 5d consec vol",
+      "sector": "S&P 500 Futures"
+    },
     {
       "ticker": "XLF",
       "current_rv": 27.6,
@@ -409,30 +423,13 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 89.09,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 119.13,
-      "baseline": 98.66,
-      "z_score": 1.09,
-      "bw_spread": 6.02
-    },
     "inv": {
       "latest_mbbl": 691944.0,
       "wow_chg_pct": -0.18,
       "surprise": 0.18
     },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +8.5%",
-      "Brent backwardation +6.0%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -529,7 +526,7 @@
       "last_date": "2026-11-09"
     }
   ],
-  "flagged_count": 27,
-  "alert_count": 5,
+  "flagged_count": 28,
+  "alert_count": 6,
   "high_count": 1
 }
