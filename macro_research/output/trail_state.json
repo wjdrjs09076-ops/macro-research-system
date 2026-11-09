@@ -4,5 +4,11 @@
     "partial_done": false,
     "partial_realized": 0.0,
     "orig_cost": 580.0
+  },
+  "XLE": {
+    "peak_pnl_pct": -0.05420054200542006,
+    "partial_done": false,
+    "partial_realized": 0.0,
+    "orig_cost": 369.0
   }
 }
