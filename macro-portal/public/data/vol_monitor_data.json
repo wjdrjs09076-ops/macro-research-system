@@ -1,20 +1,6 @@
 {
-  "scan_date": "2026-11-09T01:52:36",
+  "scan_date": "2026-11-09T09:30:29",
   "etf_signals": [
-    {
-      "ticker": "ES=F",
-      "current_rv": 26.3,
-      "baseline_rv": 12.5,
-      "z_score": 3.69,
-      "vrp": -0.0044,
-      "beta_30d": 0.994,
-      "consec_vol": 5,
-      "excess_10d": -0.12,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=3.7, 5d consec vol",
-      "sector": "S&P 500 Futures"
-    },
     {
       "ticker": "XLF",
       "current_rv": 27.6,
@@ -297,7 +283,7 @@
     },
     {
       "ticker": "ZN=F",
-      "current_rv": 4.8,
+      "current_rv": 4.7,
       "baseline_rv": 4.4,
       "z_score": 0.34,
       "vrp": 0.0115,
@@ -353,9 +339,9 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 61.5,
-      "baseline_rv": 56.0,
-      "z_score": 0.23,
+      "current_rv": 61.4,
+      "baseline_rv": 56.1,
+      "z_score": 0.22,
       "vrp": -0.0147,
       "beta_30d": -1.22,
       "consec_vol": 5,
@@ -381,9 +367,9 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 29.2,
-      "baseline_rv": 27.0,
-      "z_score": 0.17,
+      "current_rv": 28.7,
+      "baseline_rv": 27.1,
+      "z_score": 0.13,
       "vrp": -0.0379,
       "beta_30d": 0.417,
       "consec_vol": 5,
@@ -543,7 +529,7 @@
       "last_date": "2026-11-06"
     }
   ],
-  "flagged_count": 28,
-  "alert_count": 6,
+  "flagged_count": 27,
+  "alert_count": 5,
   "high_count": 1
 }
