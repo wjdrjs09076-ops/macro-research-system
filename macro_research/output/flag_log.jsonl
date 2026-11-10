@@ -239,3 +239,15 @@
 {"ts": "2026-11-09T01:52:36", "ticker": "XLY", "level": 2, "z_score": 2.81, "vrp": -0.031, "reason": "vol z=2.8"}
 {"ts": "2026-11-09T01:52:36", "ticker": "XAR", "level": 3, "z_score": 2.79, "vrp": -0.114, "reason": "vol z=2.8, VRP=-0.114, 5d consec vol"}
 {"ts": "2026-11-09T01:52:36", "ticker": "SOXX", "level": 2, "z_score": 2.23, "vrp": -0.1005, "reason": "vol z=2.2, VRP=-0.101, beta=2.72, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "ES=F", "level": 3, "z_score": 4.64, "vrp": -0.0942, "reason": "vol z=4.6, VRP=-0.094, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLF", "level": 3, "z_score": 3.46, "vrp": -0.0792, "reason": "vol z=3.5, VRP=-0.079, beta=0.60, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XAR", "level": 3, "z_score": 3.39, "vrp": -0.171, "reason": "vol z=3.4, VRP=-0.171, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLK", "level": 3, "z_score": 3.24, "vrp": -0.1693, "reason": "vol z=3.2, VRP=-0.169, beta=1.83, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLY", "level": 3, "z_score": 3.24, "vrp": -0.1001, "reason": "vol z=3.2, VRP=-0.100, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLI", "level": 3, "z_score": 3.01, "vrp": -0.1024, "reason": "vol z=3.0, VRP=-0.102, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "SOXX", "level": 3, "z_score": 2.73, "vrp": -0.3034, "reason": "vol z=2.7, VRP=-0.303, beta=2.83, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "EWJ", "level": 3, "z_score": 2.62, "vrp": -0.1293, "reason": "vol z=2.6, VRP=-0.129"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLE", "level": 3, "z_score": 2.52, "vrp": -0.0577, "reason": "vol z=2.5, VRP=-0.058, beta=-0.00, 5d consec vol"}
+{"ts": "2026-11-10T02:40:39", "ticker": "EWU", "level": 2, "z_score": 2.39, "vrp": -0.0805, "reason": "vol z=2.4, VRP=-0.081, beta=0.48"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLV", "level": 2, "z_score": 2.3, "vrp": -0.0522, "reason": "vol z=2.3, VRP=-0.052, beta=0.46"}
+{"ts": "2026-11-10T02:40:39", "ticker": "XLB", "level": 2, "z_score": 2.1, "vrp": -0.0789, "reason": "vol z=2.1, VRP=-0.079, beta=0.55"}
