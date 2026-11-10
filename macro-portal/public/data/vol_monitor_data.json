@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-10T14:02:39",
+  "scan_date": "2026-11-10T14:32:32",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -58,20 +58,6 @@
       "sector": "Technology"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 36.0,
-      "baseline_rv": 19.0,
-      "z_score": 3.24,
-      "vrp": -0.1001,
-      "beta_30d": 1.006,
-      "consec_vol": 5,
-      "excess_10d": 7.5,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.2, VRP=-0.100, 5d consec vol",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "XLI",
       "current_rv": 33.2,
       "baseline_rv": 17.4,
@@ -126,6 +112,20 @@
       "label": "HIGH",
       "reason": "vol z=2.5, VRP=-0.058, beta=-0.00, 5d consec vol",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "EWU",
+      "current_rv": 27.8,
+      "baseline_rv": 15.4,
+      "z_score": 2.39,
+      "vrp": -0.0805,
+      "beta_30d": 0.484,
+      "consec_vol": 4,
+      "excess_10d": 3.13,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.4, VRP=-0.081, beta=0.48",
+      "sector": "UK (MSCI)"
     },
     {
       "ticker": "XLV",
@@ -409,17 +409,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 89.09,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +8.5%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -429,10 +420,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 321.372,
-      "baseline": 320.5498,
+      "current": 321.172,
+      "baseline": 320.1969,
       "z_score": 0.01,
-      "last_date": "2026-11-08"
+      "last_date": "2026-11-09"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -518,5 +509,5 @@
   ],
   "flagged_count": 29,
   "alert_count": 11,
-  "high_count": 9
+  "high_count": 8
 }
