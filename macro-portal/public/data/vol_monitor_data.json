@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-10T20:31:56",
+  "scan_date": "2026-11-10T23:58:19",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -282,20 +282,6 @@
       "sector": "Shanghai Composite"
     },
     {
-      "ticker": "FXI",
-      "current_rv": 22.1,
-      "baseline_rv": 19.1,
-      "z_score": 0.74,
-      "vrp": -0.0153,
-      "beta_30d": 0.078,
-      "consec_vol": 4,
-      "excess_10d": 8.02,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.08",
-      "sector": "China Large-Cap"
-    },
-    {
       "ticker": "^FTSE",
       "current_rv": 14.5,
       "baseline_rv": 11.5,
@@ -481,10 +467,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.342,
-      "baseline": 0.4915,
-      "z_score": -1.18,
-      "last_date": "2026-11-09"
+      "current": 0.324,
+      "baseline": 0.4909,
+      "z_score": -1.32,
+      "last_date": "2026-11-10"
     }
   ],
   "china": [
@@ -543,7 +529,7 @@
       "last_date": "2026-11-10"
     }
   ],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 12,
   "high_count": 9
 }
