@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-11-10T02:40:39",
+  "scan_date": "2026-11-10T10:55:29",
   "etf_signals": [
     {
       "ticker": "ES=F",
-      "current_rv": 29.9,
+      "current_rv": 29.5,
       "baseline_rv": 12.5,
-      "z_score": 4.64,
-      "vrp": -0.0942,
-      "beta_30d": 1.003,
+      "z_score": 4.55,
+      "vrp": -0.0921,
+      "beta_30d": 0.994,
       "consec_vol": 5,
-      "excess_10d": -0.03,
+      "excess_10d": -0.17,
       "level": 3,
       "label": "HIGH",
-      "reason": "vol z=4.6, VRP=-0.094, 5d consec vol",
+      "reason": "vol z=4.6, VRP=-0.092, 5d consec vol",
       "sector": "S&P 500 Futures"
     },
     {
@@ -324,31 +324,17 @@
       "sector": "Euro Stoxx 50"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 4.8,
-      "baseline_rv": 4.4,
-      "z_score": 0.37,
-      "vrp": 0.0092,
-      "beta_30d": -0.107,
-      "consec_vol": 5,
-      "excess_10d": 2.35,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.11, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "CL=F",
-      "current_rv": 64.8,
+      "current_rv": 63.5,
       "baseline_rv": 56.0,
-      "z_score": 0.36,
-      "vrp": -0.0969,
-      "beta_30d": -1.365,
+      "z_score": 0.3,
+      "vrp": -0.0901,
+      "beta_30d": -1.309,
       "consec_vol": 5,
-      "excess_10d": -14.36,
+      "excess_10d": -13.47,
       "level": 1,
       "label": "WATCH",
-      "reason": "VRP=-0.097, beta=-1.36, 5d consec vol",
+      "reason": "VRP=-0.090, beta=-1.31, 5d consec vol",
       "sector": "WTI Crude Futures"
     },
     {
@@ -395,16 +381,16 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 29.4,
+      "current_rv": 28.9,
       "baseline_rv": 27.0,
-      "z_score": 0.18,
-      "vrp": -0.061,
-      "beta_30d": 0.401,
+      "z_score": 0.14,
+      "vrp": -0.0581,
+      "beta_30d": 0.368,
       "consec_vol": 5,
-      "excess_10d": 4.05,
+      "excess_10d": 3.53,
       "level": 1,
       "label": "WATCH",
-      "reason": "VRP=-0.061, beta=0.40, 5d consec vol",
+      "reason": "VRP=-0.058, beta=0.37, 5d consec vol",
       "sector": "Gold Futures"
     },
     {
@@ -496,11 +482,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4066.8,
-      "baseline": 4650.6,
-      "z_score": -2.73,
-      "rv_20d": 17.5,
-      "last_date": "2026-11-09"
+      "current": 4076.85,
+      "baseline": 4647.39,
+      "z_score": -2.62,
+      "rv_20d": 17.54,
+      "last_date": "2026-11-10"
     },
     {
       "sym": "sh000905",
@@ -509,11 +495,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 6574.71,
-      "baseline": 8015.98,
-      "z_score": -2.61,
-      "rv_20d": 34.88,
-      "last_date": "2026-11-09"
+      "current": 6638.47,
+      "baseline": 8007.53,
+      "z_score": -2.43,
+      "rv_20d": 35.16,
+      "last_date": "2026-11-10"
     },
     {
       "sym": "sz399006",
@@ -522,11 +508,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2485.4,
-      "baseline": 3482.73,
-      "z_score": -2.57,
-      "rv_20d": 48.02,
-      "last_date": "2026-11-09"
+      "current": 2505.94,
+      "baseline": 3477.27,
+      "z_score": -2.46,
+      "rv_20d": 48.69,
+      "last_date": "2026-11-10"
     },
     {
       "sym": "sh000001",
@@ -536,14 +522,14 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3658.83,
-      "baseline": 3992.09,
-      "z_score": -2.42,
-      "rv_20d": 16.07,
-      "last_date": "2026-11-09"
+      "current": 3669.96,
+      "baseline": 3990.17,
+      "z_score": -2.29,
+      "rv_20d": 16.06,
+      "last_date": "2026-11-10"
     }
   ],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 12,
   "high_count": 9
 }
