@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-10T13:32:25",
+  "scan_date": "2026-11-10T14:02:39",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -126,20 +126,6 @@
       "label": "HIGH",
       "reason": "vol z=2.5, VRP=-0.058, beta=-0.00, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "EWU",
-      "current_rv": 27.8,
-      "baseline_rv": 15.4,
-      "z_score": 2.39,
-      "vrp": -0.0805,
-      "beta_30d": 0.484,
-      "consec_vol": 4,
-      "excess_10d": 3.13,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=2.4, VRP=-0.081, beta=0.48",
-      "sector": "UK (MSCI)"
     },
     {
       "ticker": "XLV",
@@ -423,13 +409,17 @@
     }
   ],
   "oil": {
-    "inv": {
-      "latest_mbbl": 691944.0,
-      "wow_chg_pct": -0.18,
-      "surprise": 0.18
+    "wti": {
+      "label": "WTI",
+      "current": 104.56,
+      "baseline": 89.09,
+      "z_score": 1.17,
+      "bw_spread": 8.54
     },
-    "level": 0,
-    "reasons": []
+    "level": 1,
+    "reasons": [
+      "WTI backwardation +8.5%"
+    ]
   },
   "fred": [
     {
@@ -526,7 +516,7 @@
       "last_date": "2026-11-10"
     }
   ],
-  "flagged_count": 30,
-  "alert_count": 12,
+  "flagged_count": 29,
+  "alert_count": 11,
   "high_count": 9
 }
