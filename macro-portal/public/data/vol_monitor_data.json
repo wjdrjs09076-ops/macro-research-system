@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-10T17:02:31",
+  "scan_date": "2026-11-10T17:32:01",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -240,6 +240,20 @@
       "sector": "Nikkei 225"
     },
     {
+      "ticker": "MCHI",
+      "current_rv": 23.4,
+      "baseline_rv": 19.0,
+      "z_score": 0.99,
+      "vrp": -0.0258,
+      "beta_30d": 0.165,
+      "consec_vol": 4,
+      "excess_10d": 6.39,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.16",
+      "sector": "China Broad (MSCI)"
+    },
+    {
       "ticker": "^HSI",
       "current_rv": 22.9,
       "baseline_rv": 18.4,
@@ -409,13 +423,30 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 104.56,
+      "baseline": 89.09,
+      "z_score": 1.17,
+      "bw_spread": 8.54
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 119.13,
+      "baseline": 98.66,
+      "z_score": 1.09,
+      "bw_spread": 6.02
+    },
     "inv": {
       "latest_mbbl": 691944.0,
       "wow_chg_pct": -0.18,
       "surprise": 0.18
     },
-    "level": 0,
-    "reasons": []
+    "level": 1,
+    "reasons": [
+      "WTI backwardation +8.5%",
+      "Brent backwardation +6.0%"
+    ]
   },
   "fred": [
     {
@@ -512,7 +543,7 @@
       "last_date": "2026-11-10"
     }
   ],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 12,
   "high_count": 9
 }
