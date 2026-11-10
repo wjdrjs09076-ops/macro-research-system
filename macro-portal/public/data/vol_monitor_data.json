@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-10T14:32:32",
+  "scan_date": "2026-11-10T15:02:38",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -56,6 +56,20 @@
       "label": "HIGH",
       "reason": "vol z=3.2, VRP=-0.169, beta=1.83, 5d consec vol",
       "sector": "Technology"
+    },
+    {
+      "ticker": "XLY",
+      "current_rv": 36.0,
+      "baseline_rv": 19.0,
+      "z_score": 3.24,
+      "vrp": -0.1001,
+      "beta_30d": 1.006,
+      "consec_vol": 5,
+      "excess_10d": 7.5,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=3.2, VRP=-0.100, 5d consec vol",
+      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLI",
@@ -409,8 +423,30 @@
     }
   ],
   "oil": {
-    "level": 0,
-    "reasons": []
+    "wti": {
+      "label": "WTI",
+      "current": 104.56,
+      "baseline": 89.09,
+      "z_score": 1.17,
+      "bw_spread": 8.54
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 119.13,
+      "baseline": 98.66,
+      "z_score": 1.09,
+      "bw_spread": 6.02
+    },
+    "inv": {
+      "latest_mbbl": 691944.0,
+      "wow_chg_pct": -0.18,
+      "surprise": 0.18
+    },
+    "level": 1,
+    "reasons": [
+      "WTI backwardation +8.5%",
+      "Brent backwardation +6.0%"
+    ]
   },
   "fred": [
     {
@@ -507,7 +543,7 @@
       "last_date": "2026-11-10"
     }
   ],
-  "flagged_count": 29,
-  "alert_count": 11,
-  "high_count": 8
+  "flagged_count": 30,
+  "alert_count": 12,
+  "high_count": 9
 }
