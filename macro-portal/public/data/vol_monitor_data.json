@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-10T10:55:29",
+  "scan_date": "2026-11-10T13:02:35",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -324,6 +324,20 @@
       "sector": "Euro Stoxx 50"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 4.7,
+      "baseline_rv": 4.4,
+      "z_score": 0.32,
+      "vrp": 0.0096,
+      "beta_30d": -0.104,
+      "consec_vol": 5,
+      "excess_10d": 2.41,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "CL=F",
       "current_rv": 63.5,
       "baseline_rv": 56.0,
@@ -392,30 +406,9 @@
       "label": "WATCH",
       "reason": "VRP=-0.058, beta=0.37, 5d consec vol",
       "sector": "Gold Futures"
-    },
-    {
-      "ticker": "TLT",
-      "current_rv": 8.3,
-      "baseline_rv": 9.6,
-      "z_score": -0.54,
-      "vrp": 0.0276,
-      "beta_30d": -0.082,
-      "consec_vol": 2,
-      "excess_10d": 1.86,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.08",
-      "sector": "Long-term Treasury"
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 89.09,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
     "brent": {
       "label": "Brent",
       "current": 119.13,
@@ -430,7 +423,6 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%",
       "Brent backwardation +6.0%"
     ]
   },
