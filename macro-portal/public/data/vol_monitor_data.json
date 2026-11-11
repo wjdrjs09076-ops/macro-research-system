@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-11T18:31:39",
+  "scan_date": "2026-11-11T19:02:33",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -70,6 +70,20 @@
       "label": "HIGH",
       "reason": "vol z=3.0, VRP=-0.162, beta=1.83, 5d consec vol",
       "sector": "Technology"
+    },
+    {
+      "ticker": "XLI",
+      "current_rv": 33.1,
+      "baseline_rv": 17.4,
+      "z_score": 3.0,
+      "vrp": -0.108,
+      "beta_30d": 0.883,
+      "consec_vol": 5,
+      "excess_10d": 3.12,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=3.0, VRP=-0.108, 5d consec vol",
+      "sector": "Industrials"
     },
     {
       "ticker": "XLE",
@@ -366,20 +380,6 @@
       "sector": "KOSPI"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 63.5,
-      "baseline_rv": 56.1,
-      "z_score": 0.3,
-      "vrp": -0.1057,
-      "beta_30d": -1.311,
-      "consec_vol": 5,
-      "excess_10d": -11.64,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.106, beta=-1.31, 5d consec vol",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "GC=F",
       "current_rv": 30.6,
       "baseline_rv": 27.0,
@@ -409,30 +409,8 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 89.09,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 119.13,
-      "baseline": 98.66,
-      "z_score": 1.09,
-      "bw_spread": 6.02
-    },
-    "inv": {
-      "latest_mbbl": 691944.0,
-      "wow_chg_pct": -0.18,
-      "surprise": 0.18
-    },
-    "level": 1,
-    "reasons": [
-      "WTI backwardation +8.5%",
-      "Brent backwardation +6.0%"
-    ]
+    "level": 0,
+    "reasons": []
   },
   "fred": [
     {
@@ -530,6 +508,6 @@
     }
   ],
   "flagged_count": 29,
-  "alert_count": 11,
-  "high_count": 8
+  "alert_count": 12,
+  "high_count": 9
 }
