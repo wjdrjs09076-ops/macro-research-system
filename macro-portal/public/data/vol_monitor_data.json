@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-11T15:31:48",
+  "scan_date": "2026-11-11T16:02:34",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -254,6 +254,20 @@
       "sector": "Transportation / Shipping"
     },
     {
+      "ticker": "MCHI",
+      "current_rv": 24.2,
+      "baseline_rv": 18.9,
+      "z_score": 1.17,
+      "vrp": -0.0372,
+      "beta_30d": 0.168,
+      "consec_vol": 5,
+      "excess_10d": 6.58,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.17, 5d consec vol",
+      "sector": "China Broad (MSCI)"
+    },
+    {
       "ticker": "FXI",
       "current_rv": 22.9,
       "baseline_rv": 19.0,
@@ -416,13 +430,6 @@
       "z_score": 1.17,
       "bw_spread": 8.54
     },
-    "brent": {
-      "label": "Brent",
-      "current": 119.13,
-      "baseline": 98.66,
-      "z_score": 1.09,
-      "bw_spread": 6.02
-    },
     "inv": {
       "latest_mbbl": 691944.0,
       "wow_chg_pct": -0.18,
@@ -430,8 +437,7 @@
     },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%",
-      "Brent backwardation +6.0%"
+      "WTI backwardation +8.5%"
     ]
   },
   "fred": [
@@ -529,7 +535,7 @@
       "last_date": "2026-11-11"
     }
   ],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 12,
   "high_count": 9
 }
