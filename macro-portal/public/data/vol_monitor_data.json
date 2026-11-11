@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-11T13:02:09",
+  "scan_date": "2026-11-11T13:31:53",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -268,6 +268,20 @@
       "sector": "China Broad (MSCI)"
     },
     {
+      "ticker": "FXI",
+      "current_rv": 22.9,
+      "baseline_rv": 19.0,
+      "z_score": 0.96,
+      "vrp": -0.0272,
+      "beta_30d": 0.081,
+      "consec_vol": 5,
+      "excess_10d": 8.26,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.08, 5d consec vol",
+      "sector": "China Large-Cap"
+    },
+    {
       "ticker": "^HSI",
       "current_rv": 21.8,
       "baseline_rv": 18.4,
@@ -529,7 +543,7 @@
       "last_date": "2026-11-11"
     }
   ],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 12,
   "high_count": 9
 }
