@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-11T18:03:33",
+  "scan_date": "2026-11-11T18:31:39",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -70,20 +70,6 @@
       "label": "HIGH",
       "reason": "vol z=3.0, VRP=-0.162, beta=1.83, 5d consec vol",
       "sector": "Technology"
-    },
-    {
-      "ticker": "XLI",
-      "current_rv": 33.1,
-      "baseline_rv": 17.4,
-      "z_score": 3.0,
-      "vrp": -0.108,
-      "beta_30d": 0.883,
-      "consec_vol": 5,
-      "excess_10d": 3.12,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.0, VRP=-0.108, 5d consec vol",
-      "sector": "Industrials"
     },
     {
       "ticker": "XLE",
@@ -543,7 +529,7 @@
       "last_date": "2026-11-11"
     }
   ],
-  "flagged_count": 30,
-  "alert_count": 12,
-  "high_count": 9
+  "flagged_count": 29,
+  "alert_count": 11,
+  "high_count": 8
 }
