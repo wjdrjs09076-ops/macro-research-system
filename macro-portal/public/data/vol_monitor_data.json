@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-11-11T21:17:57",
+  "scan_date": "2026-11-12T02:26:16",
   "etf_signals": [
     {
       "ticker": "ES=F",
-      "current_rv": 29.3,
+      "current_rv": 29.9,
       "baseline_rv": 12.5,
-      "z_score": 4.5,
+      "z_score": 4.68,
       "vrp": -0.0941,
       "beta_30d": 0.994,
       "consec_vol": 5,
       "excess_10d": -0.2,
       "level": 3,
       "label": "HIGH",
-      "reason": "vol z=4.5, VRP=-0.094, 5d consec vol",
+      "reason": "vol z=4.7, VRP=-0.094, 5d consec vol",
       "sector": "S&P 500 Futures"
     },
     {
@@ -170,20 +170,6 @@
       "sector": "Materials"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 6.4,
-      "baseline_rv": 4.4,
-      "z_score": 1.86,
-      "vrp": -0.0002,
-      "beta_30d": -0.097,
-      "consec_vol": 5,
-      "excess_10d": 2.64,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "vol z=1.9, beta=-0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "XLC",
       "current_rv": 25.9,
       "baseline_rv": 16.8,
@@ -196,6 +182,20 @@
       "label": "WATCH",
       "reason": "vol z=1.8, beta=0.55, 5d consec vol",
       "sector": "Communication"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 6.3,
+      "baseline_rv": 4.4,
+      "z_score": 1.71,
+      "vrp": -0.0002,
+      "beta_30d": -0.097,
+      "consec_vol": 5,
+      "excess_10d": 2.64,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EEM",
@@ -380,24 +380,10 @@
       "sector": "KOSPI"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 63.5,
-      "baseline_rv": 56.1,
-      "z_score": 0.3,
-      "vrp": -0.1057,
-      "beta_30d": -1.311,
-      "consec_vol": 5,
-      "excess_10d": -11.64,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.106, beta=-1.31, 5d consec vol",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "GC=F",
-      "current_rv": 30.6,
+      "current_rv": 30.8,
       "baseline_rv": 27.0,
-      "z_score": 0.28,
+      "z_score": 0.31,
       "vrp": -0.0703,
       "beta_30d": 0.385,
       "consec_vol": 5,
@@ -406,6 +392,20 @@
       "label": "WATCH",
       "reason": "VRP=-0.070, beta=0.38, 5d consec vol",
       "sector": "Gold Futures"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 59.6,
+      "baseline_rv": 56.0,
+      "z_score": 0.15,
+      "vrp": -0.1057,
+      "beta_30d": -1.311,
+      "consec_vol": 5,
+      "excess_10d": -11.64,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.106, beta=-1.31, 5d consec vol",
+      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^FTMC",
@@ -426,14 +426,14 @@
     "wti": {
       "label": "WTI",
       "current": 104.56,
-      "baseline": 89.09,
+      "baseline": 89.24,
       "z_score": 1.17,
       "bw_spread": 8.54
     },
     "brent": {
       "label": "Brent",
       "current": 119.13,
-      "baseline": 98.66,
+      "baseline": 98.83,
       "z_score": 1.09,
       "bw_spread": 6.02
     },
@@ -470,7 +470,7 @@
       ],
       "current": 3.392,
       "baseline": 2.8738,
-      "z_score": -2.61,
+      "z_score": -2.6,
       "last_date": "2026-11-09"
     },
     {
@@ -482,7 +482,7 @@
         "TLT"
       ],
       "current": 0.324,
-      "baseline": 0.4905,
+      "baseline": 0.4901,
       "z_score": -1.31,
       "last_date": "2026-11-10"
     }
