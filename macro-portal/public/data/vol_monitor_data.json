@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-12T10:09:12",
+  "scan_date": "2026-11-12T13:02:37",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -98,20 +98,6 @@
       "label": "HIGH",
       "reason": "vol z=3.1, VRP=-0.088, beta=0.05, 5d consec vol",
       "sector": "Energy / Oil"
-    },
-    {
-      "ticker": "SOXX",
-      "current_rv": 98.1,
-      "baseline_rv": 46.2,
-      "z_score": 2.86,
-      "vrp": -0.372,
-      "beta_30d": 2.926,
-      "consec_vol": 5,
-      "excess_10d": -8.0,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=2.9, VRP=-0.372, beta=2.93, 5d consec vol",
-      "sector": "Semiconductors"
     },
     {
       "ticker": "EWJ",
@@ -423,13 +409,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 104.56,
-      "baseline": 89.24,
-      "z_score": 1.17,
-      "bw_spread": 8.54
-    },
     "brent": {
       "label": "Brent",
       "current": 119.13,
@@ -437,14 +416,8 @@
       "z_score": 1.09,
       "bw_spread": 6.02
     },
-    "inv": {
-      "latest_mbbl": 691944.0,
-      "wow_chg_pct": -0.18,
-      "surprise": 0.18
-    },
     "level": 1,
     "reasons": [
-      "WTI backwardation +8.5%",
       "Brent backwardation +6.0%"
     ]
   },
@@ -522,11 +495,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2511.41,
-      "baseline": 3472.63,
-      "z_score": -2.41,
-      "rv_20d": 49.79,
-      "last_date": "2026-11-11"
+      "current": 2499.94,
+      "baseline": 3468.15,
+      "z_score": -2.4,
+      "rv_20d": 49.51,
+      "last_date": "2026-11-12"
     },
     {
       "sym": "sh000001",
@@ -543,7 +516,7 @@
       "last_date": "2026-11-12"
     }
   ],
-  "flagged_count": 30,
-  "alert_count": 12,
-  "high_count": 9
+  "flagged_count": 29,
+  "alert_count": 11,
+  "high_count": 8
 }
