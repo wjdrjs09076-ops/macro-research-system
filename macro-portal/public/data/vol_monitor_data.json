@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-12T14:31:51",
+  "scan_date": "2026-11-12T15:01:58",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -56,20 +56,6 @@
       "label": "HIGH",
       "reason": "vol z=3.4, VRP=-0.204, 5d consec vol",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "XLY",
-      "current_rv": 36.0,
-      "baseline_rv": 19.0,
-      "z_score": 3.25,
-      "vrp": -0.1197,
-      "beta_30d": 0.945,
-      "consec_vol": 5,
-      "excess_10d": 6.5,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.3, VRP=-0.120, 5d consec vol",
-      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XLI",
@@ -543,7 +529,7 @@
       "last_date": "2026-11-12"
     }
   ],
-  "flagged_count": 30,
-  "alert_count": 12,
-  "high_count": 9
+  "flagged_count": 29,
+  "alert_count": 11,
+  "high_count": 8
 }
