@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-13T15:32:09",
+  "scan_date": "2026-11-13T15:38:49",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -58,20 +58,6 @@
       "sector": "Energy / Oil"
     },
     {
-      "ticker": "XLY",
-      "current_rv": 36.2,
-      "baseline_rv": 19.0,
-      "z_score": 3.31,
-      "vrp": -0.1161,
-      "beta_30d": 0.952,
-      "consec_vol": 5,
-      "excess_10d": 5.28,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.3, VRP=-0.116, 5d consec vol",
-      "sector": "Consumer Discretionary"
-    },
-    {
       "ticker": "XAR",
       "current_rv": 56.8,
       "baseline_rv": 28.5,
@@ -112,6 +98,20 @@
       "label": "HIGH",
       "reason": "vol z=2.9, VRP=-0.352, beta=2.91, 5d consec vol",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "EWJ",
+      "current_rv": 40.9,
+      "baseline_rv": 21.5,
+      "z_score": 2.81,
+      "vrp": -0.1575,
+      "beta_30d": 1.252,
+      "consec_vol": 5,
+      "excess_10d": -1.98,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=2.8, VRP=-0.157, 5d consec vol",
+      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "EWU",
@@ -409,12 +409,24 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 96.26,
+      "baseline": 89.91,
+      "z_score": 0.48,
+      "bw_spread": -0.74
+    },
     "brent": {
       "label": "Brent",
       "current": 101.08,
       "baseline": 99.78,
       "z_score": 0.07,
       "bw_spread": -10.09
+    },
+    "inv": {
+      "latest_mbbl": 693952.0,
+      "wow_chg_pct": 0.29,
+      "surprise": 0.62
     },
     "level": 0,
     "reasons": []
