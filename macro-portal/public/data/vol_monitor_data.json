@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-13T07:06:37",
+  "scan_date": "2026-11-13T13:02:38",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,25 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 96.26,
-      "baseline": 89.91,
-      "z_score": 0.48,
-      "bw_spread": -0.74
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 101.08,
-      "baseline": 99.78,
-      "z_score": 0.07,
-      "bw_spread": -10.09
-    },
-    "inv": {
-      "latest_mbbl": 693952.0,
-      "wow_chg_pct": 0.29,
-      "surprise": 0.62
-    },
     "level": 0,
     "reasons": []
   },
@@ -493,11 +474,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 4057.83,
-      "baseline": 4642.05,
-      "z_score": -2.62,
-      "rv_20d": 16.89,
-      "last_date": "2026-11-12"
+      "current": 4050.23,
+      "baseline": 4639.15,
+      "z_score": -2.6,
+      "rv_20d": 16.97,
+      "last_date": "2026-11-13"
     },
     {
       "sym": "sh000905",
@@ -506,11 +487,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 6629.35,
-      "baseline": 7994.4,
-      "z_score": -2.37,
-      "rv_20d": 33.99,
-      "last_date": "2026-11-12"
+      "current": 6602.98,
+      "baseline": 7987.52,
+      "z_score": -2.38,
+      "rv_20d": 34.71,
+      "last_date": "2026-11-13"
     },
     {
       "sym": "sz399006",
@@ -519,11 +500,11 @@
       "etfs": [
         "MCHI"
       ],
-      "current": 2499.94,
-      "baseline": 3468.15,
-      "z_score": -2.4,
-      "rv_20d": 49.51,
-      "last_date": "2026-11-12"
+      "current": 2492.11,
+      "baseline": 3463.21,
+      "z_score": -2.38,
+      "rv_20d": 50.53,
+      "last_date": "2026-11-13"
     },
     {
       "sym": "sh000001",
@@ -533,11 +514,11 @@
         "FXI",
         "MCHI"
       ],
-      "current": 3662.03,
-      "baseline": 3987.18,
-      "z_score": -2.28,
-      "rv_20d": 15.18,
-      "last_date": "2026-11-12"
+      "current": 3659.07,
+      "baseline": 3985.52,
+      "z_score": -2.27,
+      "rv_20d": 15.25,
+      "last_date": "2026-11-13"
     }
   ],
   "flagged_count": 30,
