@@ -1,14 +1,24 @@
 {
-  "generated": "2026-11-13T21:53:13+00:00",
-  "mode": "pinned",
-  "attempts": 1,
+  "generated": "2026-11-14T02:09:38+00:00",
+  "mode": "advanced",
+  "attempts": 3,
   "fetch_error": null,
   "lkg_last": "2026-11-12",
-  "fresh_last": "2026-11-12",
-  "levels_last": "2026-11-12",
-  "rows": 468,
+  "fresh_last": "2026-11-13",
+  "levels_last": "2026-11-13",
+  "rows": 469,
   "patched_from_lkg": 0,
   "filled_into_lkg": 0,
-  "suspect_gaps": [],
-  "nan_recent": {}
+  "suspect_gaps": [
+    "2026-11-13:XLRE",
+    "2026-11-13:XLC"
+  ],
+  "nan_recent": {
+    "XLRE": [
+      "2026-11-13"
+    ],
+    "XLC": [
+      "2026-11-13"
+    ]
+  }
 }

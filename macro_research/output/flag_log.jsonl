@@ -288,3 +288,15 @@
 {"ts": "2026-11-13T00:02:45", "ticker": "XLB", "level": 2, "z_score": 2.14, "vrp": -0.0878, "reason": "vol z=2.1, VRP=-0.088, beta=0.53, 5d consec vol"}
 {"ts": "2026-11-13T00:02:45", "ticker": "MCHI", "level": 2, "z_score": 1.84, "vrp": -0.0634, "reason": "vol z=1.8, VRP=-0.063, beta=0.15, 5d consec vol"}
 {"ts": "2026-11-13T00:02:45", "ticker": "FXI", "level": 2, "z_score": 1.81, "vrp": -0.057, "reason": "vol z=1.8, VRP=-0.057, beta=0.04, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "ES=F", "level": 3, "z_score": 4.44, "vrp": -0.0923, "reason": "vol z=4.4, VRP=-0.092, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XLF", "level": 3, "z_score": 3.32, "vrp": -0.0858, "reason": "vol z=3.3, VRP=-0.086, beta=0.59, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XLY", "level": 3, "z_score": 3.27, "vrp": -0.113, "reason": "vol z=3.3, VRP=-0.113, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XLE", "level": 3, "z_score": 3.08, "vrp": -0.0948, "reason": "vol z=3.1, VRP=-0.095, beta=0.02, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XLK", "level": 3, "z_score": 2.99, "vrp": -0.1532, "reason": "vol z=3.0, VRP=-0.153, beta=1.87, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XLI", "level": 3, "z_score": 2.94, "vrp": -0.1086, "reason": "vol z=2.9, VRP=-0.109, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XAR", "level": 3, "z_score": 2.89, "vrp": -0.1466, "reason": "vol z=2.9, VRP=-0.147, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "EWJ", "level": 3, "z_score": 2.63, "vrp": -0.1371, "reason": "vol z=2.6, VRP=-0.137, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "SOXX", "level": 2, "z_score": 2.45, "vrp": -0.2587, "reason": "vol z=2.5, VRP=-0.259, beta=2.91, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "EWU", "level": 2, "z_score": 2.35, "vrp": -0.0911, "reason": "vol z=2.4, VRP=-0.091, beta=0.45, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "XLB", "level": 2, "z_score": 2.11, "vrp": -0.0895, "reason": "vol z=2.1, VRP=-0.089, beta=0.54, 5d consec vol"}
+{"ts": "2026-11-14T02:09:31", "ticker": "MCHI", "level": 2, "z_score": 1.88, "vrp": -0.0698, "reason": "vol z=1.9, VRP=-0.070, beta=0.19, 5d consec vol"}
