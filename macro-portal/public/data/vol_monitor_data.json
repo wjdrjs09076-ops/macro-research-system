@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-14T09:18:28",
+  "scan_date": "2026-11-14T15:59:07",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,6 +423,25 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 96.26,
+      "baseline": 90.04,
+      "z_score": 0.48,
+      "bw_spread": -0.74
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 101.08,
+      "baseline": 99.94,
+      "z_score": 0.06,
+      "bw_spread": -10.09
+    },
+    "inv": {
+      "latest_mbbl": 693952.0,
+      "wow_chg_pct": 0.29,
+      "surprise": 0.62
+    },
     "level": 0,
     "reasons": []
   },
@@ -465,62 +484,7 @@
       "last_date": "2026-11-13"
     }
   ],
-  "china": [
-    {
-      "sym": "sh000300",
-      "label": "CSI300",
-      "desc": "CSI 300 (중국 대형주)",
-      "etfs": [
-        "FXI",
-        "MCHI"
-      ],
-      "current": 4050.23,
-      "baseline": 4638.76,
-      "z_score": -2.59,
-      "rv_20d": 16.97,
-      "last_date": "2026-11-13"
-    },
-    {
-      "sym": "sh000905",
-      "label": "CSI500",
-      "desc": "CSI 500 (중국 중형주)",
-      "etfs": [
-        "MCHI"
-      ],
-      "current": 6602.98,
-      "baseline": 7989.19,
-      "z_score": -2.38,
-      "rv_20d": 34.71,
-      "last_date": "2026-11-13"
-    },
-    {
-      "sym": "sz399006",
-      "label": "ChiNext",
-      "desc": "ChiNext (중국 성장/기술)",
-      "etfs": [
-        "MCHI"
-      ],
-      "current": 2492.11,
-      "baseline": 3464.04,
-      "z_score": -2.38,
-      "rv_20d": 50.53,
-      "last_date": "2026-11-13"
-    },
-    {
-      "sym": "sh000001",
-      "label": "Shanghai",
-      "desc": "Shanghai Composite",
-      "etfs": [
-        "FXI",
-        "MCHI"
-      ],
-      "current": 3659.07,
-      "baseline": 3985.33,
-      "z_score": -2.26,
-      "rv_20d": 15.25,
-      "last_date": "2026-11-13"
-    }
-  ],
+  "china": [],
   "flagged_count": 29,
   "alert_count": 12,
   "high_count": 8
