@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-14T15:59:07",
+  "scan_date": "2026-11-14T20:37:55",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -310,20 +310,6 @@
       "sector": "Long-term Treasury"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 14.5,
-      "baseline_rv": 11.5,
-      "z_score": 0.66,
-      "vrp": -0.0311,
-      "beta_30d": 0.197,
-      "consec_vol": 5,
-      "excess_10d": 1.66,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.20, 5d consec vol",
-      "sector": "FTSE 100"
-    },
-    {
       "ticker": "GLD",
       "current_rv": 32.6,
       "baseline_rv": 28.2,
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 12,
   "high_count": 8
 }
