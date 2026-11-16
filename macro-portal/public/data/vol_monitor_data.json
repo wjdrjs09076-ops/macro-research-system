@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-16T13:02:04",
+  "scan_date": "2026-11-16T13:31:54",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -240,20 +240,6 @@
       "sector": "10Y Treasury Futures"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 40.5,
-      "baseline_rv": 30.1,
-      "z_score": 1.28,
-      "vrp": -0.0822,
-      "beta_30d": 0.414,
-      "consec_vol": 5,
-      "excess_10d": -3.18,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.082, beta=0.41, 5d consec vol",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "EWY",
       "current_rv": 86.4,
       "baseline_rv": 61.6,
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 12,
   "high_count": 8
 }
