@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-16T14:02:58",
+  "scan_date": "2026-11-16T15:02:41",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,18 +423,6 @@
     }
   ],
   "oil": {
-    "brent": {
-      "label": "Brent",
-      "current": 101.08,
-      "baseline": 100.26,
-      "z_score": 0.04,
-      "bw_spread": -10.09
-    },
-    "inv": {
-      "latest_mbbl": 693952.0,
-      "wow_chg_pct": 0.29,
-      "surprise": 0.62
-    },
     "level": 0,
     "reasons": []
   },
@@ -446,10 +434,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 268.6,
-      "baseline": 321.1647,
-      "z_score": -0.39,
-      "last_date": "2026-11-12"
+      "current": 312.172,
+      "baseline": 319.4799,
+      "z_score": -0.05,
+      "last_date": "2026-11-15"
     },
     {
       "sid": "BAMLH0A0HYM2",
