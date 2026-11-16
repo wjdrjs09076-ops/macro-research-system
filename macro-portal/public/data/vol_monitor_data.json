@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-16T19:02:17",
+  "scan_date": "2026-11-16T19:31:50",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -429,6 +429,13 @@
       "baseline": 90.33,
       "z_score": 0.46,
       "bw_spread": -0.74
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 101.08,
+      "baseline": 100.26,
+      "z_score": 0.04,
+      "bw_spread": -10.09
     },
     "inv": {
       "latest_mbbl": 693952.0,
