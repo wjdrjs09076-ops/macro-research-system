@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-17T14:02:12",
+  "scan_date": "2026-11-17T14:31:39",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -296,20 +296,6 @@
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "^FTSE",
-      "current_rv": 14.6,
-      "baseline_rv": 11.6,
-      "z_score": 0.67,
-      "vrp": -0.0321,
-      "beta_30d": 0.194,
-      "consec_vol": 5,
-      "excess_10d": 2.61,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.19, 5d consec vol",
-      "sector": "FTSE 100"
-    },
-    {
       "ticker": "TLT",
       "current_rv": 11.3,
       "baseline_rv": 9.7,
@@ -453,10 +439,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 312.172,
-      "baseline": 319.4799,
-      "z_score": -0.05,
-      "last_date": "2026-11-15"
+      "current": 336.318,
+      "baseline": 319.4827,
+      "z_score": 0.12,
+      "last_date": "2026-11-16"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 13,
   "high_count": 8
 }
