@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-17T15:31:40",
+  "scan_date": "2026-11-17T16:02:07",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -466,9 +466,9 @@
         "XLF"
       ],
       "current": 3.274,
-      "baseline": 2.8826,
-      "z_score": -1.86,
-      "last_date": "2026-11-13"
+      "baseline": 2.8845,
+      "z_score": -1.84,
+      "last_date": "2026-11-16"
     },
     {
       "sid": "T10Y2Y",
