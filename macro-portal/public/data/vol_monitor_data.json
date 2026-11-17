@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-17T14:31:39",
+  "scan_date": "2026-11-17T15:02:17",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -254,20 +254,6 @@
       "sector": "10Y Treasury Futures"
     },
     {
-      "ticker": "^N225",
-      "current_rv": 40.9,
-      "baseline_rv": 30.1,
-      "z_score": 1.32,
-      "vrp": -0.0843,
-      "beta_30d": 0.447,
-      "consec_vol": 5,
-      "excess_10d": -3.35,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.084, beta=0.45, 5d consec vol",
-      "sector": "Nikkei 225"
-    },
-    {
       "ticker": "EWY",
       "current_rv": 88.5,
       "baseline_rv": 61.7,
@@ -294,6 +280,20 @@
       "label": "WATCH",
       "reason": "VRP=-0.064, 5d consec vol",
       "sector": "Transportation / Shipping"
+    },
+    {
+      "ticker": "^FTSE",
+      "current_rv": 14.6,
+      "baseline_rv": 11.6,
+      "z_score": 0.67,
+      "vrp": -0.0321,
+      "beta_30d": 0.194,
+      "consec_vol": 5,
+      "excess_10d": 2.61,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.19, 5d consec vol",
+      "sector": "FTSE 100"
     },
     {
       "ticker": "TLT",
