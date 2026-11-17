@@ -336,3 +336,4 @@
 {"ts": "2026-11-17T01:59:46", "ticker": "EWU", "level": 2, "z_score": 2.33, "vrp": -0.0911, "reason": "vol z=2.3, VRP=-0.091, beta=0.45, 5d consec vol"}
 {"ts": "2026-11-17T01:59:46", "ticker": "XLB", "level": 2, "z_score": 2.1, "vrp": -0.0895, "reason": "vol z=2.1, VRP=-0.089, beta=0.54, 5d consec vol"}
 {"ts": "2026-11-17T01:59:46", "ticker": "MCHI", "level": 2, "z_score": 1.89, "vrp": -0.0698, "reason": "vol z=1.9, VRP=-0.070, beta=0.19, 5d consec vol"}
+{"ts": "2026-11-17T10:33:38", "ticker": "EEM", "level": 2, "z_score": 1.86, "vrp": -0.0872, "reason": "vol z=1.9, VRP=-0.087, beta=1.34, 5d consec vol"}
