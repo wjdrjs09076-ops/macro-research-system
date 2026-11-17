@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-17T20:02:14",
+  "scan_date": "2026-11-17T20:31:48",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -406,20 +406,6 @@
       "label": "---",
       "reason": "",
       "sector": "KOSPI"
-    },
-    {
-      "ticker": "^FTMC",
-      "current_rv": 10.8,
-      "baseline_rv": 12.7,
-      "z_score": -0.42,
-      "vrp": 0.0157,
-      "beta_30d": 0.297,
-      "consec_vol": 4,
-      "excess_10d": 1.09,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.30",
-      "sector": "FTSE 250 (UK 내수)"
     }
   ],
   "oil": {
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 13,
   "high_count": 8
 }
