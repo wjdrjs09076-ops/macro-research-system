@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T10:34:58+00:00",
+  "generated": "2026-11-18T13:02:28+00:00",
   "mode": "pinned",
   "attempts": 1,
   "fetch_error": null,
@@ -8,7 +8,7 @@
   "levels_last": "2026-11-17",
   "rows": 471,
   "patched_from_lkg": 0,
-  "filled_into_lkg": 12,
+  "filled_into_lkg": 0,
   "suspect_gaps": [],
   "nan_recent": {}
 }
