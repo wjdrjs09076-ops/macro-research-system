@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-18T15:02:06",
+  "scan_date": "2026-11-18T15:31:53",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -28,20 +28,6 @@
       "label": "HIGH",
       "reason": "vol z=3.6, VRP=-0.065, beta=0.63, 5d consec vol",
       "sector": "Financials / Banking"
-    },
-    {
-      "ticker": "XLY",
-      "current_rv": 35.4,
-      "baseline_rv": 18.9,
-      "z_score": 3.16,
-      "vrp": -0.0649,
-      "beta_30d": 0.97,
-      "consec_vol": 5,
-      "excess_10d": 2.8,
-      "level": 3,
-      "label": "HIGH",
-      "reason": "vol z=3.2, VRP=-0.065, 5d consec vol",
-      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "XAR",
@@ -465,10 +451,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.274,
-      "baseline": 2.8844,
-      "z_score": -1.83,
-      "last_date": "2026-11-16"
+      "current": 3.3,
+      "baseline": 2.8862,
+      "z_score": -1.94,
+      "last_date": "2026-11-17"
     },
     {
       "sid": "T10Y2Y",
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
-  "alert_count": 13,
-  "high_count": 6
+  "flagged_count": 28,
+  "alert_count": 12,
+  "high_count": 5
 }
