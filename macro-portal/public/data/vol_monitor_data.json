@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-18T17:02:21",
+  "scan_date": "2026-11-18T17:31:46",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -154,6 +154,20 @@
       "label": "WATCH",
       "reason": "vol z=2.2, beta=0.50, 5d consec vol",
       "sector": "Healthcare"
+    },
+    {
+      "ticker": "MCHI",
+      "current_rv": 28.0,
+      "baseline_rv": 18.7,
+      "z_score": 2.06,
+      "vrp": -0.0774,
+      "beta_30d": 0.19,
+      "consec_vol": 5,
+      "excess_10d": 0.89,
+      "level": 2,
+      "label": "ALERT",
+      "reason": "vol z=2.1, VRP=-0.077, beta=0.19, 5d consec vol",
+      "sector": "China Broad (MSCI)"
     },
     {
       "ticker": "FXI",
@@ -409,6 +423,20 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 96.26,
+      "baseline": 90.33,
+      "z_score": 0.46,
+      "bw_spread": -0.74
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 101.08,
+      "baseline": 100.26,
+      "z_score": 0.04,
+      "bw_spread": -10.09
+    },
     "inv": {
       "latest_mbbl": 693952.0,
       "wow_chg_pct": 0.29,
@@ -457,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
-  "alert_count": 12,
+  "flagged_count": 29,
+  "alert_count": 13,
   "high_count": 6
 }
