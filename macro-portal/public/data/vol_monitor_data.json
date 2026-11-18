@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-18T13:31:52",
+  "scan_date": "2026-11-18T14:02:06",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -210,20 +210,6 @@
       "label": "ALERT",
       "reason": "vol z=1.9, VRP=-0.059, beta=1.35, 5d consec vol",
       "sector": "Emerging Markets"
-    },
-    {
-      "ticker": "^HSI",
-      "current_rv": 26.1,
-      "baseline_rv": 18.6,
-      "z_score": 1.64,
-      "vrp": -0.069,
-      "beta_30d": -0.305,
-      "consec_vol": 5,
-      "excess_10d": 2.82,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.069, beta=-0.31, 5d consec vol",
-      "sector": "Hang Seng"
     },
     {
       "ticker": "XLB",
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 13,
   "high_count": 6
 }
