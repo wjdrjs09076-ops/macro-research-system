@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-18T14:02:06",
+  "scan_date": "2026-11-18T14:31:51",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -210,6 +210,20 @@
       "label": "ALERT",
       "reason": "vol z=1.9, VRP=-0.059, beta=1.35, 5d consec vol",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "^HSI",
+      "current_rv": 26.1,
+      "baseline_rv": 18.6,
+      "z_score": 1.64,
+      "vrp": -0.069,
+      "beta_30d": -0.305,
+      "consec_vol": 5,
+      "excess_10d": 2.82,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.069, beta=-0.31, 5d consec vol",
+      "sector": "Hang Seng"
     },
     {
       "ticker": "XLB",
@@ -439,10 +453,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 336.318,
-      "baseline": 319.4827,
-      "z_score": 0.12,
-      "last_date": "2026-11-16"
+      "current": 339.732,
+      "baseline": 318.8891,
+      "z_score": 0.15,
+      "last_date": "2026-11-17"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
+  "flagged_count": 29,
   "alert_count": 13,
   "high_count": 6
 }

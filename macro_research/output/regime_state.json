@@ -1,7 +1,7 @@
 {
   "confirmed": "mid_vix",
-  "pending": null,
-  "pending_count": 0,
-  "vix": 22.91,
-  "ts": "2026-11-17T20:32:19"
+  "pending": "high_vix",
+  "pending_count": 1,
+  "vix": 25.46,
+  "ts": "2026-11-18T14:32:23"
 }
