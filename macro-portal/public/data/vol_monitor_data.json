@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-18T18:31:50",
+  "scan_date": "2026-11-18T19:02:00",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -366,6 +366,20 @@
       "sector": "Gold Futures"
     },
     {
+      "ticker": "000001.SS",
+      "current_rv": 15.0,
+      "baseline_rv": 14.7,
+      "z_score": 0.05,
+      "vrp": -0.0146,
+      "beta_30d": 0.208,
+      "consec_vol": 5,
+      "excess_10d": 2.16,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.21, 5d consec vol",
+      "sector": "Shanghai Composite"
+    },
+    {
       "ticker": "CL=F",
       "current_rv": 53.6,
       "baseline_rv": 56.4,
@@ -411,22 +425,22 @@
   "oil": {
     "wti": {
       "label": "WTI",
-      "current": 96.26,
-      "baseline": 90.33,
-      "z_score": 0.46,
-      "bw_spread": -0.74
+      "current": 91.28,
+      "baseline": 90.61,
+      "z_score": 0.05,
+      "bw_spread": -6.12
     },
     "brent": {
       "label": "Brent",
-      "current": 101.08,
-      "baseline": 100.26,
-      "z_score": 0.04,
-      "bw_spread": -10.09
+      "current": 93.74,
+      "baseline": 100.52,
+      "z_score": -0.37,
+      "bw_spread": -16.62
     },
     "inv": {
-      "latest_mbbl": 693952.0,
-      "wow_chg_pct": 0.29,
-      "surprise": 0.62
+      "latest_mbbl": 694158.0,
+      "wow_chg_pct": 0.03,
+      "surprise": 0.32
     },
     "level": 0,
     "reasons": []
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
+  "flagged_count": 29,
   "alert_count": 13,
   "high_count": 6
 }
