@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-18T16:02:14",
+  "scan_date": "2026-11-18T16:31:48",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -14,6 +14,20 @@
       "label": "ALERT",
       "reason": "vol z=4.8, 5d consec vol",
       "sector": "S&P 500 Futures"
+    },
+    {
+      "ticker": "XLF",
+      "current_rv": 28.6,
+      "baseline_rv": 14.2,
+      "z_score": 3.57,
+      "vrp": -0.0646,
+      "beta_30d": 0.63,
+      "consec_vol": 5,
+      "excess_10d": 2.71,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=3.6, VRP=-0.065, beta=0.63, 5d consec vol",
+      "sector": "Financials / Banking"
     },
     {
       "ticker": "XLY",
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
-  "alert_count": 12,
-  "high_count": 5
+  "flagged_count": 29,
+  "alert_count": 13,
+  "high_count": 6
 }
