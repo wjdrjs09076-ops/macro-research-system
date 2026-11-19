@@ -351,3 +351,16 @@
 {"ts": "2026-11-18T02:16:55", "ticker": "EEM", "level": 2, "z_score": 1.86, "vrp": -0.0872, "reason": "vol z=1.9, VRP=-0.087, beta=1.34, 5d consec vol"}
 {"ts": "2026-11-18T02:16:55", "ticker": "XLB", "level": 2, "z_score": 1.83, "vrp": -0.0662, "reason": "vol z=1.8, VRP=-0.066, beta=0.55, 5d consec vol"}
 {"ts": "2026-11-18T10:34:56", "ticker": "FXI", "level": 2, "z_score": 1.97, "vrp": -0.0724, "reason": "vol z=2.0, VRP=-0.072, beta=0.09, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "ES=F", "level": 2, "z_score": 4.42, "vrp": -0.0459, "reason": "vol z=4.4, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "XLF", "level": 3, "z_score": 3.57, "vrp": -0.0646, "reason": "vol z=3.6, VRP=-0.065, beta=0.63, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "XLY", "level": 3, "z_score": 3.16, "vrp": -0.0649, "reason": "vol z=3.2, VRP=-0.065, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "XAR", "level": 3, "z_score": 3.05, "vrp": -0.1256, "reason": "vol z=3.0, VRP=-0.126, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "XLI", "level": 3, "z_score": 2.89, "vrp": -0.0693, "reason": "vol z=2.9, VRP=-0.069, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "XLK", "level": 3, "z_score": 2.88, "vrp": -0.0531, "reason": "vol z=2.9, VRP=-0.053, beta=1.82, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "EWJ", "level": 3, "z_score": 2.83, "vrp": -0.087, "reason": "vol z=2.8, VRP=-0.087, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "SOXX", "level": 2, "z_score": 2.46, "vrp": -0.1372, "reason": "vol z=2.5, VRP=-0.137, beta=2.85, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "EWU", "level": 2, "z_score": 2.33, "vrp": -0.0758, "reason": "vol z=2.3, VRP=-0.076, beta=0.48, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "XLE", "level": 2, "z_score": 2.28, "vrp": -0.0639, "reason": "vol z=2.3, VRP=-0.064, beta=0.09, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "MCHI", "level": 2, "z_score": 2.06, "vrp": -0.0774, "reason": "vol z=2.1, VRP=-0.077, beta=0.19, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "FXI", "level": 2, "z_score": 1.97, "vrp": -0.0724, "reason": "vol z=2.0, VRP=-0.072, beta=0.09, 5d consec vol"}
+{"ts": "2026-11-19T01:24:19", "ticker": "EEM", "level": 2, "z_score": 1.88, "vrp": -0.0594, "reason": "vol z=1.9, VRP=-0.059, beta=1.35, 5d consec vol"}

@@ -1,18 +1,18 @@
 {
-  "scan_date": "2026-11-18T20:31:50",
+  "scan_date": "2026-11-19T01:24:19",
   "etf_signals": [
     {
       "ticker": "ES=F",
-      "current_rv": 30.5,
+      "current_rv": 28.9,
       "baseline_rv": 12.5,
-      "z_score": 4.83,
+      "z_score": 4.42,
       "vrp": -0.0459,
       "beta_30d": 0.994,
       "consec_vol": 5,
       "excess_10d": -0.24,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=4.8, 5d consec vol",
+      "reason": "vol z=4.4, 5d consec vol",
       "sector": "S&P 500 Futures"
     },
     {
@@ -240,20 +240,6 @@
       "sector": "Materials"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 6.1,
-      "baseline_rv": 4.5,
-      "z_score": 1.42,
-      "vrp": -0.0013,
-      "beta_30d": -0.098,
-      "consec_vol": 5,
-      "excess_10d": 1.94,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "^N225",
       "current_rv": 41.1,
       "baseline_rv": 30.1,
@@ -310,6 +296,20 @@
       "sector": "FTSE 100"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 5.7,
+      "baseline_rv": 4.5,
+      "z_score": 1.0,
+      "vrp": -0.0013,
+      "beta_30d": -0.098,
+      "consec_vol": 5,
+      "excess_10d": 1.94,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "^STOXX50E",
       "current_rv": 20.6,
       "baseline_rv": 15.5,
@@ -352,20 +352,6 @@
       "sector": "Gold"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 27.8,
-      "baseline_rv": 27.0,
-      "z_score": 0.07,
-      "vrp": -0.0346,
-      "beta_30d": 0.357,
-      "consec_vol": 5,
-      "excess_10d": 0.96,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.36, 5d consec vol",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "000001.SS",
       "current_rv": 15.0,
       "baseline_rv": 14.7,
@@ -378,20 +364,6 @@
       "label": "WATCH",
       "reason": "beta=0.21, 5d consec vol",
       "sector": "Shanghai Composite"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 53.6,
-      "baseline_rv": 56.4,
-      "z_score": -0.11,
-      "vrp": 0.0037,
-      "beta_30d": -1.005,
-      "consec_vol": 5,
-      "excess_10d": -7.72,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-1.01, 5d consec vol",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "^FTMC",
@@ -420,21 +392,49 @@
       "label": "---",
       "reason": "",
       "sector": "KOSPI"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 22.7,
+      "baseline_rv": 27.0,
+      "z_score": -0.34,
+      "vrp": -0.0346,
+      "beta_30d": 0.357,
+      "consec_vol": 4,
+      "excess_10d": 0.96,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.36",
+      "sector": "Gold Futures"
+    },
+    {
+      "ticker": "CL=F",
+      "current_rv": 40.8,
+      "baseline_rv": 56.4,
+      "z_score": -0.65,
+      "vrp": 0.0037,
+      "beta_30d": -1.005,
+      "consec_vol": 4,
+      "excess_10d": -7.72,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-1.01",
+      "sector": "WTI Crude Futures"
     }
   ],
   "oil": {
     "wti": {
       "label": "WTI",
       "current": 91.28,
-      "baseline": 90.61,
-      "z_score": 0.05,
+      "baseline": 90.75,
+      "z_score": 0.04,
       "bw_spread": -6.12
     },
     "brent": {
       "label": "Brent",
       "current": 93.74,
-      "baseline": 100.52,
-      "z_score": -0.37,
+      "baseline": 100.68,
+      "z_score": -0.38,
       "bw_spread": -16.62
     },
     "inv": {
@@ -467,7 +467,7 @@
       ],
       "current": 3.3,
       "baseline": 2.8862,
-      "z_score": -1.94,
+      "z_score": -1.93,
       "last_date": "2026-11-17"
     },
     {
@@ -478,10 +478,10 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.27,
-      "baseline": 0.4859,
-      "z_score": -1.69,
-      "last_date": "2026-11-17"
+      "current": 0.274,
+      "baseline": 0.4842,
+      "z_score": -1.64,
+      "last_date": "2026-11-18"
     }
   ],
   "china": [],
