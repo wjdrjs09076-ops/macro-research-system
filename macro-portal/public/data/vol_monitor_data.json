@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-19T15:02:45",
+  "scan_date": "2026-11-19T15:32:04",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -430,6 +430,13 @@
       "z_score": 0.04,
       "bw_spread": -6.12
     },
+    "brent": {
+      "label": "Brent",
+      "current": 93.74,
+      "baseline": 100.68,
+      "z_score": -0.38,
+      "bw_spread": -16.62
+    },
     "inv": {
       "latest_mbbl": 694158.0,
       "wow_chg_pct": 0.03,
@@ -458,10 +465,10 @@
       "etfs": [
         "XLF"
       ],
-      "current": 3.3,
-      "baseline": 2.8862,
-      "z_score": -1.93,
-      "last_date": "2026-11-17"
+      "current": 3.334,
+      "baseline": 2.8879,
+      "z_score": -2.07,
+      "last_date": "2026-11-18"
     },
     {
       "sid": "T10Y2Y",
