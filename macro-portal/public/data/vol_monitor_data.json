@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-19T16:32:15",
+  "scan_date": "2026-11-19T17:02:09",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,6 +423,18 @@
     }
   ],
   "oil": {
+    "brent": {
+      "label": "Brent",
+      "current": 93.74,
+      "baseline": 100.68,
+      "z_score": -0.38,
+      "bw_spread": -16.62
+    },
+    "inv": {
+      "latest_mbbl": 694158.0,
+      "wow_chg_pct": 0.03,
+      "surprise": 0.32
+    },
     "level": 0,
     "reasons": []
   },
