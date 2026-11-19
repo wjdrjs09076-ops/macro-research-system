@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-19T17:31:55",
+  "scan_date": "2026-11-19T18:02:33",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -56,6 +56,20 @@
       "label": "HIGH",
       "reason": "vol z=2.7, VRP=-0.120, 5d consec vol",
       "sector": "Defense / Aerospace"
+    },
+    {
+      "ticker": "EWJ",
+      "current_rv": 40.1,
+      "baseline_rv": 21.4,
+      "z_score": 2.67,
+      "vrp": -0.0843,
+      "beta_30d": 1.223,
+      "consec_vol": 5,
+      "excess_10d": -1.36,
+      "level": 3,
+      "label": "HIGH",
+      "reason": "vol z=2.7, VRP=-0.084, 5d consec vol",
+      "sector": "Japan (MSCI)"
     },
     {
       "ticker": "SOXX",
@@ -409,13 +423,6 @@
     }
   ],
   "oil": {
-    "brent": {
-      "label": "Brent",
-      "current": 93.74,
-      "baseline": 100.68,
-      "z_score": -0.38,
-      "bw_spread": -16.62
-    },
     "inv": {
       "latest_mbbl": 694158.0,
       "wow_chg_pct": 0.03,
@@ -464,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
-  "alert_count": 6,
-  "high_count": 3
+  "flagged_count": 29,
+  "alert_count": 7,
+  "high_count": 4
 }
