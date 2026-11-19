@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-19T09:19:19",
+  "scan_date": "2026-11-19T13:02:27",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -168,6 +168,20 @@
       "label": "WATCH",
       "reason": "beta=0.10, 5d consec vol",
       "sector": "Energy / Oil"
+    },
+    {
+      "ticker": "EWY",
+      "current_rv": 87.4,
+      "baseline_rv": 61.8,
+      "z_score": 1.26,
+      "vrp": -0.1262,
+      "beta_30d": 2.615,
+      "consec_vol": 5,
+      "excess_10d": -4.45,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "VRP=-0.126, beta=2.62, 5d consec vol",
+      "sector": "Korea (MSCI)"
     },
     {
       "ticker": "XLV",
@@ -416,13 +430,6 @@
       "z_score": 0.04,
       "bw_spread": -6.12
     },
-    "brent": {
-      "label": "Brent",
-      "current": 93.74,
-      "baseline": 100.68,
-      "z_score": -0.38,
-      "bw_spread": -16.62
-    },
     "inv": {
       "latest_mbbl": 694158.0,
       "wow_chg_pct": 0.03,
@@ -471,7 +478,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
+  "flagged_count": 29,
   "alert_count": 7,
   "high_count": 4
 }
