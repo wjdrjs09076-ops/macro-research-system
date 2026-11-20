@@ -1,14 +1,14 @@
 {
-  "active_regime": "mid_vix",
+  "active_regime": "high_vix",
   "regime_state": {
-    "confirmed": "mid_vix",
-    "pending": "high_vix",
-    "pending_count": 1,
+    "confirmed": "high_vix",
+    "pending": null,
+    "pending_count": 0,
     "confirm_cycles": 2,
     "vix": 28.44,
-    "ts": "2026-11-20T14:32:29"
+    "ts": "2026-11-20T15:02:35"
   },
-  "generated": "2026-11-20T14:32:29",
+  "generated": "2026-11-20T15:02:35",
   "policy": {
     "long_straddle_rules": [
       "co_crash_cluster",
@@ -25,7 +25,76 @@
       "MONITOR": 0
     }
   },
-  "straddle_candidates": [],
+  "straddle_candidates": [
+    {
+      "ticker": "XLE",
+      "confidence": 0.7965,
+      "rule": "fat_tail_alert",
+      "signal_type": "MONITOR",
+      "regime": "high_vix",
+      "all_rules": [
+        "fat_tail_alert"
+      ],
+      "reasoning": [
+        "XLE: GPD tail index xi = 0.3081 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process.",
+        "EVT Expected Shortfall (99%) = 7.20% per day -- tail losses are severe when triggered.",
+        "Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      ],
+      "size_penalty": 1.0,
+      "penalty_reason": null
+    },
+    {
+      "ticker": "XLF",
+      "confidence": 0.7593,
+      "rule": "co_crash_cluster",
+      "signal_type": "HEDGE",
+      "regime": "high_vix",
+      "all_rules": [
+        "co_crash_cluster"
+      ],
+      "reasoning": [
+        "XLF co-crashes with 3 peers (lambda_L >= 0.40): XLY, XLI, XLC.",
+        "Mean lower tail dependence = 0.519 -- these sectors jointly decline in extreme drawdowns.",
+        "Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
+      ],
+      "size_penalty": 1.0,
+      "penalty_reason": null
+    },
+    {
+      "ticker": "XLI",
+      "confidence": 0.7438,
+      "rule": "fat_tail_alert",
+      "signal_type": "MONITOR",
+      "regime": "high_vix",
+      "all_rules": [
+        "fat_tail_alert"
+      ],
+      "reasoning": [
+        "XLI: GPD tail index xi = 0.2422 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process.",
+        "EVT Expected Shortfall (99%) = 4.49% per day -- tail losses are severe when triggered.",
+        "Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      ],
+      "size_penalty": 1.0,
+      "penalty_reason": null
+    },
+    {
+      "ticker": "XLV",
+      "confidence": 0.7268,
+      "rule": "fat_tail_alert",
+      "signal_type": "MONITOR",
+      "regime": "high_vix",
+      "all_rules": [
+        "fat_tail_alert"
+      ],
+      "reasoning": [
+        "XLV: GPD tail index xi = 0.2210 > 0.20 -- Generalized Pareto Distribution fit confirms heavy-tailed loss process.",
+        "EVT Expected Shortfall (99%) = 4.01% per day -- tail losses are severe when triggered.",
+        "Rule: fat_tail_alert. Fat-tailed distributions (xi > 0) imply tail losses are power-law rather than exponential -- no finite variance if xi >= 0.5, no finite mean if xi >= 1.0. Standard VaR models based on normality are structurally inadequate for this sector."
+      ],
+      "size_penalty": 1.0,
+      "penalty_reason": null
+    }
+  ],
   "directional_candidates": [
     {
       "ticker": "XLRE",
@@ -41,6 +110,22 @@
         "XLRE: delta(US10Y) = -0.0038 < -0.001 (t=-3.56, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
         "gamma(US10Y) = 0.0006: convex -- some protection at large moves.",
         "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
+      ]
+    },
+    {
+      "ticker": "XLF",
+      "direction": -1,
+      "confidence": 0.7593,
+      "rule": "co_crash_cluster",
+      "signal_type": "HEDGE",
+      "regime": "high_vix",
+      "all_rules": [
+        "co_crash_cluster"
+      ],
+      "reasoning": [
+        "XLF co-crashes with 3 peers (lambda_L >= 0.40): XLY, XLI, XLC.",
+        "Mean lower tail dependence = 0.519 -- these sectors jointly decline in extreme drawdowns.",
+        "Rule: co_crash_cluster. High bi-variate tail dependence means diversification fails exactly when it is needed most.  Sector acts as a systemic amplifier -- adding it increases portfolio left-tail risk nonlinearly."
       ]
     },
     {
@@ -89,22 +174,6 @@
         "XLP: delta(US10Y) = -0.0030 < -0.001 (t=-2.53, partial -- OIL/VIX/DXY/SPY controlled) -- significant negative linear rate sensitivity.",
         "gamma(US10Y) = 0.0007: convex -- some protection at large moves.",
         "Rule: rate_victim. Long-duration sectors (utilities, real estate) have equity duration analogous to bonds -- rising rates discount future cash flows at a higher rate, compressing P/E multiples and increasing financing costs."
-      ]
-    },
-    {
-      "ticker": "XLK",
-      "direction": 1,
-      "confidence": 0.7072,
-      "rule": "rate_beneficiary",
-      "signal_type": "OVERWEIGHT",
-      "regime": "mid_vix",
-      "all_rules": [
-        "rate_beneficiary"
-      ],
-      "reasoning": [
-        "XLK: delta(US10Y) = 0.0026 > 0.002 (t=2.49, partial -- OIL/VIX/DXY/SPY controlled, rates orthogonalized (lvl+2s10s)) -- significantly positive linear rate sensitivity.",
-        "gamma(US10Y) = -0.0007: concave -- benefit diminishes at larger rate moves.",
-        "Rule: rate_beneficiary. Positive delta to yield changes implies the sector's returns are positively correlated with rate increases -- typically financials (NIM expansion) or sectors with low duration liabilities."
       ]
     },
     {
