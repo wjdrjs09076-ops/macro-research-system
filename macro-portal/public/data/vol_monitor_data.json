@@ -1,20 +1,6 @@
 {
-  "scan_date": "2026-11-19T20:31:50",
+  "scan_date": "2026-11-20T01:07:55",
   "etf_signals": [
-    {
-      "ticker": "ES=F",
-      "current_rv": 28.5,
-      "baseline_rv": 12.5,
-      "z_score": 4.31,
-      "vrp": -0.0358,
-      "beta_30d": 0.994,
-      "consec_vol": 5,
-      "excess_10d": -0.16,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=4.3, 5d consec vol",
-      "sector": "S&P 500 Futures"
-    },
     {
       "ticker": "XLK",
       "current_rv": 53.6,
@@ -84,6 +70,20 @@
       "label": "ALERT",
       "reason": "vol z=2.4, VRP=-0.146, beta=2.85, 5d consec vol",
       "sector": "Semiconductors"
+    },
+    {
+      "ticker": "ES=F",
+      "current_rv": 21.4,
+      "baseline_rv": 12.6,
+      "z_score": 2.31,
+      "vrp": -0.0358,
+      "beta_30d": 0.994,
+      "consec_vol": 5,
+      "excess_10d": -0.16,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.3, 5d consec vol",
+      "sector": "S&P 500 Futures"
     },
     {
       "ticker": "XLY",
@@ -198,20 +198,6 @@
       "sector": "Healthcare"
     },
     {
-      "ticker": "ZN=F",
-      "current_rv": 5.8,
-      "baseline_rv": 4.5,
-      "z_score": 1.08,
-      "vrp": 0.0008,
-      "beta_30d": -0.099,
-      "consec_vol": 5,
-      "excess_10d": 3.69,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
-    },
-    {
       "ticker": "EWU",
       "current_rv": 20.5,
       "baseline_rv": 15.5,
@@ -224,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=0.49, 5d consec vol",
       "sector": "UK (MSCI)"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 5.5,
+      "baseline_rv": 4.5,
+      "z_score": 0.83,
+      "vrp": 0.0008,
+      "beta_30d": -0.099,
+      "consec_vol": 5,
+      "excess_10d": 3.69,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "TLT",
@@ -310,6 +310,20 @@
       "sector": "Euro Stoxx 50"
     },
     {
+      "ticker": "GC=F",
+      "current_rv": 25.8,
+      "baseline_rv": 27.0,
+      "z_score": -0.09,
+      "vrp": 0.0276,
+      "beta_30d": 0.363,
+      "consec_vol": 5,
+      "excess_10d": -3.61,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.36, 5d consec vol",
+      "sector": "Gold Futures"
+    },
+    {
       "ticker": "^KS11",
       "current_rv": 53.9,
       "baseline_rv": 57.8,
@@ -338,20 +352,6 @@
       "sector": "Gold"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 23.5,
-      "baseline_rv": 27.0,
-      "z_score": -0.28,
-      "vrp": 0.0276,
-      "beta_30d": 0.363,
-      "consec_vol": 5,
-      "excess_10d": -3.61,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.36, 5d consec vol",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "^FTMC",
       "current_rv": 10.7,
       "baseline_rv": 12.8,
@@ -367,12 +367,12 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 38.2,
-      "baseline_rv": 56.4,
-      "z_score": -0.75,
+      "current_rv": 33.7,
+      "baseline_rv": 56.5,
+      "z_score": -0.94,
       "vrp": 0.1473,
       "beta_30d": -0.998,
-      "consec_vol": 4,
+      "consec_vol": 3,
       "excess_10d": -0.66,
       "level": 1,
       "label": "WATCH",
@@ -426,15 +426,15 @@
     "wti": {
       "label": "WTI",
       "current": 91.28,
-      "baseline": 90.75,
-      "z_score": 0.04,
+      "baseline": 90.89,
+      "z_score": 0.03,
       "bw_spread": -6.12
     },
     "brent": {
       "label": "Brent",
       "current": 93.74,
-      "baseline": 100.68,
-      "z_score": -0.38,
+      "baseline": 100.84,
+      "z_score": -0.39,
       "bw_spread": -16.62
     },
     "inv": {
@@ -466,7 +466,7 @@
         "XLF"
       ],
       "current": 3.334,
-      "baseline": 2.8879,
+      "baseline": 2.8878,
       "z_score": -2.07,
       "last_date": "2026-11-18"
     },
@@ -478,14 +478,14 @@
         "XLF",
         "TLT"
       ],
-      "current": 0.274,
-      "baseline": 0.4842,
-      "z_score": -1.64,
-      "last_date": "2026-11-18"
+      "current": 0.282,
+      "baseline": 0.4824,
+      "z_score": -1.56,
+      "last_date": "2026-11-19"
     }
   ],
   "china": [],
   "flagged_count": 29,
-  "alert_count": 7,
+  "alert_count": 6,
   "high_count": 4
 }

@@ -364,3 +364,9 @@
 {"ts": "2026-11-19T01:24:19", "ticker": "MCHI", "level": 2, "z_score": 2.06, "vrp": -0.0774, "reason": "vol z=2.1, VRP=-0.077, beta=0.19, 5d consec vol"}
 {"ts": "2026-11-19T01:24:19", "ticker": "FXI", "level": 2, "z_score": 1.97, "vrp": -0.0724, "reason": "vol z=2.0, VRP=-0.072, beta=0.09, 5d consec vol"}
 {"ts": "2026-11-19T01:24:19", "ticker": "EEM", "level": 2, "z_score": 1.88, "vrp": -0.0594, "reason": "vol z=1.9, VRP=-0.059, beta=1.35, 5d consec vol"}
+{"ts": "2026-11-20T01:07:55", "ticker": "XLK", "level": 3, "z_score": 2.89, "vrp": -0.0666, "reason": "vol z=2.9, VRP=-0.067, beta=1.82, 5d consec vol"}
+{"ts": "2026-11-20T01:07:55", "ticker": "XLI", "level": 3, "z_score": 2.86, "vrp": -0.0771, "reason": "vol z=2.9, VRP=-0.077, 5d consec vol"}
+{"ts": "2026-11-20T01:07:55", "ticker": "XAR", "level": 3, "z_score": 2.73, "vrp": -0.12, "reason": "vol z=2.7, VRP=-0.120, 5d consec vol"}
+{"ts": "2026-11-20T01:07:55", "ticker": "EWJ", "level": 3, "z_score": 2.67, "vrp": -0.0843, "reason": "vol z=2.7, VRP=-0.084, 5d consec vol"}
+{"ts": "2026-11-20T01:07:55", "ticker": "SOXX", "level": 2, "z_score": 2.4, "vrp": -0.1461, "reason": "vol z=2.4, VRP=-0.146, beta=2.85, 5d consec vol"}
+{"ts": "2026-11-20T01:07:55", "ticker": "EEM", "level": 2, "z_score": 1.82, "vrp": -0.0596, "reason": "vol z=1.8, VRP=-0.060, beta=1.35, 5d consec vol"}
