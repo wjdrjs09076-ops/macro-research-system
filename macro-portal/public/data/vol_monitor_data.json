@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-20T16:01:56",
+  "scan_date": "2026-11-20T16:31:51",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -210,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=1.31, 5d consec vol",
       "sector": "Emerging Markets"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 5.2,
+      "baseline_rv": 4.5,
+      "z_score": 0.56,
+      "vrp": 0.0054,
+      "beta_30d": -0.093,
+      "consec_vol": 5,
+      "excess_10d": 0.92,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.09, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLE",
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 0,
   "high_count": 0
 }
