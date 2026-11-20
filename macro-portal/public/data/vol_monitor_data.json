@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-20T17:57:34",
+  "scan_date": "2026-11-20T18:02:01",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -310,20 +310,6 @@
       "sector": "KOSPI"
     },
     {
-      "ticker": "EWY",
-      "current_rv": 53.3,
-      "baseline_rv": 61.9,
-      "z_score": -0.42,
-      "vrp": 0.282,
-      "beta_30d": 2.461,
-      "consec_vol": 4,
-      "excess_10d": 4.99,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=2.46",
-      "sector": "Korea (MSCI)"
-    },
-    {
       "ticker": "GC=F",
       "current_rv": 21.3,
       "baseline_rv": 27.0,
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 0,
   "high_count": 0
 }
