@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-20T16:31:51",
+  "scan_date": "2026-11-20T17:02:20",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -436,11 +436,6 @@
       "baseline": 100.84,
       "z_score": -0.39,
       "bw_spread": -16.62
-    },
-    "inv": {
-      "latest_mbbl": 694158.0,
-      "wow_chg_pct": 0.03,
-      "surprise": 0.32
     },
     "level": 0,
     "reasons": []
