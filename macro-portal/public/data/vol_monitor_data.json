@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-21T06:36:48",
+  "scan_date": "2026-11-21T15:13:10",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -42,6 +42,20 @@
       "label": "WATCH",
       "reason": "vol z=2.4, 5d consec vol",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "XLK",
+      "current_rv": 49.8,
+      "baseline_rv": 27.5,
+      "z_score": 2.37,
+      "vrp": 0.1649,
+      "beta_30d": 1.792,
+      "consec_vol": 5,
+      "excess_10d": -3.3,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.4, beta=1.79, 5d consec vol",
+      "sector": "Technology"
     },
     {
       "ticker": "XLC",
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 28,
+  "flagged_count": 29,
   "alert_count": 1,
   "high_count": 0
 }
