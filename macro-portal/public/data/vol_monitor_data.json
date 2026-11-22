@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-22T08:41:08",
+  "scan_date": "2026-11-22T17:00:31",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -353,16 +353,16 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 34.6,
+      "current_rv": 33.8,
       "baseline_rv": 56.7,
-      "z_score": -0.92,
-      "vrp": 0.2007,
-      "beta_30d": -0.838,
+      "z_score": -0.95,
+      "vrp": 0.204,
+      "beta_30d": -0.798,
       "consec_vol": 2,
-      "excess_10d": -1.36,
+      "excess_10d": -2.04,
       "level": 1,
       "label": "WATCH",
-      "reason": "beta=-0.84",
+      "reason": "beta=-0.80",
       "sector": "WTI Crude Futures"
     },
     {
