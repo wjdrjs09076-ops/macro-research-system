@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-23T14:02:05",
+  "scan_date": "2026-11-23T14:31:46",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -380,20 +380,6 @@
       "sector": "Hang Seng"
     },
     {
-      "ticker": "000001.SS",
-      "current_rv": 8.7,
-      "baseline_rv": 15.0,
-      "z_score": -1.27,
-      "vrp": 0.0504,
-      "beta_30d": 0.213,
-      "consec_vol": 2,
-      "excess_10d": 3.04,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.21",
-      "sector": "Shanghai Composite"
-    },
-    {
       "ticker": "MCHI",
       "current_rv": 8.8,
       "baseline_rv": 18.8,
@@ -453,10 +439,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 324.62,
-      "baseline": 317.3844,
-      "z_score": 0.05,
-      "last_date": "2026-11-19"
+      "current": 249.678,
+      "baseline": 315.9271,
+      "z_score": -0.5,
+      "last_date": "2026-11-22"
     },
     {
       "sid": "BAMLH0A0HYM2",
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 28,
   "alert_count": 1,
   "high_count": 0
 }
