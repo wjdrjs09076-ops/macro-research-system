@@ -1,25 +1,25 @@
 {
-  "scan_date": "2026-11-23T03:01:09",
+  "scan_date": "2026-11-23T13:02:12",
   "etf_signals": [
     {
       "ticker": "ES=F",
-      "current_rv": 25.4,
-      "baseline_rv": 12.7,
-      "z_score": 3.04,
+      "current_rv": 26.6,
+      "baseline_rv": 12.6,
+      "z_score": 3.51,
       "vrp": 0.097,
       "beta_30d": 0.994,
       "consec_vol": 5,
       "excess_10d": -0.13,
       "level": 2,
       "label": "ALERT",
-      "reason": "vol z=3.0, 5d consec vol",
+      "reason": "vol z=3.5, 5d consec vol",
       "sector": "S&P 500 Futures"
     },
     {
       "ticker": "ZN=F",
       "current_rv": 7.4,
       "baseline_rv": 4.6,
-      "z_score": 2.49,
+      "z_score": 2.45,
       "vrp": -0.0077,
       "beta_30d": -0.124,
       "consec_vol": 5,
@@ -296,20 +296,6 @@
       "sector": "FTSE 250 (UK 내수)"
     },
     {
-      "ticker": "GC=F",
-      "current_rv": 30.3,
-      "baseline_rv": 27.1,
-      "z_score": 0.26,
-      "vrp": 0.0415,
-      "beta_30d": 0.527,
-      "consec_vol": 4,
-      "excess_10d": -8.29,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.53",
-      "sector": "Gold Futures"
-    },
-    {
       "ticker": "EWY",
       "current_rv": 64.2,
       "baseline_rv": 62.6,
@@ -322,6 +308,20 @@
       "label": "WATCH",
       "reason": "beta=2.43",
       "sector": "Korea (MSCI)"
+    },
+    {
+      "ticker": "GC=F",
+      "current_rv": 27.6,
+      "baseline_rv": 27.1,
+      "z_score": 0.05,
+      "vrp": 0.0415,
+      "beta_30d": 0.527,
+      "consec_vol": 4,
+      "excess_10d": -8.29,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.53",
+      "sector": "Gold Futures"
     },
     {
       "ticker": "GLD",
@@ -352,6 +352,20 @@
       "sector": "KOSPI"
     },
     {
+      "ticker": "CL=F",
+      "current_rv": 34.6,
+      "baseline_rv": 56.8,
+      "z_score": -0.92,
+      "vrp": 0.2007,
+      "beta_30d": -0.838,
+      "consec_vol": 2,
+      "excess_10d": -1.36,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.84",
+      "sector": "WTI Crude Futures"
+    },
+    {
       "ticker": "^HSI",
       "current_rv": 14.0,
       "baseline_rv": 18.7,
@@ -364,20 +378,6 @@
       "label": "WATCH",
       "reason": "beta=-0.10",
       "sector": "Hang Seng"
-    },
-    {
-      "ticker": "CL=F",
-      "current_rv": 28.4,
-      "baseline_rv": 56.8,
-      "z_score": -1.18,
-      "vrp": 0.2007,
-      "beta_30d": -0.838,
-      "consec_vol": 1,
-      "excess_10d": -1.36,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.84",
-      "sector": "WTI Crude Futures"
     },
     {
       "ticker": "000001.SS",
