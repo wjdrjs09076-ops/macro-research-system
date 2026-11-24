@@ -1,14 +1,1 @@
-{
-  "XLF": {
-    "peak_pnl_pct": -0.15517241379310345,
-    "partial_done": false,
-    "partial_realized": 0.0,
-    "orig_cost": 580.0
-  },
-  "XLE": {
-    "peak_pnl_pct": 0.03523035230352303,
-    "partial_done": false,
-    "partial_realized": 0.0,
-    "orig_cost": 369.0
-  }
-}
+{}

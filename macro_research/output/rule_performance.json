@@ -58,5 +58,25 @@
     "avg_pnl_pct": -0.2961,
     "avg_pnl_pct_eff": -0.3555,
     "total_pnl": -219.5
+  },
+  "fat_tail_alert|straddle": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 1,
+    "cohorts": 1,
+    "win_rate": 0.0,
+    "avg_pnl_pct": -0.3957,
+    "avg_pnl_pct_eff": -0.3957,
+    "total_pnl": -139.0
+  },
+  "co_crash_cluster|straddle": {
+    "multiplier": 1.0,
+    "killed": false,
+    "trades": 1,
+    "cohorts": 1,
+    "win_rate": 0.0,
+    "avg_pnl_pct": -0.4655,
+    "avg_pnl_pct_eff": -0.4655,
+    "total_pnl": -215.0
   }
 }
