@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-24T18:31:43",
+  "scan_date": "2026-11-24T19:01:59",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -224,20 +224,6 @@
       "label": "WATCH",
       "reason": "beta=0.37",
       "sector": "FTSE 250 (UK 내수)"
-    },
-    {
-      "ticker": "^N225",
-      "current_rv": 37.3,
-      "baseline_rv": 30.3,
-      "z_score": 0.88,
-      "vrp": -0.0157,
-      "beta_30d": 0.521,
-      "consec_vol": 5,
-      "excess_10d": 4.74,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.52, 5d consec vol",
-      "sector": "Nikkei 225"
     },
     {
       "ticker": "^FTSE",
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 6,
   "high_count": 5
 }
