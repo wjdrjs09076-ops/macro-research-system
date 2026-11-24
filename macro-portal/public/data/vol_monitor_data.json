@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-24T19:01:59",
+  "scan_date": "2026-11-24T19:31:43",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -84,20 +84,6 @@
       "label": "WATCH",
       "reason": "vol z=2.5, beta=-0.10, 5d consec vol",
       "sector": "10Y Treasury Futures"
-    },
-    {
-      "ticker": "XLI",
-      "current_rv": 30.8,
-      "baseline_rv": 17.6,
-      "z_score": 2.41,
-      "vrp": -0.0515,
-      "beta_30d": 0.874,
-      "consec_vol": 5,
-      "excess_10d": 0.19,
-      "level": 2,
-      "label": "ALERT",
-      "reason": "vol z=2.4, VRP=-0.052, 5d consec vol",
-      "sector": "Industrials"
     },
     {
       "ticker": "XLY",
@@ -224,6 +210,20 @@
       "label": "WATCH",
       "reason": "beta=0.37",
       "sector": "FTSE 250 (UK 내수)"
+    },
+    {
+      "ticker": "^N225",
+      "current_rv": 37.3,
+      "baseline_rv": 30.3,
+      "z_score": 0.88,
+      "vrp": -0.0157,
+      "beta_30d": 0.521,
+      "consec_vol": 5,
+      "excess_10d": 4.74,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.52, 5d consec vol",
+      "sector": "Nikkei 225"
     },
     {
       "ticker": "^FTSE",
@@ -472,6 +472,6 @@
   ],
   "china": [],
   "flagged_count": 29,
-  "alert_count": 6,
+  "alert_count": 5,
   "high_count": 5
 }
