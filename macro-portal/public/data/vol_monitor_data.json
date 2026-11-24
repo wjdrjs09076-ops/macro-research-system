@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-24T20:02:07",
+  "scan_date": "2026-11-24T20:31:49",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -98,6 +98,20 @@
       "label": "ALERT",
       "reason": "vol z=2.4, VRP=-0.052, 5d consec vol",
       "sector": "Industrials"
+    },
+    {
+      "ticker": "XLY",
+      "current_rv": 32.6,
+      "baseline_rv": 19.2,
+      "z_score": 2.38,
+      "vrp": -0.0342,
+      "beta_30d": 0.93,
+      "consec_vol": 5,
+      "excess_10d": 0.66,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.4, 5d consec vol",
+      "sector": "Consumer Discretionary"
     },
     {
       "ticker": "EWJ",
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 6,
   "high_count": 5
 }
