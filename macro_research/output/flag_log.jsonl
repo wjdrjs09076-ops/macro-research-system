@@ -373,3 +373,5 @@
 {"ts": "2026-11-21T06:36:48", "ticker": "ES=F", "level": 2, "z_score": 3.52, "vrp": 0.097, "reason": "vol z=3.5, 5d consec vol"}
 {"ts": "2026-11-22T01:10:16", "ticker": "ES=F", "level": 2, "z_score": 3.52, "vrp": 0.097, "reason": "vol z=3.5, 5d consec vol"}
 {"ts": "2026-11-23T03:01:09", "ticker": "ES=F", "level": 2, "z_score": 3.04, "vrp": 0.097, "reason": "vol z=3.0, 5d consec vol"}
+{"ts": "2026-11-24T01:33:56", "ticker": "ES=F", "level": 2, "z_score": 5.78, "vrp": 0.097, "reason": "vol z=5.8, 5d consec vol"}
+{"ts": "2026-11-24T01:33:56", "ticker": "ZN=F", "level": 2, "z_score": 2.52, "vrp": -0.0077, "reason": "vol z=2.5, beta=-0.12, 5d consec vol"}
