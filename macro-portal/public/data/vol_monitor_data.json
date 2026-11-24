@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-24T13:02:02",
+  "scan_date": "2026-11-24T13:32:11",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -70,6 +70,20 @@
       "label": "HIGH",
       "reason": "vol z=2.7, VRP=-0.060, 5d consec vol",
       "sector": "Communication"
+    },
+    {
+      "ticker": "ZN=F",
+      "current_rv": 7.4,
+      "baseline_rv": 4.6,
+      "z_score": 2.46,
+      "vrp": -0.0127,
+      "beta_30d": -0.095,
+      "consec_vol": 5,
+      "excess_10d": 3.61,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.5, beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "XLI",
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 6,
   "high_count": 5
 }
