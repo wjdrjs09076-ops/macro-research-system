@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-25T19:32:14",
+  "scan_date": "2026-11-25T20:02:29",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,6 +423,13 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 87.75,
+      "baseline": 91.35,
+      "z_score": -0.3,
+      "bw_spread": -9.65
+    },
     "level": 0,
     "reasons": []
   },
