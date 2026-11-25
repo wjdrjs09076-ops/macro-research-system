@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-25T15:32:25",
+  "scan_date": "2026-11-25T15:57:44",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -380,20 +380,6 @@
       "sector": "WTI Crude Futures"
     },
     {
-      "ticker": "FXI",
-      "current_rv": 15.4,
-      "baseline_rv": 18.9,
-      "z_score": -0.88,
-      "vrp": 0.0362,
-      "beta_30d": 0.216,
-      "consec_vol": 0,
-      "excess_10d": -4.96,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.22",
-      "sector": "China Large-Cap"
-    },
-    {
       "ticker": "000001.SS",
       "current_rv": 8.7,
       "baseline_rv": 15.1,
@@ -466,7 +452,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 6,
   "high_count": 5
 }
