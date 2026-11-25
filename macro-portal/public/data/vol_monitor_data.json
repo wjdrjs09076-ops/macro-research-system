@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-25T18:02:36",
+  "scan_date": "2026-11-25T18:32:24",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -296,6 +296,20 @@
       "sector": "Energy / Oil"
     },
     {
+      "ticker": "EWU",
+      "current_rv": 18.4,
+      "baseline_rv": 15.8,
+      "z_score": 0.49,
+      "vrp": 0.0102,
+      "beta_30d": 0.451,
+      "consec_vol": 5,
+      "excess_10d": -0.37,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.45, 5d consec vol",
+      "sector": "UK (MSCI)"
+    },
+    {
       "ticker": "XTN",
       "current_rv": 29.8,
       "baseline_rv": 26.3,
@@ -452,7 +466,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 6,
   "high_count": 5
 }
