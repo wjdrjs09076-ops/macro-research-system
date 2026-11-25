@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-25T20:02:29",
+  "scan_date": "2026-11-25T20:32:29",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -212,20 +212,6 @@
       "sector": "Defense / Aerospace"
     },
     {
-      "ticker": "EWY",
-      "current_rv": 84.0,
-      "baseline_rv": 63.1,
-      "z_score": 1.04,
-      "vrp": -0.108,
-      "beta_30d": 2.381,
-      "consec_vol": 4,
-      "excess_10d": -1.02,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.108, beta=2.38",
-      "sector": "Korea (MSCI)"
-    },
-    {
       "ticker": "TLT",
       "current_rv": 12.0,
       "baseline_rv": 9.7,
@@ -423,13 +409,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 87.75,
-      "baseline": 91.35,
-      "z_score": -0.3,
-      "bw_spread": -9.65
-    },
     "level": 0,
     "reasons": []
   },
@@ -473,7 +452,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 6,
   "high_count": 5
 }
