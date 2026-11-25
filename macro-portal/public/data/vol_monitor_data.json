@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-25T14:02:16",
+  "scan_date": "2026-11-25T14:32:26",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,18 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 91.28,
-      "baseline": 91.34,
-      "z_score": -0.0,
-      "bw_spread": -6.12
-    },
-    "inv": {
-      "latest_mbbl": 694158.0,
-      "wow_chg_pct": 0.03,
-      "surprise": 0.32
-    },
     "level": 0,
     "reasons": []
   },
@@ -446,10 +434,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 235.688,
-      "baseline": 315.3966,
-      "z_score": -0.6,
-      "last_date": "2026-11-23"
+      "current": 262.296,
+      "baseline": 314.7343,
+      "z_score": -0.4,
+      "last_date": "2026-11-24"
     },
     {
       "sid": "BAMLH0A0HYM2",
