@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-26T15:02:42",
+  "scan_date": "2026-11-26T15:32:25",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -140,6 +140,20 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Japan (MSCI)"
+    },
+    {
+      "ticker": "XLF",
+      "current_rv": 21.3,
+      "baseline_rv": 14.6,
+      "z_score": 1.46,
+      "vrp": 0.0033,
+      "beta_30d": 0.553,
+      "consec_vol": 5,
+      "excess_10d": 2.02,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.55, 5d consec vol",
+      "sector": "Financials / Banking"
     },
     {
       "ticker": "ZN=F",
@@ -452,7 +466,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 5,
   "high_count": 5
 }
