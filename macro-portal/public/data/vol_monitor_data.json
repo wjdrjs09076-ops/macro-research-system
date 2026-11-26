@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-26T13:02:43",
+  "scan_date": "2026-11-26T13:32:26",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -224,20 +224,6 @@
       "label": "WATCH",
       "reason": "5d consec vol",
       "sector": "Defense / Aerospace"
-    },
-    {
-      "ticker": "GC=F",
-      "current_rv": 37.3,
-      "baseline_rv": 26.7,
-      "z_score": 0.89,
-      "vrp": -0.0768,
-      "beta_30d": 0.634,
-      "consec_vol": 4,
-      "excess_10d": -6.4,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "VRP=-0.077, beta=0.63",
-      "sector": "Gold Futures"
     },
     {
       "ticker": "^FTMC",
@@ -466,7 +452,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 5,
   "high_count": 5
 }
