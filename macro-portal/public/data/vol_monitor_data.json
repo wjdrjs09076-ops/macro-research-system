@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-26T14:02:37",
+  "scan_date": "2026-11-26T14:32:37",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -434,10 +434,10 @@
       "etfs": [
         "ALL"
       ],
-      "current": 262.296,
-      "baseline": 314.7343,
-      "z_score": -0.4,
-      "last_date": "2026-11-24"
+      "current": 261.78,
+      "baseline": 313.7237,
+      "z_score": -0.39,
+      "last_date": "2026-11-25"
     },
     {
       "sid": "BAMLH0A0HYM2",
