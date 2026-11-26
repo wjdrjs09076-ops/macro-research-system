@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-26T19:01:56",
+  "scan_date": "2026-11-26T19:32:27",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -423,25 +423,6 @@
     }
   ],
   "oil": {
-    "wti": {
-      "label": "WTI",
-      "current": 87.75,
-      "baseline": 91.35,
-      "z_score": -0.3,
-      "bw_spread": -9.65
-    },
-    "brent": {
-      "label": "Brent",
-      "current": 93.24,
-      "baseline": 101.3,
-      "z_score": -0.45,
-      "bw_spread": -17.21
-    },
-    "inv": {
-      "latest_mbbl": 692371.0,
-      "wow_chg_pct": -0.26,
-      "surprise": -0.04
-    },
     "level": 0,
     "reasons": []
   },
