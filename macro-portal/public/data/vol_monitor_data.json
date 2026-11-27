@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-27T15:32:29",
+  "scan_date": "2026-11-27T16:02:39",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -310,20 +310,6 @@
       "sector": "Transportation / Shipping"
     },
     {
-      "ticker": "GLD",
-      "current_rv": 33.2,
-      "baseline_rv": 28.1,
-      "z_score": 0.43,
-      "vrp": -0.0265,
-      "beta_30d": 0.615,
-      "consec_vol": 4,
-      "excess_10d": -5.03,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.62",
-      "sector": "Gold"
-    },
-    {
       "ticker": "XLE",
       "current_rv": 23.6,
       "baseline_rv": 22.7,
@@ -466,7 +452,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 5,
   "high_count": 5
 }
