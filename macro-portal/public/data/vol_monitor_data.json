@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-27T16:31:47",
+  "scan_date": "2026-11-27T17:02:06",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -296,6 +296,20 @@
       "sector": "Korea (MSCI)"
     },
     {
+      "ticker": "XTN",
+      "current_rv": 31.1,
+      "baseline_rv": 26.3,
+      "z_score": 0.52,
+      "vrp": -0.0131,
+      "beta_30d": 0.812,
+      "consec_vol": 5,
+      "excess_10d": 2.12,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "5d consec vol",
+      "sector": "Transportation / Shipping"
+    },
+    {
       "ticker": "GLD",
       "current_rv": 33.2,
       "baseline_rv": 28.1,
@@ -471,7 +485,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 5,
   "high_count": 5
 }
