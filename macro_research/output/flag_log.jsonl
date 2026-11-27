@@ -391,3 +391,8 @@
 {"ts": "2026-11-26T00:10:05", "ticker": "SOXX", "level": 3, "z_score": 2.88, "vrp": -0.1543, "reason": "vol z=2.9, VRP=-0.154, beta=2.84, 5d consec vol"}
 {"ts": "2026-11-26T00:10:05", "ticker": "EEM", "level": 3, "z_score": 2.85, "vrp": -0.0976, "reason": "vol z=2.9, VRP=-0.098, beta=1.40, 5d consec vol"}
 {"ts": "2026-11-26T00:10:05", "ticker": "XLC", "level": 3, "z_score": 2.71, "vrp": -0.0533, "reason": "vol z=2.7, VRP=-0.053, beta=0.69, 5d consec vol"}
+{"ts": "2026-11-27T02:06:03", "ticker": "ES=F", "level": 3, "z_score": 4.65, "vrp": -0.0522, "reason": "vol z=4.6, VRP=-0.052, 5d consec vol"}
+{"ts": "2026-11-27T02:06:03", "ticker": "XLK", "level": 3, "z_score": 3.72, "vrp": -0.1136, "reason": "vol z=3.7, VRP=-0.114, beta=1.84, 5d consec vol"}
+{"ts": "2026-11-27T02:06:03", "ticker": "SOXX", "level": 3, "z_score": 2.88, "vrp": -0.1543, "reason": "vol z=2.9, VRP=-0.154, beta=2.84, 5d consec vol"}
+{"ts": "2026-11-27T02:06:03", "ticker": "EEM", "level": 3, "z_score": 2.85, "vrp": -0.0976, "reason": "vol z=2.9, VRP=-0.098, beta=1.40, 5d consec vol"}
+{"ts": "2026-11-27T02:06:03", "ticker": "XLC", "level": 3, "z_score": 2.71, "vrp": -0.0533, "reason": "vol z=2.7, VRP=-0.053, beta=0.69, 5d consec vol"}
