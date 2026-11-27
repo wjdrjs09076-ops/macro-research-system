@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-27T20:02:04",
+  "scan_date": "2026-11-27T20:11:57",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -406,20 +406,6 @@
       "label": "WATCH",
       "reason": "beta=0.17",
       "sector": "Shanghai Composite"
-    },
-    {
-      "ticker": "FXI",
-      "current_rv": 15.2,
-      "baseline_rv": 18.9,
-      "z_score": -0.92,
-      "vrp": 0.0355,
-      "beta_30d": 0.211,
-      "consec_vol": 0,
-      "excess_10d": -2.35,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=0.21",
-      "sector": "China Large-Cap"
     }
   ],
   "oil": {
@@ -485,7 +471,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 30,
+  "flagged_count": 29,
   "alert_count": 5,
   "high_count": 5
 }
