@@ -1,11 +1,11 @@
 {
-  "scan_date": "2026-11-27T02:06:03",
+  "scan_date": "2026-11-27T11:17:02",
   "etf_signals": [
     {
       "ticker": "ES=F",
-      "current_rv": 34.6,
-      "baseline_rv": 13.0,
-      "z_score": 4.65,
+      "current_rv": 33.6,
+      "baseline_rv": 12.9,
+      "z_score": 4.62,
       "vrp": -0.0522,
       "beta_30d": 0.991,
       "consec_vol": 5,
@@ -84,6 +84,20 @@
       "label": "WATCH",
       "reason": "vol z=2.3, 5d consec vol",
       "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "XLI",
+      "current_rv": 30.1,
+      "baseline_rv": 17.7,
+      "z_score": 2.17,
+      "vrp": -0.0294,
+      "beta_30d": 0.874,
+      "consec_vol": 5,
+      "excess_10d": 0.99,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "vol z=2.2, 5d consec vol",
+      "sector": "Industrials"
     },
     {
       "ticker": "XLB",
@@ -184,6 +198,20 @@
       "sector": "FTSE 100"
     },
     {
+      "ticker": "ZN=F",
+      "current_rv": 6.1,
+      "baseline_rv": 4.6,
+      "z_score": 1.28,
+      "vrp": -0.0019,
+      "beta_30d": -0.096,
+      "consec_vol": 5,
+      "excess_10d": 6.71,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=-0.10, 5d consec vol",
+      "sector": "10Y Treasury Futures"
+    },
+    {
       "ticker": "TLT",
       "current_rv": 12.7,
       "baseline_rv": 9.7,
@@ -227,31 +255,17 @@
     },
     {
       "ticker": "GC=F",
-      "current_rv": 39.3,
+      "current_rv": 37.3,
       "baseline_rv": 26.7,
-      "z_score": 1.05,
+      "z_score": 0.89,
       "vrp": -0.0768,
       "beta_30d": 0.634,
-      "consec_vol": 5,
+      "consec_vol": 4,
       "excess_10d": -6.4,
       "level": 1,
       "label": "WATCH",
-      "reason": "VRP=-0.077, beta=0.63, 5d consec vol",
+      "reason": "VRP=-0.077, beta=0.63",
       "sector": "Gold Futures"
-    },
-    {
-      "ticker": "ZN=F",
-      "current_rv": 5.7,
-      "baseline_rv": 4.6,
-      "z_score": 0.93,
-      "vrp": -0.0019,
-      "beta_30d": -0.096,
-      "consec_vol": 5,
-      "excess_10d": 6.71,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.10, 5d consec vol",
-      "sector": "10Y Treasury Futures"
     },
     {
       "ticker": "EWU",
@@ -367,9 +381,9 @@
     },
     {
       "ticker": "CL=F",
-      "current_rv": 39.3,
+      "current_rv": 40.0,
       "baseline_rv": 57.1,
-      "z_score": -0.74,
+      "z_score": -0.71,
       "vrp": 0.0974,
       "beta_30d": -0.849,
       "consec_vol": 0,
@@ -452,7 +466,7 @@
     }
   ],
   "china": [],
-  "flagged_count": 29,
+  "flagged_count": 30,
   "alert_count": 5,
   "high_count": 5
 }
