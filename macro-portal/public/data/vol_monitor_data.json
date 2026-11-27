@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-27T16:02:39",
+  "scan_date": "2026-11-27T16:31:47",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -296,18 +296,18 @@
       "sector": "Korea (MSCI)"
     },
     {
-      "ticker": "XTN",
-      "current_rv": 31.1,
-      "baseline_rv": 26.3,
-      "z_score": 0.52,
-      "vrp": -0.0131,
-      "beta_30d": 0.812,
-      "consec_vol": 5,
-      "excess_10d": 2.12,
+      "ticker": "GLD",
+      "current_rv": 33.2,
+      "baseline_rv": 28.1,
+      "z_score": 0.43,
+      "vrp": -0.0265,
+      "beta_30d": 0.615,
+      "consec_vol": 4,
+      "excess_10d": -5.03,
       "level": 1,
       "label": "WATCH",
-      "reason": "5d consec vol",
-      "sector": "Transportation / Shipping"
+      "reason": "beta=0.62",
+      "sector": "Gold"
     },
     {
       "ticker": "XLE",
@@ -409,6 +409,25 @@
     }
   ],
   "oil": {
+    "wti": {
+      "label": "WTI",
+      "current": 87.75,
+      "baseline": 91.51,
+      "z_score": -0.32,
+      "bw_spread": -9.65
+    },
+    "brent": {
+      "label": "Brent",
+      "current": 93.24,
+      "baseline": 101.47,
+      "z_score": -0.47,
+      "bw_spread": -17.21
+    },
+    "inv": {
+      "latest_mbbl": 692371.0,
+      "wow_chg_pct": -0.26,
+      "surprise": -0.04
+    },
     "level": 0,
     "reasons": []
   },
