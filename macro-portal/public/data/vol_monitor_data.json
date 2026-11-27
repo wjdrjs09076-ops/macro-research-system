@@ -1,5 +1,5 @@
 {
-  "scan_date": "2026-11-27T20:11:57",
+  "scan_date": "2026-11-27T20:31:49",
   "etf_signals": [
     {
       "ticker": "ES=F",
@@ -380,20 +380,6 @@
       "sector": "Hang Seng"
     },
     {
-      "ticker": "CL=F",
-      "current_rv": 40.0,
-      "baseline_rv": 57.1,
-      "z_score": -0.71,
-      "vrp": 0.0974,
-      "beta_30d": -0.849,
-      "consec_vol": 0,
-      "excess_10d": 2.56,
-      "level": 1,
-      "label": "WATCH",
-      "reason": "beta=-0.85",
-      "sector": "WTI Crude Futures"
-    },
-    {
       "ticker": "000001.SS",
       "current_rv": 11.4,
       "baseline_rv": 15.2,
@@ -406,6 +392,20 @@
       "label": "WATCH",
       "reason": "beta=0.17",
       "sector": "Shanghai Composite"
+    },
+    {
+      "ticker": "FXI",
+      "current_rv": 15.2,
+      "baseline_rv": 18.9,
+      "z_score": -0.92,
+      "vrp": 0.0355,
+      "beta_30d": 0.211,
+      "consec_vol": 0,
+      "excess_10d": -2.35,
+      "level": 1,
+      "label": "WATCH",
+      "reason": "beta=0.21",
+      "sector": "China Large-Cap"
     }
   ],
   "oil": {
